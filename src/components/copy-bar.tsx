@@ -1,13 +1,15 @@
 "use client";
 
-import { useEffect, useCallback, useState } from "react";
+import { useState } from "react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 
 export function CopyBar({ searchString }: { searchString: string }) {
   const [copied, setCopied] = useState(false);
 
-  const copyToClipboard = useCallback(async () => {
+  if (!searchString) return null;
+
+  async function handleCopy() {
     try {
       await navigator.clipboard.writeText(searchString);
       if (navigator.vibrate) {
@@ -17,18 +19,9 @@ export function CopyBar({ searchString }: { searchString: string }) {
       toast("Copied! Switch to Pokemon GO and paste");
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      toast("Tap and hold the text to copy manually");
+      toast.error("Couldn't copy automatically. Select the text and copy.");
     }
-  }, [searchString]);
-
-  // Auto-copy on mount
-  useEffect(() => {
-    if (searchString) {
-      copyToClipboard();
-    }
-  }, [searchString, copyToClipboard]);
-
-  if (!searchString) return null;
+  }
 
   return (
     <div className="flex items-center gap-2 rounded-lg border bg-muted/50 p-3">
@@ -36,7 +29,7 @@ export function CopyBar({ searchString }: { searchString: string }) {
         {searchString}
       </code>
       <Button
-        onClick={copyToClipboard}
+        onClick={handleCopy}
         size="sm"
         variant={copied ? "secondary" : "default"}
         className="min-h-11 min-w-11 shrink-0"
