@@ -1,0 +1,22 @@
+{
+  "id": "great-league",
+  "name": "Great League",
+  "cpCap": 1500,
+  "season": "Season 22",
+  "active": true,
+  "startDate": "2026-03-25",
+  "endDate": "2026-04-22",
+  "lastUpdated": "2026-04-07",
+  "meta": [
+    { "pokemonId": "medicham", "tier": "S", "recommendedFast": "Counter", "recommendedCharged": ["Ice Punch", "Psychic"] },
+    { "pokemonId": "stunfisk-galarian", "tier": "S", "recommendedFast": "Mud Shot", "recommendedCharged": ["Rock Slide", "Earthquake"] },
+    { "pokemonId": "registeel", "tier": "S", "recommendedFast": "Lock-On", "recommendedCharged": ["Zap Cannon", "Focus Blast"] },
+    { "pokemonId": "bastiodon", "tier": "A", "recommendedFast": "Smack Down", "recommendedCharged": ["Stone Edge", "Flamethrower"] },
+    { "pokemonId": "azumarill", "tier": "A", "recommendedFast": "Bubble", "recommendedCharged": ["Ice Beam", "Hydro Pump"] },
+    { "pokemonId": "trevenant", "tier": "A", "recommendedFast": "Shadow Claw", "recommendedCharged": ["Seed Bomb", "Shadow Ball"] },
+    { "pokemonId": "sableye", "tier": "A", "recommendedFast": "Shadow Claw", "recommendedCharged": ["Foul Play", "Return"] },
+    { "pokemonId": "altaria", "tier": "B", "recommendedFast": "Dragon Breath", "recommendedCharged": ["Sky Attack", "Moonblast"] },
+    { "pokemonId": "swampert", "tier": "B", "recommendedFast": "Mud Shot", "recommendedCharged": ["Hydro Cannon", "Earthquake"] },
+    { "pokemonId": "machamp", "tier": "B", "recommendedFast": "Counter", "recommendedCharged": ["Cross Chop", "Rock Slide"] }
+  ]
+}

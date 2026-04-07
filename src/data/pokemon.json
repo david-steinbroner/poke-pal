@@ -1,0 +1,527 @@
+[
+  {
+    "id": "garchomp",
+    "name": "Garchomp",
+    "types": ["Dragon", "Ground"],
+    "fastMoves": [
+      { "name": "Dragon Tail", "type": "Dragon", "isCharged": false, "pvpPower": 9, "pvpEnergy": 10 },
+      { "name": "Mud Shot", "type": "Ground", "isCharged": false, "pvpPower": 3, "pvpEnergy": 9 }
+    ],
+    "chargedMoves": [
+      { "name": "Outrage", "type": "Dragon", "isCharged": true, "pvpPower": 110, "pvpEnergy": 60 },
+      { "name": "Earthquake", "type": "Ground", "isCharged": true, "pvpPower": 120, "pvpEnergy": 65 },
+      { "name": "Sand Tomb", "type": "Ground", "isCharged": true, "pvpPower": 25, "pvpEnergy": 40 }
+    ],
+    "baseStats": { "atk": 261, "def": 193, "sta": 239 }
+  },
+  {
+    "id": "giratina-altered",
+    "name": "Giratina (Altered)",
+    "types": ["Ghost", "Dragon"],
+    "fastMoves": [
+      { "name": "Shadow Claw", "type": "Ghost", "isCharged": false, "pvpPower": 6, "pvpEnergy": 8 },
+      { "name": "Dragon Breath", "type": "Dragon", "isCharged": false, "pvpPower": 4, "pvpEnergy": 3 }
+    ],
+    "chargedMoves": [
+      { "name": "Dragon Claw", "type": "Dragon", "isCharged": true, "pvpPower": 50, "pvpEnergy": 35 },
+      { "name": "Shadow Sneak", "type": "Ghost", "isCharged": true, "pvpPower": 50, "pvpEnergy": 45 },
+      { "name": "Ancient Power", "type": "Rock", "isCharged": true, "pvpPower": 45, "pvpEnergy": 45 }
+    ],
+    "baseStats": { "atk": 187, "def": 225, "sta": 284 }
+  },
+  {
+    "id": "giratina-origin",
+    "name": "Giratina (Origin)",
+    "types": ["Ghost", "Dragon"],
+    "fastMoves": [
+      { "name": "Shadow Claw", "type": "Ghost", "isCharged": false, "pvpPower": 6, "pvpEnergy": 8 },
+      { "name": "Dragon Tail", "type": "Dragon", "isCharged": false, "pvpPower": 9, "pvpEnergy": 10 }
+    ],
+    "chargedMoves": [
+      { "name": "Shadow Ball", "type": "Ghost", "isCharged": true, "pvpPower": 100, "pvpEnergy": 55 },
+      { "name": "Ominous Wind", "type": "Ghost", "isCharged": true, "pvpPower": 45, "pvpEnergy": 40 },
+      { "name": "Dragon Pulse", "type": "Dragon", "isCharged": true, "pvpPower": 90, "pvpEnergy": 60 }
+    ],
+    "baseStats": { "atk": 225, "def": 187, "sta": 284 }
+  },
+  {
+    "id": "mewtwo",
+    "name": "Mewtwo",
+    "types": ["Psychic"],
+    "fastMoves": [
+      { "name": "Psycho Cut", "type": "Psychic", "isCharged": false, "pvpPower": 3, "pvpEnergy": 9 },
+      { "name": "Confusion", "type": "Psychic", "isCharged": false, "pvpPower": 16, "pvpEnergy": 12 }
+    ],
+    "chargedMoves": [
+      { "name": "Psystrike", "type": "Psychic", "isCharged": true, "pvpPower": 90, "pvpEnergy": 45 },
+      { "name": "Shadow Ball", "type": "Ghost", "isCharged": true, "pvpPower": 100, "pvpEnergy": 55 },
+      { "name": "Focus Blast", "type": "Fighting", "isCharged": true, "pvpPower": 150, "pvpEnergy": 75 }
+    ],
+    "baseStats": { "atk": 300, "def": 182, "sta": 214 }
+  },
+  {
+    "id": "kyogre",
+    "name": "Kyogre",
+    "types": ["Water"],
+    "fastMoves": [
+      { "name": "Waterfall", "type": "Water", "isCharged": false, "pvpPower": 12, "pvpEnergy": 8 },
+      { "name": "Dragon Tail", "type": "Dragon", "isCharged": false, "pvpPower": 9, "pvpEnergy": 10 }
+    ],
+    "chargedMoves": [
+      { "name": "Surf", "type": "Water", "isCharged": true, "pvpPower": 65, "pvpEnergy": 40 },
+      { "name": "Thunder", "type": "Electric", "isCharged": true, "pvpPower": 100, "pvpEnergy": 60 },
+      { "name": "Blizzard", "type": "Ice", "isCharged": true, "pvpPower": 140, "pvpEnergy": 75 }
+    ],
+    "baseStats": { "atk": 270, "def": 228, "sta": 205 }
+  },
+  {
+    "id": "rayquaza",
+    "name": "Rayquaza",
+    "types": ["Dragon", "Flying"],
+    "fastMoves": [
+      { "name": "Dragon Tail", "type": "Dragon", "isCharged": false, "pvpPower": 9, "pvpEnergy": 10 },
+      { "name": "Air Slash", "type": "Flying", "isCharged": false, "pvpPower": 9, "pvpEnergy": 9 }
+    ],
+    "chargedMoves": [
+      { "name": "Outrage", "type": "Dragon", "isCharged": true, "pvpPower": 110, "pvpEnergy": 60 },
+      { "name": "Aerial Ace", "type": "Flying", "isCharged": true, "pvpPower": 55, "pvpEnergy": 45 },
+      { "name": "Ancient Power", "type": "Rock", "isCharged": true, "pvpPower": 45, "pvpEnergy": 45 }
+    ],
+    "baseStats": { "atk": 284, "def": 170, "sta": 213 }
+  },
+  {
+    "id": "dialga",
+    "name": "Dialga",
+    "types": ["Steel", "Dragon"],
+    "fastMoves": [
+      { "name": "Dragon Breath", "type": "Dragon", "isCharged": false, "pvpPower": 4, "pvpEnergy": 3 },
+      { "name": "Metal Claw", "type": "Steel", "isCharged": false, "pvpPower": 5, "pvpEnergy": 7 }
+    ],
+    "chargedMoves": [
+      { "name": "Iron Head", "type": "Steel", "isCharged": true, "pvpPower": 70, "pvpEnergy": 50 },
+      { "name": "Draco Meteor", "type": "Dragon", "isCharged": true, "pvpPower": 150, "pvpEnergy": 65 },
+      { "name": "Thunder", "type": "Electric", "isCharged": true, "pvpPower": 100, "pvpEnergy": 60 }
+    ],
+    "baseStats": { "atk": 275, "def": 211, "sta": 205 }
+  },
+  {
+    "id": "swampert",
+    "name": "Swampert",
+    "types": ["Water", "Ground"],
+    "fastMoves": [
+      { "name": "Mud Shot", "type": "Ground", "isCharged": false, "pvpPower": 3, "pvpEnergy": 9 },
+      { "name": "Water Gun", "type": "Water", "isCharged": false, "pvpPower": 3, "pvpEnergy": 7 }
+    ],
+    "chargedMoves": [
+      { "name": "Hydro Cannon", "type": "Water", "isCharged": true, "pvpPower": 80, "pvpEnergy": 40 },
+      { "name": "Earthquake", "type": "Ground", "isCharged": true, "pvpPower": 120, "pvpEnergy": 65 },
+      { "name": "Sludge Wave", "type": "Poison", "isCharged": true, "pvpPower": 110, "pvpEnergy": 65 }
+    ],
+    "baseStats": { "atk": 208, "def": 175, "sta": 225 }
+  },
+  {
+    "id": "medicham",
+    "name": "Medicham",
+    "types": ["Fighting", "Psychic"],
+    "fastMoves": [
+      { "name": "Counter", "type": "Fighting", "isCharged": false, "pvpPower": 8, "pvpEnergy": 7 },
+      { "name": "Psycho Cut", "type": "Psychic", "isCharged": false, "pvpPower": 3, "pvpEnergy": 9 }
+    ],
+    "chargedMoves": [
+      { "name": "Ice Punch", "type": "Ice", "isCharged": true, "pvpPower": 55, "pvpEnergy": 40 },
+      { "name": "Psychic", "type": "Psychic", "isCharged": true, "pvpPower": 90, "pvpEnergy": 55 },
+      { "name": "Dynamic Punch", "type": "Fighting", "isCharged": true, "pvpPower": 90, "pvpEnergy": 50 }
+    ],
+    "baseStats": { "atk": 121, "def": 152, "sta": 155 }
+  },
+  {
+    "id": "stunfisk-galarian",
+    "name": "Stunfisk (Galarian)",
+    "types": ["Ground", "Steel"],
+    "fastMoves": [
+      { "name": "Mud Shot", "type": "Ground", "isCharged": false, "pvpPower": 3, "pvpEnergy": 9 },
+      { "name": "Metal Claw", "type": "Steel", "isCharged": false, "pvpPower": 5, "pvpEnergy": 7 }
+    ],
+    "chargedMoves": [
+      { "name": "Rock Slide", "type": "Rock", "isCharged": true, "pvpPower": 75, "pvpEnergy": 45 },
+      { "name": "Earthquake", "type": "Ground", "isCharged": true, "pvpPower": 120, "pvpEnergy": 65 },
+      { "name": "Flash Cannon", "type": "Steel", "isCharged": true, "pvpPower": 110, "pvpEnergy": 65 }
+    ],
+    "baseStats": { "atk": 144, "def": 171, "sta": 239 }
+  },
+  {
+    "id": "machamp",
+    "name": "Machamp",
+    "types": ["Fighting"],
+    "fastMoves": [
+      { "name": "Counter", "type": "Fighting", "isCharged": false, "pvpPower": 8, "pvpEnergy": 7 },
+      { "name": "Karate Chop", "type": "Fighting", "isCharged": false, "pvpPower": 5, "pvpEnergy": 8 }
+    ],
+    "chargedMoves": [
+      { "name": "Cross Chop", "type": "Fighting", "isCharged": true, "pvpPower": 50, "pvpEnergy": 35 },
+      { "name": "Dynamic Punch", "type": "Fighting", "isCharged": true, "pvpPower": 90, "pvpEnergy": 50 },
+      { "name": "Rock Slide", "type": "Rock", "isCharged": true, "pvpPower": 75, "pvpEnergy": 45 }
+    ],
+    "baseStats": { "atk": 234, "def": 159, "sta": 207 }
+  },
+  {
+    "id": "tyranitar",
+    "name": "Tyranitar",
+    "types": ["Rock", "Dark"],
+    "fastMoves": [
+      { "name": "Smack Down", "type": "Rock", "isCharged": false, "pvpPower": 12, "pvpEnergy": 8 },
+      { "name": "Bite", "type": "Dark", "isCharged": false, "pvpPower": 4, "pvpEnergy": 4 }
+    ],
+    "chargedMoves": [
+      { "name": "Stone Edge", "type": "Rock", "isCharged": true, "pvpPower": 100, "pvpEnergy": 55 },
+      { "name": "Crunch", "type": "Dark", "isCharged": true, "pvpPower": 70, "pvpEnergy": 45 },
+      { "name": "Fire Blast", "type": "Fire", "isCharged": true, "pvpPower": 140, "pvpEnergy": 80 }
+    ],
+    "baseStats": { "atk": 251, "def": 207, "sta": 225 }
+  },
+  {
+    "id": "mamoswine",
+    "name": "Mamoswine",
+    "types": ["Ice", "Ground"],
+    "fastMoves": [
+      { "name": "Powder Snow", "type": "Ice", "isCharged": false, "pvpPower": 6, "pvpEnergy": 8 },
+      { "name": "Mud-Slap", "type": "Ground", "isCharged": false, "pvpPower": 11, "pvpEnergy": 8 }
+    ],
+    "chargedMoves": [
+      { "name": "Avalanche", "type": "Ice", "isCharged": true, "pvpPower": 90, "pvpEnergy": 45 },
+      { "name": "Bulldoze", "type": "Ground", "isCharged": true, "pvpPower": 80, "pvpEnergy": 60 },
+      { "name": "Stone Edge", "type": "Rock", "isCharged": true, "pvpPower": 100, "pvpEnergy": 55 }
+    ],
+    "baseStats": { "atk": 247, "def": 146, "sta": 242 }
+  },
+  {
+    "id": "togekiss",
+    "name": "Togekiss",
+    "types": ["Fairy", "Flying"],
+    "fastMoves": [
+      { "name": "Charm", "type": "Fairy", "isCharged": false, "pvpPower": 16, "pvpEnergy": 6 },
+      { "name": "Air Slash", "type": "Flying", "isCharged": false, "pvpPower": 9, "pvpEnergy": 9 }
+    ],
+    "chargedMoves": [
+      { "name": "Ancient Power", "type": "Rock", "isCharged": true, "pvpPower": 45, "pvpEnergy": 45 },
+      { "name": "Flamethrower", "type": "Fire", "isCharged": true, "pvpPower": 90, "pvpEnergy": 55 },
+      { "name": "Aerial Ace", "type": "Flying", "isCharged": true, "pvpPower": 55, "pvpEnergy": 45 }
+    ],
+    "baseStats": { "atk": 225, "def": 217, "sta": 198 }
+  },
+  {
+    "id": "lucario",
+    "name": "Lucario",
+    "types": ["Fighting", "Steel"],
+    "fastMoves": [
+      { "name": "Counter", "type": "Fighting", "isCharged": false, "pvpPower": 8, "pvpEnergy": 7 },
+      { "name": "Bullet Punch", "type": "Steel", "isCharged": false, "pvpPower": 6, "pvpEnergy": 7 }
+    ],
+    "chargedMoves": [
+      { "name": "Aura Sphere", "type": "Fighting", "isCharged": true, "pvpPower": 100, "pvpEnergy": 55 },
+      { "name": "Shadow Ball", "type": "Ghost", "isCharged": true, "pvpPower": 100, "pvpEnergy": 55 },
+      { "name": "Flash Cannon", "type": "Steel", "isCharged": true, "pvpPower": 110, "pvpEnergy": 65 }
+    ],
+    "baseStats": { "atk": 236, "def": 144, "sta": 172 }
+  },
+  {
+    "id": "metagross",
+    "name": "Metagross",
+    "types": ["Steel", "Psychic"],
+    "fastMoves": [
+      { "name": "Bullet Punch", "type": "Steel", "isCharged": false, "pvpPower": 6, "pvpEnergy": 7 },
+      { "name": "Zen Headbutt", "type": "Psychic", "isCharged": false, "pvpPower": 8, "pvpEnergy": 6 }
+    ],
+    "chargedMoves": [
+      { "name": "Meteor Mash", "type": "Steel", "isCharged": true, "pvpPower": 100, "pvpEnergy": 50 },
+      { "name": "Earthquake", "type": "Ground", "isCharged": true, "pvpPower": 120, "pvpEnergy": 65 },
+      { "name": "Psychic", "type": "Psychic", "isCharged": true, "pvpPower": 90, "pvpEnergy": 55 }
+    ],
+    "baseStats": { "atk": 257, "def": 228, "sta": 190 }
+  },
+  {
+    "id": "dragonite",
+    "name": "Dragonite",
+    "types": ["Dragon", "Flying"],
+    "fastMoves": [
+      { "name": "Dragon Breath", "type": "Dragon", "isCharged": false, "pvpPower": 4, "pvpEnergy": 3 },
+      { "name": "Dragon Tail", "type": "Dragon", "isCharged": false, "pvpPower": 9, "pvpEnergy": 10 }
+    ],
+    "chargedMoves": [
+      { "name": "Dragon Claw", "type": "Dragon", "isCharged": true, "pvpPower": 50, "pvpEnergy": 35 },
+      { "name": "Outrage", "type": "Dragon", "isCharged": true, "pvpPower": 110, "pvpEnergy": 60 },
+      { "name": "Hurricane", "type": "Flying", "isCharged": true, "pvpPower": 110, "pvpEnergy": 65 }
+    ],
+    "baseStats": { "atk": 263, "def": 198, "sta": 209 }
+  },
+  {
+    "id": "salamence",
+    "name": "Salamence",
+    "types": ["Dragon", "Flying"],
+    "fastMoves": [
+      { "name": "Dragon Tail", "type": "Dragon", "isCharged": false, "pvpPower": 9, "pvpEnergy": 10 },
+      { "name": "Fire Fang", "type": "Fire", "isCharged": false, "pvpPower": 8, "pvpEnergy": 5 }
+    ],
+    "chargedMoves": [
+      { "name": "Outrage", "type": "Dragon", "isCharged": true, "pvpPower": 110, "pvpEnergy": 60 },
+      { "name": "Draco Meteor", "type": "Dragon", "isCharged": true, "pvpPower": 150, "pvpEnergy": 65 },
+      { "name": "Fire Blast", "type": "Fire", "isCharged": true, "pvpPower": 140, "pvpEnergy": 80 }
+    ],
+    "baseStats": { "atk": 277, "def": 168, "sta": 216 }
+  },
+  {
+    "id": "rhyperior",
+    "name": "Rhyperior",
+    "types": ["Ground", "Rock"],
+    "fastMoves": [
+      { "name": "Mud-Slap", "type": "Ground", "isCharged": false, "pvpPower": 11, "pvpEnergy": 8 },
+      { "name": "Smack Down", "type": "Rock", "isCharged": false, "pvpPower": 12, "pvpEnergy": 8 }
+    ],
+    "chargedMoves": [
+      { "name": "Rock Wrecker", "type": "Rock", "isCharged": true, "pvpPower": 110, "pvpEnergy": 50 },
+      { "name": "Earthquake", "type": "Ground", "isCharged": true, "pvpPower": 120, "pvpEnergy": 65 },
+      { "name": "Stone Edge", "type": "Rock", "isCharged": true, "pvpPower": 100, "pvpEnergy": 55 }
+    ],
+    "baseStats": { "atk": 241, "def": 190, "sta": 251 }
+  },
+  {
+    "id": "excadrill",
+    "name": "Excadrill",
+    "types": ["Ground", "Steel"],
+    "fastMoves": [
+      { "name": "Mud-Slap", "type": "Ground", "isCharged": false, "pvpPower": 11, "pvpEnergy": 8 },
+      { "name": "Metal Claw", "type": "Steel", "isCharged": false, "pvpPower": 5, "pvpEnergy": 7 }
+    ],
+    "chargedMoves": [
+      { "name": "Drill Run", "type": "Ground", "isCharged": true, "pvpPower": 80, "pvpEnergy": 45 },
+      { "name": "Iron Head", "type": "Steel", "isCharged": true, "pvpPower": 70, "pvpEnergy": 50 },
+      { "name": "Rock Slide", "type": "Rock", "isCharged": true, "pvpPower": 75, "pvpEnergy": 45 }
+    ],
+    "baseStats": { "atk": 255, "def": 129, "sta": 242 }
+  },
+  {
+    "id": "darkrai",
+    "name": "Darkrai",
+    "types": ["Dark"],
+    "fastMoves": [
+      { "name": "Snarl", "type": "Dark", "isCharged": false, "pvpPower": 5, "pvpEnergy": 8 },
+      { "name": "Feint Attack", "type": "Dark", "isCharged": false, "pvpPower": 6, "pvpEnergy": 6 }
+    ],
+    "chargedMoves": [
+      { "name": "Shadow Ball", "type": "Ghost", "isCharged": true, "pvpPower": 100, "pvpEnergy": 55 },
+      { "name": "Dark Pulse", "type": "Dark", "isCharged": true, "pvpPower": 80, "pvpEnergy": 50 },
+      { "name": "Focus Blast", "type": "Fighting", "isCharged": true, "pvpPower": 150, "pvpEnergy": 75 }
+    ],
+    "baseStats": { "atk": 285, "def": 198, "sta": 172 }
+  },
+  {
+    "id": "chandelure",
+    "name": "Chandelure",
+    "types": ["Ghost", "Fire"],
+    "fastMoves": [
+      { "name": "Fire Spin", "type": "Fire", "isCharged": false, "pvpPower": 9, "pvpEnergy": 7 },
+      { "name": "Hex", "type": "Ghost", "isCharged": false, "pvpPower": 6, "pvpEnergy": 8 }
+    ],
+    "chargedMoves": [
+      { "name": "Shadow Ball", "type": "Ghost", "isCharged": true, "pvpPower": 100, "pvpEnergy": 55 },
+      { "name": "Overheat", "type": "Fire", "isCharged": true, "pvpPower": 130, "pvpEnergy": 55 },
+      { "name": "Energy Ball", "type": "Grass", "isCharged": true, "pvpPower": 90, "pvpEnergy": 55 }
+    ],
+    "baseStats": { "atk": 271, "def": 182, "sta": 155 }
+  },
+  {
+    "id": "glaceon",
+    "name": "Glaceon",
+    "types": ["Ice"],
+    "fastMoves": [
+      { "name": "Frost Breath", "type": "Ice", "isCharged": false, "pvpPower": 7, "pvpEnergy": 5 },
+      { "name": "Ice Shard", "type": "Ice", "isCharged": false, "pvpPower": 9, "pvpEnergy": 10 }
+    ],
+    "chargedMoves": [
+      { "name": "Avalanche", "type": "Ice", "isCharged": true, "pvpPower": 90, "pvpEnergy": 45 },
+      { "name": "Icy Wind", "type": "Ice", "isCharged": true, "pvpPower": 60, "pvpEnergy": 45 },
+      { "name": "Ice Beam", "type": "Ice", "isCharged": true, "pvpPower": 90, "pvpEnergy": 55 }
+    ],
+    "baseStats": { "atk": 238, "def": 205, "sta": 163 }
+  },
+  {
+    "id": "rampardos",
+    "name": "Rampardos",
+    "types": ["Rock"],
+    "fastMoves": [
+      { "name": "Smack Down", "type": "Rock", "isCharged": false, "pvpPower": 12, "pvpEnergy": 8 },
+      { "name": "Zen Headbutt", "type": "Psychic", "isCharged": false, "pvpPower": 8, "pvpEnergy": 6 }
+    ],
+    "chargedMoves": [
+      { "name": "Rock Slide", "type": "Rock", "isCharged": true, "pvpPower": 75, "pvpEnergy": 45 },
+      { "name": "Outrage", "type": "Dragon", "isCharged": true, "pvpPower": 110, "pvpEnergy": 60 },
+      { "name": "Flamethrower", "type": "Fire", "isCharged": true, "pvpPower": 90, "pvpEnergy": 55 }
+    ],
+    "baseStats": { "atk": 295, "def": 109, "sta": 219 }
+  },
+  {
+    "id": "terrakion",
+    "name": "Terrakion",
+    "types": ["Rock", "Fighting"],
+    "fastMoves": [
+      { "name": "Smack Down", "type": "Rock", "isCharged": false, "pvpPower": 12, "pvpEnergy": 8 },
+      { "name": "Zen Headbutt", "type": "Psychic", "isCharged": false, "pvpPower": 8, "pvpEnergy": 6 }
+    ],
+    "chargedMoves": [
+      { "name": "Rock Slide", "type": "Rock", "isCharged": true, "pvpPower": 75, "pvpEnergy": 45 },
+      { "name": "Close Combat", "type": "Fighting", "isCharged": true, "pvpPower": 100, "pvpEnergy": 45 },
+      { "name": "Earthquake", "type": "Ground", "isCharged": true, "pvpPower": 120, "pvpEnergy": 65 }
+    ],
+    "baseStats": { "atk": 260, "def": 192, "sta": 209 }
+  },
+  {
+    "id": "palkia",
+    "name": "Palkia",
+    "types": ["Water", "Dragon"],
+    "fastMoves": [
+      { "name": "Dragon Breath", "type": "Dragon", "isCharged": false, "pvpPower": 4, "pvpEnergy": 3 },
+      { "name": "Dragon Tail", "type": "Dragon", "isCharged": false, "pvpPower": 9, "pvpEnergy": 10 }
+    ],
+    "chargedMoves": [
+      { "name": "Aqua Tail", "type": "Water", "isCharged": true, "pvpPower": 50, "pvpEnergy": 35 },
+      { "name": "Draco Meteor", "type": "Dragon", "isCharged": true, "pvpPower": 150, "pvpEnergy": 65 },
+      { "name": "Hydro Pump", "type": "Water", "isCharged": true, "pvpPower": 130, "pvpEnergy": 75 }
+    ],
+    "baseStats": { "atk": 280, "def": 215, "sta": 189 }
+  },
+  {
+    "id": "zekrom",
+    "name": "Zekrom",
+    "types": ["Dragon", "Electric"],
+    "fastMoves": [
+      { "name": "Dragon Breath", "type": "Dragon", "isCharged": false, "pvpPower": 4, "pvpEnergy": 3 },
+      { "name": "Charge Beam", "type": "Electric", "isCharged": false, "pvpPower": 5, "pvpEnergy": 11 }
+    ],
+    "chargedMoves": [
+      { "name": "Wild Charge", "type": "Electric", "isCharged": true, "pvpPower": 100, "pvpEnergy": 45 },
+      { "name": "Outrage", "type": "Dragon", "isCharged": true, "pvpPower": 110, "pvpEnergy": 60 },
+      { "name": "Crunch", "type": "Dark", "isCharged": true, "pvpPower": 70, "pvpEnergy": 45 }
+    ],
+    "baseStats": { "atk": 275, "def": 211, "sta": 205 }
+  },
+  {
+    "id": "reshiram",
+    "name": "Reshiram",
+    "types": ["Dragon", "Fire"],
+    "fastMoves": [
+      { "name": "Dragon Breath", "type": "Dragon", "isCharged": false, "pvpPower": 4, "pvpEnergy": 3 },
+      { "name": "Fire Fang", "type": "Fire", "isCharged": false, "pvpPower": 8, "pvpEnergy": 5 }
+    ],
+    "chargedMoves": [
+      { "name": "Overheat", "type": "Fire", "isCharged": true, "pvpPower": 130, "pvpEnergy": 55 },
+      { "name": "Draco Meteor", "type": "Dragon", "isCharged": true, "pvpPower": 150, "pvpEnergy": 65 },
+      { "name": "Crunch", "type": "Dark", "isCharged": true, "pvpPower": 70, "pvpEnergy": 45 }
+    ],
+    "baseStats": { "atk": 275, "def": 211, "sta": 205 }
+  },
+  {
+    "id": "landorus",
+    "name": "Landorus",
+    "types": ["Ground", "Flying"],
+    "fastMoves": [
+      { "name": "Mud Shot", "type": "Ground", "isCharged": false, "pvpPower": 3, "pvpEnergy": 9 },
+      { "name": "Rock Throw", "type": "Rock", "isCharged": false, "pvpPower": 8, "pvpEnergy": 5 }
+    ],
+    "chargedMoves": [
+      { "name": "Earth Power", "type": "Ground", "isCharged": true, "pvpPower": 90, "pvpEnergy": 55 },
+      { "name": "Rock Slide", "type": "Rock", "isCharged": true, "pvpPower": 75, "pvpEnergy": 45 },
+      { "name": "Outrage", "type": "Dragon", "isCharged": true, "pvpPower": 110, "pvpEnergy": 60 }
+    ],
+    "baseStats": { "atk": 261, "def": 182, "sta": 205 }
+  },
+  {
+    "id": "registeel",
+    "name": "Registeel",
+    "types": ["Steel"],
+    "fastMoves": [
+      { "name": "Lock-On", "type": "Normal", "isCharged": false, "pvpPower": 1, "pvpEnergy": 5 },
+      { "name": "Metal Claw", "type": "Steel", "isCharged": false, "pvpPower": 5, "pvpEnergy": 7 }
+    ],
+    "chargedMoves": [
+      { "name": "Zap Cannon", "type": "Electric", "isCharged": true, "pvpPower": 150, "pvpEnergy": 80 },
+      { "name": "Focus Blast", "type": "Fighting", "isCharged": true, "pvpPower": 150, "pvpEnergy": 75 },
+      { "name": "Flash Cannon", "type": "Steel", "isCharged": true, "pvpPower": 110, "pvpEnergy": 65 }
+    ],
+    "baseStats": { "atk": 143, "def": 285, "sta": 190 }
+  },
+  {
+    "id": "azumarill",
+    "name": "Azumarill",
+    "types": ["Water", "Fairy"],
+    "fastMoves": [
+      { "name": "Bubble", "type": "Water", "isCharged": false, "pvpPower": 7, "pvpEnergy": 11 },
+      { "name": "Rock Smash", "type": "Fighting", "isCharged": false, "pvpPower": 9, "pvpEnergy": 7 }
+    ],
+    "chargedMoves": [
+      { "name": "Ice Beam", "type": "Ice", "isCharged": true, "pvpPower": 90, "pvpEnergy": 55 },
+      { "name": "Hydro Pump", "type": "Water", "isCharged": true, "pvpPower": 130, "pvpEnergy": 75 },
+      { "name": "Play Rough", "type": "Fairy", "isCharged": true, "pvpPower": 90, "pvpEnergy": 60 }
+    ],
+    "baseStats": { "atk": 112, "def": 152, "sta": 225 }
+  },
+  {
+    "id": "trevenant",
+    "name": "Trevenant",
+    "types": ["Ghost", "Grass"],
+    "fastMoves": [
+      { "name": "Shadow Claw", "type": "Ghost", "isCharged": false, "pvpPower": 6, "pvpEnergy": 8 },
+      { "name": "Sucker Punch", "type": "Dark", "isCharged": false, "pvpPower": 5, "pvpEnergy": 7 }
+    ],
+    "chargedMoves": [
+      { "name": "Seed Bomb", "type": "Grass", "isCharged": true, "pvpPower": 55, "pvpEnergy": 40 },
+      { "name": "Shadow Ball", "type": "Ghost", "isCharged": true, "pvpPower": 100, "pvpEnergy": 55 },
+      { "name": "Foul Play", "type": "Dark", "isCharged": true, "pvpPower": 70, "pvpEnergy": 45 }
+    ],
+    "baseStats": { "atk": 201, "def": 154, "sta": 198 }
+  },
+  {
+    "id": "bastiodon",
+    "name": "Bastiodon",
+    "types": ["Rock", "Steel"],
+    "fastMoves": [
+      { "name": "Smack Down", "type": "Rock", "isCharged": false, "pvpPower": 12, "pvpEnergy": 8 },
+      { "name": "Iron Tail", "type": "Steel", "isCharged": false, "pvpPower": 9, "pvpEnergy": 6 }
+    ],
+    "chargedMoves": [
+      { "name": "Stone Edge", "type": "Rock", "isCharged": true, "pvpPower": 100, "pvpEnergy": 55 },
+      { "name": "Flamethrower", "type": "Fire", "isCharged": true, "pvpPower": 90, "pvpEnergy": 55 },
+      { "name": "Flash Cannon", "type": "Steel", "isCharged": true, "pvpPower": 110, "pvpEnergy": 65 }
+    ],
+    "baseStats": { "atk": 94, "def": 286, "sta": 155 }
+  },
+  {
+    "id": "sableye",
+    "name": "Sableye",
+    "types": ["Dark", "Ghost"],
+    "fastMoves": [
+      { "name": "Shadow Claw", "type": "Ghost", "isCharged": false, "pvpPower": 6, "pvpEnergy": 8 },
+      { "name": "Feint Attack", "type": "Dark", "isCharged": false, "pvpPower": 6, "pvpEnergy": 6 }
+    ],
+    "chargedMoves": [
+      { "name": "Foul Play", "type": "Dark", "isCharged": true, "pvpPower": 70, "pvpEnergy": 45 },
+      { "name": "Return", "type": "Normal", "isCharged": true, "pvpPower": 130, "pvpEnergy": 70 },
+      { "name": "Power Gem", "type": "Rock", "isCharged": true, "pvpPower": 80, "pvpEnergy": 60 }
+    ],
+    "baseStats": { "atk": 141, "def": 141, "sta": 137 }
+  },
+  {
+    "id": "altaria",
+    "name": "Altaria",
+    "types": ["Dragon", "Flying"],
+    "fastMoves": [
+      { "name": "Dragon Breath", "type": "Dragon", "isCharged": false, "pvpPower": 4, "pvpEnergy": 3 },
+      { "name": "Peck", "type": "Flying", "isCharged": false, "pvpPower": 6, "pvpEnergy": 5 }
+    ],
+    "chargedMoves": [
+      { "name": "Sky Attack", "type": "Flying", "isCharged": true, "pvpPower": 80, "pvpEnergy": 45 },
+      { "name": "Dragon Pulse", "type": "Dragon", "isCharged": true, "pvpPower": 90, "pvpEnergy": 60 },
+      { "name": "Moonblast", "type": "Fairy", "isCharged": true, "pvpPower": 110, "pvpEnergy": 60 }
+    ],
+    "baseStats": { "atk": 141, "def": 201, "sta": 181 }
+  }
+]

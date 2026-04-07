@@ -1,0 +1,22 @@
+{
+  "id": "ultra-league",
+  "name": "Ultra League",
+  "cpCap": 2500,
+  "season": "Season 22",
+  "active": false,
+  "startDate": "2026-04-22",
+  "endDate": "2026-05-20",
+  "lastUpdated": "2026-04-07",
+  "meta": [
+    { "pokemonId": "giratina-altered", "tier": "S", "recommendedFast": "Shadow Claw", "recommendedCharged": ["Dragon Claw", "Shadow Sneak"] },
+    { "pokemonId": "registeel", "tier": "S", "recommendedFast": "Lock-On", "recommendedCharged": ["Zap Cannon", "Focus Blast"] },
+    { "pokemonId": "swampert", "tier": "A", "recommendedFast": "Mud Shot", "recommendedCharged": ["Hydro Cannon", "Earthquake"] },
+    { "pokemonId": "togekiss", "tier": "A", "recommendedFast": "Charm", "recommendedCharged": ["Ancient Power", "Flamethrower"] },
+    { "pokemonId": "trevenant", "tier": "A", "recommendedFast": "Shadow Claw", "recommendedCharged": ["Seed Bomb", "Shadow Ball"] },
+    { "pokemonId": "machamp", "tier": "A", "recommendedFast": "Counter", "recommendedCharged": ["Cross Chop", "Rock Slide"] },
+    { "pokemonId": "dragonite", "tier": "B", "recommendedFast": "Dragon Breath", "recommendedCharged": ["Dragon Claw", "Hurricane"] },
+    { "pokemonId": "sableye", "tier": "B", "recommendedFast": "Shadow Claw", "recommendedCharged": ["Foul Play", "Return"] },
+    { "pokemonId": "lucario", "tier": "B", "recommendedFast": "Counter", "recommendedCharged": ["Aura Sphere", "Shadow Ball"] },
+    { "pokemonId": "altaria", "tier": "B", "recommendedFast": "Dragon Breath", "recommendedCharged": ["Sky Attack", "Moonblast"] }
+  ]
+}

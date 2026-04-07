@@ -1,0 +1,22 @@
+{
+  "id": "master-league",
+  "name": "Master League",
+  "cpCap": 9999,
+  "season": "Season 22",
+  "active": false,
+  "startDate": "2026-05-20",
+  "endDate": "2026-06-17",
+  "lastUpdated": "2026-04-07",
+  "meta": [
+    { "pokemonId": "dialga", "tier": "S", "recommendedFast": "Dragon Breath", "recommendedCharged": ["Iron Head", "Draco Meteor"] },
+    { "pokemonId": "giratina-origin", "tier": "S", "recommendedFast": "Shadow Claw", "recommendedCharged": ["Shadow Ball", "Ominous Wind"] },
+    { "pokemonId": "mewtwo", "tier": "A", "recommendedFast": "Psycho Cut", "recommendedCharged": ["Psystrike", "Shadow Ball"] },
+    { "pokemonId": "kyogre", "tier": "A", "recommendedFast": "Waterfall", "recommendedCharged": ["Surf", "Blizzard"] },
+    { "pokemonId": "zekrom", "tier": "A", "recommendedFast": "Dragon Breath", "recommendedCharged": ["Wild Charge", "Crunch"] },
+    { "pokemonId": "reshiram", "tier": "A", "recommendedFast": "Dragon Breath", "recommendedCharged": ["Overheat", "Crunch"] },
+    { "pokemonId": "palkia", "tier": "A", "recommendedFast": "Dragon Breath", "recommendedCharged": ["Aqua Tail", "Draco Meteor"] },
+    { "pokemonId": "garchomp", "tier": "B", "recommendedFast": "Mud Shot", "recommendedCharged": ["Outrage", "Sand Tomb"] },
+    { "pokemonId": "dragonite", "tier": "B", "recommendedFast": "Dragon Breath", "recommendedCharged": ["Dragon Claw", "Hurricane"] },
+    { "pokemonId": "metagross", "tier": "B", "recommendedFast": "Bullet Punch", "recommendedCharged": ["Meteor Mash", "Earthquake"] }
+  ]
+}
