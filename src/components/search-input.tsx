@@ -1,62 +1,85 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
+import pokemonData from "@/data/pokemon.json";
 
-type SearchOption = {
+type PokemonOption = {
   id: string;
   name: string;
 };
 
-export function SearchInput({
-  options,
-  onSelect,
-  placeholder = "Search a Pokemon...",
-}: {
-  options: SearchOption[];
-  onSelect: (id: string) => void;
-  placeholder?: string;
-}) {
+export function SearchInput() {
   const [query, setQuery] = useState("");
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const router = useRouter();
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  const filtered = useMemo(() => {
-    if (!query.trim()) return [];
-    const q = query.toLowerCase();
-    return options
-      .filter((o) => o.name.toLowerCase().includes(q))
-      .slice(0, 8);
-  }, [query, options]);
+  const results = useMemo(() => {
+    if (query.length < 2) return [];
+    const lower = query.toLowerCase();
+    return pokemonData
+      .filter(
+        (p) => p.name.toLowerCase().includes(lower) || p.id.includes(lower),
+      )
+      .slice(0, 8)
+      .map((p): PokemonOption => ({ id: p.id, name: p.name }));
+  }, [query]);
 
-  function handleSelect(id: string) {
+  useEffect(() => {
+    setSelectedIndex(0);
+    setIsOpen(results.length > 0);
+  }, [results]);
+
+  function selectPokemon(pokemon: PokemonOption) {
     setQuery("");
-    setOpen(false);
-    onSelect(id);
+    setIsOpen(false);
+    router.push(`/counter/${pokemon.id}`);
+  }
+
+  function handleKeyDown(event: React.KeyboardEvent) {
+    if (!isOpen) return;
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      setSelectedIndex((i) => Math.min(i + 1, results.length - 1));
+    } else if (event.key === "ArrowUp") {
+      event.preventDefault();
+      setSelectedIndex((i) => Math.max(i - 1, 0));
+    } else if (event.key === "Enter" && results[selectedIndex]) {
+      event.preventDefault();
+      selectPokemon(results[selectedIndex]);
+    } else if (event.key === "Escape") {
+      setIsOpen(false);
+    }
   }
 
   return (
     <div className="relative">
       <Input
-        type="search"
+        ref={inputRef}
+        type="text"
+        placeholder="Search a Pokemon..."
         value={query}
-        onChange={(e) => {
-          setQuery(e.target.value);
-          setOpen(true);
-        }}
-        onFocus={() => setOpen(true)}
-        placeholder={placeholder}
-        className="min-h-11"
+        onChange={(event) => setQuery(event.target.value)}
+        onKeyDown={handleKeyDown}
+        onFocus={() => results.length > 0 && setIsOpen(true)}
+        onBlur={() => setTimeout(() => setIsOpen(false), 150)}
+        className="min-h-11 text-base"
         autoComplete="off"
       />
-      {open && filtered.length > 0 && (
-        <ul className="absolute top-full z-30 mt-1 w-full rounded-lg border bg-popover p-1 shadow-md">
-          {filtered.map((option) => (
-            <li key={option.id}>
+      {isOpen && results.length > 0 && (
+        <ul className="absolute left-0 right-0 top-full z-20 mt-1 max-h-64 overflow-auto rounded-lg border bg-background shadow-sm">
+          {results.map((pokemon, index) => (
+            <li key={pokemon.id}>
               <button
-                className="w-full rounded-md px-3 py-2 text-left text-sm hover:bg-accent"
-                onClick={() => handleSelect(option.id)}
+                className={`w-full min-h-11 px-3 py-2 text-left text-sm capitalize hover:bg-muted ${
+                  index === selectedIndex ? "bg-muted" : ""
+                }`}
+                onMouseDown={() => selectPokemon(pokemon)}
               >
-                {option.name}
+                {pokemon.name}
               </button>
             </li>
           ))}
