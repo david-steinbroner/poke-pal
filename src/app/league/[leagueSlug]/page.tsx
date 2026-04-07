@@ -15,12 +15,13 @@ export function generateStaticParams() {
   return leagues.map((league) => ({ leagueSlug: league.id }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { leagueSlug: string };
-}): Metadata {
-  const league = leagues.find((l) => l.id === params.leagueSlug);
+  params: Promise<{ leagueSlug: string }>;
+}): Promise<Metadata> {
+  const { leagueSlug } = await params;
+  const league = leagues.find((l) => l.id === leagueSlug);
   if (!league) return { title: "Not Found" };
   return {
     title: `${league.name} Meta — Poke Pal`,
@@ -28,12 +29,13 @@ export function generateMetadata({
   };
 }
 
-export default function LeaguePage({
+export default async function LeaguePage({
   params,
 }: {
-  params: { leagueSlug: string };
+  params: Promise<{ leagueSlug: string }>;
 }) {
-  const league = leagues.find((l) => l.id === params.leagueSlug);
+  const { leagueSlug } = await params;
+  const league = leagues.find((l) => l.id === leagueSlug);
   if (!league) notFound();
 
   const cpString = buildLeagueEligibleString(league.cpCap);

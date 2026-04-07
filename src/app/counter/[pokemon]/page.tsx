@@ -11,12 +11,13 @@ export function generateStaticParams() {
   return getAllPokemonIds().map((pokemon) => ({ pokemon }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { pokemon: string };
-}): Metadata {
-  const pokemon = pokemonData.find((p) => p.id === params.pokemon);
+  params: Promise<{ pokemon: string }>;
+}): Promise<Metadata> {
+  const { pokemon: pokemonId } = await params;
+  const pokemon = pokemonData.find((p) => p.id === pokemonId);
   if (!pokemon) return { title: "Not Found" };
   return {
     title: `${pokemon.name} Counters — Poke Pal`,
@@ -24,15 +25,16 @@ export function generateMetadata({
   };
 }
 
-export default function CounterPage({
+export default async function CounterPage({
   params,
 }: {
-  params: { pokemon: string };
+  params: Promise<{ pokemon: string }>;
 }) {
-  const pokemon = pokemonData.find((p) => p.id === params.pokemon);
+  const { pokemon: pokemonId } = await params;
+  const pokemon = pokemonData.find((p) => p.id === pokemonId);
   if (!pokemon) notFound();
 
-  const result = getCountersFor(params.pokemon);
+  const result = getCountersFor(pokemonId);
 
   return (
     <div className="space-y-4 pt-4">
