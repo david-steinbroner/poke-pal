@@ -4,9 +4,7 @@ import { Suspense, useState, useMemo, useCallback, useEffect, useRef } from "rea
 import { useSearchParams, useRouter } from "next/navigation";
 import { LEAGUE_IDS, LEAGUE_NAMES, LEAGUE_SHORT_NAMES } from "@/lib/constants";
 import { TeamSlotCard } from "@/components/team/team-slot";
-import { CoverageChart } from "@/components/team/coverage-chart";
 import { ThreatList } from "@/components/team/threat-list";
-import { SwapSuggestions } from "@/components/team/swap-suggestions";
 import { CopyButton } from "@/components/copy-button";
 import { PokemonChip } from "@/components/pokemon-chip";
 import { SearchInput } from "@/components/search-input";
@@ -140,19 +138,6 @@ function TeamsPage() {
       const next = [...prev] as [TeamSlot, TeamSlot, TeamSlot];
       const emptyIndex = next.findIndex((s) => s === null);
       const targetIndex = emptyIndex >= 0 ? emptyIndex : 2; // replace last if full
-      next[targetIndex] = slot;
-      return next;
-    });
-  }
-
-  function handleSuggestionSelect(pokemonId: string) {
-    // Find first empty slot, or replace last slot
-    const emptyIndex = team.findIndex((s) => s === null);
-    const targetIndex = emptyIndex >= 0 ? emptyIndex : 2;
-    const slot = pokemonToSlot(pokemonId);
-    if (!slot) return;
-    setTeam((prev) => {
-      const next = [...prev] as [TeamSlot, TeamSlot, TeamSlot];
       next[targetIndex] = slot;
       return next;
     });
@@ -340,34 +325,13 @@ function TeamsPage() {
         })}
       </div>
 
-      {hasTeam && (
-        <>
-          <CoverageChart
-            offensiveCoverage={analysis.offensiveCoverage}
-            defensiveWeaknesses={analysis.defensiveWeaknesses}
-          />
-
-          {analysis.threats.length > 0 && (
-            <div>
-              <h2 className="mb-2 text-sm font-medium">
-                Meta Threats
-              </h2>
-              <ThreatList threats={analysis.threats} />
-            </div>
-          )}
-
-          {analysis.suggestions.length > 0 && (
-            <div>
-              <h2 className="mb-2 text-sm font-medium">
-                Suggestions
-              </h2>
-              <SwapSuggestions
-                suggestions={analysis.suggestions}
-                onSelect={handleSuggestionSelect}
-              />
-            </div>
-          )}
-        </>
+      {hasTeam && analysis.threats.length > 0 && (
+        <div>
+          <h2 className="mb-2 text-sm font-medium">
+            Meta Threats
+          </h2>
+          <ThreatList threats={analysis.threats} />
+        </div>
       )}
     </div>
   );
