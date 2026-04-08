@@ -5,9 +5,10 @@ import pokemonData from "@/data/pokemon.json";
 import greatLeague from "@/data/leagues/great-league.json";
 import ultraLeague from "@/data/leagues/ultra-league.json";
 import masterLeague from "@/data/leagues/master-league.json";
+import fantasyCup from "@/data/leagues/fantasy-cup.json";
 import Link from "next/link";
 
-const leagues = [greatLeague, ultraLeague, masterLeague];
+const leagues = [fantasyCup, ultraLeague, greatLeague, masterLeague];
 
 export default function Home() {
   return (
@@ -33,7 +34,7 @@ export default function Home() {
               <Link
                 key={id}
                 href={`/counter/${id}`}
-                className="rounded-full border px-3 py-1.5 text-sm capitalize transition-colors hover:bg-accent"
+                className="inline-flex min-h-11 items-center rounded-full border px-3 py-1.5 text-sm capitalize transition-colors hover:bg-accent"
               >
                 {pokemon.name}
               </Link>

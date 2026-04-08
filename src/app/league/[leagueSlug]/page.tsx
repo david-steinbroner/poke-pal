@@ -2,14 +2,19 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { TierAccordion } from "@/components/tier-accordion";
 import { CopyBar } from "@/components/copy-bar";
-import { buildLeagueEligibleString } from "@/lib/search-string";
+import {
+  buildLeagueEligibleString,
+  buildNameSearchString,
+} from "@/lib/search-string";
 import type { MetaPokemon } from "@/lib/types";
+import pokemonData from "@/data/pokemon.json";
 import greatLeague from "@/data/leagues/great-league.json";
 import ultraLeague from "@/data/leagues/ultra-league.json";
 import masterLeague from "@/data/leagues/master-league.json";
+import fantasyCup from "@/data/leagues/fantasy-cup.json";
 import Link from "next/link";
 
-const leagues = [greatLeague, ultraLeague, masterLeague];
+const leagues = [fantasyCup, greatLeague, ultraLeague, masterLeague];
 
 export function generateStaticParams() {
   return leagues.map((league) => ({ leagueSlug: league.id }));
@@ -40,6 +45,14 @@ export default async function LeaguePage({
 
   const cpString = buildLeagueEligibleString(league.cpCap);
 
+  // Build search string from all meta Pokemon names
+  const metaNames = league.meta
+    .map((m) => {
+      const pokemon = pokemonData.find((p) => p.id === m.pokemonId);
+      return pokemon?.name ?? m.pokemonId;
+    });
+  const metaSearchString = buildNameSearchString(metaNames);
+
   return (
     <div className="space-y-4 pt-4">
       <div>
@@ -55,9 +68,31 @@ export default async function LeaguePage({
           {league.cpCap === 9999 ? "∞" : league.cpCap.toLocaleString()} ·
           Updated {league.lastUpdated}
         </p>
+        {"typeRestrictions" in league &&
+          (league as { typeRestrictions?: string[] }).typeRestrictions && (
+            <p className="mt-1 text-xs text-muted-foreground">
+              Eligible types:{" "}
+              {(league as { typeRestrictions: string[] }).typeRestrictions.join(
+                ", ",
+              )}
+            </p>
+          )}
       </div>
 
-      <CopyBar searchString={cpString} />
+      <div className="space-y-2">
+        <div>
+          <p className="mb-1 text-xs font-medium text-muted-foreground">
+            Search for meta Pokemon you own
+          </p>
+          <CopyBar searchString={metaSearchString} />
+        </div>
+        <div>
+          <p className="mb-1 text-xs font-medium text-muted-foreground">
+            Search by CP cap
+          </p>
+          <CopyBar searchString={cpString} />
+        </div>
+      </div>
 
       <TierAccordion meta={league.meta as MetaPokemon[]} />
     </div>

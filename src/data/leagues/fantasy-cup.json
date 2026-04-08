@@ -1,0 +1,97 @@
+{
+  "id": "fantasy-cup",
+  "name": "Fantasy Cup: Great League Edition",
+  "cpCap": 1500,
+  "typeRestrictions": ["Dragon", "Steel", "Fairy"],
+  "season": "Memories in Motion",
+  "active": true,
+  "startDate": "2026-04-07",
+  "endDate": "2026-04-14",
+  "lastUpdated": "2026-04-07",
+  "meta": [
+    {
+      "pokemonId": "registeel",
+      "tier": "S",
+      "recommendedFast": "Lock-On",
+      "recommendedCharged": ["Zap Cannon", "Focus Blast"]
+    },
+    {
+      "pokemonId": "bastiodon",
+      "tier": "S",
+      "recommendedFast": "Smack Down",
+      "recommendedCharged": ["Stone Edge", "Flamethrower"]
+    },
+    {
+      "pokemonId": "altaria",
+      "tier": "S",
+      "recommendedFast": "Dragon Breath",
+      "recommendedCharged": ["Sky Attack", "Moonblast"]
+    },
+    {
+      "pokemonId": "azumarill",
+      "tier": "A",
+      "recommendedFast": "Bubble",
+      "recommendedCharged": ["Ice Beam", "Play Rough"]
+    },
+    {
+      "pokemonId": "togekiss",
+      "tier": "A",
+      "recommendedFast": "Charm",
+      "recommendedCharged": ["Ancient Power", "Flamethrower"]
+    },
+    {
+      "pokemonId": "gardevoir",
+      "tier": "A",
+      "recommendedFast": "Charm",
+      "recommendedCharged": ["Shadow Ball", "Synchronoise"]
+    },
+    {
+      "pokemonId": "stunfisk-galarian",
+      "tier": "A",
+      "recommendedFast": "Mud Shot",
+      "recommendedCharged": ["Rock Slide", "Earthquake"]
+    },
+    {
+      "pokemonId": "steelix",
+      "tier": "A",
+      "recommendedFast": "Dragon Tail",
+      "recommendedCharged": ["Crunch", "Earthquake"]
+    },
+    {
+      "pokemonId": "wigglytuff",
+      "tier": "B",
+      "recommendedFast": "Charm",
+      "recommendedCharged": ["Ice Beam", "Play Rough"]
+    },
+    {
+      "pokemonId": "clefable",
+      "tier": "B",
+      "recommendedFast": "Charm",
+      "recommendedCharged": ["Meteor Mash", "Moonblast"]
+    },
+    {
+      "pokemonId": "dragonite",
+      "tier": "B",
+      "recommendedFast": "Dragon Breath",
+      "recommendedCharged": ["Dragon Claw", "Superpower"]
+    },
+    {
+      "pokemonId": "excadrill",
+      "tier": "B",
+      "recommendedFast": "Mud Shot",
+      "recommendedCharged": ["Rock Slide", "Drill Run"]
+    },
+    {
+      "pokemonId": "metagross",
+      "tier": "B",
+      "recommendedFast": "Bullet Punch",
+      "recommendedCharged": ["Meteor Mash", "Earthquake"]
+    },
+    {
+      "pokemonId": "granbull",
+      "tier": "C",
+      "recommendedFast": "Charm",
+      "recommendedCharged": ["Close Combat", "Crunch"]
+    }
+  ]
+}
