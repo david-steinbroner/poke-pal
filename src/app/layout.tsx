@@ -28,6 +28,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Empty touchstart listener enables CSS :active on iOS Safari */}
+        <script dangerouslySetInnerHTML={{ __html: `document.addEventListener('touchstart',function(){},true);` }} />
+      </head>
       <body
         className={`${geistSans.variable} min-h-screen bg-background font-sans antialiased`}
       >

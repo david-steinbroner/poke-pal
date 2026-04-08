@@ -132,9 +132,10 @@
   a, button, [role="button"], input, select, textarea {
     touch-action: manipulation;
   }
-  /* Visible tap feedback */
-  a:active, button:active, [role="button"]:active {
-    opacity: 0.7;
+  /* Tap feedback — works on iOS with touchstart listener in layout */
+  a:active, button:active {
+    opacity: 0.6 !important;
     transform: scale(0.97);
+    transition: none;
   }
 }
