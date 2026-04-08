@@ -221,6 +221,37 @@ function TeamsPage() {
 
       <LeaguePicker selected={league} onSelect={handleLeagueChange} />
 
+      {/* Copy + Share row — always visible, greyed out until conditions met */}
+      <div className="flex gap-2">
+        <div className="flex-1">
+          {hasTeam && analysis.searchString ? (
+            <CopyButton searchString={analysis.searchString} label="Copy Search String" compact />
+          ) : (
+            <button
+              disabled
+              className="w-full min-h-11 rounded-lg px-4 py-3 text-sm font-semibold bg-primary/30 text-primary-foreground/50 cursor-not-allowed"
+            >
+              Copy Search String
+            </button>
+          )}
+        </div>
+        <div className="flex-1">
+          <button
+            onClick={pokemonIds.length >= 3 ? handleShare : undefined}
+            disabled={pokemonIds.length < 3}
+            className={`w-full min-h-11 flex items-center justify-center gap-2 rounded-lg border text-sm font-medium transition-colors ${
+              pokemonIds.length >= 3
+                ? "text-foreground hover:bg-muted"
+                : "text-muted-foreground/40 border-border/40 cursor-not-allowed"
+            }`}
+            style={{ touchAction: "manipulation" }}
+          >
+            <Share2 className="h-4 w-4" />
+            Share
+          </button>
+        </div>
+      </div>
+
       {/* Team slots with inline suggestions on next empty slot */}
       <div className="space-y-2">
         {SLOT_LABELS.map((label, i) => {
@@ -264,24 +295,8 @@ function TeamsPage() {
         })}
       </div>
 
-      {/* Copy button right after team slots */}
-      {hasTeam && analysis.searchString && (
-        <CopyButton searchString={analysis.searchString} label="Copy Search String" />
-      )}
-
       {hasTeam && (
         <>
-          {pokemonIds.length >= 2 && (
-            <button
-              onClick={handleShare}
-              className="flex w-full min-h-11 items-center justify-center gap-2 rounded-lg border text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-              style={{ touchAction: "manipulation" }}
-            >
-              <Share2 className="h-4 w-4" />
-              Share team link
-            </button>
-          )}
-
           <CoverageChart
             offensiveCoverage={analysis.offensiveCoverage}
             defensiveWeaknesses={analysis.defensiveWeaknesses}
