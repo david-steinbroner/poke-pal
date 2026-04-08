@@ -1,6 +1,6 @@
 export const APP_VERSION = "0.9.0";
 
-export const LEAGUE_IDS = ["great-league", "ultra-league", "master-league", "fantasy-cup"] as const;
+export const LEAGUE_IDS = ["fantasy-cup", "great-league", "ultra-league", "master-league"] as const;
 
 export const LEAGUE_NAMES: Record<string, string> = {
   "great-league": "Great League",
