@@ -211,9 +211,9 @@ function TeamsPage() {
           {hasTeam && <ClearButton onClick={handleClear} />}
         </div>
 
-        {/* Cup name or Add Cup pills */}
+        {/* Cup name or Select League pills */}
         {cupSet ? (
-          <p className="text-sm text-muted-foreground">
+          <p className="mt-2 text-sm text-muted-foreground">
             {LEAGUE_NAMES[league] ?? league}
             {hasTeam && teamRating && (
               <span className={`ml-2 inline-flex rounded-full px-2 py-0.5 text-xs font-bold ${RATING_COLORS[teamRating]}`}>
@@ -222,8 +222,8 @@ function TeamsPage() {
             )}
           </p>
         ) : (
-          <div className="flex flex-wrap items-center gap-2 mt-1">
-            <span className="text-xs text-muted-foreground">Add Cup:</span>
+          <div className="flex flex-wrap items-center gap-2 mt-2">
+            <span className="text-xs text-muted-foreground">Select League:</span>
             {(LEAGUE_IDS as readonly string[]).map((id) => (
               <button
                 key={id}
