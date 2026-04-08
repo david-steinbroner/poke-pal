@@ -22,13 +22,6 @@ export default function Home() {
 
       <SearchInput />
 
-      <Link
-        href="/teams"
-        className="flex min-h-11 items-center justify-center rounded-lg border-2 border-dashed px-4 py-3 text-sm font-medium transition-colors hover:bg-accent active:bg-accent active:scale-[0.98]"
-      >
-        Build a Team &rarr;
-      </Link>
-
       <div>
         <h2 className="mb-2 text-sm font-medium text-muted-foreground">
           Quick Picks
@@ -71,6 +64,20 @@ export default function Home() {
             No active cups right now.
           </p>
         )}
+      </div>
+
+      <div>
+        <h2 className="mb-2 text-sm font-medium text-muted-foreground">
+          Build a Team
+        </h2>
+        <div className="flex flex-wrap gap-2">
+          <Link
+            href="/teams"
+            className="inline-flex min-h-11 items-center rounded-full border px-3 py-1.5 text-sm font-medium transition-colors hover:bg-accent active:bg-accent active:scale-95"
+          >
+            Team Builder &rarr;
+          </Link>
+        </div>
       </div>
     </div>
   );
