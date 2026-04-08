@@ -1,7 +1,6 @@
 "use client";
 
 import { X } from "lucide-react";
-import { TypeBadge } from "@/components/type-badge";
 import type { TeamSlot } from "@/lib/team-types";
 import type { ReactNode } from "react";
 
@@ -21,7 +20,9 @@ export function TeamSlotCard({
   if (!slot) {
     return (
       <div className="rounded-lg border border-dashed p-3">
-        <p className="text-center text-xs text-muted-foreground">{label}</p>
+        <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+          {label}
+        </span>
         {children && <div className="mt-2">{children}</div>}
       </div>
     );
@@ -33,16 +34,9 @@ export function TeamSlotCard({
         <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
           {label}
         </span>
-        <div className="mt-0.5 flex items-center gap-2">
-          <p className="font-medium text-sm">{slot.name}</p>
-          <div className="ml-auto flex shrink-0 gap-1">
-            {slot.types.map((t) => (
-              <TypeBadge key={t} type={t} />
-            ))}
-          </div>
-        </div>
+        <p className="mt-0.5 font-medium text-sm">{slot.name}</p>
         {moveset && (
-          <p className="mt-1 text-xs text-muted-foreground">{moveset}</p>
+          <p className="mt-0.5 text-xs text-muted-foreground">{moveset}</p>
         )}
       </div>
       <button
