@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useCallback, useMemo, useEffect } from "react";
-import { X, Copy, ChevronUp, ChevronDown, ArrowRight, Plus } from "lucide-react";
-import Link from "next/link";
+import { X, Copy, ChevronUp, ChevronDown, Plus } from "lucide-react";
 import { toast } from "sonner";
 import { copyToClipboard } from "@/lib/copy-to-clipboard";
 import {
@@ -89,7 +88,6 @@ export function FloatingTeamBar({
     return analyzeTeam([...slots], leagueId as LeagueId);
   }, [team, leagueId]);
 
-  const analyzeHref = `/teams?l=${leagueId}&p=${team.join(",")}`;
   const isFull = team.length >= 3;
 
   const handleCopy = useCallback(async () => {
@@ -289,15 +287,6 @@ export function FloatingTeamBar({
               {copied ? "Copied!" : "Copy Search String"}
             </button>
 
-            {/* Full analysis link */}
-            <Link
-              href={analyzeHref}
-              className="flex items-center justify-center gap-1.5 rounded-lg border px-4 py-2.5 text-sm font-medium text-primary hover:bg-accent transition-colors"
-              style={{ touchAction: "manipulation" }}
-            >
-              Full Analysis
-              <ArrowRight className="h-4 w-4" />
-            </Link>
           </div>
         </div>
       </div>
