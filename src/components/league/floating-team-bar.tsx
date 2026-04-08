@@ -137,13 +137,10 @@ export function FloatingTeamBar({
         transition: "max-height 300ms cubic-bezier(0.4, 0, 0.2, 1)",
       }}
     >
-      {/* Inner wrapper uses flex-column reversed so that the collapsed row
-          stays pinned to the bottom (visually the top of the panel above nav)
-          and expanded content appears above it, scrolling if needed. */}
-      <div
-        className="flex flex-col-reverse"
-        style={{ maxHeight: EXPANDED_MAX_HEIGHT }}
-      >
+      {/* Inner wrapper: collapsed row is first so it's always visible when
+          max-height clips to COLLAPSED_HEIGHT. Expanded content follows and
+          is revealed when max-height grows. No flex-col-reverse needed. */}
+      <div className="flex flex-col" style={{ maxHeight: EXPANDED_MAX_HEIGHT }}>
         {/* ── Collapsed row (always visible when panel is open) ── */}
         <div
           className="flex shrink-0 items-center gap-2 px-4"
@@ -203,7 +200,7 @@ export function FloatingTeamBar({
           </button>
         </div>
 
-        {/* ── Expanded content (scrollable, above the collapsed row) ── */}
+        {/* ── Expanded content (scrollable, below the collapsed row) ── */}
         <div
           aria-hidden={!expanded}
           className="overflow-y-auto overscroll-contain px-4 pb-2"
