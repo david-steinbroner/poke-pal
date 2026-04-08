@@ -334,7 +334,7 @@ function TeamsPage() {
 
       <Link
         href={`/league/${league}`}
-        className="flex items-center justify-center gap-1 text-xs uppercase tracking-wide text-muted-foreground hover:text-foreground"
+        className="flex items-center justify-center gap-1 text-xs uppercase tracking-wide text-muted-foreground/60 hover:text-muted-foreground"
         style={{ touchAction: "manipulation" }}
       >
         SEE LEAGUE INFO <ArrowRight className="h-3 w-3" />
