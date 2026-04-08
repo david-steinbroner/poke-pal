@@ -6,7 +6,9 @@ export function buildTypeSearchString(types: PokemonType[]): string {
 }
 
 export function buildNameSearchString(names: string[]): string {
-  return names.map((n) => n.toLowerCase()).join(",");
+  return names
+    .map((n) => n.replace(/\s*\(.*?\)\s*/g, "").trim().toLowerCase())
+    .join(",");
 }
 
 export function buildShadowSearchString(types: PokemonType[]): string {
