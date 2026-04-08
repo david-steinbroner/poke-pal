@@ -37,8 +37,14 @@ function TeamsPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  // Initialize from URL params
-  const initialLeague = (searchParams.get("l") as LeagueId) || "great-league";
+  // Initialize from URL params → last edited league → first league (fantasy-cup)
+  const initialLeague = (searchParams.get("l") as LeagueId) || (() => {
+    try {
+      const last = localStorage.getItem("poke-pal:lastEditedLeague");
+      if (last && (LEAGUE_IDS as readonly string[]).includes(last)) return last as LeagueId;
+    } catch {}
+    return LEAGUE_IDS[0];
+  })();
   const initialPokemon = searchParams.get("p")?.split(",").filter(Boolean) || [];
 
   const [league, setLeague] = useState<LeagueId>(initialLeague);
@@ -64,12 +70,13 @@ function TeamsPage() {
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Persist team to localStorage whenever it changes
+  // Persist team + last edited league to localStorage whenever it changes
   useEffect(() => {
     const ids = team
       .filter((s): s is NonNullable<TeamSlot> => s !== null)
       .map((s) => s.pokemonId);
     saveTeam(league, ids);
+    try { localStorage.setItem("poke-pal:lastEditedLeague", league); } catch {}
   }, [team, league]);
 
   // Sync state to URL
