@@ -88,6 +88,7 @@ export function LeaguePageClient({
         leagueId={leagueId}
         cpCap={cpCap}
         onRemove={handleRemoveFromTeam}
+        onAdd={handleAddToTeam}
       />
     </div>
   );
