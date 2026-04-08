@@ -33,10 +33,10 @@ export function BottomNav() {
             <Link
               key={item.label}
               href={item.href}
-              className={`flex flex-1 flex-col items-center gap-1 pt-2.5 pb-1.5 text-xs font-medium transition-colors ${
+              className={`flex flex-1 flex-col items-center gap-1 pt-2.5 pb-1.5 text-[11px] font-medium transition-colors ${
                 active
-                  ? "text-primary font-semibold"
-                  : "text-muted-foreground"
+                  ? "text-foreground/70 font-semibold"
+                  : "text-muted-foreground/50"
               }`}
               style={{ touchAction: "manipulation" }}
             >
