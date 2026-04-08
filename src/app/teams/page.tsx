@@ -192,7 +192,7 @@ function TeamsPage() {
     <div className="space-y-5 pt-4 pb-8">
       <div>
         <h1 className="text-xl font-bold">Team Builder</h1>
-        <div className="mt-2 flex gap-1.5">
+        <div className="mt-4 flex gap-1.5">
           {(LEAGUE_IDS as readonly string[]).map((id) => {
             const isActive = league === id;
             const hasSavedTeam = (() => {
