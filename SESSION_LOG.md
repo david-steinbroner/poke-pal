@@ -1,5 +1,22 @@
 # Poke Pal — Session Log
 
+## Session: 2026-04-08 (Continued — Nav + Cleanup)
+
+### What We Built
+- **Bottom nav bar** (`bottom-nav.tsx`): Persistent 3-tab nav (Search | Leagues | Teams) on all pages. Highlights active route.
+- **Floating team bar repositioned**: Moved above the new bottom nav so it doesn't overlap.
+- **Codebase cleanup**: Deleted dead files (`header.tsx`, `menu-sheet.tsx`, `ui/collapsible.tsx`). Extracted `TYPE_COLORS` to `constants.ts` — was duplicated across 6 component files.
+- **Dependency cleanup**: Moved shadcn to devDependencies.
+- **QA round 3 + codebase audit**: All pages verified, no dead imports, no orphan files.
+- **Cloudflare Pages deployed**: Live at https://poke-pal.pages.dev, auto-deploys on push.
+
+### Stats
+- 2 commits (bottom nav, cleanup)
+- Build clean, TypeScript strict mode zero errors
+- 128+ static pages generated
+
+---
+
 ## Session: 2026-04-08 (Late Night — Team Builder + Deploy)
 
 ### What We Built

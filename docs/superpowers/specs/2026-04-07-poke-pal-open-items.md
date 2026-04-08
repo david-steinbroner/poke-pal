@@ -1,85 +1,95 @@
 # Poke Pal — Open Items & Future Work
 
-Things that need to happen but are not blocking the MVP build. Documented here so nothing gets lost. Solve these as they become relevant.
+Tracked since 2026-04-07. Updated 2026-04-08 after nav + cleanup session.
+
+Items marked [DONE] were completed. Remaining items are prioritized by phase.
 
 ---
 
 ## Repo & Infrastructure Consolidation
 
-**Current state:**
-- pogo-pal: GitHub repo (`david-steinbroner/pogo-pal`), 267 commits, live on pogo-pal.pages.dev via Cloudflare Pages
-- battle-buddy: no git repo, local only, not deployed
-- poke-pal: no git repo, local only, has a Cloudflare D1 Worker (may or may not be deployed)
-
-**What needs to happen:**
-- [ ] Create new `poke-pal` GitHub repo for the unified project
-- [ ] Connect new repo to Cloudflare Pages (new project, not reusing pogo-pal's)
-- [ ] Decide working directory location (e.g., `Pokemon GO/poke-pal-app/` vs replacing existing `poke-pal/`)
+- [x] Create new `poke-pal` GitHub repo for the unified project
+- [x] Connect new repo to Cloudflare Pages (new project, not reusing pogo-pal's)
+- [x] Decide working directory location — using `Pokemon GO/poke-pal/`
 - [ ] Keep pogo-pal.pages.dev live until new app has counter/battle feature parity
-- [ ] Then set up Cloudflare redirect: pogo-pal.pages.dev → new domain
+- [ ] Then set up Cloudflare redirect: pogo-pal.pages.dev → poke-pal.pages.dev
 - [ ] Archive old projects (move to `Pokemon GO/_archive/` or mark as read-only reference)
 - [ ] Decide what happens to poke-pal's existing D1 Worker and database — reuse for Phase 2 collection features or create fresh
 
 ---
 
+## Completed (as of 2026-04-08)
+
+- [x] Counter search with search strings — type a Pokemon, get copyable GO search string
+- [x] League meta with tier rankings — Great, Ultra, Master, Fantasy Cup with S/A/B/C tiers
+- [x] Team Builder — pick 3 Pokemon for any league, see coverage analysis + search string
+- [x] In-place team building on league pages — + button on meta cards, floating bar with suggestions
+- [x] Fantasy Cup: Great League Edition — Dragon/Steel/Fairy, 14 meta picks
+- [x] Bottom nav bar — Search | Leagues | Teams on all pages
+- [x] Cloudflare Pages deploy — live at https://poke-pal.pages.dev
+- [x] Codebase cleanup — dead files removed, TYPE_COLORS extracted, deps cleaned up
+- [x] iOS mobile fixes — clipboard fallback, touch targets, active states
+
+---
+
+## UX Polish (Phase 2 — Next)
+
+- [ ] **Team building flow needs to be self-explanatory** — new users don't know they can tap + on league pages to start building. Needs onboarding hint or empty state guidance.
+- [ ] **Expandable team panel** — mini player at bottom → full mode with coverage chart. Currently the floating bar is compact but doesn't expand in place.
+- [ ] **Counter page improvements** — type matchup visuals (offensive/defensive chart), clearer "why this counter" explanation.
+
+---
+
+## Navigation & Awareness (Phase 2)
+
+- [ ] **Active cup awareness** — only show currently live cups, auto-rotate with GBL schedule. Right now all 4 leagues show equally.
+- [ ] **Shareable clean team URLs** — `/league/great-league/team/mon1-mon2-mon3` for social sharing.
+- [ ] **"Rate my team" / "What should I run?" quiz entry points** — alternative ways into the team builder for users who don't know what they want.
+
+---
+
+## Data & Scoring (Phase 3)
+
+- [ ] **Better counter scoring** — currently ATK-only. Should factor in STAB, bulk, energy generation, shield pressure.
+- [ ] **Data freshness strategy** — who updates league JSON when a new GBL season starts? Commit to 48-hour turnaround. Document the exact steps.
+- [ ] **Pokemon data source** — decide on authoritative source: PokeAPI, GO GameMaster file (data-mined), or manual curation.
+- [ ] **Budget picks curation** — the 46-pick list needs an owner and quarterly review cadence.
+- [ ] **Collection import** (big lift, future) — let users import their Pokemon storage for personalized recommendations. Requires auth, storage, significant data work.
+
+---
+
+## Growth & Distribution (Phase 3)
+
+- [ ] **Reddit launch** — r/TheSilphRoad, r/pokemongo, r/PokemonGOBattleLeague. Gif/video of copy-paste flow. Build karma first, US evening timing.
+- [ ] **Discord** — join top 3-5 Pokemon GO PvP Discords. Shareable team URLs are the entry point.
+- [ ] **Twitter/X** — short clips of the tool in action, timed to GBL season changes and raid rotations.
+- [ ] **SEO** — seasonal meta guides ("Great League meta April 2026"), counter pages for new raid bosses.
+- [ ] **Service worker for offline PWA** — cache static pages for offline use.
+
+---
+
+## Accessibility & Quality
+
+- [ ] **ARIA/accessibility pass** — screen reader labels, focus management, keyboard nav on all interactive elements.
+- [ ] **Feedback channels** — real Google Form link (currently placeholder), consider Discord server if there's interest.
+
+---
+
 ## Business & Strategy Documents
 
-None of these are blocking the build. Most get better after shipping with real user data.
+None blocking the build. Most improve after shipping with real user data.
 
-- [ ] **Roadmap** — phased feature plan with rough timelines. Write after MVP ships and first user feedback arrives.
-- [ ] **Strategy one-pager** — positioning, target user, competitive differentiation, first 3 growth moves. Could write a lightweight version now, flesh out later.
-- [ ] **Market/competitive analysis** — PvPoke, PokeGenie, GamePress, Pokebattler, Stadium Gaming. What each does well, where the gaps are, where Poke Pal fits. Worth doing before Reddit launch to sharpen the pitch.
-- [ ] **Business plan** — only relevant if pursuing monetization or investment. Premature until there are users and usage data.
-- [ ] **Monetization strategy** — ads? premium tier? donations? Decide after understanding usage patterns. The spec mentions "paywall candidates" in Phase 3 but no specifics yet.
+- [ ] **Roadmap** — see `2026-04-08-roadmap.md`
+- [ ] **Strategy one-pager** — positioning, differentiation, first 3 growth moves
+- [ ] **Market/competitive analysis** — PvPoke, PokeGenie, GamePress, Pokebattler, Stadium Gaming
+- [ ] **Monetization strategy** — ads? premium? donations? Decide after usage data
 
 ---
 
 ## Legal & IP
 
-Pokemon fan projects operate in a gray area. Document the rules and stay within them.
+Pokemon fan projects operate in a gray area. Stay within the rules.
 
-- [ ] **Trademark research on "Poke Pal"** — The Pokemon Company aggressively protects "Poke" + "Pokemon" trademarks. "Poke Pal" is also used by at least one existing plush brand. Research whether this name is safe for a free web tool vs. a monetized product. Have 2-3 backup names ready.
-- [ ] **Backup name options** — brainstorm alternatives that don't use "Poke," "Mon," or other Nintendo/TPC-adjacent terms. Examples to explore: GO Buddy, Battle Strings, Counter Copy, etc. (all need vetting)
-- [ ] **Art and visual assets** — never use official Pokemon artwork, sprites, Poke Ball icons, or Nintendo assets. Options:
-  - Type icons: create original SVGs (pogo-pal already has custom type icons — evaluate reuse)
-  - Pokemon images: use silhouettes, or text-only (safest), or link to a community sprite resource that has clear licensing
-  - App icon: must be original, no Poke Ball or Pokemon imagery
-- [ ] **IP law basics to understand:**
-  - Fan projects are tolerated as long as they're free, non-commercial, and don't use official assets
-  - Monetization (ads, premium) increases legal risk significantly
-  - The Pokemon Company has sent C&Ds to fan projects before (PokeVision, various Pokedex apps)
-  - A "not affiliated with" disclaimer helps but doesn't provide legal protection
-  - Consider: is this a hobby project or a business? The answer changes the risk profile.
-- [ ] **Terms of service / privacy policy** — needed if collecting any data (even analytics). Cloudflare Web Analytics is cookieless and GDPR-compliant, so minimal exposure. Google Form feedback may collect emails. Write a simple privacy page before launching publicly.
-
----
-
-## Community & Distribution
-
-- [ ] **Reddit strategy:**
-  - Target subs: r/TheSilphRoad (400K, serious PvP/research), r/pokemongo (4M, casual), r/PokemonGOBattleLeague (smaller, highly targeted)
-  - 9:1 content-to-promotion ratio enforced on all subs. Build karma by contributing genuinely before posting the tool.
-  - Launch post format: gif/video of the copy-paste flow in action, not a text post with a link. "I built a free tool that..." framing works well.
-  - Don't cross-post simultaneously — mods communicate across Pokemon GO subs
-  - Timing: post during US evening hours (highest Reddit Pokemon GO traffic)
-- [ ] **Discord:**
-  - Pokemon GO PvP Discord servers are where team-sharing happens most
-  - Shareable team URLs (Phase 2) are the entry point here
-  - Find the top 3-5 Pokemon GO Discord communities and join them before launching
-- [ ] **Feedback channels:**
-  - Google Form (MVP) — link in the app menu
-  - Reddit comments on launch post — monitor and respond
-  - Consider: a dedicated Discord server for Poke Pal? Only if there's enough interest to justify it. Don't create an empty community.
-- [ ] **Content marketing (Phase 3):**
-  - Seasonal meta guides (auto-generated or manually written) that rank for "Great League meta [month] [year]"
-  - "Best counters for [new raid boss]" posts timed to raid rotations
-  - These drive SEO backlinks and establish authority
-
----
-
-## Data & Content Operations
-
-- [ ] **Meta data update process:** Who updates the league JSON when a new GBL season starts? How long does it take? Commit to 48-hour turnaround. Document the exact steps so it's not bottlenecked on one person.
-- [ ] **Pokemon data source:** Need to decide on the authoritative source for Pokemon stats, moves, and type data. Options: PokeAPI, Pokemon GO GameMaster file (data-mined), manual curation. GameMaster is most accurate for GO-specific data but changes with every app update.
-- [ ] **Budget picks curation:** The ~50-80 "budget picks" list needs an owner and update cadence. Community moves shift which Pokemon are accessible. Review quarterly at minimum.
-- [ ] **Raid boss / Rocket lineup tracking (Phase 2):** These rotate frequently. Need either a manual update process or a data source that can be scraped/pulled.
+- [ ] **Trademark research on "Poke Pal"** — TPC aggressively protects "Poke" + "Pokemon" trademarks. Have 2-3 backup names ready.
+- [ ] **Art and visual assets** — never use official Pokemon artwork. Use type-only SVGs or text-only (safest).
+- [ ] **Terms of service / privacy policy** — needed before public Reddit launch. Cloudflare Web Analytics is cookieless/GDPR-compliant, minimal exposure.
