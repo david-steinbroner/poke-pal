@@ -58,7 +58,7 @@ export default function Home() {
       )}
 
       <div>
-        <h2 className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">Your Team</h2>
+        <h2 className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">My Teams</h2>
         <HomeTeamPreview />
       </div>
     </div>
