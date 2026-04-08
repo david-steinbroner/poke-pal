@@ -1,5 +1,4 @@
 import { SearchInput } from "@/components/search-input";
-import { LeagueCard } from "@/components/league-card";
 import { QUICK_PICKS } from "@/lib/constants";
 import pokemonData from "@/data/pokemon.json";
 import greatLeague from "@/data/leagues/great-league.json";
@@ -8,7 +7,8 @@ import masterLeague from "@/data/leagues/master-league.json";
 import fantasyCup from "@/data/leagues/fantasy-cup.json";
 import Link from "next/link";
 
-const leagues = [fantasyCup, ultraLeague, greatLeague, masterLeague];
+const allLeagues = [fantasyCup, greatLeague, ultraLeague, masterLeague];
+const activeLeagues = allLeagues.filter((l) => l.active);
 
 export default function Home() {
   return (
@@ -52,21 +52,25 @@ export default function Home() {
 
       <div>
         <h2 className="mb-2 text-sm font-medium text-muted-foreground">
-          League Meta
+          What&apos;s Live
         </h2>
-        <div className="space-y-2">
-          {leagues.map((league) => (
-            <LeagueCard
-              key={league.id}
-              id={league.id}
-              name={league.name}
-              cpCap={league.cpCap}
-              season={league.season}
-              active={league.active}
-              metaCount={league.meta.length}
-            />
-          ))}
-        </div>
+        {activeLeagues.length > 0 ? (
+          <div className="flex flex-wrap gap-x-3 gap-y-1">
+            {activeLeagues.map((l) => (
+              <Link
+                key={l.id}
+                href={`/league/${l.id}`}
+                className="text-sm font-medium text-primary hover:underline"
+              >
+                {l.name}
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <p className="text-sm text-muted-foreground">
+            No active cups right now.
+          </p>
+        )}
       </div>
     </div>
   );

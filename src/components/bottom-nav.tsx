@@ -6,7 +6,7 @@ import { Search, Trophy, Users } from "lucide-react";
 
 const NAV_ITEMS = [
   { href: "/", label: "Search", icon: Search, match: (p: string) => p === "/" || p.startsWith("/counter") },
-  { href: "/league/fantasy-cup", label: "Leagues", icon: Trophy, match: (p: string) => p.startsWith("/league") },
+  { href: "/leagues", label: "Leagues", icon: Trophy, match: (p: string) => p === "/leagues" || p.startsWith("/league/") },
   { href: "/teams", label: "Teams", icon: Users, match: (p: string) => p.startsWith("/teams") },
 ] as const;
 

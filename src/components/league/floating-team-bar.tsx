@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useCallback, useMemo } from "react";
-import { X, Copy, ArrowRight, Plus } from "lucide-react";
+import { useState, useCallback, useMemo, useEffect } from "react";
+import { X, Copy, ChevronUp, ChevronDown, ArrowRight, Plus } from "lucide-react";
 import Link from "next/link";
 import { toast } from "sonner";
 import { copyToClipboard } from "@/lib/copy-to-clipboard";
@@ -14,6 +14,10 @@ import type { LeagueId } from "@/lib/team-types";
 import type { PokemonType } from "@/lib/types";
 import pokemonData from "@/data/pokemon.json";
 
+/* ─── Constants ─── */
+const COLLAPSED_HEIGHT = 56; // px — enough for one row of chips + copy
+
+/* ─── Types ─── */
 type FloatingTeamBarProps = {
   team: string[];
   leagueId: string;
@@ -22,6 +26,7 @@ type FloatingTeamBarProps = {
   onAdd: (pokemonId: string) => void;
 };
 
+/* ─── Helpers ─── */
 function getPokemonName(pokemonId: string): string {
   const pokemon = pokemonData.find((p) => p.id === pokemonId);
   return pokemon?.name ?? pokemonId;
@@ -45,6 +50,7 @@ function pokemonToSlot(id: string) {
   };
 }
 
+/* ─── Component ─── */
 export function FloatingTeamBar({
   team,
   leagueId,
@@ -52,7 +58,20 @@ export function FloatingTeamBar({
   onRemove,
   onAdd,
 }: FloatingTeamBarProps) {
+  const [expanded, setExpanded] = useState(false);
   const [copied, setCopied] = useState(false);
+
+  // Lock body scroll when expanded
+  useEffect(() => {
+    if (expanded) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [expanded]);
 
   // Build search string
   const names = team.map(getPokemonName);
@@ -92,47 +111,60 @@ export function FloatingTeamBar({
     .filter((s) => !team.includes(s.pokemonId))
     .slice(0, 3);
 
+  // Collapse when team becomes empty
+  useEffect(() => {
+    if (team.length === 0) setExpanded(false);
+  }, [team.length]);
+
   return (
     <div
       role="region"
       aria-label="Team builder"
       aria-live="polite"
-      className={`fixed left-0 right-0 z-50 border-t bg-background/95 backdrop-blur-sm px-4 pt-3 pb-3 transition-transform duration-300 motion-reduce:transition-none ${
-        isVisible ? "translate-y-0" : "translate-y-full"
-      }`}
+      className="fixed left-0 right-0 z-50"
       style={{ bottom: "calc(3rem + env(safe-area-inset-bottom, 0px))" }}
     >
-      <div className="mx-auto max-w-lg space-y-2">
-        {/* Line 1: Team slots + Copy */}
-        <div className="flex items-center gap-2">
-          {/* Team chips */}
-          <div className="flex flex-1 flex-wrap items-center gap-1.5">
+      {/* Outer wrapper: always renders at full height, slides via translateY */}
+      <div
+        className="border-t bg-background/95 backdrop-blur-sm transition-transform duration-300 motion-reduce:transition-none"
+        style={{
+          maxHeight: "min(50vh, 340px)",
+          transform: isVisible
+            ? expanded
+              ? "translateY(0)"
+              : `translateY(calc(100% - ${COLLAPSED_HEIGHT}px))`
+            : "translateY(100%)",
+        }}
+      >
+        {/* ── Collapsed row ── */}
+        <div
+          className="flex items-center gap-2 px-4"
+          style={{ height: `${COLLAPSED_HEIGHT}px` }}
+        >
+          {/* Team chips + empty slots */}
+          <div className="flex flex-1 flex-wrap items-center gap-1.5 overflow-hidden">
             {team.map((pokemonId) => (
               <span
                 key={pokemonId}
-                className="inline-flex items-center gap-1 rounded-full border bg-card px-2.5 py-1 text-xs font-medium"
+                className="inline-flex shrink-0 items-center gap-1 rounded-full border bg-card px-2.5 py-1 text-xs font-medium"
               >
                 {getPokemonName(pokemonId)}
-                <button
-                  onClick={() => onRemove(pokemonId)}
-                  className="inline-flex items-center justify-center min-h-[44px] min-w-[24px] -my-2 -mr-1 text-muted-foreground hover:text-foreground"
-                  style={{ touchAction: "manipulation" }}
-                  aria-label={`Remove ${getPokemonName(pokemonId)}`}
-                >
-                  <X className="h-3 w-3" />
-                </button>
               </span>
             ))}
-            {/* Empty slots */}
             {Array.from({ length: 3 - team.length }).map((_, i) => (
               <span
                 key={`empty-${i}`}
-                className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-dashed text-muted-foreground"
+                className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-dashed text-muted-foreground"
               >
                 <span className="text-xs">{team.length + i + 1}</span>
               </span>
             ))}
           </div>
+
+          {/* Coverage score */}
+          <span className="shrink-0 text-xs font-medium text-muted-foreground">
+            {analysis.coverageScore}/18
+          </span>
 
           {/* Copy button */}
           <button
@@ -147,46 +179,127 @@ export function FloatingTeamBar({
             <Copy className="h-3.5 w-3.5" />
             {copied ? "Copied!" : "Copy"}
           </button>
+
+          {/* Expand / collapse chevron */}
+          <button
+            onClick={() => setExpanded((prev) => !prev)}
+            className="shrink-0 inline-flex items-center justify-center rounded-lg p-2 text-muted-foreground hover:text-foreground transition-colors"
+            style={{ touchAction: "manipulation" }}
+            aria-label={expanded ? "Collapse team panel" : "Expand team panel"}
+          >
+            {expanded ? (
+              <ChevronDown className="h-4 w-4" />
+            ) : (
+              <ChevronUp className="h-4 w-4" />
+            )}
+          </button>
         </div>
 
-        {/* Line 2: Suggestions (when not full) or Score + Team link (when full) */}
-        {!isFull && suggestions.length > 0 && (
-          <div className="flex items-center gap-2 overflow-x-auto">
-            <span className="shrink-0 text-xs text-muted-foreground">
-              Try:
-            </span>
-            {suggestions.map((s) => (
-              <button
-                key={s.pokemonId}
-                onClick={() => onAdd(s.pokemonId)}
-                className="inline-flex shrink-0 items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium transition-colors hover:bg-accent active:bg-accent active:scale-95"
-                style={{ touchAction: "manipulation" }}
-              >
-                <Plus className="h-3 w-3" />
-                {getPokemonName(s.pokemonId)}
-              </button>
-            ))}
-            <span className="shrink-0 text-xs text-muted-foreground ml-auto">
-              {analysis.coverageScore}/18
-            </span>
-          </div>
-        )}
+        {/* ── Expanded content ── */}
+        <div
+          aria-hidden={!expanded}
+          style={{
+            visibility: expanded ? "visible" : "hidden",
+            height: expanded ? "auto" : 0,
+            overflow: expanded ? "auto" : "hidden",
+          }}
+          className="px-4 pb-4"
+        >
+          <div className="mx-auto max-w-lg space-y-3">
+            {/* Team slots with types and remove button */}
+            <div className="space-y-2">
+              {team.map((pokemonId) => {
+                const slot = pokemonToSlot(pokemonId);
+                return (
+                  <div
+                    key={pokemonId}
+                    className="flex items-center gap-2 rounded-lg border bg-card px-3 py-2"
+                  >
+                    <span className="text-sm font-medium">
+                      {getPokemonName(pokemonId)}
+                    </span>
+                    {slot && (
+                      <div className="flex gap-1">
+                        {slot.types.map((t) => (
+                          <span
+                            key={t}
+                            className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-medium uppercase text-muted-foreground"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    <button
+                      onClick={() => onRemove(pokemonId)}
+                      className="ml-auto inline-flex items-center justify-center min-h-[44px] min-w-[44px] text-muted-foreground hover:text-foreground"
+                      style={{ touchAction: "manipulation" }}
+                      aria-label={`Remove ${getPokemonName(pokemonId)}`}
+                    >
+                      <X className="h-4 w-4" />
+                    </button>
+                  </div>
+                );
+              })}
 
-        {isFull && (
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-medium">
-              {analysis.coverageScore}/18 types covered
-            </span>
-            <Link
-              href={analyzeHref}
-              className="inline-flex items-center gap-1 rounded-lg px-3 py-1.5 text-xs font-medium text-primary hover:underline"
+              {/* Empty slot placeholders */}
+              {Array.from({ length: 3 - team.length }).map((_, i) => (
+                <div
+                  key={`empty-slot-${i}`}
+                  className="flex items-center rounded-lg border border-dashed px-3 py-2 text-sm text-muted-foreground"
+                >
+                  Slot {team.length + i + 1} — tap a Pokemon above to add
+                </div>
+              ))}
+            </div>
+
+            {/* Suggestion chips */}
+            {!isFull && suggestions.length > 0 && (
+              <div className="space-y-1.5">
+                <span className="text-xs text-muted-foreground">
+                  Try:
+                </span>
+                <div className="flex flex-wrap gap-1.5">
+                  {suggestions.map((s) => (
+                    <button
+                      key={s.pokemonId}
+                      onClick={() => onAdd(s.pokemonId)}
+                      className="inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium transition-colors hover:bg-accent active:bg-accent active:scale-95"
+                      style={{ touchAction: "manipulation" }}
+                    >
+                      <Plus className="h-3 w-3" />
+                      {s.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Full-width copy button */}
+            <button
+              onClick={handleCopy}
+              className={`w-full inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all active:scale-[0.98] ${
+                copied
+                  ? "bg-secondary text-secondary-foreground"
+                  : "bg-primary text-primary-foreground"
+              }`}
               style={{ touchAction: "manipulation" }}
             >
-              Team
-              <ArrowRight className="h-3.5 w-3.5" />
+              <Copy className="h-4 w-4" />
+              {copied ? "Copied!" : "Copy Search String"}
+            </button>
+
+            {/* Full analysis link */}
+            <Link
+              href={analyzeHref}
+              className="flex items-center justify-center gap-1.5 rounded-lg border px-4 py-2.5 text-sm font-medium text-primary hover:bg-accent transition-colors"
+              style={{ touchAction: "manipulation" }}
+            >
+              Full Analysis
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
