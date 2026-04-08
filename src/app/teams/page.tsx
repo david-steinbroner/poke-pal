@@ -242,29 +242,30 @@ function TeamsPage() {
                 label={displayLabel}
                 onAdd={() => {/* no-op: search input handles adding */}}
                 onRemove={() => handleSlotRemove(i as 0 | 1 | 2)}
-              />
-              {isNextEmpty && metaSuggestions.length > 0 && (
-                <div className="mt-1 rounded-lg border border-dashed p-3 space-y-2">
-                  <div className="flex flex-wrap gap-1.5">
-                    {metaSuggestions.slice(0, 5).map((m) => {
-                      const p = getPokemonById(m.pokemonId);
-                      return (
-                        <PokemonChip
-                          key={m.pokemonId}
-                          name={p?.name ?? m.pokemonId}
-                          variant="add"
-                          onAction={() => handlePokemonSelect(m.pokemonId)}
-                        />
-                      );
-                    })}
+              >
+                {isNextEmpty && metaSuggestions.length > 0 && (
+                  <div className="space-y-2">
+                    <div className="flex flex-wrap gap-1.5">
+                      {metaSuggestions.slice(0, 5).map((m) => {
+                        const p = getPokemonById(m.pokemonId);
+                        return (
+                          <PokemonChip
+                            key={m.pokemonId}
+                            name={p?.name ?? m.pokemonId}
+                            variant="add"
+                            onAction={() => handlePokemonSelect(m.pokemonId)}
+                          />
+                        );
+                      })}
+                    </div>
+                    {gapTypes.length > 0 && (
+                      <p className="text-xs text-muted-foreground">
+                        or any {gapTypes.join(", ")} type
+                      </p>
+                    )}
                   </div>
-                  {gapTypes.length > 0 && (
-                    <p className="text-xs text-muted-foreground">
-                      or any {gapTypes.join(", ")} type
-                    </p>
-                  )}
-                </div>
-              )}
+                )}
+              </TeamSlotCard>
             </div>
           );
         })}
