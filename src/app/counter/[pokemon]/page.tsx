@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Link from "next/link";
-import { DualCopyButtons } from "@/components/dual-copy-buttons";
+import { CopyButton } from "@/components/copy-button";
 import { PokemonListItem } from "@/components/pokemon-list-item";
 import { BackButton } from "@/components/back-button";
 import { getCountersFor, getAllPokemonIds } from "@/lib/counters";
@@ -61,14 +60,7 @@ export default async function CounterPage({
         </div>
       </div>
 
-      <DualCopyButtons
-        buttons={[
-          { searchString: result.searchString, label: "Copy Counters" },
-          ...(result.shadowSearchString
-            ? [{ searchString: result.shadowSearchString, label: "Copy Shadow" }]
-            : []),
-        ]}
-      />
+      <CopyButton searchString={result.searchString} label="Copy Counters Search String" />
 
       {/* Type effectiveness badges */}
       {(() => {
@@ -163,12 +155,6 @@ export default async function CounterPage({
         </div>
       )}
 
-      <Link
-        href={`/teams?l=great-league&p=${pokemon.id}`}
-        className="text-xs text-muted-foreground hover:underline"
-      >
-        Build a team around {pokemon.name} &rarr;
-      </Link>
     </div>
   );
 }
