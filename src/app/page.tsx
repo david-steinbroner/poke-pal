@@ -24,7 +24,7 @@ export default function Home() {
               <Link
                 key={id}
                 href={`/counter/${id}`}
-                className="inline-flex min-h-11 items-center rounded-full border px-3 py-1.5 text-sm capitalize transition-colors hover:bg-accent active:bg-accent active:scale-95"
+                className="inline-flex min-h-11 items-center rounded-full border px-3 py-1.5 text-sm font-medium capitalize transition-colors hover:bg-accent active:bg-accent active:scale-95"
               >
                 {getPokemonName(id)}
               </Link>
@@ -40,7 +40,7 @@ export default function Home() {
               <Link
                 key={l.id}
                 href={`/league/${l.id}`}
-                className="inline-flex min-h-11 items-center rounded-full border px-3 py-1.5 text-sm font-medium transition-colors hover:bg-accent active:bg-accent active:scale-95"
+                className="inline-flex min-h-11 items-center rounded-full border px-3 py-1.5 text-sm font-medium capitalize transition-colors hover:bg-accent active:bg-accent active:scale-95"
               >
                 {l.name}
               </Link>

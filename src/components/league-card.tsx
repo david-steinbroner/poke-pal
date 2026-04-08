@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { StatusPill } from "@/components/status-pill";
 
 export function LeagueCard({
   id,
@@ -30,16 +31,14 @@ export function LeagueCard({
   return (
     <Link
       href={`/league/${id}`}
-      className={`block rounded-lg border p-4 transition-colors hover:bg-accent active:bg-accent active:scale-[0.98] ${
+      className={`block rounded-lg border p-3 transition-colors hover:bg-accent active:bg-accent active:scale-[0.98] ${
         isInactive ? "opacity-50" : ""
       }`}
     >
       <div className="flex items-center justify-between">
         <h3 className="font-medium">{name}</h3>
         {active && !isInactive && (
-          <span className="rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700 dark:bg-green-900 dark:text-green-300">
-            Live
-          </span>
+          <StatusPill>Live</StatusPill>
         )}
         {isInactive && formattedStartDate && (
           <span className="text-xs text-muted-foreground">

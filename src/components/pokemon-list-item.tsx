@@ -2,6 +2,7 @@
 
 import { Plus, Check, X, ChevronRight } from "lucide-react";
 import { TypeBadge } from "@/components/type-badge";
+import { StatusPill } from "@/components/status-pill";
 
 const TIER_COLORS: Record<string, string> = {
   S: "text-yellow-600 dark:text-yellow-400",
@@ -52,9 +53,7 @@ export function PokemonListItem({
         <div className="flex items-center gap-2">
           <span className="font-medium text-sm truncate">{name}</span>
           {recommended && (
-            <span className="shrink-0 rounded-full bg-emerald-100 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">
-              Rec
-            </span>
+            <StatusPill variant="emerald" className="shrink-0">Rec</StatusPill>
           )}
           {types && types.length > 0 && (
             <div className="ml-auto flex shrink-0 gap-1">

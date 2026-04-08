@@ -11,7 +11,7 @@ import {
 } from "@/lib/type-effectiveness";
 import { POKEMON_TYPES } from "@/lib/types";
 import type { PokemonType } from "@/lib/types";
-import { TYPE_COLORS } from "@/lib/constants";
+import { TypeBadge } from "@/components/type-badge";
 import pokemonData from "@/data/pokemon.json";
 
 export function generateStaticParams() {
@@ -54,12 +54,7 @@ export default async function CounterPage({
         <div className="mt-2 flex items-baseline gap-2">
           <h1 className="text-xl font-bold">{pokemon.name}</h1>
           {pokemon.types.map((t) => (
-            <span
-              key={t}
-              className="rounded-full bg-muted px-2 py-0.5 text-xs font-medium"
-            >
-              {t}
-            </span>
+            <TypeBadge key={t} type={t} variant="muted" />
           ))}
         </div>
       </div>
@@ -92,12 +87,13 @@ export default async function CounterPage({
                   const multiplier = getEffectiveness(t, defenderTypes);
                   const isDouble = multiplier > 2.0;
                   return (
-                    <span
-                      key={t}
-                      className={`${TYPE_COLORS[t]} rounded-full px-2 py-0.5 text-xs font-medium text-white`}
-                    >
-                      {t}
-                      {isDouble && " 2\u00d7"}
+                    <span key={t} className="inline-flex items-center gap-0.5">
+                      <TypeBadge type={t} />
+                      {isDouble && (
+                        <span className="text-xs font-medium text-muted-foreground">
+                          2{"\u00d7"}
+                        </span>
+                      )}
                     </span>
                   );
                 })}
@@ -109,12 +105,7 @@ export default async function CounterPage({
                   Resists
                 </span>
                 {resists.map((t) => (
-                  <span
-                    key={t}
-                    className={`${TYPE_COLORS[t]} rounded-full px-2 py-0.5 text-xs font-medium text-white`}
-                  >
-                    {t}
-                  </span>
+                  <TypeBadge key={t} type={t} />
                 ))}
               </div>
             )}

@@ -2,6 +2,7 @@
 
 import type { PokemonType } from "@/lib/types";
 import { TypeBadge } from "@/components/type-badge";
+import { StatusPill } from "@/components/status-pill";
 
 type SwapSuggestion = {
   pokemonId: string;
@@ -39,9 +40,7 @@ export function SwapSuggestions({
               <span className="font-medium text-sm capitalize">
                 {suggestion.name}
               </span>
-              <span className="rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700 dark:bg-green-900 dark:text-green-300">
-                +{suggestion.gapsCovered} gaps
-              </span>
+              <StatusPill>+{suggestion.gapsCovered} gaps</StatusPill>
             </div>
             <div className="mt-1 flex gap-1">
               {suggestion.types.map((t) => (

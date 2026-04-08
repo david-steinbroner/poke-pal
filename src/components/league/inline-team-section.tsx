@@ -33,7 +33,7 @@ export function InlineTeamSection({
         <div className="flex items-center gap-2">
           <span className="text-sm font-semibold">Your Team</span>
           <span
-            className={`rounded-full px-1.5 py-0.5 text-xs font-bold ${RATING_COLORS[rating]}`}
+            className={`rounded-full px-2 py-0.5 text-xs font-bold ${RATING_COLORS[rating]}`}
           >
             {rating}
           </span>
