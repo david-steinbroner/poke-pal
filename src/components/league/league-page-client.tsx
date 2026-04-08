@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import { TierAccordion } from "@/components/tier-accordion";
 import { DualCopyButtons } from "@/components/dual-copy-buttons";
 import { SearchInput } from "@/components/search-input";
-import { BackButton } from "@/components/back-button";
+import Link from "next/link";
 import { InlineTeamSection } from "./inline-team-section";
 import { saveTeam, loadTeam } from "@/lib/team-storage";
 import { analyzeTeam } from "@/lib/team-analysis";
@@ -95,7 +95,7 @@ export function LeaguePageClient({
   return (
     <div className="space-y-4 pt-4">
       <div>
-        <BackButton />
+        <Link href="/leagues" className="text-sm text-muted-foreground hover:text-foreground">← Leagues</Link>
         <h1 className="mt-2 text-xl font-bold">{leagueName}</h1>
         <p className="text-sm text-muted-foreground">
           {cpCap === 9999 ? "No CP limit" : `CP ${cpCap.toLocaleString()}`}
