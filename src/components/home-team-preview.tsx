@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { Plus, Pencil } from "lucide-react";
 import { PokemonChip } from "@/components/pokemon-chip";
 import { getPokemonName } from "@/lib/pokemon-utils";
 import { getAllSavedTeams } from "@/lib/team-storage";
@@ -64,18 +65,20 @@ export function HomeTeamPreview() {
             ))}
             <Link
               href={`/teams?l=${selectedTab}&p=${selectedPokemon.join(",")}`}
-              className="inline-flex items-center rounded-full border px-3 py-1.5 text-sm font-medium text-muted-foreground hover:bg-accent"
+              className="inline-flex items-center justify-center rounded-full border px-2.5 py-1.5 text-muted-foreground hover:bg-accent"
               style={{ touchAction: "manipulation" }}
+              aria-label="Edit team"
             >
-              Edit
+              <Pencil className="h-3.5 w-3.5" />
             </Link>
           </>
         ) : (
           <Link
             href={`/teams?l=${selectedTab}`}
-            className="inline-flex min-h-11 items-center rounded-full border px-3 py-1.5 text-sm font-medium transition-colors hover:bg-accent active:bg-accent active:scale-95"
+            className="inline-flex items-center justify-center rounded-full border px-2.5 py-1.5 text-muted-foreground transition-colors hover:bg-accent active:bg-accent active:scale-95"
+            aria-label="Build team"
           >
-            Build &rarr;
+            <Plus className="h-3.5 w-3.5" />
           </Link>
         )}
       </div>
