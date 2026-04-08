@@ -38,6 +38,16 @@ yarn-error.log*
 # vercel
 .vercel
 
+# legacy project files (not part of Next.js app)
+/web/
+/scans/
+/skill/
+/assets/
+NEXT-STEPS.md
+VERSION
+CHANGELOG.md
+.claude-flow/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
