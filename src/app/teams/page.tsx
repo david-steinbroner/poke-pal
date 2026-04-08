@@ -325,6 +325,14 @@ function TeamsPage() {
         })}
       </div>
 
+      <Link
+        href={`/league/${league}`}
+        className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+        style={{ touchAction: "manipulation" }}
+      >
+        See cup info <ArrowRight className="h-3 w-3" />
+      </Link>
+
       {hasTeam && analysis.threats.length > 0 && (
         <div>
           <h2 className="mb-2 text-sm font-medium">

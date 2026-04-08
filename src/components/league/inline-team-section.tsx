@@ -4,7 +4,6 @@ import { useMemo } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { PokemonChip } from "@/components/pokemon-chip";
-import { calculateTeamRating, RATING_COLORS } from "@/lib/team-rating";
 import { getPokemonName } from "@/lib/pokemon-utils";
 import type { LeagueId } from "@/lib/team-types";
 
@@ -19,25 +18,13 @@ export function InlineTeamSection({
   leagueId,
   onRemove,
 }: InlineTeamSectionProps) {
-  const rating = useMemo(
-    () => calculateTeamRating(team, leagueId as LeagueId),
-    [team, leagueId],
-  );
-
   if (team.length === 0) return null;
 
   return (
     <div className="rounded-lg border p-4 space-y-3">
       {/* Header row: "Your Team" + rating (left) | arrow link (right) */}
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <span className="text-sm font-semibold">Your Team</span>
-          <span
-            className={`rounded-full px-2 py-0.5 text-xs font-bold ${RATING_COLORS[rating]}`}
-          >
-            {rating}
-          </span>
-        </div>
+        <span className="text-sm font-semibold">Your Team</span>
         <Link
           href={`/teams?l=${leagueId}&p=${team.join(",")}`}
           className="text-primary hover:text-primary/80"

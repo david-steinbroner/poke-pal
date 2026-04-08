@@ -48,19 +48,18 @@ export function HomeTeamPreview() {
       {/* League tabs — only leagues with saved teams */}
       <div className="flex flex-wrap gap-1.5">
         {teams.map((team) => (
-          <Link
+          <button
             key={team.leagueId}
-            href={`/teams?l=${team.leagueId}&p=${team.pokemonIds.join(",")}`}
+            onClick={() => setSelectedTab(team.leagueId)}
             className={`rounded-full px-3 py-1.5 text-sm font-medium transition-colors ${
               selectedTab === team.leagueId
                 ? "bg-primary text-primary-foreground"
                 : "border text-muted-foreground hover:bg-accent"
             }`}
             style={{ touchAction: "manipulation" }}
-            onClick={() => setSelectedTab(team.leagueId)}
           >
-            {LEAGUE_SHORT_NAMES[team.leagueId] ?? team.leagueId} ›
-          </Link>
+            {LEAGUE_SHORT_NAMES[team.leagueId] ?? team.leagueId}
+          </button>
         ))}
       </div>
 
@@ -70,6 +69,13 @@ export function HomeTeamPreview() {
           {selectedTeam.pokemonIds.map((id) => (
             <PokemonChip key={id} name={getPokemonName(id)} />
           ))}
+          <Link
+            href={`/teams?l=${selectedTeam.leagueId}&p=${selectedTeam.pokemonIds.join(",")}`}
+            className="inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium text-muted-foreground hover:bg-accent"
+            style={{ touchAction: "manipulation" }}
+          >
+            Edit
+          </Link>
         </div>
       )}
     </div>
