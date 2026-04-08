@@ -226,6 +226,9 @@ function TeamsPage() {
         {SLOT_LABELS.map((label, i) => {
           const slot = team[i] ?? null;
           const isEmpty = slot === null;
+          // Only show suggestions in the NEXT slot to fill:
+          // Slot 0 always shows if empty, slot 1 only if slot 0 is filled, slot 2 only if 0+1 filled
+          const showSuggestions = isEmpty && team.slice(0, i).every((s) => s !== null);
           return (
             <div key={label}>
               <TeamSlotCard
@@ -233,7 +236,7 @@ function TeamsPage() {
                 label={label}
                 onRemove={() => handleSlotRemove(i as 0 | 1 | 2)}
               >
-                {isEmpty && metaSuggestions.length > 0 && (
+                {showSuggestions && metaSuggestions.length > 0 && (
                   <div className="space-y-2">
                     <div className="flex flex-wrap gap-1.5">
                       {metaSuggestions.slice(0, 5).map((m) => {
