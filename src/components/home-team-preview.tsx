@@ -51,7 +51,7 @@ export function HomeTeamPreview() {
           <button
             key={team.leagueId}
             onClick={() => setSelectedTab(team.leagueId)}
-            className={`rounded-full px-3 py-1.5 text-sm font-medium transition-colors ${
+            className={`min-h-9 rounded-full px-3 py-1.5 text-sm font-medium transition-colors ${
               selectedTab === team.leagueId
                 ? "bg-primary text-primary-foreground"
                 : "border text-muted-foreground hover:bg-accent"
