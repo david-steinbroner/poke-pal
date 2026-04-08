@@ -8,7 +8,6 @@ import { CoverageChart } from "@/components/team/coverage-chart";
 import { ThreatList } from "@/components/team/threat-list";
 import { SwapSuggestions } from "@/components/team/swap-suggestions";
 import { CopyBar } from "@/components/copy-bar";
-import { BackButton } from "@/components/back-button";
 import { SearchInput } from "@/components/search-input";
 import { ClearButton } from "@/components/clear-button";
 import { analyzeTeam, assignRoles, getLeagueInfo, getPokemonById } from "@/lib/team-analysis";
@@ -206,8 +205,7 @@ function TeamsPage() {
   return (
     <div className="space-y-5 pt-4 pb-8">
       <div>
-        <BackButton />
-        <div className="mt-2 flex items-center gap-2">
+        <div className="flex items-center gap-2">
           <h1 className="text-xl font-bold">Team Builder</h1>
           {teamRating && (
             <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${RATING_COLORS[teamRating]}`}>

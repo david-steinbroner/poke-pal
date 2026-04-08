@@ -58,7 +58,7 @@ export function InlineTeamSection({
           <PokemonChip
             key={pokemonId}
             name={getPokemonName(pokemonId)}
-            onRemove={() => onRemove(pokemonId)}
+            onAction={() => onRemove(pokemonId)}
           />
         ))}
         {Array.from({ length: 3 - team.length }).map((_, i) => (

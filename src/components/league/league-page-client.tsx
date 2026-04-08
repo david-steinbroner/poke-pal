@@ -37,6 +37,13 @@ export function LeaguePageClient({
   metaSearchString,
   cpString,
 }: LeaguePageClientProps) {
+  // Store last visited league slug for bottom nav memory
+  useEffect(() => {
+    try {
+      localStorage.setItem("poke-pal:lastLeague", leagueId);
+    } catch {}
+  }, [leagueId]);
+
   const [team, setTeam] = useState<string[]>([]);
 
   // Restore team from localStorage on mount (avoids SSR mismatch)
