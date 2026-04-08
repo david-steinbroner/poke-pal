@@ -18,7 +18,7 @@ export function LeagueCard({
   return (
     <Link
       href={`/league/${id}`}
-      className="block rounded-lg border p-4 transition-colors hover:bg-accent"
+      className="block rounded-lg border p-4 transition-colors hover:bg-accent active:bg-accent active:scale-[0.98]"
     >
       <div className="flex items-center justify-between">
         <h3 className="font-medium">{name}</h3>

@@ -123,8 +123,18 @@
   }
   body {
     @apply bg-background text-foreground;
+    -webkit-tap-highlight-color: transparent;
   }
   html {
     @apply font-sans;
+  }
+  /* Kill 300ms tap delay on mobile */
+  a, button, [role="button"], input, select, textarea {
+    touch-action: manipulation;
+  }
+  /* Visible tap feedback */
+  a:active, button:active, [role="button"]:active {
+    opacity: 0.7;
+    transform: scale(0.97);
   }
 }

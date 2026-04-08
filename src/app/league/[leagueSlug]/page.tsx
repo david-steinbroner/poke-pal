@@ -79,19 +79,17 @@ export default async function LeaguePage({
           )}
       </div>
 
-      <div className="space-y-2">
-        <div>
-          <p className="mb-1 text-xs font-medium text-muted-foreground">
-            Search for meta Pokemon you own
-          </p>
-          <CopyBar searchString={metaSearchString} />
-        </div>
-        <div>
-          <p className="mb-1 text-xs font-medium text-muted-foreground">
-            Search by CP cap
-          </p>
-          <CopyBar searchString={cpString} />
-        </div>
+      <div>
+        <p className="mb-1 text-xs font-medium text-muted-foreground">
+          Find meta Pokemon you own
+        </p>
+        <CopyBar
+          searchString={
+            league.cpCap === 9999
+              ? metaSearchString
+              : `${metaSearchString}&${cpString}`
+          }
+        />
       </div>
 
       <TierAccordion meta={league.meta as MetaPokemon[]} />
