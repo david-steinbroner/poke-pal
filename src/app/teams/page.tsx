@@ -1,24 +1,26 @@
 "use client";
 
-import { Suspense, useState, useMemo, useCallback, useEffect } from "react";
+import { Suspense, useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { LeaguePicker } from "@/components/team/league-picker";
 import { TeamSlotCard } from "@/components/team/team-slot";
-import { TeamSlotPicker } from "@/components/team/team-slot-picker";
 import { CoverageChart } from "@/components/team/coverage-chart";
 import { ThreatList } from "@/components/team/threat-list";
 import { SwapSuggestions } from "@/components/team/swap-suggestions";
 import { CopyBar } from "@/components/copy-bar";
 import { BackButton } from "@/components/back-button";
+import { SearchInput } from "@/components/search-input";
+import { ClearButton } from "@/components/clear-button";
 import { analyzeTeam, assignRoles, getLeagueInfo, getPokemonById } from "@/lib/team-analysis";
-import { loadTeam, saveTeam } from "@/lib/team-storage";
+import { loadTeam, saveTeam, clearTeam } from "@/lib/team-storage";
+import { calculateTeamRating, RATING_COLORS } from "@/lib/team-rating";
+import { getGapTypes } from "@/lib/team-rating";
 import { buildAbsoluteTeamUrl } from "@/lib/team-urls";
 import { copyToClipboard } from "@/lib/copy-to-clipboard";
 import { toast } from "sonner";
 import { Share2 } from "lucide-react";
 import type { LeagueId, TeamSlot, RoleAssignment } from "@/lib/team-types";
 import type { MetaPokemon, PokemonType } from "@/lib/types";
-import Link from "next/link";
 
 export default function TeamsPageWrapper() {
   return (
@@ -62,11 +64,11 @@ function TeamsPage() {
     initialPokemon[1] ? pokemonToSlot(initialPokemon[1]) : null,
     initialPokemon[2] ? pokemonToSlot(initialPokemon[2]) : null,
   ]);
-  const [pickerOpen, setPickerOpen] = useState(false);
-  const [activeSlot, setActiveSlot] = useState<0 | 1 | 2>(0);
-
-  // Restore from localStorage when URL has no pokemon params
+  // Mount-only: load from URL or localStorage ONCE
+  const mountedRef = useRef(false);
   useEffect(() => {
+    if (mountedRef.current) return;
+    mountedRef.current = true;
     if (initialPokemon.length === 0 && team.every((s) => s === null)) {
       const stored = loadTeam(league);
       if (stored.length > 0) {
@@ -77,7 +79,7 @@ function TeamsPage() {
         ] as [TeamSlot, TeamSlot, TeamSlot]);
       }
     }
-  }, [league]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Persist team to localStorage whenever it changes
   useEffect(() => {
@@ -128,28 +130,20 @@ function TeamsPage() {
 
   const handleLeagueChange = useCallback(
     (newLeague: LeagueId) => {
-      setLeague(newLeague);
-      // Clear team if switching to a league with type restrictions
-      const info = getLeagueInfo(newLeague);
-      if (info.typeRestrictions) {
-        setTeam((prev) =>
-          prev.map((slot) => {
-            if (!slot) return null;
-            const hasValidType = slot.types.some((t) =>
-              info.typeRestrictions!.includes(t),
-            );
-            return hasValidType ? slot : null;
-          }) as [TeamSlot, TeamSlot, TeamSlot],
-        );
-      }
-    },
-    [],
-  );
+      // 1. Save current team under current league
+      const currentIds = team
+        .filter((s): s is NonNullable<TeamSlot> => s !== null)
+        .map((s) => s.pokemonId);
+      saveTeam(league, currentIds);
 
-  function handleSlotAdd(index: 0 | 1 | 2) {
-    setActiveSlot(index);
-    setPickerOpen(true);
-  }
+      // 2. Clear all slots
+      setTeam([null, null, null]);
+
+      // 3. Switch league (do NOT load from localStorage for the new league)
+      setLeague(newLeague);
+    },
+    [team, league],
+  );
 
   function handleSlotRemove(index: 0 | 1 | 2) {
     setTeam((prev) => {
@@ -160,14 +154,17 @@ function TeamsPage() {
   }
 
   function handlePokemonSelect(pokemonId: string) {
+    // Skip if already on the team
+    if (excludeIds.includes(pokemonId)) return;
     const slot = pokemonToSlot(pokemonId);
     if (!slot) return;
     setTeam((prev) => {
       const next = [...prev] as [TeamSlot, TeamSlot, TeamSlot];
-      next[activeSlot] = slot;
+      const emptyIndex = next.findIndex((s) => s === null);
+      const targetIndex = emptyIndex >= 0 ? emptyIndex : 2; // replace last if full
+      next[targetIndex] = slot;
       return next;
     });
-    setPickerOpen(false);
   }
 
   function handleSuggestionSelect(pokemonId: string) {
@@ -183,11 +180,33 @@ function TeamsPage() {
     });
   }
 
+  function handleClear() {
+    setTeam([null, null, null]);
+    clearTeam(league);
+  }
+
   const hasTeam = team.some((s) => s !== null);
 
   const pokemonIds = team
     .filter((s): s is NonNullable<TeamSlot> => s !== null)
     .map((s) => s.pokemonId);
+
+  const teamRating = useMemo(
+    () => (pokemonIds.length > 0 ? calculateTeamRating(pokemonIds, league) : null),
+    [pokemonIds, league],
+  );
+
+  // Meta suggestions filtered to exclude already-selected Pokemon
+  const metaSuggestions = useMemo(
+    () => (leagueInfo.meta as MetaPokemon[]).filter((m) => !excludeIds.includes(m.pokemonId)),
+    [leagueInfo.meta, excludeIds],
+  );
+
+  // Types that would fill the team's offensive gaps
+  const gapTypes = useMemo(
+    () => (hasTeam ? getGapTypes(analysis.offensiveCoverage) : []),
+    [hasTeam, analysis.offensiveCoverage],
+  );
 
   const handleShare = useCallback(async () => {
     if (pokemonIds.length === 0) return;
@@ -204,11 +223,22 @@ function TeamsPage() {
     <div className="space-y-5 pt-4 pb-8">
       <div>
         <BackButton />
-        <h1 className="mt-2 text-xl font-bold">Team Builder</h1>
+        <div className="mt-2 flex items-center gap-2">
+          <h1 className="text-xl font-bold">Team Builder</h1>
+          {teamRating && (
+            <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${RATING_COLORS[teamRating]}`}>
+              {teamRating}
+            </span>
+          )}
+          {hasTeam && <ClearButton onClick={handleClear} />}
+        </div>
       </div>
+
+      <SearchInput mode="select" onSelect={handlePokemonSelect} placeholder="Add a Pokemon..." />
 
       <LeaguePicker selected={league} onSelect={handleLeagueChange} />
 
+      {/* Team slots with inline suggestions on next empty slot */}
       <div className="space-y-2">
         {SLOT_LABELS.map((label, i) => {
           const slot = team[i] ?? null;
@@ -220,71 +250,59 @@ function TeamsPage() {
                 ? "Lead"
                 : "Closer"
             : label;
+          // Show suggestions only on the NEXT empty slot (first empty after all filled before it)
+          const isNextEmpty = slot === null && team.slice(0, i).every((s) => s !== null);
           return (
-            <TeamSlotCard
-              key={label}
-              slot={slot}
-              label={displayLabel}
-              onAdd={() => handleSlotAdd(i as 0 | 1 | 2)}
-              onRemove={() => handleSlotRemove(i as 0 | 1 | 2)}
-            />
+            <div key={label}>
+              <TeamSlotCard
+                slot={slot}
+                label={displayLabel}
+                onAdd={() => {/* no-op: search input handles adding */}}
+                onRemove={() => handleSlotRemove(i as 0 | 1 | 2)}
+              />
+              {isNextEmpty && metaSuggestions.length > 0 && (
+                <div className="mt-1 space-y-1 pl-1">
+                  <div className="flex flex-wrap gap-1.5">
+                    {metaSuggestions.slice(0, 5).map((m) => {
+                      const p = getPokemonById(m.pokemonId);
+                      return (
+                        <button
+                          key={m.pokemonId}
+                          onClick={() => handlePokemonSelect(m.pokemonId)}
+                          className="inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-medium transition-colors hover:bg-accent active:bg-accent active:scale-95"
+                          style={{ touchAction: "manipulation" }}
+                        >
+                          {p?.name ?? m.pokemonId}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  {gapTypes.length > 0 && (
+                    <p className="text-xs text-muted-foreground">
+                      or any {gapTypes.join(", ")} type
+                    </p>
+                  )}
+                </div>
+              )}
+            </div>
           );
         })}
       </div>
 
-      {/* Meta picks / suggestions when team has empty slots */}
-      {team.filter(s => s !== null).length < 3 && leagueInfo.meta.length > 0 && (
-        <div>
-          <h2 className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
-            {leagueInfo.name} Meta
-          </h2>
-          <div className="flex flex-wrap gap-2">
-            {(leagueInfo.meta as MetaPokemon[])
-              .filter((m) => !excludeIds.includes(m.pokemonId))
-              .slice(0, 8)
-              .map((m) => {
-                const p = getPokemonById(m.pokemonId);
-                return (
-                  <button
-                    key={m.pokemonId}
-                    onClick={() => handlePokemonSelect(m.pokemonId)}
-                    className="inline-flex items-center rounded-full border px-3 py-1.5 text-sm font-medium transition-colors hover:bg-accent active:bg-accent active:scale-95"
-                    style={{ touchAction: "manipulation" }}
-                  >
-                    {p?.name ?? m.pokemonId}
-                  </button>
-                );
-              })}
-          </div>
-        </div>
+      {/* CopyBar right after team slots */}
+      {hasTeam && analysis.searchString && (
+        <CopyBar searchString={analysis.searchString} label="Your team search string" />
       )}
-
-      <TeamSlotPicker
-        open={pickerOpen}
-        onOpenChange={setPickerOpen}
-        onSelect={handlePokemonSelect}
-        excludeIds={excludeIds}
-        leagueMeta={leagueInfo.meta as MetaPokemon[]}
-      />
 
       {hasTeam && (
         <>
-          {analysis.searchString && (
-            <div>
-              <p className="mb-1 text-xs font-medium text-muted-foreground">
-                Find your team in-game
-              </p>
-              <CopyBar searchString={analysis.searchString} />
-            </div>
-          )}
-
           {pokemonIds.length >= 2 && (
             <button
               onClick={handleShare}
-              className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground"
+              className="flex w-full min-h-11 items-center justify-center gap-2 rounded-lg border text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
               style={{ touchAction: "manipulation" }}
             >
-              <Share2 className="h-3.5 w-3.5" />
+              <Share2 className="h-4 w-4" />
               Share team link
             </button>
           )}
@@ -314,26 +332,6 @@ function TeamsPage() {
               />
             </div>
           )}
-
-          {/* Cross-links to counter pages */}
-          <div>
-            <h2 className="mb-2 text-sm font-medium text-muted-foreground">
-              Counter Details
-            </h2>
-            <div className="flex flex-wrap gap-2">
-              {team
-                .filter((s): s is NonNullable<TeamSlot> => s !== null)
-                .map((s) => (
-                  <Link
-                    key={s.pokemonId}
-                    href={`/counter/${s.pokemonId}`}
-                    className="inline-flex min-h-11 items-center rounded-full border px-3 py-1.5 text-sm capitalize transition-colors hover:bg-accent active:bg-accent active:scale-95"
-                  >
-                    {s.name} counters
-                  </Link>
-                ))}
-            </div>
-          </div>
         </>
       )}
     </div>

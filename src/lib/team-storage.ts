@@ -39,6 +39,28 @@ export function clearTeam(leagueId: string): void {
   }
 }
 
+export function getAllSavedTeams(): Array<{ leagueId: string; pokemonIds: string[] }> {
+  const teams: Array<{ leagueId: string; pokemonIds: string[] }> = [];
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key?.startsWith(STORAGE_KEY_PREFIX)) {
+        const leagueId = key.slice(STORAGE_KEY_PREFIX.length);
+        const val = localStorage.getItem(key);
+        if (val) {
+          const parsed = JSON.parse(val);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            teams.push({ leagueId, pokemonIds: parsed });
+          }
+        }
+      }
+    }
+  } catch {
+    // silently fail
+  }
+  return teams;
+}
+
 export function hasAnyTeam(): boolean {
   try {
     for (let i = 0; i < localStorage.length; i++) {

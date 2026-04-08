@@ -1,4 +1,5 @@
 import { SearchInput } from "@/components/search-input";
+import { HomeTeamPreview } from "@/components/home-team-preview";
 import { QUICK_PICKS } from "@/lib/constants";
 import pokemonData from "@/data/pokemon.json";
 import greatLeague from "@/data/leagues/great-league.json";
@@ -53,15 +54,8 @@ export default function Home() {
       )}
 
       <div>
-        <h2 className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">Build a Team</h2>
-        <div className="flex flex-wrap gap-2">
-          <Link
-            href="/teams"
-            className="inline-flex min-h-11 items-center rounded-full border px-3 py-1.5 text-sm font-medium transition-colors hover:bg-accent active:bg-accent active:scale-95"
-          >
-            Team Builder &rarr;
-          </Link>
-        </div>
+        <h2 className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">Your Team</h2>
+        <HomeTeamPreview />
       </div>
     </div>
   );

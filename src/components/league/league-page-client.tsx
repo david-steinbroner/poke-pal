@@ -4,10 +4,13 @@ import { useState, useMemo, useEffect } from "react";
 import { toast } from "sonner";
 import { TierAccordion } from "@/components/tier-accordion";
 import { CopyBar } from "@/components/copy-bar";
+import { SearchInput } from "@/components/search-input";
 import { BackButton } from "@/components/back-button";
 import { InlineTeamSection } from "./inline-team-section";
 import { saveTeam, loadTeam, clearTeam } from "@/lib/team-storage";
-import type { MetaPokemon } from "@/lib/types";
+import { analyzeTeam, getPokemonById } from "@/lib/team-analysis";
+import type { MetaPokemon, PokemonType } from "@/lib/types";
+import type { LeagueId, TeamSlot } from "@/lib/team-types";
 
 type LeaguePageClientProps = {
   leagueId: string;
@@ -20,6 +23,25 @@ type LeaguePageClientProps = {
   metaSearchString: string;
   cpString: string;
 };
+
+/** Convert a pokemon ID to a TeamSlot for analysis. */
+function pokemonToSlot(id: string): TeamSlot {
+  const p = getPokemonById(id);
+  if (!p) return null;
+  return {
+    pokemonId: p.id,
+    name: p.name,
+    types: p.types as PokemonType[],
+    fastMoves: p.fastMoves.map((m) => ({
+      name: m.name,
+      type: m.type as PokemonType,
+    })),
+    chargedMoves: p.chargedMoves.map((m) => ({
+      name: m.name,
+      type: m.type as PokemonType,
+    })),
+  };
+}
 
 export function LeaguePageClient({
   leagueId,
@@ -62,8 +84,33 @@ export function LeaguePageClient({
     setTeam((prev) => prev.filter((id) => id !== pokemonId));
   }
 
+  // Analyze team for suggestions when team has members
+  const analysis = useMemo(() => {
+    if (team.length === 0) return null;
+    const slots = [
+      team[0] ? pokemonToSlot(team[0]) : null,
+      team[1] ? pokemonToSlot(team[1]) : null,
+      team[2] ? pokemonToSlot(team[2]) : null,
+    ];
+    return analyzeTeam(slots, leagueId as LeagueId);
+  }, [team, leagueId]);
+
+  // Recommended IDs from analysis suggestions
+  const recommendedIds = useMemo(() => {
+    if (!analysis) return undefined;
+    return analysis.suggestions
+      .filter((s) => !team.includes(s.pokemonId))
+      .map((s) => s.pokemonId);
+  }, [analysis, team]);
+
+  // Contextual CopyBar: meta string when no team, team string when team exists
   const fullSearchString =
     cpCap === 9999 ? metaSearchString : `${metaSearchString}&${cpString}`;
+
+  const copyBarLabel =
+    team.length > 0 ? "Find your team in-game" : "Search for meta Pokemon";
+  const copyBarString =
+    team.length > 0 && analysis ? analysis.searchString : fullSearchString;
 
   return (
     <div className="space-y-4 pt-4">
@@ -76,15 +123,19 @@ export function LeaguePageClient({
         </p>
       </div>
 
-      <CopyBar searchString={fullSearchString} />
+      <SearchInput
+        mode="select"
+        onSelect={handleAddToTeam}
+        placeholder="Add a Pokemon..."
+      />
+
+      <CopyBar searchString={copyBarString} label={copyBarLabel} />
 
       {team.length > 0 && (
         <InlineTeamSection
           team={team}
           leagueId={leagueId}
-          cpCap={cpCap}
           onRemove={handleRemoveFromTeam}
-          onAdd={handleAddToTeam}
           onClear={handleClearTeam}
         />
       )}
@@ -93,6 +144,7 @@ export function LeaguePageClient({
         meta={meta}
         onAddToTeam={handleAddToTeam}
         teamPokemonIds={team}
+        recommendedIds={recommendedIds}
       />
     </div>
   );

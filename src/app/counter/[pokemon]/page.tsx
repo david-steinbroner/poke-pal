@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CopyBar } from "@/components/copy-bar";
-import { PokemonCard } from "@/components/pokemon-card";
+import { PokemonListItem } from "@/components/pokemon-list-item";
 import { BackButton } from "@/components/back-button";
 import { getCountersFor, getAllPokemonIds } from "@/lib/counters";
 import {
@@ -64,7 +64,11 @@ export default async function CounterPage({
         </div>
       </div>
 
-      <CopyBar searchString={result.searchString} />
+      <CopyBar searchString={result.searchString} label="Counters search string" />
+
+      {result.shadowSearchString && (
+        <CopyBar searchString={result.shadowSearchString} label="Shadow counters search string" />
+      )}
 
       {/* Type effectiveness badges */}
       {(() => {
@@ -125,14 +129,17 @@ export default async function CounterPage({
               const counterPokemon = pokemonData.find(
                 (p) => p.id === counter.pokemon,
               );
+              const counterName = counterPokemon?.name ?? counter.pokemon.replace(/-/g, " ");
               return (
-                <PokemonCard
-                  key={counter.pokemon}
-                  counter={counter}
-                  pokemonTypes={
-                    counterPokemon?.types as PokemonType[] | undefined
-                  }
-                />
+                <Link key={counter.pokemon} href={`/counter/${counter.pokemon}`}>
+                  <PokemonListItem
+                    name={counterName}
+                    types={counterPokemon?.types}
+                    fastMove={counter.fastMove}
+                    chargedMoves={counter.chargedMoves}
+                    action="link"
+                  />
+                </Link>
               );
             })}
           </div>
@@ -149,34 +156,28 @@ export default async function CounterPage({
               const counterPokemon = pokemonData.find(
                 (p) => p.id === counter.pokemon,
               );
+              const counterName = counterPokemon?.name ?? counter.pokemon.replace(/-/g, " ");
               return (
-                <PokemonCard
-                  key={counter.pokemon}
-                  counter={counter}
-                  pokemonTypes={
-                    counterPokemon?.types as PokemonType[] | undefined
-                  }
-                />
+                <Link key={counter.pokemon} href={`/counter/${counter.pokemon}`}>
+                  <PokemonListItem
+                    name={counterName}
+                    types={counterPokemon?.types}
+                    fastMove={counter.fastMove}
+                    chargedMoves={counter.chargedMoves}
+                    action="link"
+                  />
+                </Link>
               );
             })}
           </div>
         </div>
       )}
 
-      {result.shadowSearchString && (
-        <div>
-          <h2 className="mb-2 text-sm font-medium text-muted-foreground">
-            Shadow Variant
-          </h2>
-          <CopyBar searchString={result.shadowSearchString} />
-        </div>
-      )}
-
       <Link
         href={`/teams?l=great-league&p=${pokemon.id}`}
-        className="text-xs text-muted-foreground hover:text-foreground"
+        className="text-xs text-muted-foreground hover:underline"
       >
-        Build a team with {pokemon.name} &rarr;
+        Build a team around {pokemon.name} &rarr;
       </Link>
     </div>
   );
