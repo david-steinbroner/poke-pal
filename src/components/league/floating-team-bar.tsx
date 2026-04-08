@@ -97,9 +97,10 @@ export function FloatingTeamBar({
       role="region"
       aria-label="Team builder"
       aria-live="polite"
-      className={`fixed bottom-0 left-0 right-0 z-50 border-t bg-background/95 backdrop-blur-sm px-4 pt-3 pb-[max(env(safe-area-inset-bottom,8px),8px)] transition-transform duration-300 motion-reduce:transition-none ${
+      className={`fixed left-0 right-0 z-50 border-t bg-background/95 backdrop-blur-sm px-4 pt-3 pb-3 transition-transform duration-300 motion-reduce:transition-none ${
         isVisible ? "translate-y-0" : "translate-y-full"
       }`}
+      style={{ bottom: "calc(3rem + env(safe-area-inset-bottom, 0px))" }}
     >
       <div className="mx-auto max-w-lg space-y-2">
         {/* Line 1: Team slots + Copy */}

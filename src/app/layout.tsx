@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import { ToastProvider } from "@/components/toast-provider";
+import { BottomNav } from "@/components/bottom-nav";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -35,7 +36,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} min-h-screen bg-background font-sans antialiased`}
       >
-        <main className="mx-auto max-w-lg px-4 pb-8">{children}</main>
+        <main className="mx-auto max-w-lg px-4 pb-20">{children}</main>
+        <BottomNav />
         <ToastProvider />
       </body>
     </html>
