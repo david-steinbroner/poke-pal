@@ -10,7 +10,17 @@ type PokemonOption = {
   name: string;
 };
 
-export function SearchInput() {
+type SearchInputProps = {
+  mode?: "navigate" | "select";
+  onSelect?: (pokemonId: string) => void;
+  placeholder?: string;
+};
+
+export function SearchInput({
+  mode = "navigate",
+  onSelect,
+  placeholder = "Who are you fighting?",
+}: SearchInputProps) {
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -36,7 +46,11 @@ export function SearchInput() {
   function selectPokemon(pokemon: PokemonOption) {
     setQuery("");
     setIsOpen(false);
-    router.push(`/counter/${pokemon.id}`);
+    if (mode === "select" && onSelect) {
+      onSelect(pokemon.id);
+    } else {
+      router.push(`/counter/${pokemon.id}`);
+    }
   }
 
   function handleKeyDown(event: React.KeyboardEvent) {
@@ -60,7 +74,7 @@ export function SearchInput() {
       <Input
         ref={inputRef}
         type="text"
-        placeholder="Who are you fighting?"
+        placeholder={placeholder}
         value={query}
         onChange={(event) => setQuery(event.target.value)}
         onKeyDown={handleKeyDown}
