@@ -26,7 +26,7 @@ export default function Home() {
       <SearchInput />
 
       <div>
-        <h2 className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">Raids</h2>
+        <h2 className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">Current Raids</h2>
         <div className="flex flex-wrap gap-2">
           {raidBosses.map((id) => (
               <Link

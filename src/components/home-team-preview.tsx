@@ -43,7 +43,7 @@ export function HomeTeamPreview() {
             <span className="shrink-0 text-xs text-muted-foreground">
               {LEAGUE_NAMES[team.leagueId] ?? team.leagueId}
             </span>
-            <div className="flex flex-1 flex-nowrap overflow-hidden items-center gap-1.5">
+            <div className="flex flex-1 flex-nowrap overflow-x-auto items-center gap-1.5 scrollbar-none">
               {team.pokemonIds.map((id) => {
                 const name = getPokemonName(id);
                 return (
@@ -55,7 +55,7 @@ export function HomeTeamPreview() {
             </div>
             <Link
               href={teamUrl}
-              className="shrink-0 text-muted-foreground hover:text-foreground transition-colors"
+              className="shrink-0 ml-2 text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Edit team"
             >
               <ArrowRight className="h-4 w-4" />
