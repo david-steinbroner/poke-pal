@@ -1,4 +1,4 @@
-export const APP_VERSION = "0.5.2";
+export const APP_VERSION = "0.6.0";
 
 export const QUICK_PICKS = [
   "giratina-altered",

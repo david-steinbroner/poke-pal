@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CopyBar } from "@/components/copy-bar";
 import { PokemonCard } from "@/components/pokemon-card";
-import { BackButton } from "@/components/back-button";
 import { getCountersFor, getAllPokemonIds } from "@/lib/counters";
 import {
   getEffectiveness,
@@ -50,9 +49,8 @@ export default async function CounterPage({
   return (
     <div className="space-y-4 pt-4">
       <div>
-        <BackButton />
-        <h1 className="mt-2 text-xl font-bold">{pokemon.name} Counters</h1>
-        <div className="mt-1 flex gap-1">
+        <div className="flex items-baseline gap-2">
+          <h1 className="text-xl font-bold">{pokemon.name} Counters</h1>
           {pokemon.types.map((t) => (
             <span
               key={t}
@@ -62,58 +60,58 @@ export default async function CounterPage({
             </span>
           ))}
         </div>
+      </div>
 
-        {/* Type effectiveness badges */}
-        {(() => {
-          const defenderTypes = pokemon.types as PokemonType[];
-          const weakTo = getSuperEffectiveTypes(defenderTypes);
-          const resists = POKEMON_TYPES.filter(
-            (t) => getEffectiveness(t, defenderTypes) < 1.0,
-          );
+      <CopyBar searchString={result.searchString} />
 
-          return (
-            <div className="mt-3 space-y-2">
-              {weakTo.length > 0 && (
-                <div className="flex flex-wrap items-center gap-1.5">
-                  <span className="text-xs font-medium text-muted-foreground">
-                    Weak to
-                  </span>
-                  {weakTo.map((t) => {
-                    const multiplier = getEffectiveness(t, defenderTypes);
-                    const isDouble = multiplier > 2.0;
-                    return (
-                      <span
-                        key={t}
-                        className={`${TYPE_COLORS[t]} rounded-full px-2 py-0.5 text-xs font-medium text-white`}
-                      >
-                        {t}
-                        {isDouble && " 2\u00d7"}
-                      </span>
-                    );
-                  })}
-                </div>
-              )}
-              {resists.length > 0 && (
-                <div className="flex flex-wrap items-center gap-1.5">
-                  <span className="text-xs font-medium text-muted-foreground">
-                    Resists
-                  </span>
-                  {resists.map((t) => (
+      {/* Type effectiveness badges */}
+      {(() => {
+        const defenderTypes = pokemon.types as PokemonType[];
+        const weakTo = getSuperEffectiveTypes(defenderTypes);
+        const resists = POKEMON_TYPES.filter(
+          (t) => getEffectiveness(t, defenderTypes) < 1.0,
+        );
+
+        return (
+          <div className="space-y-2">
+            {weakTo.length > 0 && (
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span className="text-xs font-medium text-muted-foreground">
+                  Weak to
+                </span>
+                {weakTo.map((t) => {
+                  const multiplier = getEffectiveness(t, defenderTypes);
+                  const isDouble = multiplier > 2.0;
+                  return (
                     <span
                       key={t}
                       className={`${TYPE_COLORS[t]} rounded-full px-2 py-0.5 text-xs font-medium text-white`}
                     >
                       {t}
+                      {isDouble && " 2\u00d7"}
                     </span>
-                  ))}
-                </div>
-              )}
-            </div>
-          );
-        })()}
-      </div>
-
-      <CopyBar searchString={result.searchString} />
+                  );
+                })}
+              </div>
+            )}
+            {resists.length > 0 && (
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span className="text-xs font-medium text-muted-foreground">
+                  Resists
+                </span>
+                {resists.map((t) => (
+                  <span
+                    key={t}
+                    className={`${TYPE_COLORS[t]} rounded-full px-2 py-0.5 text-xs font-medium text-white`}
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        );
+      })()}
 
       {result.topCounters.length > 0 && (
         <div>
@@ -174,9 +172,9 @@ export default async function CounterPage({
 
       <Link
         href={`/teams?l=great-league&p=${pokemon.id}`}
-        className="flex min-h-11 items-center justify-center rounded-lg border-2 border-dashed px-4 py-3 text-sm font-medium transition-colors hover:bg-accent active:bg-accent active:scale-[0.98]"
+        className="text-xs text-muted-foreground hover:text-foreground"
       >
-        Build a team around {pokemon.name} (Great League)
+        Build a team with {pokemon.name} &rarr;
       </Link>
     </div>
   );

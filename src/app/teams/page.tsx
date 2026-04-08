@@ -201,18 +201,7 @@ function TeamsPage() {
 
   return (
     <div className="space-y-5 pt-4 pb-8">
-      <div>
-        <Link
-          href="/"
-          className="text-sm text-muted-foreground hover:text-foreground"
-        >
-          &larr; Back
-        </Link>
-        <h1 className="mt-2 text-xl font-bold">Team Builder</h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Build a team, check coverage, copy the search string.
-        </p>
-      </div>
+      <h1 className="text-xl font-bold">Team Builder</h1>
 
       <LeaguePicker selected={league} onSelect={handleLeagueChange} />
 

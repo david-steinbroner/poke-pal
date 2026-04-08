@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { LeagueCard } from "@/components/league-card";
 
 import fantasyCup from "@/data/leagues/fantasy-cup.json";
@@ -26,15 +25,7 @@ export default function LeaguesPage() {
 
   return (
     <div className="space-y-6 pt-4">
-      <div className="flex items-center gap-3">
-        <Link
-          href="/"
-          className="text-sm text-muted-foreground hover:text-foreground"
-        >
-          &larr; Back
-        </Link>
-        <h1 className="text-xl font-bold">Leagues</h1>
-      </div>
+      <h1 className="text-xl font-bold">Leagues</h1>
 
       {liveLeagues.length > 0 && (
         <div>

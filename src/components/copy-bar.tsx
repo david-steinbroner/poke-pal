@@ -13,7 +13,7 @@ export function CopyBar({ searchString }: { searchString: string }) {
       setCopied(true);
       if (navigator.vibrate) navigator.vibrate(50);
       toast("Copied! Paste in Pokemon GO");
-      setTimeout(() => setCopied(false), 2000);
+      setTimeout(() => setCopied(false), 3000);
     } else {
       toast("Long-press the text to copy manually");
     }
@@ -22,13 +22,13 @@ export function CopyBar({ searchString }: { searchString: string }) {
   if (!searchString) return null;
 
   return (
-    <div className="relative flex items-center gap-2 rounded-lg border bg-muted/50 p-3">
+    <div className="relative flex items-center gap-2 rounded-lg border border-primary/20 bg-primary/[0.06] p-3">
       <code className="flex-1 truncate text-sm font-mono">
         {searchString}
       </code>
       <button
         onClick={handleCopy}
-        className={`shrink-0 rounded-lg px-4 py-2.5 text-sm font-medium transition-all active:scale-95 active:opacity-70 ${
+        className={`shrink-0 rounded-lg px-4 py-2.5 text-base font-medium transition-all active:scale-95 active:opacity-70 ${
           copied
             ? "bg-secondary text-secondary-foreground"
             : "bg-primary text-primary-foreground"

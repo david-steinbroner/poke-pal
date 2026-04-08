@@ -2,7 +2,6 @@
 
 import { useState, useMemo, useEffect } from "react";
 import { toast } from "sonner";
-import Link from "next/link";
 import { TierAccordion } from "@/components/tier-accordion";
 import { CopyBar } from "@/components/copy-bar";
 import { InlineTeamSection } from "./inline-team-section";
@@ -68,30 +67,14 @@ export function LeaguePageClient({
   return (
     <div className="space-y-4 pt-4">
       <div>
-        <Link
-          href="/"
-          className="text-sm text-muted-foreground hover:text-foreground"
-        >
-          &larr; Back
-        </Link>
-        <h1 className="mt-2 text-xl font-bold">{leagueName}</h1>
+        <h1 className="text-xl font-bold">{leagueName}</h1>
         <p className="text-sm text-muted-foreground">
-          {season} · CP {cpCap === 9999 ? "\u221E" : cpCap.toLocaleString()} ·
-          Updated {lastUpdated}
+          {cpCap === 9999 ? "No CP limit" : `CP ${cpCap.toLocaleString()}`}
+          {typeRestrictions && ` · ${typeRestrictions.join(", ")}`}
         </p>
-        {typeRestrictions && (
-          <p className="mt-1 text-xs text-muted-foreground">
-            Eligible types: {typeRestrictions.join(", ")}
-          </p>
-        )}
       </div>
 
-      <div className="transition-opacity">
-        <p className="mb-1 text-xs font-medium text-muted-foreground">
-          Find meta Pokemon you own
-        </p>
-        <CopyBar searchString={fullSearchString} />
-      </div>
+      <CopyBar searchString={fullSearchString} />
 
       {team.length > 0 && (
         <InlineTeamSection

@@ -60,13 +60,13 @@ export function SearchInput() {
       <Input
         ref={inputRef}
         type="text"
-        placeholder="Search a Pokemon..."
+        placeholder="Who are you fighting?"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
         onKeyDown={handleKeyDown}
         onFocus={() => results.length > 0 && setIsOpen(true)}
         onBlur={() => setTimeout(() => setIsOpen(false), 150)}
-        className="min-h-11 text-base"
+        className="min-h-14 text-lg"
         autoComplete="off"
       />
       {isOpen && results.length > 0 && (

@@ -12,20 +12,11 @@ const activeLeagues = allLeagues.filter((l) => l.active);
 
 export default function Home() {
   return (
-    <div className="space-y-6 pt-4">
-      <div>
-        <h1 className="text-xl font-bold">Pokemon GO PvP Search Strings</h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Find counters, build teams, copy strings. Paste in GO.
-        </p>
-      </div>
-
+    <div className="space-y-6 pt-6">
       <SearchInput />
 
       <div>
-        <h2 className="mb-2 text-sm font-medium text-muted-foreground">
-          Quick Picks
-        </h2>
+        <h2 className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">Raids</h2>
         <div className="flex flex-wrap gap-2">
           {QUICK_PICKS.map((id) => {
             const pokemon = pokemonData.find((p) => p.id === id);
@@ -43,11 +34,9 @@ export default function Home() {
         </div>
       </div>
 
-      <div>
-        <h2 className="mb-2 text-sm font-medium text-muted-foreground">
-          What&apos;s Live
-        </h2>
-        {activeLeagues.length > 0 ? (
+      {activeLeagues.length > 0 && (
+        <div>
+          <h2 className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">Go Battle League</h2>
           <div className="flex flex-wrap gap-2">
             {activeLeagues.map((l) => (
               <Link
@@ -59,17 +48,11 @@ export default function Home() {
               </Link>
             ))}
           </div>
-        ) : (
-          <p className="text-sm text-muted-foreground">
-            No active cups right now.
-          </p>
-        )}
-      </div>
+        </div>
+      )}
 
       <div>
-        <h2 className="mb-2 text-sm font-medium text-muted-foreground">
-          Build a Team
-        </h2>
+        <h2 className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">Build a Team</h2>
         <div className="flex flex-wrap gap-2">
           <Link
             href="/teams"
