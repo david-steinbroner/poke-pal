@@ -52,7 +52,7 @@ export default async function CounterPage({
       <div>
         <BackButton />
         <div className="mt-2 flex items-baseline gap-2">
-          <h1 className="text-xl font-bold">{pokemon.name} Counters</h1>
+          <h1 className="text-xl font-bold">{pokemon.name}</h1>
           {pokemon.types.map((t) => (
             <span
               key={t}

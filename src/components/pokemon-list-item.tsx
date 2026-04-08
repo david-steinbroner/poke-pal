@@ -48,6 +48,7 @@ export function PokemonListItem({
         </span>
       )}
       <div className="flex-1 min-w-0">
+        {/* Name + types on same line */}
         <div className="flex items-center gap-2">
           <span className="font-medium text-sm truncate">{name}</span>
           {recommended && (
@@ -55,14 +56,15 @@ export function PokemonListItem({
               Rec
             </span>
           )}
+          {types && types.length > 0 && (
+            <div className="ml-auto flex shrink-0 gap-1">
+              {types.map((t) => (
+                <TypeBadge key={t} type={t} />
+              ))}
+            </div>
+          )}
         </div>
-        {types && types.length > 0 && (
-          <div className="mt-0.5 flex gap-1">
-            {types.map((t) => (
-              <TypeBadge key={t} type={t} />
-            ))}
-          </div>
-        )}
+        {/* Moves on second line */}
         {(fastMove || chargedMoves) && (
           <div className="mt-1 text-xs text-muted-foreground truncate">
             {fastMove && <span>{fastMove}</span>}
@@ -77,9 +79,7 @@ export function PokemonListItem({
           className={`shrink-0 flex items-center justify-center min-h-11 min-w-11 ${
             isDisabled
               ? "text-green-600 pointer-events-none"
-              : action === "remove"
-                ? "text-muted-foreground hover:text-foreground"
-                : "text-muted-foreground hover:text-foreground"
+              : "text-muted-foreground hover:text-foreground"
           }`}
           style={{ touchAction: "manipulation" }}
           aria-label={`${action} ${name}`}
