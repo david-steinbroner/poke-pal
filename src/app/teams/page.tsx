@@ -118,18 +118,24 @@ function TeamsPage() {
 
   const handleLeagueChange = useCallback(
     (newLeague: LeagueId) => {
-      // 1. Save current team under current league
-      const currentIds = team
-        .filter((s): s is NonNullable<TeamSlot> => s !== null)
-        .map((s) => s.pokemonId);
-      saveTeam(league, currentIds);
-
-      // 2. Clear all slots
-      setTeam([null, null, null]);
-
-      // 3. Switch league (do NOT load from localStorage for the new league)
-      setLeague(newLeague);
-      setCupSet(true);
+      if (!cupSet) {
+        // First time setting a cup — keep current team, assign to this league
+        const currentIds = team
+          .filter((s): s is NonNullable<TeamSlot> => s !== null)
+          .map((s) => s.pokemonId);
+        setLeague(newLeague);
+        setCupSet(true);
+        // Save existing team under the new league
+        saveTeam(newLeague, currentIds);
+      } else {
+        // Switching between cups — save old team, clear for new
+        const currentIds = team
+          .filter((s): s is NonNullable<TeamSlot> => s !== null)
+          .map((s) => s.pokemonId);
+        saveTeam(league, currentIds);
+        setTeam([null, null, null]);
+        setLeague(newLeague);
+      }
     },
     [team, league],
   );
