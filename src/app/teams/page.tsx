@@ -334,10 +334,10 @@ function TeamsPage() {
 
       <Link
         href={`/league/${league}`}
-        className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+        className="flex items-center justify-center gap-1 text-xs uppercase tracking-wide text-muted-foreground hover:text-foreground"
         style={{ touchAction: "manipulation" }}
       >
-        See cup info <ArrowRight className="h-3 w-3" />
+        SEE LEAGUE INFO <ArrowRight className="h-3 w-3" />
       </Link>
 
       {hasTeam && analysis.threats.length > 0 && (
