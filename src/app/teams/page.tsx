@@ -7,7 +7,8 @@ import { TeamSlotCard } from "@/components/team/team-slot";
 import { CoverageChart } from "@/components/team/coverage-chart";
 import { ThreatList } from "@/components/team/threat-list";
 import { SwapSuggestions } from "@/components/team/swap-suggestions";
-import { CopyBar } from "@/components/copy-bar";
+import { CopyButton } from "@/components/copy-button";
+import { PokemonChip } from "@/components/pokemon-chip";
 import { SearchInput } from "@/components/search-input";
 import { ClearButton } from "@/components/clear-button";
 import { analyzeTeam, assignRoles, getLeagueInfo, getPokemonById } from "@/lib/team-analysis";
@@ -243,19 +244,17 @@ function TeamsPage() {
                 onRemove={() => handleSlotRemove(i as 0 | 1 | 2)}
               />
               {isNextEmpty && metaSuggestions.length > 0 && (
-                <div className="mt-1 space-y-1 pl-1">
+                <div className="mt-1 rounded-lg border border-dashed p-3 space-y-2">
                   <div className="flex flex-wrap gap-1.5">
                     {metaSuggestions.slice(0, 5).map((m) => {
                       const p = getPokemonById(m.pokemonId);
                       return (
-                        <button
+                        <PokemonChip
                           key={m.pokemonId}
-                          onClick={() => handlePokemonSelect(m.pokemonId)}
-                          className="inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-medium transition-colors hover:bg-accent active:bg-accent active:scale-95"
-                          style={{ touchAction: "manipulation" }}
-                        >
-                          {p?.name ?? m.pokemonId}
-                        </button>
+                          name={p?.name ?? m.pokemonId}
+                          variant="add"
+                          onAction={() => handlePokemonSelect(m.pokemonId)}
+                        />
                       );
                     })}
                   </div>
@@ -271,9 +270,9 @@ function TeamsPage() {
         })}
       </div>
 
-      {/* CopyBar right after team slots */}
+      {/* Copy button right after team slots */}
       {hasTeam && analysis.searchString && (
-        <CopyBar searchString={analysis.searchString} label="Your team search string" />
+        <CopyButton searchString={analysis.searchString} label="Copy Search String" />
       )}
 
       {hasTeam && (

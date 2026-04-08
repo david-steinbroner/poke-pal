@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { PokemonChip } from "@/components/pokemon-chip";
-import { ClearButton } from "@/components/clear-button";
 import { getPokemonName } from "@/lib/pokemon-utils";
-import { getAllSavedTeams, clearTeam } from "@/lib/team-storage";
+import { getAllSavedTeams } from "@/lib/team-storage";
 import { LEAGUE_NAMES, LEAGUE_IDS } from "@/lib/constants";
 
 export function HomeTeamPreview() {
@@ -14,11 +14,6 @@ export function HomeTeamPreview() {
   useEffect(() => {
     setTeams(getAllSavedTeams());
   }, []);
-
-  const handleClear = (leagueId: string) => {
-    clearTeam(leagueId);
-    setTeams((prev) => prev.filter((t) => t.leagueId !== leagueId));
-  };
 
   // Sort teams in the canonical league order
   const leagueOrder = LEAGUE_IDS as readonly string[];
@@ -48,7 +43,7 @@ export function HomeTeamPreview() {
             <span className="shrink-0 text-xs text-muted-foreground">
               {LEAGUE_NAMES[team.leagueId] ?? team.leagueId}
             </span>
-            <div className="flex flex-1 flex-wrap items-center gap-1.5">
+            <div className="flex flex-1 flex-nowrap overflow-hidden items-center gap-1.5">
               {team.pokemonIds.map((id) => {
                 const name = getPokemonName(id);
                 return (
@@ -57,16 +52,14 @@ export function HomeTeamPreview() {
                   </Link>
                 );
               })}
-              {team.pokemonIds.length < 3 && (
-                <Link
-                  href={teamUrl}
-                  className="inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-                >
-                  Finish &rarr;
-                </Link>
-              )}
             </div>
-            <ClearButton onClick={() => handleClear(team.leagueId)} />
+            <Link
+              href={teamUrl}
+              className="shrink-0 text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="Edit team"
+            >
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         );
       })}

@@ -2,8 +2,8 @@
 
 import { useMemo } from "react";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { PokemonChip } from "@/components/pokemon-chip";
-import { ClearButton } from "@/components/clear-button";
 import { calculateTeamRating, RATING_COLORS } from "@/lib/team-rating";
 import { getPokemonName } from "@/lib/pokemon-utils";
 import type { LeagueId } from "@/lib/team-types";
@@ -12,14 +12,12 @@ type InlineTeamSectionProps = {
   team: string[];
   leagueId: string;
   onRemove: (pokemonId: string) => void;
-  onClear?: () => void;
 };
 
 export function InlineTeamSection({
   team,
   leagueId,
   onRemove,
-  onClear,
 }: InlineTeamSectionProps) {
   const rating = useMemo(
     () => calculateTeamRating(team, leagueId as LeagueId),
@@ -30,7 +28,7 @@ export function InlineTeamSection({
 
   return (
     <div className="rounded-lg border p-4 space-y-3">
-      {/* Header row: "Your Team" + rating (left) | ClearButton + "Team Builder -->" (right) */}
+      {/* Header row: "Your Team" + rating (left) | arrow link (right) */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="text-sm font-semibold">Your Team</span>
@@ -40,20 +38,18 @@ export function InlineTeamSection({
             {rating}
           </span>
         </div>
-        <div className="flex items-center gap-3">
-          {onClear && <ClearButton onClick={onClear} />}
-          <Link
-            href={`/teams?l=${leagueId}&p=${team.join(",")}`}
-            className="text-xs font-medium text-primary hover:underline"
-            style={{ touchAction: "manipulation" }}
-          >
-            Team Builder &rarr;
-          </Link>
-        </div>
+        <Link
+          href={`/teams?l=${leagueId}&p=${team.join(",")}`}
+          className="text-primary hover:text-primary/80"
+          style={{ touchAction: "manipulation" }}
+          aria-label="Edit team"
+        >
+          <ArrowRight className="h-5 w-5" />
+        </Link>
       </div>
 
-      {/* Team chips + empty slot circles */}
-      <div className="flex flex-wrap gap-2 items-center">
+      {/* Team chips + empty slot circles (single line) */}
+      <div className="flex flex-nowrap overflow-hidden gap-2 items-center">
         {team.map((pokemonId) => (
           <PokemonChip
             key={pokemonId}

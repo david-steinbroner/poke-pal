@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CopyBar } from "@/components/copy-bar";
+import { DualCopyButtons } from "@/components/dual-copy-buttons";
 import { PokemonListItem } from "@/components/pokemon-list-item";
 import { BackButton } from "@/components/back-button";
 import { getCountersFor, getAllPokemonIds } from "@/lib/counters";
@@ -64,11 +64,14 @@ export default async function CounterPage({
         </div>
       </div>
 
-      <CopyBar searchString={result.searchString} label="Counters search string" />
-
-      {result.shadowSearchString && (
-        <CopyBar searchString={result.shadowSearchString} label="Shadow counters search string" />
-      )}
+      <DualCopyButtons
+        buttons={[
+          { searchString: result.searchString, label: "Copy Counters" },
+          ...(result.shadowSearchString
+            ? [{ searchString: result.shadowSearchString, label: "Copy Shadow" }]
+            : []),
+        ]}
+      />
 
       {/* Type effectiveness badges */}
       {(() => {

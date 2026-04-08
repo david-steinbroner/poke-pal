@@ -3,11 +3,11 @@
 import { useState, useMemo, useEffect } from "react";
 import { toast } from "sonner";
 import { TierAccordion } from "@/components/tier-accordion";
-import { CopyBar } from "@/components/copy-bar";
+import { DualCopyButtons } from "@/components/dual-copy-buttons";
 import { SearchInput } from "@/components/search-input";
 import { BackButton } from "@/components/back-button";
 import { InlineTeamSection } from "./inline-team-section";
-import { saveTeam, loadTeam, clearTeam } from "@/lib/team-storage";
+import { saveTeam, loadTeam } from "@/lib/team-storage";
 import { analyzeTeam } from "@/lib/team-analysis";
 import { pokemonToSlot } from "@/lib/pokemon-utils";
 import type { MetaPokemon } from "@/lib/types";
@@ -56,11 +56,6 @@ export function LeaguePageClient({
     saveTeam(leagueId, team);
   }, [team, leagueId]);
 
-  function handleClearTeam() {
-    setTeam([]);
-    clearTeam(leagueId);
-  }
-
   function handleAddToTeam(pokemonId: string) {
     if (team.length >= 3) {
       toast("Team full (3 max). Remove one to swap.");
@@ -93,14 +88,9 @@ export function LeaguePageClient({
       .map((s) => s.pokemonId);
   }, [analysis, team]);
 
-  // Contextual CopyBar: meta string when no team, team string when team exists
+  // Full meta search string (with CP filter when applicable)
   const fullSearchString =
     cpCap === 9999 ? metaSearchString : `${metaSearchString}&${cpString}`;
-
-  const copyBarLabel =
-    team.length > 0 ? "Find your team in-game" : "Search for meta Pokemon";
-  const copyBarString =
-    team.length > 0 && analysis ? analysis.searchString : fullSearchString;
 
   return (
     <div className="space-y-4 pt-4">
@@ -119,14 +109,20 @@ export function LeaguePageClient({
         placeholder="Add a Pokemon..."
       />
 
-      <CopyBar searchString={copyBarString} label={copyBarLabel} />
+      <DualCopyButtons
+        buttons={[
+          { searchString: fullSearchString, label: "Copy Meta Pokemon" },
+          ...(team.length > 0 && analysis?.searchString
+            ? [{ searchString: analysis.searchString, label: "Copy Your Team" }]
+            : []),
+        ]}
+      />
 
       {team.length > 0 && (
         <InlineTeamSection
           team={team}
           leagueId={leagueId}
           onRemove={handleRemoveFromTeam}
-          onClear={handleClearTeam}
         />
       )}
 
