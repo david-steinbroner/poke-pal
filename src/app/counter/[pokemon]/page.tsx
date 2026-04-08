@@ -127,15 +127,12 @@ export default async function CounterPage({
               );
               const counterName = counterPokemon?.name ?? counter.pokemon.replace(/-/g, " ");
               return (
-                <Link key={counter.pokemon} href={`/counter/${counter.pokemon}`}>
-                  <PokemonListItem
-                    name={counterName}
-                    types={counterPokemon?.types}
-                    fastMove={counter.fastMove}
-                    chargedMoves={counter.chargedMoves}
-                    action="link"
-                  />
-                </Link>
+                <PokemonListItem
+                  key={counter.pokemon}
+                  name={counterName}
+                  fastMove={counter.fastMove}
+                  chargedMoves={counter.chargedMoves}
+                />
               );
             })}
           </div>
@@ -154,15 +151,12 @@ export default async function CounterPage({
               );
               const counterName = counterPokemon?.name ?? counter.pokemon.replace(/-/g, " ");
               return (
-                <Link key={counter.pokemon} href={`/counter/${counter.pokemon}`}>
-                  <PokemonListItem
-                    name={counterName}
-                    types={counterPokemon?.types}
-                    fastMove={counter.fastMove}
-                    chargedMoves={counter.chargedMoves}
-                    action="link"
-                  />
-                </Link>
+                <PokemonListItem
+                  key={counter.pokemon}
+                  name={counterName}
+                  fastMove={counter.fastMove}
+                  chargedMoves={counter.chargedMoves}
+                />
               );
             })}
           </div>

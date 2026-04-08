@@ -9,11 +9,13 @@ export function TeamSlotCard({
   slot,
   onRemove,
   label,
+  moveset,
   children,
 }: {
   slot: TeamSlot;
   onRemove: () => void;
   label: string;
+  moveset?: string;
   children?: ReactNode;
 }) {
   if (!slot) {
@@ -31,12 +33,17 @@ export function TeamSlotCard({
         <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
           {label}
         </span>
-        <p className="mt-0.5 font-medium text-sm">{slot.name}</p>
-        <div className="mt-1 flex gap-1">
-          {slot.types.map((t) => (
-            <TypeBadge key={t} type={t} />
-          ))}
+        <div className="mt-0.5 flex items-center gap-2">
+          <p className="font-medium text-sm">{slot.name}</p>
+          <div className="ml-auto flex shrink-0 gap-1">
+            {slot.types.map((t) => (
+              <TypeBadge key={t} type={t} />
+            ))}
+          </div>
         </div>
+        {moveset && (
+          <p className="mt-1 text-xs text-muted-foreground">{moveset}</p>
+        )}
       </div>
       <button
         onClick={onRemove}

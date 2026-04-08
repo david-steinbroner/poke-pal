@@ -264,6 +264,12 @@ function TeamsPage() {
                 slot={slot}
                 label={label}
                 onRemove={() => handleSlotRemove(i as 0 | 1 | 2)}
+                moveset={slot ? (() => {
+                  const meta = (leagueInfo.meta as MetaPokemon[]).find(m => m.pokemonId === slot.pokemonId);
+                  return meta
+                    ? `${meta.recommendedFast} | ${meta.recommendedCharged.join(", ")}`
+                    : undefined;
+                })() : undefined}
               >
                 {showSuggestions && metaSuggestions.length > 0 && (
                   <div className="space-y-2">
