@@ -34,7 +34,7 @@ export function TierAccordion({
     .filter((g) => g.pokemon.length > 0);
 
   return (
-    <Accordion multiple defaultValue={["S", "A"]}>
+    <Accordion multiple defaultValue={["S"]}>
       {grouped.map(({ tier, pokemon }) => (
         <AccordionItem key={tier} value={tier}>
           <AccordionTrigger className="text-sm font-medium">
