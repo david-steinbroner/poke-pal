@@ -1,7 +1,8 @@
 import { SearchInput } from "@/components/search-input";
 import { HomeTeamPreview } from "@/components/home-team-preview";
-import { QUICK_PICKS } from "@/lib/constants";
 import { getPokemonName } from "@/lib/pokemon-utils";
+import currentRaids from "@/data/current-raids.json";
+import pokemonData from "@/data/pokemon.json";
 import greatLeague from "@/data/leagues/great-league.json";
 import ultraLeague from "@/data/leagues/ultra-league.json";
 import masterLeague from "@/data/leagues/master-league.json";
@@ -10,6 +11,13 @@ import Link from "next/link";
 
 const allLeagues = [fantasyCup, greatLeague, ultraLeague, masterLeague];
 const activeLeagues = allLeagues.filter((l) => l.active);
+
+// Current raid bosses filtered to Pokemon we have data for
+const raidBosses = [
+  ...currentRaids.fivestar,
+  ...currentRaids.mega,
+  ...currentRaids.threestar,
+].filter((id) => pokemonData.some((p) => p.id === id));
 
 export default function Home() {
   return (
@@ -20,7 +28,7 @@ export default function Home() {
       <div>
         <h2 className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">Raids</h2>
         <div className="flex flex-wrap gap-2">
-          {QUICK_PICKS.map((id) => (
+          {raidBosses.map((id) => (
               <Link
                 key={id}
                 href={`/counter/${id}`}

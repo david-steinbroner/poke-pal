@@ -219,8 +219,6 @@ function TeamsPage() {
 
       <SearchInput mode="select" onSelect={handlePokemonSelect} placeholder="Add a Pokemon..." />
 
-      <LeaguePicker selected={league} onSelect={handleLeagueChange} />
-
       {/* Copy + Share row — always visible, greyed out until conditions met */}
       <div className="flex gap-2">
         <div className="flex-1">
@@ -294,6 +292,8 @@ function TeamsPage() {
           );
         })}
       </div>
+
+      <LeaguePicker selected={league} onSelect={handleLeagueChange} />
 
       {hasTeam && (
         <>

@@ -94,9 +94,11 @@ export function LeaguePageClient({
 
   return (
     <div className="space-y-4 pt-4">
-      <div>
+      <div className="sticky top-0 z-10 bg-background pb-2 pt-4 -mx-4 px-4">
         <Link href="/leagues" className="text-sm text-muted-foreground hover:text-foreground">← Leagues</Link>
-        <h1 className="mt-2 text-xl font-bold">{leagueName}</h1>
+      </div>
+      <div>
+        <h1 className="text-xl font-bold">{leagueName}</h1>
         <p className="text-sm text-muted-foreground">
           {cpCap === 9999 ? "No CP limit" : `CP ${cpCap.toLocaleString()}`}
           {typeRestrictions && ` · ${typeRestrictions.join(", ")}`}

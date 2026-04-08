@@ -1,15 +1,4 @@
-export const APP_VERSION = "0.8.1";
-
-export const QUICK_PICKS = [
-  "giratina-altered",
-  "medicham",
-  "stunfisk-galarian",
-  "dialga",
-  "swampert",
-  "mewtwo",
-  "kyogre",
-  "rayquaza",
-] as const;
+export const APP_VERSION = "0.8.2";
 
 export const LEAGUE_IDS = ["great-league", "ultra-league", "master-league", "fantasy-cup"] as const;
 

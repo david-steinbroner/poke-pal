@@ -49,9 +49,11 @@ export default async function CounterPage({
 
   return (
     <div className="space-y-4 pt-4">
-      <div>
+      <div className="sticky top-0 z-10 bg-background pb-2 pt-4 -mx-4 px-4">
         <BackButton />
-        <div className="mt-2 flex items-baseline gap-2">
+      </div>
+      <div>
+        <div className="flex items-baseline gap-2">
           <h1 className="text-xl font-bold">{pokemon.name}</h1>
           {pokemon.types.map((t) => (
             <TypeBadge key={t} type={t} variant="muted" />
