@@ -1,4 +1,4 @@
-export const APP_VERSION = "0.8.2";
+export const APP_VERSION = "0.8.3";
 
 export const LEAGUE_IDS = ["great-league", "ultra-league", "master-league", "fantasy-cup"] as const;
 

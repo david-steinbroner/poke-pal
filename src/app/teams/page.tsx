@@ -2,7 +2,7 @@
 
 import { Suspense, useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { LeaguePicker } from "@/components/team/league-picker";
+import { LEAGUE_IDS, LEAGUE_NAMES, LEAGUE_SHORT_NAMES } from "@/lib/constants";
 import { TeamSlotCard } from "@/components/team/team-slot";
 import { CoverageChart } from "@/components/team/coverage-chart";
 import { ThreatList } from "@/components/team/threat-list";
@@ -43,6 +43,9 @@ function TeamsPage() {
   const initialPokemon = searchParams.get("p")?.split(",").filter(Boolean) || [];
 
   const [league, setLeague] = useState<LeagueId>(initialLeague);
+  const [cupSet, setCupSet] = useState<boolean>(() => {
+    return searchParams.has("l") || initialPokemon.length > 0;
+  });
   const [team, setTeam] = useState<[TeamSlot, TeamSlot, TeamSlot]>(() => [
     initialPokemon[0] ? pokemonToSlot(initialPokemon[0]) : null,
     initialPokemon[1] ? pokemonToSlot(initialPokemon[1]) : null,
@@ -61,6 +64,7 @@ function TeamsPage() {
           stored[1] ? pokemonToSlot(stored[1]) : null,
           stored[2] ? pokemonToSlot(stored[2]) : null,
         ] as [TeamSlot, TeamSlot, TeamSlot]);
+        setCupSet(true);
       }
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -125,6 +129,7 @@ function TeamsPage() {
 
       // 3. Switch league (do NOT load from localStorage for the new league)
       setLeague(newLeague);
+      setCupSet(true);
     },
     [team, league],
   );
@@ -167,6 +172,7 @@ function TeamsPage() {
   function handleClear() {
     setTeam([null, null, null]);
     clearTeam(league);
+    setCupSet(false);
   }
 
   const hasTeam = team.some((s) => s !== null);
@@ -208,13 +214,35 @@ function TeamsPage() {
       <div>
         <div className="flex items-center gap-2">
           <h1 className="text-xl font-bold">Team Builder</h1>
-          {teamRating && (
-            <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${RATING_COLORS[teamRating]}`}>
-              {teamRating}
-            </span>
-          )}
+          <div className="flex-1" />
           {hasTeam && <ClearButton onClick={handleClear} />}
         </div>
+
+        {/* Cup name or Add Cup pills */}
+        {cupSet ? (
+          <p className="text-sm text-muted-foreground">
+            {LEAGUE_NAMES[league] ?? league}
+            {hasTeam && teamRating && (
+              <span className={`ml-2 inline-flex rounded-full px-2 py-0.5 text-xs font-bold ${RATING_COLORS[teamRating]}`}>
+                {teamRating}
+              </span>
+            )}
+          </p>
+        ) : (
+          <div className="flex flex-wrap items-center gap-2 mt-1">
+            <span className="text-xs text-muted-foreground">Add Cup:</span>
+            {(LEAGUE_IDS as readonly string[]).map((id) => (
+              <button
+                key={id}
+                onClick={() => handleLeagueChange(id as LeagueId)}
+                className="rounded-full border px-3 py-1 text-xs font-medium transition-colors hover:bg-accent active:bg-accent active:scale-95"
+                style={{ touchAction: "manipulation" }}
+              >
+                {LEAGUE_SHORT_NAMES[id] ?? id}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       <SearchInput mode="select" onSelect={handlePokemonSelect} placeholder="Add a Pokemon..." />
@@ -298,8 +326,6 @@ function TeamsPage() {
           );
         })}
       </div>
-
-      <LeaguePicker selected={league} onSelect={handleLeagueChange} />
 
       {hasTeam && (
         <>
