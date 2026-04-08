@@ -1,5 +1,38 @@
 # Poke Pal — Session Log
 
+## Session: 2026-04-08 (Late Night — Team Builder + Deploy)
+
+### What We Built
+- **Team Builder** (`/teams`): Pick 3 Pokemon for any league, see coverage analysis (18-type chart), defensive weaknesses, meta threats, swap suggestions. Shareable URL via query params.
+- **In-place team building on league pages**: + button on every meta Pokemon card. Floating two-line bar appears at bottom — top line shows team slots + Copy, bottom line shows smart suggestions that refresh as you pick. When full, shows coverage score + "Team →" link.
+- **Fantasy Cup: Great League Edition**: Dragon/Steel/Fairy types only, 1500 CP, 14 meta picks including Steelix.
+- **119 Pokemon** (expanded from 35): Charizard, Snorlax, all Eeveelutions, legendaries, starters, 60+ more.
+- **League search strings**: Combined meta Pokemon names + CP cap in one copyable string.
+- **iOS mobile fixes**: Shared copy-to-clipboard utility (textarea fallback for HTTP), touch-action: manipulation, touchstart listener for :active states, cross-origin dev fix.
+- **Dev proxy** (`scripts/dev-server.mjs`): No-cache proxy with WebSocket support for mobile testing.
+- **Cloudflare Pages deploy**: Live at https://poke-pal.pages.dev, auto-deploys on push.
+- **Codebase cleanup**: Removed scaffold SVGs, gitignored legacy dirs.
+
+### Spec + Review Process
+- Ran 4-agent spec/review cycle for league-team integration: Engineering, CPO, UX Design, Marketing all reviewed and approved with changes. All feedback incorporated.
+- Team Builder had its own 4-agent cycle: Spec, Architecture, Strategy, Marketing.
+
+### Stats
+- 11 commits, 31 tests passing, 128+ static pages
+- v0.1.0 deployed to production
+
+### What's Next (Phase 2)
+1. **Header/nav tabs** — Battle | Leagues | Teams navigation
+2. **Active cup awareness** — only show currently live cups
+3. **Expandable team panel** on league pages (mini player → full mode)
+4. **"Rate my team" framing** — entry point reframe
+5. **Counter page improvements** — type matchup visuals
+6. **Shareable team URLs** — clean routes for social sharing
+7. **Better counter scoring** — STAB, bulk, energy generation
+8. **Reddit/Discord launch** — marketing plan ready, needs timing
+
+---
+
 ## Session: 2026-04-07 (Build Session)
 
 ### What We Built
