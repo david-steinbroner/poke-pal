@@ -212,7 +212,6 @@ function TeamsPage() {
       <div className="space-y-2">
         {SLOT_LABELS.map((label, i) => {
           const slot = team[i] ?? null;
-          // Use the role-based label if a role is assigned to this slot's Pokemon
           const role = slot ? roleMap.get(slot.pokemonId) : undefined;
           const displayLabel = role
             ? role.role === "safe-swap"
@@ -232,6 +231,33 @@ function TeamsPage() {
           );
         })}
       </div>
+
+      {/* Meta picks / suggestions when team has empty slots */}
+      {team.filter(s => s !== null).length < 3 && leagueInfo.meta.length > 0 && (
+        <div>
+          <h2 className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+            {leagueInfo.name} Meta
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {(leagueInfo.meta as MetaPokemon[])
+              .filter((m) => !excludeIds.includes(m.pokemonId))
+              .slice(0, 8)
+              .map((m) => {
+                const p = getPokemonById(m.pokemonId);
+                return (
+                  <button
+                    key={m.pokemonId}
+                    onClick={() => handlePokemonSelect(m.pokemonId)}
+                    className="inline-flex items-center rounded-full border px-3 py-1.5 text-sm font-medium transition-colors hover:bg-accent active:bg-accent active:scale-95"
+                    style={{ touchAction: "manipulation" }}
+                  >
+                    {p?.name ?? m.pokemonId}
+                  </button>
+                );
+              })}
+          </div>
+        </div>
+      )}
 
       <TeamSlotPicker
         open={pickerOpen}
