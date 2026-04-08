@@ -322,10 +322,10 @@ function TeamsPage() {
                     </Link>
                   </div>
                 )}
-                {/* Containers 2 & 3: suggestions only, no "or any" line (gap types in header) */}
-                {showSuggestions && metaSuggestions.length > 0 && i > 0 && (
+                {/* Containers 2 & 3: suggestions + See more link */}
+                {cupSet && showSuggestions && metaSuggestions.length > 0 && i > 0 && (
                   <div className="flex flex-wrap gap-1.5">
-                    {metaSuggestions.slice(0, 5).map((m) => {
+                    {metaSuggestions.slice(0, 4).map((m) => {
                       const p = getPokemonById(m.pokemonId);
                       return (
                         <PokemonChip
@@ -336,6 +336,12 @@ function TeamsPage() {
                         />
                       );
                     })}
+                    <Link
+                      href={`/league/${league}`}
+                      className="inline-flex items-center gap-1 rounded-full border px-3 py-1.5 text-xs font-medium text-muted-foreground hover:bg-accent"
+                    >
+                      See more <ArrowRight className="h-3 w-3" />
+                    </Link>
                   </div>
                 )}
               </TeamSlotCard>
