@@ -94,7 +94,7 @@ export function InlineTeamSection({
         {team.map((pokemonId) => (
           <span
             key={pokemonId}
-            className="inline-flex min-h-11 items-center gap-1 rounded-full border bg-card px-3 py-1.5 text-sm font-medium"
+            className="inline-flex items-center gap-1 rounded-full border bg-card px-3 py-1.5 text-sm font-medium"
           >
             <span className="max-w-[120px] truncate">
               {getPokemonName(pokemonId)}
