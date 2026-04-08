@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import type { MetaPokemon } from "@/lib/types";
 import { PokemonListItem } from "./pokemon-list-item";
-import pokemonData from "@/data/pokemon.json";
+import { getPokemonName } from "@/lib/pokemon-utils";
 
 const TIER_LABELS: Record<string, string> = {
   S: "S Tier — Meta Defining",
@@ -16,12 +16,6 @@ const TIER_LABELS: Record<string, string> = {
   B: "B Tier — Solid Options",
   C: "C Tier — Niche Picks",
 };
-
-/** Look up display name from pokemon data, or format the ID as fallback. */
-function getDisplayName(pokemonId: string): string {
-  const found = pokemonData.find((p) => p.id === pokemonId);
-  return found?.name ?? pokemonId.replace(/-/g, " ");
-}
 
 export function TierAccordion({
   meta,
@@ -65,7 +59,7 @@ export function TierAccordion({
                   return (
                     <PokemonListItem
                       key={p.pokemonId}
-                      name={getDisplayName(p.pokemonId)}
+                      name={getPokemonName(p.pokemonId)}
                       tier={p.tier}
                       fastMove={p.recommendedFast}
                       chargedMoves={p.recommendedCharged}

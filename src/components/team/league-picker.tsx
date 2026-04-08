@@ -1,15 +1,7 @@
 "use client";
 
-type LeagueId = "great-league" | "ultra-league" | "master-league" | "fantasy-cup";
-
-const LEAGUE_NAMES: Record<LeagueId, string> = {
-  "great-league": "Great",
-  "ultra-league": "Ultra",
-  "master-league": "Master",
-  "fantasy-cup": "Fantasy",
-};
-
-const LEAGUE_IDS = Object.keys(LEAGUE_NAMES) as LeagueId[];
+import { LEAGUE_IDS, LEAGUE_SHORT_NAMES } from "@/lib/constants";
+import type { LeagueId } from "@/lib/team-types";
 
 export function LeaguePicker({
   selected,
@@ -30,7 +22,7 @@ export function LeaguePicker({
               : "bg-muted text-muted-foreground hover:bg-muted/80"
           }`}
         >
-          {LEAGUE_NAMES[id]}
+          {LEAGUE_SHORT_NAMES[id]}
         </button>
       ))}
     </div>

@@ -2,8 +2,6 @@ import { describe, it, expect } from "vitest";
 import {
   getEffectiveness,
   getSuperEffectiveTypes,
-  getResistantTypes,
-  getWeakToTypes,
 } from "@/lib/type-effectiveness";
 
 describe("getEffectiveness", () => {
@@ -49,12 +47,3 @@ describe("getSuperEffectiveTypes", () => {
   });
 });
 
-describe("getWeakToTypes (what the defender hits hard)", () => {
-  it("returns fire's offensive strengths", () => {
-    const result = getWeakToTypes(["Fire"]);
-    expect(result).toContain("Grass");
-    expect(result).toContain("Bug");
-    expect(result).toContain("Ice");
-    expect(result).toContain("Steel");
-  });
-});

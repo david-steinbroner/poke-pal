@@ -1,7 +1,7 @@
 import { SearchInput } from "@/components/search-input";
 import { HomeTeamPreview } from "@/components/home-team-preview";
 import { QUICK_PICKS } from "@/lib/constants";
-import pokemonData from "@/data/pokemon.json";
+import { getPokemonName } from "@/lib/pokemon-utils";
 import greatLeague from "@/data/leagues/great-league.json";
 import ultraLeague from "@/data/leagues/ultra-league.json";
 import masterLeague from "@/data/leagues/master-league.json";
@@ -20,19 +20,15 @@ export default function Home() {
       <div>
         <h2 className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">Raids</h2>
         <div className="flex flex-wrap gap-2">
-          {QUICK_PICKS.map((id) => {
-            const pokemon = pokemonData.find((p) => p.id === id);
-            if (!pokemon) return null;
-            return (
+          {QUICK_PICKS.map((id) => (
               <Link
                 key={id}
                 href={`/counter/${id}`}
                 className="inline-flex min-h-11 items-center rounded-full border px-3 py-1.5 text-sm capitalize transition-colors hover:bg-accent active:bg-accent active:scale-95"
               >
-                {pokemon.name}
+                {getPokemonName(id)}
               </Link>
-            );
-          })}
+          ))}
         </div>
       </div>
 

@@ -11,21 +11,6 @@ export function buildNameSearchString(names: string[]): string {
     .join(",");
 }
 
-export function buildShadowSearchString(types: PokemonType[]): string {
-  const typeString = buildTypeSearchString(types);
-  if (!typeString) return "";
-  return `shadow&${typeString}`;
-}
-
-export function buildHighCpSearchString(
-  types: PokemonType[],
-  minCp: number,
-): string {
-  const typeString = buildTypeSearchString(types);
-  if (!typeString) return "";
-  return `${typeString}&cp${minCp}-`;
-}
-
 export function buildLeagueEligibleString(cpCap: number): string {
   return `cp-${cpCap}`;
 }

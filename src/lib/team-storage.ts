@@ -60,21 +60,3 @@ export function getAllSavedTeams(): Array<{ leagueId: string; pokemonIds: string
   }
   return teams;
 }
-
-export function hasAnyTeam(): boolean {
-  try {
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key?.startsWith(STORAGE_KEY_PREFIX)) {
-        const val = localStorage.getItem(key);
-        if (val) {
-          const parsed = JSON.parse(val);
-          if (Array.isArray(parsed) && parsed.length > 0) return true;
-        }
-      }
-    }
-    return false;
-  } catch {
-    return false;
-  }
-}

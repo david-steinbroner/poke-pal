@@ -12,6 +12,7 @@ import { BackButton } from "@/components/back-button";
 import { SearchInput } from "@/components/search-input";
 import { ClearButton } from "@/components/clear-button";
 import { analyzeTeam, assignRoles, getLeagueInfo, getPokemonById } from "@/lib/team-analysis";
+import { pokemonToSlot } from "@/lib/pokemon-utils";
 import { loadTeam, saveTeam, clearTeam } from "@/lib/team-storage";
 import { calculateTeamRating, RATING_COLORS } from "@/lib/team-rating";
 import { getGapTypes } from "@/lib/team-rating";
@@ -32,23 +33,6 @@ export default function TeamsPageWrapper() {
 
 const SLOT_LABELS = ["Lead", "Mid", "Closer"] as const;
 
-function pokemonToSlot(id: string): TeamSlot {
-  const p = getPokemonById(id);
-  if (!p) return null;
-  return {
-    pokemonId: p.id,
-    name: p.name,
-    types: p.types as PokemonType[],
-    fastMoves: p.fastMoves.map((m) => ({
-      name: m.name,
-      type: m.type as PokemonType,
-    })),
-    chargedMoves: p.chargedMoves.map((m) => ({
-      name: m.name,
-      type: m.type as PokemonType,
-    })),
-  };
-}
 
 function TeamsPage() {
   const searchParams = useSearchParams();

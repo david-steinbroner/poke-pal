@@ -1,16 +1,8 @@
 "use client";
 
-import type { PokemonType } from "@/lib/types";
 import { Plus, X } from "lucide-react";
 import { TypeBadge } from "@/components/type-badge";
-
-type TeamSlot = {
-  pokemonId: string;
-  name: string;
-  types: PokemonType[];
-  fastMoves: { name: string; type: PokemonType }[];
-  chargedMoves: { name: string; type: PokemonType }[];
-} | null;
+import type { TeamSlot } from "@/lib/team-types";
 
 export function TeamSlotCard({
   slot,

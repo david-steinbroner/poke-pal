@@ -8,9 +8,10 @@ import { SearchInput } from "@/components/search-input";
 import { BackButton } from "@/components/back-button";
 import { InlineTeamSection } from "./inline-team-section";
 import { saveTeam, loadTeam, clearTeam } from "@/lib/team-storage";
-import { analyzeTeam, getPokemonById } from "@/lib/team-analysis";
-import type { MetaPokemon, PokemonType } from "@/lib/types";
-import type { LeagueId, TeamSlot } from "@/lib/team-types";
+import { analyzeTeam } from "@/lib/team-analysis";
+import { pokemonToSlot } from "@/lib/pokemon-utils";
+import type { MetaPokemon } from "@/lib/types";
+import type { LeagueId } from "@/lib/team-types";
 
 type LeaguePageClientProps = {
   leagueId: string;
@@ -24,24 +25,6 @@ type LeaguePageClientProps = {
   cpString: string;
 };
 
-/** Convert a pokemon ID to a TeamSlot for analysis. */
-function pokemonToSlot(id: string): TeamSlot {
-  const p = getPokemonById(id);
-  if (!p) return null;
-  return {
-    pokemonId: p.id,
-    name: p.name,
-    types: p.types as PokemonType[],
-    fastMoves: p.fastMoves.map((m) => ({
-      name: m.name,
-      type: m.type as PokemonType,
-    })),
-    chargedMoves: p.chargedMoves.map((m) => ({
-      name: m.name,
-      type: m.type as PokemonType,
-    })),
-  };
-}
 
 export function LeaguePageClient({
   leagueId,

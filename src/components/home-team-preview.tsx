@@ -4,17 +4,9 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { PokemonChip } from "@/components/pokemon-chip";
 import { ClearButton } from "@/components/clear-button";
-import { getPokemonById } from "@/lib/team-analysis";
+import { getPokemonName } from "@/lib/pokemon-utils";
 import { getAllSavedTeams, clearTeam } from "@/lib/team-storage";
-
-const LEAGUE_NAMES: Record<string, string> = {
-  "great-league": "Great League",
-  "ultra-league": "Ultra League",
-  "master-league": "Master League",
-  "fantasy-cup": "Fantasy Cup",
-};
-
-const LEAGUE_IDS = ["great-league", "ultra-league", "master-league", "fantasy-cup"];
+import { LEAGUE_NAMES, LEAGUE_IDS } from "@/lib/constants";
 
 export function HomeTeamPreview() {
   const [teams, setTeams] = useState<Array<{ leagueId: string; pokemonIds: string[] }>>([]);
@@ -29,9 +21,10 @@ export function HomeTeamPreview() {
   };
 
   // Sort teams in the canonical league order
+  const leagueOrder = LEAGUE_IDS as readonly string[];
   const sortedTeams = teams
-    .filter((t) => LEAGUE_IDS.includes(t.leagueId))
-    .sort((a, b) => LEAGUE_IDS.indexOf(a.leagueId) - LEAGUE_IDS.indexOf(b.leagueId));
+    .filter((t) => leagueOrder.includes(t.leagueId))
+    .sort((a, b) => leagueOrder.indexOf(a.leagueId) - leagueOrder.indexOf(b.leagueId));
 
   if (sortedTeams.length === 0) {
     return (
@@ -57,8 +50,7 @@ export function HomeTeamPreview() {
             </span>
             <div className="flex flex-1 flex-wrap items-center gap-1.5">
               {team.pokemonIds.map((id) => {
-                const pokemon = getPokemonById(id);
-                const name = pokemon?.name ?? id.replace(/-/g, " ");
+                const name = getPokemonName(id);
                 return (
                   <Link key={id} href={teamUrl}>
                     <PokemonChip name={name} />

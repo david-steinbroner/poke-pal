@@ -2,8 +2,6 @@ import { describe, it, expect } from "vitest";
 import {
   buildTypeSearchString,
   buildNameSearchString,
-  buildShadowSearchString,
-  buildHighCpSearchString,
   buildLeagueEligibleString,
 } from "@/lib/search-string";
 
@@ -27,22 +25,6 @@ describe("buildNameSearchString", () => {
   it("joins Pokemon names with commas", () => {
     expect(buildNameSearchString(["Garchomp", "Rayquaza", "Salamence"])).toBe(
       "garchomp,rayquaza,salamence"
-    );
-  });
-});
-
-describe("buildShadowSearchString", () => {
-  it("adds shadow filter to type string", () => {
-    expect(buildShadowSearchString(["Dark", "Ice"])).toBe(
-      "shadow&@1dark,@1ice"
-    );
-  });
-});
-
-describe("buildHighCpSearchString", () => {
-  it("adds CP floor to type string", () => {
-    expect(buildHighCpSearchString(["Dark", "Ice"], 2500)).toBe(
-      "@1dark,@1ice&cp2500-"
     );
   });
 });

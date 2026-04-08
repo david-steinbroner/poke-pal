@@ -5,8 +5,8 @@ import Link from "next/link";
 import { PokemonChip } from "@/components/pokemon-chip";
 import { ClearButton } from "@/components/clear-button";
 import { calculateTeamRating, RATING_COLORS } from "@/lib/team-rating";
+import { getPokemonName } from "@/lib/pokemon-utils";
 import type { LeagueId } from "@/lib/team-types";
-import pokemonData from "@/data/pokemon.json";
 
 type InlineTeamSectionProps = {
   team: string[];
@@ -14,11 +14,6 @@ type InlineTeamSectionProps = {
   onRemove: (pokemonId: string) => void;
   onClear?: () => void;
 };
-
-function getPokemonName(pokemonId: string): string {
-  const pokemon = pokemonData.find((p) => p.id === pokemonId);
-  return pokemon?.name ?? pokemonId;
-}
 
 export function InlineTeamSection({
   team,

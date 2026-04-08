@@ -58,31 +58,3 @@ export function getSuperEffectiveTypes(
     );
 }
 
-/**
- * Returns all attack types that the defender resists (<1.0x multiplier).
- */
-export function getResistantTypes(
-  defenderTypes: PokemonType[],
-): PokemonType[] {
-  return POKEMON_TYPES.filter(
-    (atkType) => getEffectiveness(atkType, defenderTypes) < 1.0,
-  );
-}
-
-/**
- * Returns the types that the defender's own type(s) hit super effectively.
- * Useful for knowing what the defender threatens offensively.
- */
-export function getWeakToTypes(
-  defenderTypes: PokemonType[],
-): PokemonType[] {
-  const dangerous: PokemonType[] = [];
-  for (const defType of defenderTypes) {
-    for (const targetType of POKEMON_TYPES) {
-      if (CHART[defType][targetType] > 1.0 && !dangerous.includes(targetType)) {
-        dangerous.push(targetType);
-      }
-    }
-  }
-  return dangerous;
-}

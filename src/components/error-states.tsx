@@ -36,16 +36,3 @@ export function GoBackError({
     </div>
   );
 }
-
-export function OfflineError() {
-  return (
-    <div className="flex flex-col items-center gap-4 py-12 text-center">
-      <p className="text-muted-foreground">
-        You appear to be offline. Check your connection and try again.
-      </p>
-      <Button onClick={() => window.location.reload()} className="min-h-11">
-        Retry
-      </Button>
-    </div>
-  );
-}

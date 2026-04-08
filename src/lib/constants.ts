@@ -1,4 +1,4 @@
-export const APP_VERSION = "0.7.0";
+export const APP_VERSION = "0.7.1";
 
 export const QUICK_PICKS = [
   "giratina-altered",
@@ -10,6 +10,23 @@ export const QUICK_PICKS = [
   "kyogre",
   "rayquaza",
 ] as const;
+
+export const LEAGUE_IDS = ["great-league", "ultra-league", "master-league", "fantasy-cup"] as const;
+
+export const LEAGUE_NAMES: Record<string, string> = {
+  "great-league": "Great League",
+  "ultra-league": "Ultra League",
+  "master-league": "Master League",
+  "fantasy-cup": "Fantasy Cup",
+};
+
+/** Short league names for compact UI (e.g. league picker buttons) */
+export const LEAGUE_SHORT_NAMES: Record<string, string> = {
+  "great-league": "Great",
+  "ultra-league": "Ultra",
+  "master-league": "Master",
+  "fantasy-cup": "Fantasy",
+};
 
 export const TYPE_COLORS: Record<string, string> = {
   Normal: "bg-stone-400",
