@@ -20,6 +20,7 @@ type InlineTeamSectionProps = {
   cpCap: number;
   onRemove: (pokemonId: string) => void;
   onAdd: (pokemonId: string) => void;
+  onClear?: () => void;
 };
 
 /* ---- Helpers ---- */
@@ -53,6 +54,7 @@ export function InlineTeamSection({
   cpCap,
   onRemove,
   onAdd,
+  onClear,
 }: InlineTeamSectionProps) {
   // Analyze team for coverage score and suggestions
   const analysis = useMemo(() => {
@@ -85,9 +87,20 @@ export function InlineTeamSection({
       {/* Header row */}
       <div className="flex items-center justify-between">
         <span className="text-sm font-semibold">Your Team</span>
-        <span className="text-sm font-medium text-muted-foreground">
-          {analysis.coverageScore}/18
-        </span>
+        <div className="flex items-center gap-3">
+          {onClear && (
+            <button
+              onClick={onClear}
+              className="text-xs text-muted-foreground hover:text-foreground"
+              style={{ touchAction: "manipulation" }}
+            >
+              Clear
+            </button>
+          )}
+          <span className="text-sm font-medium text-muted-foreground">
+            {analysis.coverageScore}/18
+          </span>
+        </div>
       </div>
 
       {/* Team chips + empty slots */}

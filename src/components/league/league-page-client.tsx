@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { toast } from "sonner";
 import Link from "next/link";
 import { TierAccordion } from "@/components/tier-accordion";
 import { CopyBar } from "@/components/copy-bar";
 import { InlineTeamSection } from "./inline-team-section";
+import { saveTeam, loadTeam, clearTeam } from "@/lib/team-storage";
 import type { MetaPokemon } from "@/lib/types";
 
 type LeaguePageClientProps = {
@@ -32,6 +33,21 @@ export function LeaguePageClient({
   cpString,
 }: LeaguePageClientProps) {
   const [team, setTeam] = useState<string[]>([]);
+
+  // Restore team from localStorage on mount (avoids SSR mismatch)
+  useEffect(() => {
+    setTeam(loadTeam(leagueId));
+  }, [leagueId]);
+
+  // Persist team to localStorage whenever it changes
+  useEffect(() => {
+    saveTeam(leagueId, team);
+  }, [team, leagueId]);
+
+  function handleClearTeam() {
+    setTeam([]);
+    clearTeam(leagueId);
+  }
 
   function handleAddToTeam(pokemonId: string) {
     if (team.length >= 3) {
@@ -84,6 +100,7 @@ export function LeaguePageClient({
           cpCap={cpCap}
           onRemove={handleRemoveFromTeam}
           onAdd={handleAddToTeam}
+          onClear={handleClearTeam}
         />
       )}
 

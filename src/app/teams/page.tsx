@@ -10,6 +10,7 @@ import { ThreatList } from "@/components/team/threat-list";
 import { SwapSuggestions } from "@/components/team/swap-suggestions";
 import { CopyBar } from "@/components/copy-bar";
 import { analyzeTeam, getLeagueInfo, getPokemonById } from "@/lib/team-analysis";
+import { loadTeam, saveTeam } from "@/lib/team-storage";
 import type { LeagueId, TeamSlot } from "@/lib/team-types";
 import type { MetaPokemon, PokemonType } from "@/lib/types";
 import Link from "next/link";
@@ -58,6 +59,28 @@ function TeamsPage() {
   ]);
   const [pickerOpen, setPickerOpen] = useState(false);
   const [activeSlot, setActiveSlot] = useState<0 | 1 | 2>(0);
+
+  // Restore from localStorage when URL has no pokemon params
+  useEffect(() => {
+    if (initialPokemon.length === 0 && team.every((s) => s === null)) {
+      const stored = loadTeam(league);
+      if (stored.length > 0) {
+        setTeam([
+          stored[0] ? pokemonToSlot(stored[0]) : null,
+          stored[1] ? pokemonToSlot(stored[1]) : null,
+          stored[2] ? pokemonToSlot(stored[2]) : null,
+        ] as [TeamSlot, TeamSlot, TeamSlot]);
+      }
+    }
+  }, [league]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Persist team to localStorage whenever it changes
+  useEffect(() => {
+    const ids = team
+      .filter((s): s is NonNullable<TeamSlot> => s !== null)
+      .map((s) => s.pokemonId);
+    saveTeam(league, ids);
+  }, [team, league]);
 
   // Sync state to URL
   useEffect(() => {

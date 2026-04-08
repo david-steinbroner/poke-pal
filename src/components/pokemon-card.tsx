@@ -1,5 +1,5 @@
 import type { CounterRecommendation } from "@/lib/types";
-import { TYPE_COLORS } from "@/lib/constants";
+import { TypeBadge } from "@/components/type-badge";
 
 export function PokemonCard({
   counter,
@@ -24,12 +24,7 @@ export function PokemonCard({
         {pokemonTypes && (
           <div className="mt-1 flex gap-1">
             {pokemonTypes.map((t) => (
-              <span
-                key={t}
-                className={`rounded-full px-2 py-0.5 text-xs font-medium text-white ${TYPE_COLORS[t] ?? "bg-gray-500"}`}
-              >
-                {t}
-              </span>
+              <TypeBadge key={t} type={t} />
             ))}
           </div>
         )}

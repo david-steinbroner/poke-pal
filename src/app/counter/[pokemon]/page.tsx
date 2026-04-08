@@ -27,8 +27,12 @@ export async function generateMetadata({
   const pokemon = pokemonData.find((p) => p.id === pokemonId);
   if (!pokemon) return { title: "Not Found" };
   return {
-    title: `${pokemon.name} Counters — Poke Pal`,
+    title: `${pokemon.name} Counters — Pokemon GO Search Strings`,
     description: `Best counters for ${pokemon.name} in Pokemon GO. Copy the search string and paste in-game.`,
+    openGraph: {
+      title: `${pokemon.name} Counters — Pokemon GO Search Strings`,
+      description: `Best counters for ${pokemon.name} in Pokemon GO. Copy the search string and paste in-game.`,
+    },
   };
 }
 

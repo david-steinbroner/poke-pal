@@ -1,7 +1,7 @@
 "use client";
 
 import type { PokemonType } from "@/lib/types";
-import { TYPE_COLORS } from "@/lib/constants";
+import { TypeBadge } from "@/components/type-badge";
 
 type SwapSuggestion = {
   pokemonId: string;
@@ -45,12 +45,7 @@ export function SwapSuggestions({
             </div>
             <div className="mt-1 flex gap-1">
               {suggestion.types.map((t) => (
-                <span
-                  key={t}
-                  className={`rounded-full px-2 py-0.5 text-xs font-medium text-white ${TYPE_COLORS[t] ?? "bg-gray-500"}`}
-                >
-                  {t}
-                </span>
+                <TypeBadge key={t} type={t} />
               ))}
             </div>
             <p className="mt-1 text-xs text-muted-foreground">

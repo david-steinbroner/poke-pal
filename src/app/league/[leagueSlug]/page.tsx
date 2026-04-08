@@ -27,8 +27,12 @@ export async function generateMetadata({
   const league = leagues.find((l) => l.id === leagueSlug);
   if (!league) return { title: "Not Found" };
   return {
-    title: `${league.name} Meta — Poke Pal`,
+    title: `${league.name} Meta — Pokemon GO PvP`,
     description: `Current ${league.name} meta picks for Pokemon GO PvP. ${league.season}.`,
+    openGraph: {
+      title: `${league.name} Meta — Pokemon GO PvP`,
+      description: `Current ${league.name} meta picks for Pokemon GO PvP. ${league.season}.`,
+    },
   };
 }
 

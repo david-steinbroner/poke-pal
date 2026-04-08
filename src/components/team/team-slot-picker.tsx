@@ -12,6 +12,7 @@ import {
 import type { MetaPokemon } from "@/lib/types";
 import pokemonData from "@/data/pokemon.json";
 import { TYPE_COLORS } from "@/lib/constants";
+import { TypeBadge } from "@/components/type-badge";
 
 export function TeamSlotPicker({
   open,
@@ -119,12 +120,7 @@ export function TeamSlotPicker({
                     </span>
                     <div className="flex gap-1">
                       {pokemon.types.map((t) => (
-                        <span
-                          key={t}
-                          className={`rounded-full px-2 py-0.5 text-xs font-medium text-white ${TYPE_COLORS[t] ?? "bg-gray-500"}`}
-                        >
-                          {t}
-                        </span>
+                        <TypeBadge key={t} type={t} />
                       ))}
                     </div>
                   </button>

@@ -9,7 +9,13 @@ import masterLeague from "@/data/leagues/master-league.json";
 
 export const metadata: Metadata = {
   title: "Leagues — Poke Pal",
-  description: "Browse Pokemon GO Battle League cups and seasons.",
+  description:
+    "Browse Pokemon GO Battle League cups and seasons. See what's live now.",
+  openGraph: {
+    title: "Leagues — Poke Pal",
+    description:
+      "Browse Pokemon GO Battle League cups and seasons. See what's live now.",
+  },
 };
 
 const allLeagues = [fantasyCup, greatLeague, ultraLeague, masterLeague];

@@ -14,9 +14,9 @@ export default function Home() {
   return (
     <div className="space-y-6 pt-4">
       <div>
-        <h1 className="text-xl font-bold">Poke Pal</h1>
+        <h1 className="text-xl font-bold">Pokemon GO PvP Search Strings</h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          Type the boss, copy the string, paste in GO.
+          Find counters, build teams, copy strings. Paste in GO.
         </p>
       </div>
 
