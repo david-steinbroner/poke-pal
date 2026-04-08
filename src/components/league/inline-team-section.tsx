@@ -90,11 +90,11 @@ export function InlineTeamSection({
       </div>
 
       {/* Team chips + empty slots */}
-      <div className="flex flex-wrap gap-1.5">
+      <div className="flex flex-wrap gap-2">
         {team.map((pokemonId) => (
           <span
             key={pokemonId}
-            className="inline-flex items-center gap-1 rounded-full border bg-card px-2.5 py-1 text-xs font-medium"
+            className="inline-flex min-h-11 items-center gap-1 rounded-full border bg-card px-3 py-1.5 text-sm font-medium"
           >
             <span className="max-w-[120px] truncate">
               {getPokemonName(pokemonId)}
