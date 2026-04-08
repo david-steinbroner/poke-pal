@@ -82,7 +82,7 @@ export default async function CounterPage({
         );
 
         return (
-          <div className="space-y-2">
+          <div className="space-y-3">
             {weakTo.length > 0 && (
               <div className="flex flex-wrap items-center gap-1.5">
                 <span className="text-xs font-medium text-muted-foreground">
@@ -127,7 +127,7 @@ export default async function CounterPage({
           <h2 className="mb-2 text-sm font-medium text-muted-foreground">
             Top Counters
           </h2>
-          <div className="space-y-2">
+          <div className="space-y-3">
             {result.topCounters.map((counter) => {
               const counterPokemon = pokemonData.find(
                 (p) => p.id === counter.pokemon,
@@ -154,7 +154,7 @@ export default async function CounterPage({
           <h2 className="mb-2 text-sm font-medium text-muted-foreground">
             Budget Picks
           </h2>
-          <div className="space-y-2">
+          <div className="space-y-3">
             {result.budgetCounters.map((counter) => {
               const counterPokemon = pokemonData.find(
                 (p) => p.id === counter.pokemon,
