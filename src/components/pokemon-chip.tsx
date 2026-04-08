@@ -14,7 +14,7 @@ export function PokemonChip({
   const Icon = variant === "add" ? Plus : X;
 
   return (
-    <span className="inline-flex items-center gap-1 rounded-full border bg-card px-2.5 py-1 text-xs font-medium">
+    <span className="inline-flex items-center gap-1 rounded-full border bg-card px-3 py-1.5 text-sm font-medium">
       <span className="max-w-[120px] truncate">{name}</span>
       {onAction && (
         <button
