@@ -116,7 +116,7 @@ export function FloatingTeamBar({
 
   // The expanded height for the panel (collapsed row + expanded content).
   // We use max-height to animate open/close with overflow hidden.
-  const EXPANDED_MAX_HEIGHT = "min(45vh, 320px)";
+  const EXPANDED_MAX_HEIGHT = "60vh";
 
   return (
     <div
