@@ -31,7 +31,7 @@ export default function TeamsPageWrapper() {
   );
 }
 
-const SLOT_LABELS = ["Lead", "Mid", "Closer"] as const;
+const SLOT_LABELS = ["Pokemon 1", "Pokemon 2", "Pokemon 3"] as const;
 
 
 function TeamsPage() {
@@ -225,25 +225,15 @@ function TeamsPage() {
       <div className="space-y-2">
         {SLOT_LABELS.map((label, i) => {
           const slot = team[i] ?? null;
-          const role = slot ? roleMap.get(slot.pokemonId) : undefined;
-          const displayLabel = role
-            ? role.role === "safe-swap"
-              ? "Safe Swap"
-              : role.role === "lead"
-                ? "Lead"
-                : "Closer"
-            : label;
-          // Show suggestions only on the NEXT empty slot (first empty after all filled before it)
-          const isNextEmpty = slot === null && team.slice(0, i).every((s) => s !== null);
+          const isEmpty = slot === null;
           return (
             <div key={label}>
               <TeamSlotCard
                 slot={slot}
-                label={displayLabel}
-                onAdd={() => {/* no-op: search input handles adding */}}
+                label={label}
                 onRemove={() => handleSlotRemove(i as 0 | 1 | 2)}
               >
-                {isNextEmpty && metaSuggestions.length > 0 && (
+                {isEmpty && metaSuggestions.length > 0 && (
                   <div className="space-y-2">
                     <div className="flex flex-wrap gap-1.5">
                       {metaSuggestions.slice(0, 5).map((m) => {

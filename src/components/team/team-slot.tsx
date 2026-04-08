@@ -1,19 +1,17 @@
 "use client";
 
-import { Plus, X } from "lucide-react";
+import { X } from "lucide-react";
 import { TypeBadge } from "@/components/type-badge";
 import type { TeamSlot } from "@/lib/team-types";
 import type { ReactNode } from "react";
 
 export function TeamSlotCard({
   slot,
-  onAdd,
   onRemove,
   label,
   children,
 }: {
   slot: TeamSlot;
-  onAdd: () => void;
   onRemove: () => void;
   label: string;
   children?: ReactNode;
@@ -21,13 +19,7 @@ export function TeamSlotCard({
   if (!slot) {
     return (
       <div className="rounded-lg border border-dashed p-3">
-        <button
-          onClick={onAdd}
-          className="flex w-full flex-col items-center justify-center gap-1 text-muted-foreground transition-colors hover:bg-muted/50 rounded-md py-2"
-        >
-          <Plus className="h-5 w-5" />
-          <span className="text-xs font-medium">{label}</span>
-        </button>
+        <p className="text-center text-xs text-muted-foreground">{label}</p>
         {children && <div className="mt-2">{children}</div>}
       </div>
     );
