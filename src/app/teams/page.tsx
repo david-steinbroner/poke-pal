@@ -9,6 +9,7 @@ import { CoverageChart } from "@/components/team/coverage-chart";
 import { ThreatList } from "@/components/team/threat-list";
 import { SwapSuggestions } from "@/components/team/swap-suggestions";
 import { CopyBar } from "@/components/copy-bar";
+import { BackButton } from "@/components/back-button";
 import { analyzeTeam, assignRoles, getLeagueInfo, getPokemonById } from "@/lib/team-analysis";
 import { loadTeam, saveTeam } from "@/lib/team-storage";
 import { buildAbsoluteTeamUrl } from "@/lib/team-urls";
@@ -201,7 +202,10 @@ function TeamsPage() {
 
   return (
     <div className="space-y-5 pt-4 pb-8">
-      <h1 className="text-xl font-bold">Team Builder</h1>
+      <div>
+        <BackButton />
+        <h1 className="mt-2 text-xl font-bold">Team Builder</h1>
+      </div>
 
       <LeaguePicker selected={league} onSelect={handleLeagueChange} />
 

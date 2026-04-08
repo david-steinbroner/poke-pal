@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CopyBar } from "@/components/copy-bar";
 import { PokemonCard } from "@/components/pokemon-card";
+import { BackButton } from "@/components/back-button";
 import { getCountersFor, getAllPokemonIds } from "@/lib/counters";
 import {
   getEffectiveness,
@@ -49,7 +50,8 @@ export default async function CounterPage({
   return (
     <div className="space-y-4 pt-4">
       <div>
-        <div className="flex items-baseline gap-2">
+        <BackButton />
+        <div className="mt-2 flex items-baseline gap-2">
           <h1 className="text-xl font-bold">{pokemon.name} Counters</h1>
           {pokemon.types.map((t) => (
             <span

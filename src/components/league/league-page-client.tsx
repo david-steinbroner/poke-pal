@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from "react";
 import { toast } from "sonner";
 import { TierAccordion } from "@/components/tier-accordion";
 import { CopyBar } from "@/components/copy-bar";
+import { BackButton } from "@/components/back-button";
 import { InlineTeamSection } from "./inline-team-section";
 import { saveTeam, loadTeam, clearTeam } from "@/lib/team-storage";
 import type { MetaPokemon } from "@/lib/types";
@@ -67,7 +68,8 @@ export function LeaguePageClient({
   return (
     <div className="space-y-4 pt-4">
       <div>
-        <h1 className="text-xl font-bold">{leagueName}</h1>
+        <BackButton />
+        <h1 className="mt-2 text-xl font-bold">{leagueName}</h1>
         <p className="text-sm text-muted-foreground">
           {cpCap === 9999 ? "No CP limit" : `CP ${cpCap.toLocaleString()}`}
           {typeRestrictions && ` · ${typeRestrictions.join(", ")}`}

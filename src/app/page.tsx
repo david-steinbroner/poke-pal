@@ -12,7 +12,8 @@ const activeLeagues = allLeagues.filter((l) => l.active);
 
 export default function Home() {
   return (
-    <div className="space-y-6 pt-6">
+    <div className="space-y-6 pt-4">
+      <h1 className="text-lg font-bold">Poke Pal</h1>
       <SearchInput />
 
       <div>
