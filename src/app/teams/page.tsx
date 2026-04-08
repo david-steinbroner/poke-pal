@@ -44,9 +44,6 @@ function TeamsPage() {
   const initialPokemon = searchParams.get("p")?.split(",").filter(Boolean) || [];
 
   const [league, setLeague] = useState<LeagueId>(initialLeague);
-  const [cupSet, setCupSet] = useState<boolean>(() => {
-    return searchParams.has("l") || initialPokemon.length > 0;
-  });
   const [team, setTeam] = useState<[TeamSlot, TeamSlot, TeamSlot]>(() => [
     initialPokemon[0] ? pokemonToSlot(initialPokemon[0]) : null,
     initialPokemon[1] ? pokemonToSlot(initialPokemon[1]) : null,
@@ -65,7 +62,6 @@ function TeamsPage() {
           stored[1] ? pokemonToSlot(stored[1]) : null,
           stored[2] ? pokemonToSlot(stored[2]) : null,
         ] as [TeamSlot, TeamSlot, TeamSlot]);
-        setCupSet(true);
       }
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -105,23 +101,23 @@ function TeamsPage() {
 
   const handleLeagueChange = useCallback(
     (newLeague: LeagueId) => {
-      if (!cupSet) {
-        // First time setting a cup — keep current team, assign to this league
-        const currentIds = team
-          .filter((s): s is NonNullable<TeamSlot> => s !== null)
-          .map((s) => s.pokemonId);
-        setLeague(newLeague);
-        setCupSet(true);
-        // Save existing team under the new league
-        saveTeam(newLeague, currentIds);
+      if (newLeague === league) return;
+      // Save current team under current league
+      const currentIds = team
+        .filter((s): s is NonNullable<TeamSlot> => s !== null)
+        .map((s) => s.pokemonId);
+      saveTeam(league, currentIds);
+      // Switch league and load saved team for new league
+      setLeague(newLeague);
+      const stored = loadTeam(newLeague);
+      if (stored.length > 0) {
+        setTeam([
+          stored[0] ? pokemonToSlot(stored[0]) : null,
+          stored[1] ? pokemonToSlot(stored[1]) : null,
+          stored[2] ? pokemonToSlot(stored[2]) : null,
+        ] as [TeamSlot, TeamSlot, TeamSlot]);
       } else {
-        // Switching between cups — save old team, clear for new
-        const currentIds = team
-          .filter((s): s is NonNullable<TeamSlot> => s !== null)
-          .map((s) => s.pokemonId);
-        saveTeam(league, currentIds);
         setTeam([null, null, null]);
-        setLeague(newLeague);
       }
     },
     [team, league],
@@ -165,7 +161,6 @@ function TeamsPage() {
   function handleClear() {
     setTeam([null, null, null]);
     clearTeam(league);
-    setCupSet(false);
   }
 
   const hasTeam = team.some((s) => s !== null);
@@ -205,37 +200,36 @@ function TeamsPage() {
   return (
     <div className="space-y-5 pt-4 pb-8">
       <div>
-        <div className="flex items-center gap-2">
-          <h1 className="text-xl font-bold">Team Builder</h1>
-          <div className="flex-1" />
-          {hasTeam && <ClearButton onClick={handleClear} />}
-        </div>
-
-        {/* Cup name or Select League pills */}
-        {cupSet ? (
-          <p className="mt-2 text-sm text-muted-foreground">
-            {LEAGUE_NAMES[league] ?? league}
-            {hasTeam && teamRating && (
-              <span className={`ml-2 inline-flex rounded-full px-2 py-0.5 text-xs font-bold ${RATING_COLORS[teamRating]}`}>
-                {teamRating}
-              </span>
-            )}
-          </p>
-        ) : (
-          <div className="flex flex-wrap items-center gap-2 mt-2">
-            <span className="text-xs text-muted-foreground">Select League:</span>
-            {(LEAGUE_IDS as readonly string[]).map((id) => (
+        <h1 className="text-xl font-bold">Team Builder</h1>
+        <div className="mt-2 flex gap-1.5">
+          {(LEAGUE_IDS as readonly string[]).map((id) => {
+            const isActive = league === id;
+            const hasSavedTeam = (() => {
+              try {
+                const stored = localStorage.getItem(`poke-pal:team:${id}`);
+                if (!stored) return false;
+                const parsed = JSON.parse(stored);
+                return Array.isArray(parsed) && parsed.length > 0;
+              } catch { return false; }
+            })();
+            return (
               <button
                 key={id}
                 onClick={() => handleLeagueChange(id as LeagueId)}
-                className="rounded-full border px-3 py-1 text-xs font-medium transition-colors hover:bg-accent active:bg-accent active:scale-95"
+                className={`flex-1 rounded-lg px-2 py-1.5 text-xs font-medium transition-colors ${
+                  isActive
+                    ? "bg-primary text-primary-foreground"
+                    : hasSavedTeam
+                      ? "border-2 border-primary/40 text-foreground"
+                      : "border text-muted-foreground"
+                }`}
                 style={{ touchAction: "manipulation" }}
               >
                 {LEAGUE_SHORT_NAMES[id] ?? id}
               </button>
-            ))}
-          </div>
-        )}
+            );
+          })}
+        </div>
       </div>
 
       <SearchInput mode="select" onSelect={handlePokemonSelect} placeholder="Add a Pokemon..." />
@@ -296,12 +290,8 @@ function TeamsPage() {
                     : undefined;
                 })() : undefined}
               >
-                {/* Container 1: no cup selected, show "Select League" */}
-                {!cupSet && isEmpty && i === 0 && (
-                  <p className="text-center text-xs text-muted-foreground">Select League</p>
-                )}
-                {/* Container 1: cup selected, show suggestions + "See more" link */}
-                {cupSet && showSuggestions && metaSuggestions.length > 0 && i === 0 && (
+                {/* Container 1: show suggestions + "See more" link */}
+                {showSuggestions && metaSuggestions.length > 0 && i === 0 && (
                   <div className="flex flex-wrap gap-1.5">
                     {metaSuggestions.slice(0, 4).map((m) => {
                       const p = getPokemonById(m.pokemonId);
@@ -323,7 +313,7 @@ function TeamsPage() {
                   </div>
                 )}
                 {/* Containers 2 & 3: suggestions + See more link */}
-                {cupSet && showSuggestions && metaSuggestions.length > 0 && i > 0 && (
+                {showSuggestions && metaSuggestions.length > 0 && i > 0 && (
                   <div className="flex flex-wrap gap-1.5">
                     {metaSuggestions.slice(0, 4).map((m) => {
                       const p = getPokemonById(m.pokemonId);
