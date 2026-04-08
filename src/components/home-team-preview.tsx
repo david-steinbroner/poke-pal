@@ -5,7 +5,7 @@ import Link from "next/link";
 import { PokemonChip } from "@/components/pokemon-chip";
 import { getPokemonName } from "@/lib/pokemon-utils";
 import { getAllSavedTeams } from "@/lib/team-storage";
-import { LEAGUE_NAMES } from "@/lib/constants";
+import { LEAGUE_NAMES, LEAGUE_SHORT_NAMES } from "@/lib/constants";
 
 // Order: limited cups first, then regular cups
 const LEAGUE_ORDER = ["fantasy-cup", "great-league", "ultra-league", "master-league"];
@@ -51,7 +51,7 @@ export function HomeTeamPreview() {
           <Link
             key={team.leagueId}
             href={`/teams?l=${team.leagueId}&p=${team.pokemonIds.join(",")}`}
-            className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+            className={`rounded-full px-3 py-1.5 text-sm font-medium transition-colors ${
               selectedTab === team.leagueId
                 ? "bg-primary text-primary-foreground"
                 : "border text-muted-foreground hover:bg-accent"
@@ -59,7 +59,7 @@ export function HomeTeamPreview() {
             style={{ touchAction: "manipulation" }}
             onClick={() => setSelectedTab(team.leagueId)}
           >
-            {LEAGUE_NAMES[team.leagueId] ?? team.leagueId} ›
+            {LEAGUE_SHORT_NAMES[team.leagueId] ?? team.leagueId} ›
           </Link>
         ))}
       </div>
