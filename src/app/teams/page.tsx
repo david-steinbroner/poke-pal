@@ -11,7 +11,7 @@ import { CopyButton } from "@/components/copy-button";
 import { PokemonChip } from "@/components/pokemon-chip";
 import { SearchInput } from "@/components/search-input";
 import { ClearButton } from "@/components/clear-button";
-import { analyzeTeam, assignRoles, getLeagueInfo, getPokemonById } from "@/lib/team-analysis";
+import { analyzeTeam, getLeagueInfo, getPokemonById } from "@/lib/team-analysis";
 import { pokemonToSlot } from "@/lib/pokemon-utils";
 import { loadTeam, saveTeam, clearTeam } from "@/lib/team-storage";
 import { calculateTeamRating, RATING_COLORS } from "@/lib/team-rating";
@@ -19,8 +19,9 @@ import { getGapTypes } from "@/lib/team-rating";
 import { buildAbsoluteTeamUrl } from "@/lib/team-urls";
 import { copyToClipboard } from "@/lib/copy-to-clipboard";
 import { toast } from "sonner";
-import { Share2 } from "lucide-react";
-import type { LeagueId, TeamSlot, RoleAssignment } from "@/lib/team-types";
+import { Share2, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import type { LeagueId, TeamSlot } from "@/lib/team-types";
 import type { MetaPokemon, PokemonType } from "@/lib/types";
 
 export default function TeamsPageWrapper() {
@@ -97,20 +98,6 @@ function TeamsPage() {
     () => analyzeTeam(team, league),
     [team, league],
   );
-
-  // Compute role assignments when 2+ Pokemon are on the team
-  const roles = useMemo(() => {
-    const filledCount = team.filter((s) => s !== null).length;
-    if (filledCount < 2) return [];
-    return assignRoles(team, league);
-  }, [team, league]);
-
-  // Build a lookup: pokemonId -> RoleAssignment
-  const roleMap = useMemo(() => {
-    const map = new Map<string, RoleAssignment>();
-    for (const r of roles) map.set(r.pokemonId, r);
-    return map;
-  }, [roles]);
 
   const excludeIds = team
     .filter((s): s is NonNullable<TeamSlot> => s !== null)
@@ -292,11 +279,15 @@ function TeamsPage() {
           // Only show suggestions in the NEXT slot to fill:
           // Slot 0 always shows if empty, slot 1 only if slot 0 is filled, slot 2 only if 0+1 filled
           const showSuggestions = isEmpty && team.slice(0, i).every((s) => s !== null);
+          // For slots 2 & 3 (i > 0), include gap types in the header label
+          const slotLabel = isEmpty && showSuggestions && gapTypes.length > 0 && i > 0
+            ? `${label} — suggesting ${gapTypes.join(", ")}`
+            : label;
           return (
             <div key={label}>
               <TeamSlotCard
                 slot={slot}
-                label={label}
+                label={slotLabel}
                 onRemove={() => handleSlotRemove(i as 0 | 1 | 2)}
                 moveset={slot ? (() => {
                   const meta = (leagueInfo.meta as MetaPokemon[]).find(m => m.pokemonId === slot.pokemonId);
@@ -305,26 +296,46 @@ function TeamsPage() {
                     : undefined;
                 })() : undefined}
               >
-                {showSuggestions && metaSuggestions.length > 0 && (
-                  <div className="space-y-2">
-                    <div className="flex flex-wrap gap-1.5">
-                      {metaSuggestions.slice(0, 5).map((m) => {
-                        const p = getPokemonById(m.pokemonId);
-                        return (
-                          <PokemonChip
-                            key={m.pokemonId}
-                            name={p?.name ?? m.pokemonId}
-                            variant="add"
-                            onAction={() => handlePokemonSelect(m.pokemonId)}
-                          />
-                        );
-                      })}
-                    </div>
-                    {gapTypes.length > 0 && (
-                      <p className="text-xs text-muted-foreground">
-                        or any {gapTypes.join(", ")} type
-                      </p>
-                    )}
+                {/* Container 1: no cup selected, show "Select League" */}
+                {!cupSet && isEmpty && i === 0 && (
+                  <p className="text-center text-xs text-muted-foreground">Select League</p>
+                )}
+                {/* Container 1: cup selected, show suggestions + "See more" link */}
+                {cupSet && showSuggestions && metaSuggestions.length > 0 && i === 0 && (
+                  <div className="flex flex-wrap gap-1.5">
+                    {metaSuggestions.slice(0, 4).map((m) => {
+                      const p = getPokemonById(m.pokemonId);
+                      return (
+                        <PokemonChip
+                          key={m.pokemonId}
+                          name={p?.name ?? m.pokemonId}
+                          variant="add"
+                          onAction={() => handlePokemonSelect(m.pokemonId)}
+                        />
+                      );
+                    })}
+                    <Link
+                      href={`/league/${league}`}
+                      className="inline-flex items-center gap-1 rounded-full border px-3 py-1.5 text-xs font-medium text-muted-foreground hover:bg-accent"
+                    >
+                      See more <ArrowRight className="h-3 w-3" />
+                    </Link>
+                  </div>
+                )}
+                {/* Containers 2 & 3: suggestions only, no "or any" line (gap types in header) */}
+                {showSuggestions && metaSuggestions.length > 0 && i > 0 && (
+                  <div className="flex flex-wrap gap-1.5">
+                    {metaSuggestions.slice(0, 5).map((m) => {
+                      const p = getPokemonById(m.pokemonId);
+                      return (
+                        <PokemonChip
+                          key={m.pokemonId}
+                          name={p?.name ?? m.pokemonId}
+                          variant="add"
+                          onAction={() => handlePokemonSelect(m.pokemonId)}
+                        />
+                      );
+                    })}
                   </div>
                 )}
               </TeamSlotCard>

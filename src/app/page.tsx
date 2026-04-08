@@ -22,7 +22,7 @@ const raidBosses = [
 export default function Home() {
   return (
     <div className="space-y-6 pt-4">
-      <h1 className="text-lg font-bold">Poke Pal</h1>
+      <h1 className="text-xl font-bold">Poke Pal</h1>
       <SearchInput />
 
       <div>
