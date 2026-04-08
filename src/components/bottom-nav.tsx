@@ -26,9 +26,9 @@ export function BottomNav() {
             <Link
               key={item.href}
               href={item.href}
-              className={`flex flex-1 flex-col items-center gap-0.5 py-2 text-xs font-medium transition-colors ${
+              className={`flex flex-1 flex-col items-center gap-1 pt-2.5 pb-1.5 text-xs font-medium transition-colors ${
                 active
-                  ? "text-primary"
+                  ? "text-primary font-semibold"
                   : "text-muted-foreground"
               }`}
               style={{ touchAction: "manipulation" }}
