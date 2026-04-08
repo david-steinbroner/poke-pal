@@ -2,6 +2,14 @@ import type { PokemonType } from "./types";
 
 export type LeagueId = "great-league" | "ultra-league" | "master-league" | "fantasy-cup";
 
+export type TeamRole = "lead" | "safe-swap" | "closer";
+
+export type RoleAssignment = {
+  pokemonId: string;
+  role: TeamRole;
+  reasoning: string; // e.g., "Strong lead — covers 4 meta threats"
+};
+
 export type TeamSlot = {
   pokemonId: string;
   name: string;

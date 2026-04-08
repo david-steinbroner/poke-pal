@@ -9,9 +9,13 @@ import { CoverageChart } from "@/components/team/coverage-chart";
 import { ThreatList } from "@/components/team/threat-list";
 import { SwapSuggestions } from "@/components/team/swap-suggestions";
 import { CopyBar } from "@/components/copy-bar";
-import { analyzeTeam, getLeagueInfo, getPokemonById } from "@/lib/team-analysis";
+import { analyzeTeam, assignRoles, getLeagueInfo, getPokemonById } from "@/lib/team-analysis";
 import { loadTeam, saveTeam } from "@/lib/team-storage";
-import type { LeagueId, TeamSlot } from "@/lib/team-types";
+import { buildAbsoluteTeamUrl } from "@/lib/team-urls";
+import { copyToClipboard } from "@/lib/copy-to-clipboard";
+import { toast } from "sonner";
+import { Share2 } from "lucide-react";
+import type { LeagueId, TeamSlot, RoleAssignment } from "@/lib/team-types";
 import type { MetaPokemon, PokemonType } from "@/lib/types";
 import Link from "next/link";
 
@@ -103,6 +107,20 @@ function TeamsPage() {
     [team, league],
   );
 
+  // Compute role assignments when 2+ Pokemon are on the team
+  const roles = useMemo(() => {
+    const filledCount = team.filter((s) => s !== null).length;
+    if (filledCount < 2) return [];
+    return assignRoles(team, league);
+  }, [team, league]);
+
+  // Build a lookup: pokemonId -> RoleAssignment
+  const roleMap = useMemo(() => {
+    const map = new Map<string, RoleAssignment>();
+    for (const r of roles) map.set(r.pokemonId, r);
+    return map;
+  }, [roles]);
+
   const excludeIds = team
     .filter((s): s is NonNullable<TeamSlot> => s !== null)
     .map((s) => s.pokemonId);
@@ -166,6 +184,21 @@ function TeamsPage() {
 
   const hasTeam = team.some((s) => s !== null);
 
+  const pokemonIds = team
+    .filter((s): s is NonNullable<TeamSlot> => s !== null)
+    .map((s) => s.pokemonId);
+
+  const handleShare = useCallback(async () => {
+    if (pokemonIds.length === 0) return;
+    const url = buildAbsoluteTeamUrl(league, pokemonIds);
+    const success = await copyToClipboard(url);
+    if (success) {
+      toast("Link copied!");
+    } else {
+      toast("Could not copy link");
+    }
+  }, [league, pokemonIds]);
+
   return (
     <div className="space-y-5 pt-4 pb-8">
       <div>
@@ -184,15 +217,27 @@ function TeamsPage() {
       <LeaguePicker selected={league} onSelect={handleLeagueChange} />
 
       <div className="space-y-2">
-        {SLOT_LABELS.map((label, i) => (
-          <TeamSlotCard
-            key={label}
-            slot={team[i] ?? null}
-            label={label}
-            onAdd={() => handleSlotAdd(i as 0 | 1 | 2)}
-            onRemove={() => handleSlotRemove(i as 0 | 1 | 2)}
-          />
-        ))}
+        {SLOT_LABELS.map((label, i) => {
+          const slot = team[i] ?? null;
+          // Use the role-based label if a role is assigned to this slot's Pokemon
+          const role = slot ? roleMap.get(slot.pokemonId) : undefined;
+          const displayLabel = role
+            ? role.role === "safe-swap"
+              ? "Safe Swap"
+              : role.role === "lead"
+                ? "Lead"
+                : "Closer"
+            : label;
+          return (
+            <TeamSlotCard
+              key={label}
+              slot={slot}
+              label={displayLabel}
+              onAdd={() => handleSlotAdd(i as 0 | 1 | 2)}
+              onRemove={() => handleSlotRemove(i as 0 | 1 | 2)}
+            />
+          );
+        })}
       </div>
 
       <TeamSlotPicker
@@ -212,6 +257,17 @@ function TeamsPage() {
               </p>
               <CopyBar searchString={analysis.searchString} />
             </div>
+          )}
+
+          {pokemonIds.length >= 2 && (
+            <button
+              onClick={handleShare}
+              className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground"
+              style={{ touchAction: "manipulation" }}
+            >
+              <Share2 className="h-3.5 w-3.5" />
+              Share team link
+            </button>
           )}
 
           <CoverageChart

@@ -1,15 +1,18 @@
 "use client";
 
-import { useMemo } from "react";
-import { X, Plus } from "lucide-react";
+import { useMemo, useState, useCallback } from "react";
+import { X, Plus, Share2 } from "lucide-react";
 import Link from "next/link";
-import { analyzeTeam, getPokemonById } from "@/lib/team-analysis";
+import { toast } from "sonner";
+import { analyzeTeam, assignRoles, getPokemonById } from "@/lib/team-analysis";
 import {
   buildNameSearchString,
   buildLeagueEligibleString,
 } from "@/lib/search-string";
 import { CopyBar } from "@/components/copy-bar";
-import type { LeagueId } from "@/lib/team-types";
+import { buildAbsoluteTeamUrl } from "@/lib/team-urls";
+import { copyToClipboard } from "@/lib/copy-to-clipboard";
+import type { LeagueId, RoleAssignment } from "@/lib/team-types";
 import type { PokemonType } from "@/lib/types";
 import pokemonData from "@/data/pokemon.json";
 
@@ -74,6 +77,24 @@ export function InlineTeamSection({
     return `${nameStr}&${buildLeagueEligibleString(cpCap)}`;
   }, [team, cpCap]);
 
+  // Compute role assignments when team has 2+ members
+  const roles = useMemo(() => {
+    if (team.length < 2) return [];
+    const slots = [
+      team[0] ? pokemonToSlot(team[0]) : null,
+      team[1] ? pokemonToSlot(team[1]) : null,
+      team[2] ? pokemonToSlot(team[2]) : null,
+    ] as const;
+    return assignRoles([...slots], leagueId as LeagueId);
+  }, [team, leagueId]);
+
+  // Build a lookup: pokemonId -> role label
+  const roleMap = useMemo(() => {
+    const map = new Map<string, RoleAssignment>();
+    for (const r of roles) map.set(r.pokemonId, r);
+    return map;
+  }, [roles]);
+
   // Suggestions filtered to exclude current team members
   const suggestions = analysis.suggestions
     .filter((s) => !team.includes(s.pokemonId))
@@ -105,24 +126,40 @@ export function InlineTeamSection({
 
       {/* Team chips + empty slots */}
       <div className="flex flex-wrap gap-2">
-        {team.map((pokemonId) => (
-          <span
-            key={pokemonId}
-            className="inline-flex items-center gap-1 rounded-full border bg-card px-3 py-1.5 text-sm font-medium"
-          >
-            <span className="max-w-[120px] truncate">
-              {getPokemonName(pokemonId)}
-            </span>
-            <button
-              onClick={() => onRemove(pokemonId)}
-              className="inline-flex items-center justify-center ml-0.5 -mr-1 p-1 text-muted-foreground hover:text-foreground"
-              style={{ touchAction: "manipulation" }}
-              aria-label={`Remove ${getPokemonName(pokemonId)}`}
+        {team.map((pokemonId) => {
+          const role = roleMap.get(pokemonId);
+          return (
+            <span
+              key={pokemonId}
+              className="inline-flex items-center gap-1 rounded-full border bg-card px-3 py-1.5 text-sm font-medium"
             >
-              <X className="h-3 w-3" />
-            </button>
-          </span>
-        ))}
+              {role && (
+                <span
+                  className={`text-[10px] font-semibold uppercase tracking-wide ${
+                    role.role === "lead"
+                      ? "text-blue-500"
+                      : role.role === "safe-swap"
+                        ? "text-amber-500"
+                        : "text-emerald-500"
+                  }`}
+                >
+                  {role.role === "safe-swap" ? "Swap" : role.role}:
+                </span>
+              )}
+              <span className="max-w-[120px] truncate">
+                {getPokemonName(pokemonId)}
+              </span>
+              <button
+                onClick={() => onRemove(pokemonId)}
+                className="inline-flex items-center justify-center ml-0.5 -mr-1 p-1 text-muted-foreground hover:text-foreground"
+                style={{ touchAction: "manipulation" }}
+                aria-label={`Remove ${getPokemonName(pokemonId)}`}
+              >
+                <X className="h-3 w-3" />
+              </button>
+            </span>
+          );
+        })}
         {Array.from({ length: 3 - team.length }).map((_, i) => (
           <span
             key={`empty-${i}`}
@@ -154,16 +191,49 @@ export function InlineTeamSection({
       {/* Copy bar with team search string */}
       <CopyBar searchString={searchString} />
 
-      {/* Link to full analysis when team has 2+ Pokemon */}
+      {/* Full analysis + share when team has 2+ Pokemon */}
       {team.length >= 2 && (
-        <Link
-          href={`/teams?l=${leagueId}&p=${team.join(",")}`}
-          className="flex items-center justify-center gap-1 text-xs font-medium text-primary hover:underline"
-          style={{ touchAction: "manipulation" }}
-        >
-          Full Analysis →
-        </Link>
+        <div className="flex items-center justify-center gap-4">
+          <Link
+            href={`/teams?l=${leagueId}&p=${team.join(",")}`}
+            className="text-xs font-medium text-primary hover:underline"
+            style={{ touchAction: "manipulation" }}
+          >
+            Full Analysis &rarr;
+          </Link>
+          <ShareTeamButton leagueId={leagueId} team={team} />
+        </div>
       )}
     </div>
+  );
+}
+
+/* ---- Share button ---- */
+function ShareTeamButton({
+  leagueId,
+  team,
+}: {
+  leagueId: string;
+  team: string[];
+}) {
+  const handleShare = useCallback(async () => {
+    const url = buildAbsoluteTeamUrl(leagueId, team);
+    const success = await copyToClipboard(url);
+    if (success) {
+      toast("Link copied!");
+    } else {
+      toast("Could not copy link");
+    }
+  }, [leagueId, team]);
+
+  return (
+    <button
+      onClick={handleShare}
+      className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground hover:text-foreground"
+      style={{ touchAction: "manipulation" }}
+    >
+      <Share2 className="h-3 w-3" />
+      Share
+    </button>
   );
 }

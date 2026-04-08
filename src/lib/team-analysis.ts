@@ -8,6 +8,8 @@ import type {
   TeamThreat,
   SwapSuggestion,
   LeagueId,
+  RoleAssignment,
+  TeamRole,
 } from "./team-types";
 import pokemonData from "@/data/pokemon.json";
 import greatLeague from "@/data/leagues/great-league.json";
@@ -293,4 +295,160 @@ export function analyzeTeam(
     searchString,
     coverageScore,
   };
+}
+
+/**
+ * Scores how many of the league's meta Pokemon a team member can hit
+ * super-effectively with its moves.
+ */
+function scoreMetaCoverage(
+  slot: NonNullable<TeamSlot>,
+  leagueId: LeagueId,
+): { score: number; names: string[] } {
+  const league = getLeagueInfo(leagueId);
+  const moveTypes = getMoveTypes(slot);
+  const hitNames: string[] = [];
+
+  for (const metaMon of league.meta) {
+    const pokemon = getPokemonById(metaMon.pokemonId);
+    if (!pokemon) continue;
+    // Check if any move type is SE against this meta Pokemon
+    for (const moveType of moveTypes) {
+      const eff = getEffectiveness(moveType, pokemon.types as PokemonType[]);
+      if (eff > 1.0) {
+        hitNames.push(pokemon.name);
+        break;
+      }
+    }
+  }
+
+  return { score: hitNames.length, names: hitNames };
+}
+
+/**
+ * Scores how well a Pokemon covers another's weaknesses.
+ * Returns the count of the target's weakness types that this Pokemon resists.
+ */
+function scoreWeaknessCoverage(
+  slot: NonNullable<TeamSlot>,
+  weaknessTypes: PokemonType[],
+): { score: number; coveredTypes: PokemonType[] } {
+  const covered: PokemonType[] = [];
+  for (const wType of weaknessTypes) {
+    const eff = getEffectiveness(wType, slot.types);
+    if (eff < 1.0) {
+      covered.push(wType);
+    }
+  }
+  return { score: covered.length, coveredTypes: covered };
+}
+
+/**
+ * Assigns lead / safe-swap / closer roles to each team member.
+ *
+ * - Lead: covers the widest range of meta threats (most SE hits on meta Pokemon).
+ * - Safe swap: best covers the lead's defensive weaknesses.
+ * - Closer: the remaining Pokemon, rounds out team coverage.
+ *
+ * When team has < 3 Pokemon: 1 = lead only, 2 = lead + safe-swap.
+ */
+export function assignRoles(
+  team: TeamSlot[],
+  leagueId: LeagueId,
+): RoleAssignment[] {
+  const members = team.filter(
+    (s): s is NonNullable<TeamSlot> => s !== null,
+  );
+
+  if (members.length === 0) return [];
+
+  // Score each member by meta coverage for lead selection
+  const metaScores = members.map((m) => ({
+    slot: m,
+    ...scoreMetaCoverage(m, leagueId),
+  }));
+
+  // Pick lead: highest meta coverage score
+  metaScores.sort((a, b) => b.score - a.score);
+  const lead = metaScores[0]!;
+
+  const assignments: RoleAssignment[] = [
+    {
+      pokemonId: lead.slot.pokemonId,
+      role: "lead" as TeamRole,
+      reasoning:
+        lead.score > 0
+          ? `Covers ${lead.score} meta threat${lead.score !== 1 ? "s" : ""}`
+          : "Best available lead",
+    },
+  ];
+
+  if (members.length === 1) return assignments;
+
+  // Find lead's weaknesses (types that hit lead SE)
+  const leadWeaknesses = POKEMON_TYPES.filter(
+    (t) => getEffectiveness(t, lead.slot.types) > 1.0,
+  );
+
+  // Score remaining members by how well they cover lead's weaknesses
+  const remaining = members.filter(
+    (m) => m.pokemonId !== lead.slot.pokemonId,
+  );
+
+  const swapScores = remaining.map((m) => ({
+    slot: m,
+    ...scoreWeaknessCoverage(m, leadWeaknesses),
+  }));
+
+  swapScores.sort((a, b) => b.score - a.score);
+  const safeSwap = swapScores[0]!;
+
+  assignments.push({
+    pokemonId: safeSwap.slot.pokemonId,
+    role: "safe-swap" as TeamRole,
+    reasoning:
+      safeSwap.coveredTypes.length > 0
+        ? `Covers ${lead.slot.name}'s weakness to ${safeSwap.coveredTypes.join(", ")}`
+        : `Covers ${lead.slot.name}'s gaps`,
+  });
+
+  if (members.length === 2) return assignments;
+
+  // Closer: the remaining Pokemon
+  const closer = remaining.find(
+    (m) => m.pokemonId !== safeSwap.slot.pokemonId,
+  );
+  if (closer) {
+    // Figure out what types this closer uniquely covers
+    const assignedIds = new Set([lead.slot.pokemonId, safeSwap.slot.pokemonId]);
+    const otherMembers = members.filter((m) => assignedIds.has(m.pokemonId));
+    const closerMoveTypes = getMoveTypes(closer);
+
+    // Types that closer covers SE but the other two don't
+    const uniqueCoverage: PokemonType[] = [];
+    for (const defType of POKEMON_TYPES) {
+      const closerHits = closerMoveTypes.some(
+        (mt) => getEffectiveness(mt, [defType]) > 1.0,
+      );
+      if (!closerHits) continue;
+
+      const othersHit = otherMembers.some((m) => {
+        const mTypes = getMoveTypes(m);
+        return mTypes.some((mt) => getEffectiveness(mt, [defType]) > 1.0);
+      });
+
+      if (!othersHit) uniqueCoverage.push(defType);
+    }
+
+    assignments.push({
+      pokemonId: closer.pokemonId,
+      role: "closer" as TeamRole,
+      reasoning:
+        uniqueCoverage.length > 0
+          ? `Rounds out coverage for ${uniqueCoverage.slice(0, 3).join(", ")}`
+          : "Rounds out team coverage",
+    });
+  }
+
+  return assignments;
 }
