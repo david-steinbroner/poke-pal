@@ -128,7 +128,7 @@ export function FloatingTeamBar({
       <div
         className="border-t bg-background/95 backdrop-blur-sm transition-transform duration-300 motion-reduce:transition-none"
         style={{
-          maxHeight: "min(50vh, 340px)",
+          maxHeight: "min(45vh, 320px)",
           transform: isVisible
             ? expanded
               ? "translateY(0)"
@@ -203,7 +203,7 @@ export function FloatingTeamBar({
             height: expanded ? "auto" : 0,
             overflow: expanded ? "auto" : "hidden",
           }}
-          className="px-4 pb-4"
+          className="px-4 pb-2"
         >
           <div className="mx-auto max-w-lg space-y-3">
             {/* Team slots with types and remove button */}

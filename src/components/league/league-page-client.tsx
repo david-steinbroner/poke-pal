@@ -50,7 +50,7 @@ export function LeaguePageClient({
     cpCap === 9999 ? metaSearchString : `${metaSearchString}&${cpString}`;
 
   return (
-    <div className={`space-y-4 pt-4 ${team.length > 0 ? "pb-28" : ""}`}>
+    <div className={`space-y-4 pt-4 ${team.length > 0 ? "pb-36" : ""}`}>
       <div>
         <Link
           href="/"
