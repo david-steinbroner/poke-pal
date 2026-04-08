@@ -22,6 +22,13 @@ export default function Home() {
 
       <SearchInput />
 
+      <Link
+        href="/teams"
+        className="flex min-h-11 items-center justify-center rounded-lg border-2 border-dashed px-4 py-3 text-sm font-medium transition-colors hover:bg-accent active:bg-accent active:scale-[0.98]"
+      >
+        Build a Team &rarr;
+      </Link>
+
       <div>
         <h2 className="mb-2 text-sm font-medium text-muted-foreground">
           Quick Picks
