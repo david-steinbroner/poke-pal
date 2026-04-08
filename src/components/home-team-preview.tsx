@@ -48,18 +48,19 @@ export function HomeTeamPreview() {
       {/* League tabs — only leagues with saved teams */}
       <div className="flex flex-wrap gap-1.5">
         {teams.map((team) => (
-          <button
+          <Link
             key={team.leagueId}
-            onClick={() => setSelectedTab(team.leagueId)}
+            href={`/teams?l=${team.leagueId}&p=${team.pokemonIds.join(",")}`}
             className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
               selectedTab === team.leagueId
                 ? "bg-primary text-primary-foreground"
                 : "border text-muted-foreground hover:bg-accent"
             }`}
             style={{ touchAction: "manipulation" }}
+            onClick={() => setSelectedTab(team.leagueId)}
           >
-            {LEAGUE_NAMES[team.leagueId] ?? team.leagueId}
-          </button>
+            {LEAGUE_NAMES[team.leagueId] ?? team.leagueId} ›
+          </Link>
         ))}
       </div>
 
@@ -67,17 +68,8 @@ export function HomeTeamPreview() {
       {selectedTeam && (
         <div className="flex flex-wrap items-center gap-1.5">
           {selectedTeam.pokemonIds.map((id) => (
-            <Link key={id} href={teamUrl}>
-              <PokemonChip name={getPokemonName(id)} />
-            </Link>
+            <PokemonChip key={id} name={getPokemonName(id)} />
           ))}
-          <Link
-            href={teamUrl}
-            className="inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium text-muted-foreground hover:bg-accent"
-            style={{ touchAction: "manipulation" }}
-          >
-            Edit
-          </Link>
         </div>
       )}
     </div>
