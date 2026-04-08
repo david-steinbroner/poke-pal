@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 import { X, Plus } from "lucide-react";
+import Link from "next/link";
 import { analyzeTeam, getPokemonById } from "@/lib/team-analysis";
 import {
   buildNameSearchString,
@@ -101,7 +102,7 @@ export function InlineTeamSection({
             </span>
             <button
               onClick={() => onRemove(pokemonId)}
-              className="inline-flex items-center justify-center min-h-11 min-w-[20px] text-muted-foreground hover:text-foreground"
+              className="inline-flex items-center justify-center ml-0.5 -mr-1 p-1 text-muted-foreground hover:text-foreground"
               style={{ touchAction: "manipulation" }}
               aria-label={`Remove ${getPokemonName(pokemonId)}`}
             >
@@ -127,7 +128,7 @@ export function InlineTeamSection({
             <button
               key={s.pokemonId}
               onClick={() => onAdd(s.pokemonId)}
-              className="inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium min-h-11 transition-colors hover:bg-accent active:bg-accent active:scale-95"
+              className="inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium transition-colors hover:bg-accent active:bg-accent active:scale-95"
               style={{ touchAction: "manipulation" }}
             >
               <Plus className="h-3 w-3" />
@@ -139,6 +140,17 @@ export function InlineTeamSection({
 
       {/* Copy bar with team search string */}
       <CopyBar searchString={searchString} />
+
+      {/* Link to full analysis when team has 2+ Pokemon */}
+      {team.length >= 2 && (
+        <Link
+          href={`/teams?l=${leagueId}&p=${team.join(",")}`}
+          className="flex items-center justify-center gap-1 text-xs font-medium text-primary hover:underline"
+          style={{ touchAction: "manipulation" }}
+        >
+          Full Analysis →
+        </Link>
+      )}
     </div>
   );
 }
