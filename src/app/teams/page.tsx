@@ -2,13 +2,12 @@
 
 import { Suspense, useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { LEAGUE_IDS, LEAGUE_NAMES, LEAGUE_SHORT_NAMES } from "@/lib/constants";
+import { LEAGUE_IDS, LEAGUE_SHORT_NAMES } from "@/lib/constants";
 import { TeamSlotCard } from "@/components/team/team-slot";
 import { ThreatList } from "@/components/team/threat-list";
 import { CopyButton } from "@/components/copy-button";
 import { PokemonChip } from "@/components/pokemon-chip";
 import { SearchInput } from "@/components/search-input";
-import { ClearButton } from "@/components/clear-button";
 import { analyzeTeam, getLeagueInfo, getPokemonById } from "@/lib/team-analysis";
 import { pokemonToSlot } from "@/lib/pokemon-utils";
 import { loadTeam, saveTeam, clearTeam } from "@/lib/team-storage";
@@ -20,7 +19,7 @@ import { toast } from "sonner";
 import { Share2, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import type { LeagueId, TeamSlot } from "@/lib/team-types";
-import type { MetaPokemon, PokemonType } from "@/lib/types";
+import type { MetaPokemon } from "@/lib/types";
 
 export default function TeamsPageWrapper() {
   return (
@@ -215,7 +214,6 @@ function TeamsPage() {
                       ? "border-2 border-primary/40 text-foreground"
                       : "border text-muted-foreground"
                 }`}
-                style={{ touchAction: "manipulation" }}
               >
                 {LEAGUE_SHORT_NAMES[id] ?? id}
               </button>
@@ -249,7 +247,6 @@ function TeamsPage() {
                 ? "text-foreground hover:bg-muted"
                 : "text-muted-foreground/40 border-border/40 cursor-not-allowed"
             }`}
-            style={{ touchAction: "manipulation" }}
           >
             <Share2 className="h-4 w-4" />
             Share
@@ -282,30 +279,7 @@ function TeamsPage() {
                     : undefined;
                 })() : undefined}
               >
-                {/* Container 1: show suggestions + "See more" link */}
-                {showSuggestions && metaSuggestions.length > 0 && i === 0 && (
-                  <div className="flex flex-wrap gap-1.5">
-                    {metaSuggestions.slice(0, 4).map((m) => {
-                      const p = getPokemonById(m.pokemonId);
-                      return (
-                        <PokemonChip
-                          key={m.pokemonId}
-                          name={p?.name ?? m.pokemonId}
-                          variant="add"
-                          onAction={() => handlePokemonSelect(m.pokemonId)}
-                        />
-                      );
-                    })}
-                    <Link
-                      href={`/league/${league}`}
-                      className="inline-flex items-center gap-1 rounded-full border px-3 py-1.5 text-xs font-medium text-muted-foreground hover:bg-accent"
-                    >
-                      See more <ArrowRight className="h-3 w-3" />
-                    </Link>
-                  </div>
-                )}
-                {/* Containers 2 & 3: suggestions + See more link */}
-                {showSuggestions && metaSuggestions.length > 0 && i > 0 && (
+                {showSuggestions && metaSuggestions.length > 0 && (
                   <div className="flex flex-wrap gap-1.5">
                     {metaSuggestions.slice(0, 4).map((m) => {
                       const p = getPokemonById(m.pokemonId);
@@ -335,7 +309,6 @@ function TeamsPage() {
       <Link
         href={`/league/${league}`}
         className="flex items-center justify-center gap-1 text-xs uppercase tracking-wide text-muted-foreground/60 hover:text-muted-foreground"
-        style={{ touchAction: "manipulation" }}
       >
         SEE LEAGUE INFO <ArrowRight className="h-3 w-3" />
       </Link>

@@ -28,7 +28,6 @@ export function InlineTeamSection({
         <Link
           href={`/teams?l=${leagueId}&p=${team.join(",")}`}
           className="text-primary hover:text-primary/80"
-          style={{ touchAction: "manipulation" }}
           aria-label="Edit team"
         >
           <ArrowRight className="h-5 w-5" />

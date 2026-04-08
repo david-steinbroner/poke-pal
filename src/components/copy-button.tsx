@@ -18,7 +18,7 @@ export function CopyButton({ searchString, label, compact }: CopyButtonProps) {
     if (success) {
       setCopied(true);
       if (navigator.vibrate) navigator.vibrate(50);
-      toast("Copied — paste in game!");
+      toast("Copied — paste in Pokemon GO search");
       setTimeout(() => setCopied(false), 3000);
     } else {
       toast("Long-press to copy manually");
@@ -35,9 +35,8 @@ export function CopyButton({ searchString, label, compact }: CopyButtonProps) {
           ? "bg-green-600 text-white"
           : "bg-primary text-primary-foreground"
       }`}
-      style={{ touchAction: "manipulation" }}
     >
-      {copied ? (compact ? "Copied!" : "Copied — paste in game!") : label}
+      {copied ? (compact ? "Copied!" : "Copied — paste in Pokemon GO search") : label}
     </button>
   );
 }

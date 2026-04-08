@@ -80,7 +80,6 @@ export function PokemonListItem({
               ? "text-green-600 pointer-events-none"
               : "text-muted-foreground hover:text-foreground"
           }`}
-          style={{ touchAction: "manipulation" }}
           aria-label={`${action} ${name}`}
           aria-disabled={isDisabled}
         >

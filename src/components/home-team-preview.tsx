@@ -48,7 +48,6 @@ export function HomeTeamPreview() {
                     ? "border-2 border-primary/30 text-foreground"
                     : "border text-muted-foreground hover:bg-accent"
               }`}
-              style={{ touchAction: "manipulation" }}
             >
               {LEAGUE_SHORT_NAMES[id] ?? id}
             </button>
@@ -66,7 +65,6 @@ export function HomeTeamPreview() {
             <Link
               href={`/teams?l=${selectedTab}&p=${selectedPokemon.join(",")}`}
               className="inline-flex items-center justify-center rounded-full border px-2.5 py-1.5 text-muted-foreground hover:bg-accent"
-              style={{ touchAction: "manipulation" }}
               aria-label="Edit team"
             >
               <Pencil className="h-3.5 w-3.5" />

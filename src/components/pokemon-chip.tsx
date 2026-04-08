@@ -20,7 +20,6 @@ export function PokemonChip({
         <button
           onClick={onAction}
           className="ml-0.5 -mr-1 p-1 text-muted-foreground hover:text-foreground"
-          style={{ touchAction: "manipulation" }}
           aria-label={`${variant === "add" ? "Add" : "Remove"} ${name}`}
         >
           <Icon className="h-3 w-3" />

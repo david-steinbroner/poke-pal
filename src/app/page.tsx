@@ -17,12 +17,16 @@ const raidBosses = [
   ...currentRaids.fivestar,
   ...currentRaids.mega,
   ...currentRaids.threestar,
+  ...currentRaids.onestar,
 ].filter((id) => pokemonData.some((p) => p.id === id));
 
 export default function Home() {
   return (
     <div className="space-y-8 pt-4">
       <h1 className="text-xl font-bold">Poke Pal</h1>
+      <p className="text-sm text-muted-foreground">
+        Search a Pokemon, copy the string, paste in GO to find counters.
+      </p>
       <SearchInput />
 
       <div className="space-y-3">

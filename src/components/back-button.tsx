@@ -17,7 +17,6 @@ export function BackButton() {
     <button
       onClick={handleBack}
       className="text-sm text-muted-foreground hover:text-foreground active:opacity-70"
-      style={{ touchAction: "manipulation" }}
     >
       &larr; Back
     </button>
