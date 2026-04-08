@@ -122,7 +122,7 @@ export function TeamSlotPicker({
             onChange={(e) => setQuery(e.target.value)}
             className="min-h-11 text-base"
             autoComplete="off"
-            autoFocus
+            autoFocus={false}
           />
 
           {/* Search results */}

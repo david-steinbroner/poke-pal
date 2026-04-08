@@ -16,7 +16,15 @@ const TIER_LABELS: Record<string, string> = {
   C: "C Tier — Niche Picks",
 };
 
-export function TierAccordion({ meta }: { meta: MetaPokemon[] }) {
+export function TierAccordion({
+  meta,
+  onAddToTeam,
+  teamPokemonIds,
+}: {
+  meta: MetaPokemon[];
+  onAddToTeam?: (pokemonId: string) => void;
+  teamPokemonIds?: string[];
+}) {
   const tiers = ["S", "A", "B", "C"] as const;
   const grouped = tiers
     .map((tier) => ({
@@ -35,7 +43,16 @@ export function TierAccordion({ meta }: { meta: MetaPokemon[] }) {
           <AccordionContent>
             <div className="space-y-2">
               {pokemon.map((p) => (
-                <MetaPokemonCard key={p.pokemonId} pokemon={p} />
+                <MetaPokemonCard
+                  key={p.pokemonId}
+                  pokemon={p}
+                  onAdd={
+                    onAddToTeam
+                      ? () => onAddToTeam(p.pokemonId)
+                      : undefined
+                  }
+                  isOnTeam={teamPokemonIds?.includes(p.pokemonId)}
+                />
               ))}
             </div>
           </AccordionContent>

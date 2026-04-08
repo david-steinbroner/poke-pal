@@ -1,7 +1,5 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { TierAccordion } from "@/components/tier-accordion";
-import { CopyBar } from "@/components/copy-bar";
 import {
   buildLeagueEligibleString,
   buildNameSearchString,
@@ -12,7 +10,7 @@ import greatLeague from "@/data/leagues/great-league.json";
 import ultraLeague from "@/data/leagues/ultra-league.json";
 import masterLeague from "@/data/leagues/master-league.json";
 import fantasyCup from "@/data/leagues/fantasy-cup.json";
-import Link from "next/link";
+import { LeaguePageClient } from "@/components/league/league-page-client";
 
 const leagues = [fantasyCup, greatLeague, ultraLeague, masterLeague];
 
@@ -46,53 +44,29 @@ export default async function LeaguePage({
   const cpString = buildLeagueEligibleString(league.cpCap);
 
   // Build search string from all meta Pokemon names
-  const metaNames = league.meta
-    .map((m) => {
-      const pokemon = pokemonData.find((p) => p.id === m.pokemonId);
-      return pokemon?.name ?? m.pokemonId;
-    });
+  const metaNames = league.meta.map((m) => {
+    const pokemon = pokemonData.find((p) => p.id === m.pokemonId);
+    return pokemon?.name ?? m.pokemonId;
+  });
   const metaSearchString = buildNameSearchString(metaNames);
 
+  // Extract type restrictions if present
+  const typeRestrictions =
+    "typeRestrictions" in league
+      ? (league as { typeRestrictions?: string[] }).typeRestrictions
+      : undefined;
+
   return (
-    <div className="space-y-4 pt-4">
-      <div>
-        <Link
-          href="/"
-          className="text-sm text-muted-foreground hover:text-foreground"
-        >
-          &larr; Back
-        </Link>
-        <h1 className="mt-2 text-xl font-bold">{league.name}</h1>
-        <p className="text-sm text-muted-foreground">
-          {league.season} · CP{" "}
-          {league.cpCap === 9999 ? "∞" : league.cpCap.toLocaleString()} ·
-          Updated {league.lastUpdated}
-        </p>
-        {"typeRestrictions" in league &&
-          (league as { typeRestrictions?: string[] }).typeRestrictions && (
-            <p className="mt-1 text-xs text-muted-foreground">
-              Eligible types:{" "}
-              {(league as { typeRestrictions: string[] }).typeRestrictions.join(
-                ", ",
-              )}
-            </p>
-          )}
-      </div>
-
-      <div>
-        <p className="mb-1 text-xs font-medium text-muted-foreground">
-          Find meta Pokemon you own
-        </p>
-        <CopyBar
-          searchString={
-            league.cpCap === 9999
-              ? metaSearchString
-              : `${metaSearchString}&${cpString}`
-          }
-        />
-      </div>
-
-      <TierAccordion meta={league.meta as MetaPokemon[]} />
-    </div>
+    <LeaguePageClient
+      leagueId={league.id}
+      leagueName={league.name}
+      cpCap={league.cpCap}
+      season={league.season}
+      lastUpdated={league.lastUpdated}
+      typeRestrictions={typeRestrictions}
+      meta={league.meta as MetaPokemon[]}
+      metaSearchString={metaSearchString}
+      cpString={cpString}
+    />
   );
 }
