@@ -114,29 +114,39 @@ export function FloatingTeamBar({
     if (team.length === 0) setExpanded(false);
   }, [team.length]);
 
+  // The expanded height for the panel (collapsed row + expanded content).
+  // We use max-height to animate open/close with overflow hidden.
+  const EXPANDED_MAX_HEIGHT = "min(45vh, 320px)";
+
   return (
     <div
       role="region"
       aria-label="Team builder"
       aria-live="polite"
-      className="fixed left-0 right-0 z-50"
-      style={{ bottom: "calc(3rem + env(safe-area-inset-bottom, 0px))" }}
+      className="fixed left-0 right-0 z-50 border-t bg-background/95 backdrop-blur-sm pointer-events-auto"
+      style={{
+        bottom: "calc(3rem + env(safe-area-inset-bottom, 0px))",
+        // Animate max-height so the panel grows upward from its bottom edge.
+        // The bottom is anchored above the nav; content is clipped by overflow.
+        maxHeight: isVisible
+          ? expanded
+            ? EXPANDED_MAX_HEIGHT
+            : `${COLLAPSED_HEIGHT}px`
+          : "0px",
+        overflow: "hidden",
+        transition: "max-height 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+      }}
     >
-      {/* Outer wrapper: always renders at full height, slides via translateY */}
+      {/* Inner wrapper uses flex-column reversed so that the collapsed row
+          stays pinned to the bottom (visually the top of the panel above nav)
+          and expanded content appears above it, scrolling if needed. */}
       <div
-        className="border-t bg-background/95 backdrop-blur-sm transition-transform duration-300 motion-reduce:transition-none"
-        style={{
-          maxHeight: "min(45vh, 320px)",
-          transform: isVisible
-            ? expanded
-              ? "translateY(0)"
-              : `translateY(calc(100% - ${COLLAPSED_HEIGHT}px))`
-            : "translateY(100%)",
-        }}
+        className="flex flex-col-reverse"
+        style={{ maxHeight: EXPANDED_MAX_HEIGHT }}
       >
-        {/* ── Collapsed row ── */}
+        {/* ── Collapsed row (always visible when panel is open) ── */}
         <div
-          className="flex items-center gap-2 px-4"
+          className="flex shrink-0 items-center gap-2 px-4"
           style={{ height: `${COLLAPSED_HEIGHT}px` }}
         >
           {/* Team chips + empty slots */}
@@ -193,15 +203,14 @@ export function FloatingTeamBar({
           </button>
         </div>
 
-        {/* ── Expanded content ── */}
+        {/* ── Expanded content (scrollable, above the collapsed row) ── */}
         <div
           aria-hidden={!expanded}
+          className="overflow-y-auto overscroll-contain px-4 pb-2"
           style={{
-            visibility: expanded ? "visible" : "hidden",
-            height: expanded ? "auto" : 0,
-            overflow: expanded ? "auto" : "hidden",
+            // Let this region shrink/scroll within the available space
+            minHeight: 0,
           }}
-          className="px-4 pb-2"
         >
           <div className="mx-auto max-w-lg space-y-3">
             {/* Team slots with types and remove button */}
