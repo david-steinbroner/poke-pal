@@ -1,8 +1,8 @@
 # Poke Pal — Open Items & Future Work
 
-Tracked since 2026-04-07. Updated 2026-04-08 after nav + cleanup session.
+Tracked since 2026-04-07. Updated 2026-04-08 after Phase 2 + Polish session.
 
-Items marked [DONE] were completed. Remaining items are prioritized by phase.
+Items marked [x] were completed. Remaining items are prioritized by sprint.
 
 ---
 
@@ -12,59 +12,75 @@ Items marked [DONE] were completed. Remaining items are prioritized by phase.
 - [x] Connect new repo to Cloudflare Pages (new project, not reusing pogo-pal's)
 - [x] Decide working directory location — using `Pokemon GO/poke-pal/`
 - [ ] Keep pogo-pal.pages.dev live until new app has counter/battle feature parity
-- [ ] Then set up Cloudflare redirect: pogo-pal.pages.dev → poke-pal.pages.dev
+- [ ] Then set up Cloudflare redirect: pogo-pal.pages.dev -> poke-pal.pages.dev
 - [ ] Archive old projects (move to `Pokemon GO/_archive/` or mark as read-only reference)
-- [ ] Decide what happens to poke-pal's existing D1 Worker and database — reuse for Phase 2 collection features or create fresh
+- [ ] Decide what happens to poke-pal's existing D1 Worker and database — reuse for collection features or create fresh
 
 ---
 
-## Completed (as of 2026-04-08)
+## Completed (as of v0.3.7)
 
+### Phase 1 — MVP (2026-04-07)
 - [x] Counter search with search strings — type a Pokemon, get copyable GO search string
 - [x] League meta with tier rankings — Great, Ultra, Master, Fantasy Cup with S/A/B/C tiers
-- [x] Team Builder — pick 3 Pokemon for any league, see coverage analysis + search string
+- [x] 119 Pokemon with real GO stats, moves, base stats
+- [x] iOS mobile fixes — clipboard fallback, touch targets, active states
+- [x] Cloudflare Pages deploy — live at https://poke-pal.pages.dev
+
+### Phase 1.5 — Team Builder (2026-04-08 early)
+- [x] Team Builder (`/teams`) — pick 3 Pokemon for any league, see coverage analysis + search string
 - [x] In-place team building on league pages — + button on meta cards, floating bar with suggestions
 - [x] Fantasy Cup: Great League Edition — Dragon/Steel/Fairy, 14 meta picks
+
+### Phase 2 — Nav + Cleanup (2026-04-08 mid)
 - [x] Bottom nav bar — Search | Leagues | Teams on all pages
-- [x] Cloudflare Pages deploy — live at https://poke-pal.pages.dev
 - [x] Codebase cleanup — dead files removed, TYPE_COLORS extracted, deps cleaned up
-- [x] iOS mobile fixes — clipboard fallback, touch targets, active states
+
+### Phase 2 + Polish (2026-04-08 late)
+- [x] Leagues landing page (`/leagues`) — Live Now + Coming Up sections
+- [x] Home page refocused — search-first, "What's Live" pill links
+- [x] Counter page type effectiveness badges — Weak to / Resists with 2x labels
+- [x] "Build a team around X (Great League)" button on counter pages
+- [x] BackButton with history fallback
+- [x] Inline team section replaced floating bar — no more z-index/nav overlap
+- [x] Bottom nav positioned correctly with team panel above it
+- [x] S tier expanded by default, other tiers collapsed
+- [x] Search strings strip parenthetical form names (GO compatibility)
+- [x] CopyBar truncated to one line
+- [x] "Full Analysis ->" link when team has 2+ Pokemon
+- [x] What's Live links styled as tappable pills
+- [x] Version banner on all pages (v0.3.7)
 
 ---
 
-## UX Polish (Phase 2 — Next)
+## Next Sprint — Pre-Launch Polish
 
-- [ ] **Team building flow needs to be self-explanatory** — new users don't know they can tap + on league pages to start building. Needs onboarding hint or empty state guidance.
-- [ ] **Expandable team panel** — mini player at bottom → full mode with coverage chart. Currently the floating bar is compact but doesn't expand in place.
-- [ ] **Counter page improvements** — type matchup visuals (offensive/defensive chart), clearer "why this counter" explanation.
-
----
-
-## Navigation & Awareness (Phase 2)
-
-- [ ] **Active cup awareness** — only show currently live cups, auto-rotate with GBL schedule. Right now all 4 leagues show equally.
-- [ ] **Shareable clean team URLs** — `/league/great-league/team/mon1-mon2-mon3` for social sharing.
-- [ ] **"Rate my team" / "What should I run?" quiz entry points** — alternative ways into the team builder for users who don't know what they want.
+- [ ] **Persistent team state (localStorage)** — users lose picks on navigation
+- [ ] **OG tags + home page copy rewrite** — dead link previews, no social presence
+- [ ] **Shareable clean team URLs** (`/league/[league]/team/[mons]`) — growth engine
+- [ ] **Role-based team analysis (lead/mid/closer)** — differentiator
+- [ ] **Extract TypeBadge component + remove disabled Sentry** — code health
 
 ---
 
-## Data & Scoring (Phase 3)
+## Future Sprints
 
-- [ ] **Better counter scoring** — currently ATK-only. Should factor in STAB, bulk, energy generation, shield pressure.
-- [ ] **Data freshness strategy** — who updates league JSON when a new GBL season starts? Commit to 48-hour turnaround. Document the exact steps.
-- [ ] **Pokemon data source** — decide on authoritative source: PokeAPI, GO GameMaster file (data-mined), or manual curation.
-- [ ] **Budget picks curation** — the 46-pick list needs an owner and quarterly review cadence.
-- [ ] **Collection import** (big lift, future) — let users import their Pokemon storage for personalized recommendations. Requires auth, storage, significant data work.
+- [ ] Active cup automation — auto-rotate with GBL schedule
+- [ ] More cups from GBL schedule
+- [ ] Better counter scoring — STAB, bulk, energy generation, shield pressure
+- [ ] SEO pages for popular teams
+- [ ] Collection import (big lift) — requires auth, storage, significant data work
+- [ ] Service worker / offline PWA
+- [ ] Reddit/Discord launch — gif/video of copy-paste flow
 
 ---
 
-## Growth & Distribution (Phase 3)
+## Growth & Distribution
 
 - [ ] **Reddit launch** — r/TheSilphRoad, r/pokemongo, r/PokemonGOBattleLeague. Gif/video of copy-paste flow. Build karma first, US evening timing.
 - [ ] **Discord** — join top 3-5 Pokemon GO PvP Discords. Shareable team URLs are the entry point.
 - [ ] **Twitter/X** — short clips of the tool in action, timed to GBL season changes and raid rotations.
-- [ ] **SEO** — seasonal meta guides ("Great League meta April 2026"), counter pages for new raid bosses.
-- [ ] **Service worker for offline PWA** — cache static pages for offline use.
+- [ ] **SEO** — seasonal meta guides, counter pages for new raid bosses.
 
 ---
 
@@ -75,21 +91,8 @@ Items marked [DONE] were completed. Remaining items are prioritized by phase.
 
 ---
 
-## Business & Strategy Documents
-
-None blocking the build. Most improve after shipping with real user data.
-
-- [ ] **Roadmap** — see `2026-04-08-roadmap.md`
-- [ ] **Strategy one-pager** — positioning, differentiation, first 3 growth moves
-- [ ] **Market/competitive analysis** — PvPoke, PokeGenie, GamePress, Pokebattler, Stadium Gaming
-- [ ] **Monetization strategy** — ads? premium? donations? Decide after usage data
-
----
-
 ## Legal & IP
-
-Pokemon fan projects operate in a gray area. Stay within the rules.
 
 - [ ] **Trademark research on "Poke Pal"** — TPC aggressively protects "Poke" + "Pokemon" trademarks. Have 2-3 backup names ready.
 - [ ] **Art and visual assets** — never use official Pokemon artwork. Use type-only SVGs or text-only (safest).
-- [ ] **Terms of service / privacy policy** — needed before public Reddit launch. Cloudflare Web Analytics is cookieless/GDPR-compliant, minimal exposure.
+- [ ] **Terms of service / privacy policy** — needed before public Reddit launch.

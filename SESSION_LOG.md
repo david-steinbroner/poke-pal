@@ -1,5 +1,29 @@
 # Poke Pal — Session Log
 
+## Session: 2026-04-08 (Phase 2 + Polish)
+
+### What We Built
+- **Leagues landing page** (`/leagues`) — Live Now + Coming Up sections
+- **Home page refocused** — search-first layout, "What's Live" pill links
+- **Counter page improvements** — type effectiveness badges (Weak to / Resists with 2x labels), "Build a team around X (Great League)" button, BackButton with history fallback
+- **Inline team section** replaced floating bar — no more z-index/nav overlap issues
+- **Bottom nav positioned correctly** with team panel above it
+- **S tier expanded by default**, other tiers collapsed
+- **Search strings strip parenthetical form names** (GO compatibility)
+- **CopyBar truncated to one line**
+- **"Full Analysis ->" link** when team has 2+ Pokemon
+- **What's Live links** styled as tappable pills
+- **Version banner** on all pages (v0.3.7)
+- **Codebase cleanup**: extracted TYPE_COLORS, deleted dead files
+
+### QA
+QA round 4: 14/14 PASS. Marketing audit: 5/10 launch readiness.
+
+### Stats
+v0.3.7, 31 tests, 129 pages, 119 Pokemon, 4 leagues
+
+---
+
 ## Session: 2026-04-08 (Continued — Nav + Cleanup)
 
 ### What We Built
