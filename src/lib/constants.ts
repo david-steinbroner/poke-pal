@@ -1,3 +1,5 @@
+export const APP_VERSION = "0.2.0";
+
 export const QUICK_PICKS = [
   "giratina-altered",
   "medicham",
