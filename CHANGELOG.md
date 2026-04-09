@@ -6,6 +6,17 @@ This project uses [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.0.3] - 2026-04-09
+
+### Added
+- Competitive research: full landscape analysis of PvPoke, PokeBase, Pokebattler, GO Hub, Leek Duck
+- Competitive research Figma page with screenshots, UX/UI/branding/features/gaps analysis per competitor
+- Product positioning: "What Poke Pal is NOT" and "Foundations to Win" strategy docs
+- Markdown source of truth at `docs/superpowers/specs/2026-04-09-competitive-research.md`
+- Figma visual companion on "Competitive Research" page of Screen Layouts file
+
+---
+
 ## [1.0.2] - 2026-04-09
 
 ### Added
