@@ -1,6 +1,176 @@
 # Poke Pal — Session Log
 
-## Session: 2026-04-08 (Phase 2 + Polish)
+## Session: 2026-04-08 (Marathon — v0.1.0 to v1.0.1)
+
+This was a full-day marathon session. Built the entire Phase 2 feature set, went through dozens of design iterations, ran multiple audit cycles, and shipped v1.0.0 to production. 65+ commits in one day.
+
+---
+
+### Version History
+
+| Version | Commits | Summary |
+|---------|---------|---------|
+| **v0.1.0** | `ba04dde`..`472ddb9` | MVP: 119 Pokemon, counter search, league meta, Fantasy Cup, iOS fixes, Cloudflare deploy |
+| **v0.2.0** | `c1c0359` | Version banner on every page for cache debugging |
+| **v0.2.1–v0.2.3** | `d893720`..`217947c` | Expandable team panel — anchored above nav, max-height animation, collapsed row fix |
+| **v0.3.0** | `79bdbc0` | Killed floating bar, replaced with inline team section on league pages |
+| **v0.3.1–v0.3.7** | `1fbe2d5`..`ad41eb2` | Polish: truncated search strings, pill styling, chip sizing, What's Live pills, S-tier default expand |
+| **v0.4.0** | `d37fc3a` | Sprint 3A: persistent teams (localStorage), OG tags, extracted TypeBadge, removed Sentry |
+| **v0.5.0** | `9f17a28` | Sprint 3B: role-based analysis (lead/safe-swap/closer), shareable team URLs |
+| **v0.5.1–v0.5.2** | `ceca0a8`..`c3a0060` | Build-a-Team section format, nav bar padding + active tab bold |
+| **v0.6.0** | `5175d4e` | UX overhaul: copy-bar-first layout, aggressive dead code cleanup |
+| **v0.7.0** | `8eced29`..`b948425` | UX consistency: shared components, Poke Pal header on home, back buttons restored |
+| **v0.7.1** | `07ff38c` | Codebase cleanup: extracted shared utils, deleted dead code |
+| **v0.8.0** | `b125f5e`..`d46442c` | CopyButton replaces CopyBar, DualCopyButtons, PokemonChip variant, nav memory, suggestion pills |
+| **v0.8.1–v0.8.3** | `71e7dee`..`0132db0` | Design system consolidation, cup selector, league picker deleted |
+| **v0.9.0** | `c989852`..`5e6d91b` | Teams containers redesign (Select League / See more / type suggestions), nav Search→Home, league tabs |
+| **v1.0.0** | `dd33d79` | MVP cleanup: explainer text, 1-star raids, better copy toast, nav text-only, dead code purge |
+| **v1.0.1** | `5f68f6a` | Font accessibility: text-xs→text-[13px] across 9 files, bottom nav text-base |
+
+---
+
+### Major Features Built
+
+**Phase 2 Core**
+- Leagues landing page (`/leagues`) — Live Now + Coming Up sections
+- Counter page improvements — type effectiveness badges (Weak to / Resists with 2x multipliers), BackButton with history fallback
+- Home page refocused — search-first layout, "What's Live" pill links to active cups, explainer text
+
+**Team Builder Evolution**
+- Team Builder (`/teams`): Pick 3 Pokemon per league, see coverage analysis, defensive weaknesses, meta threats
+- In-place team building on league pages: + button on every meta card, inline team section with smart suggestions
+- Cup selector replaced league picker on Teams page
+- League tabs with persistent state — one team per league, navigate between them
+- Role-based analysis: lead / safe-swap / closer roles (subtle display, not dominant)
+- Persistent teams via localStorage
+- Shareable team URLs via query params
+
+**Navigation**
+- Bottom nav: Search | Leagues | Teams (later Search renamed to Home)
+- League tab memory — remembers last viewed league
+- Sticky back buttons on all subpages
+- League tabs always visible on Teams page
+
+**Copy System Redesign**
+- CopyBar killed entirely — search string hidden from user, just copy buttons
+- CopyButton + DualCopyButtons components replaced CopyBar everywhere
+- Better copy toast: "Copied -- paste in Pokemon GO search"
+- Counter page: single "Copy Counters Search String" button
+
+**Design System**
+- TypeBadge extracted as shared component with multiple variants
+- StatusPill component
+- PokemonChip with variant support
+- 3-tier pill sizing system (small/medium/large)
+- Font accessibility bump: text-xs→text-[13px] across 9 files
+
+**Cleanup**
+- Deleted dead code: coverage-chart, swap-suggestions, clear-button, header.tsx, menu-sheet.tsx, league-picker.tsx, roleMap/roles
+- Extracted TYPE_COLORS to constants.ts (was duplicated across 6 files)
+- Removed disabled Sentry integration
+- Removed inline touchAction (already global in CSS)
+
+---
+
+### Major Decisions Made
+
+1. **CopyBar killed** — the search string itself is not the product. Users don't need to see it. Just give them copy buttons.
+2. **Floating team panel killed** — replaced with inline section on league pages. No more z-index/nav overlap headaches.
+3. **Roles are subtle, CopyBar is the product** — role-based analysis (lead/swap/closer) is informational, not the hero. The copy-paste flow is what matters.
+4. **Raids handled by counter search** — no separate raid tab needed. Counter search already serves this use case.
+5. **Team Rocket = separate future tab** — too much data pipeline work, deferred.
+6. **Quick Picks renamed to Current Raids** — sourced from JSON data, more descriptive.
+7. **One team per league** — navigate between them with league tabs. Simpler than multi-team management.
+8. **League tabs always visible on Teams page** — shows saved team status per league.
+9. **No onboarding tooltips** — the design should speak for itself. If users can't find the + button, the design is wrong.
+10. **Search renamed to Home in nav** — "Search" was misleading for a page with multiple sections.
+11. **Nav text-only, no icons** — cleaner, more readable at small sizes.
+
+---
+
+### Specs Written
+
+All in `docs/superpowers/specs/`:
+
+| File | Purpose |
+|------|---------|
+| `2026-04-07-poke-pal-unified-design.md` | Original product spec |
+| `2026-04-07-poke-pal-engineering-standards.md` | Build order, code conventions, git workflow |
+| `2026-04-07-poke-pal-open-items.md` | Open items tracker |
+| `2026-04-07-team-builder.md` | Team builder feature spec |
+| `2026-04-07-team-builder-architecture.md` | Team builder architecture |
+| `2026-04-07-team-builder-strategy.md` | Team builder product strategy |
+| `2026-04-07-team-builder-marketing.md` | Team builder marketing review |
+| `2026-04-08-league-team-integration.md` | In-place team building on league pages |
+| `2026-04-08-inline-team-section.md` | Inline team section (replaced floating bar) |
+| `2026-04-08-phase2-ux-navigation.md` | Phase 2 UX + navigation spec |
+| `2026-04-08-sprint3-prelaunch.md` | Sprint 3 pre-launch polish spec |
+| `2026-04-08-ux-overhaul.md` | v0.6.0 UX overhaul spec |
+| `2026-04-08-ux-consistency.md` | v0.7.0 UX consistency spec |
+| `2026-04-08-v8-spec.md` | v0.8.0 CopyButton redesign spec |
+| `2026-04-08-v8-feedback.md` | v0.8.0 feedback round |
+| `2026-04-08-cup-selector.md` | Cup selector for Teams page |
+| `2026-04-08-team-management-options.md` | Team management options analysis |
+| `2026-04-08-ux-audit.md` | UX audit |
+| `2026-04-08-ux-final.md` | Final UX pass |
+| `2026-04-08-pill-container-audit.md` | Pill/container sizing audit |
+| `2026-04-08-font-audit.md` | Font accessibility audit |
+| `2026-04-08-codebase-review.md` | Codebase health review |
+| `2026-04-08-roadmap.md` | Current roadmap |
+
+---
+
+### Audit Results
+
+**QA Audit**: 33 tests passing, 129 static pages generated, build clean, TypeScript strict mode zero errors.
+
+**Marketing Audit (7/10 launch readiness)**:
+- Strong: search string UX, mobile-first design, league coverage
+- Weak: no OG images for social sharing, no data freshness indicator, home page empty state for new users
+
+**Product Audit (6/10 — almost ready)**:
+- Strong: core loop works (search → counter → copy), team builder functional
+- Weak: stale raid/league data (no update mechanism), counter→team builder flow gap, league barrel export (adding a league touches 5+ files)
+
+**Engineering Audit (8/10 code quality)**:
+- Strong: TypeScript strict, no dead code, shared components, consistent patterns
+- Weak: no barrel exports for leagues, some components could be further decomposed
+
+---
+
+### Current State
+
+- **Version**: 1.0.1
+- **Live at**: https://poke-pal.pages.dev
+- **GitHub**: david-steinbroner/poke-pal
+- **Data**: 119 Pokemon, 4 leagues (Great, Ultra, Master, Fantasy Cup)
+- **Tests**: 33 passing across 4 test files
+- **Pages**: 129 static pages generated
+- **Stack**: Next.js 16, TypeScript strict, Tailwind CSS, Cloudflare Pages
+
+---
+
+### What's Next (for the next session)
+
+David is "rethinking a few things" — wait for his direction before starting new work.
+
+Known remaining items:
+1. **Stale raid/league data** — no update mechanism. League JSON files are manually maintained. Needs either a data pipeline or a manual update workflow.
+2. **League barrel export** — adding a league currently touches 5+ files. Needs a barrel export or registry pattern.
+3. **OG images for social sharing** — link previews are dead right now (no images).
+4. **Empty state UX** — new users on the home page see nothing useful until they search.
+5. **Counter page to team builder flow** — no way to go from "here are counters for X" to "build a team with these counters."
+6. **Data freshness indicator** — users have no way to know if league/raid data is current.
+
+---
+
+## Session: 2026-04-08 (Phase 2 + Polish) — SUPERSEDED BY ABOVE
+
+*The entries below are the original incremental logs from during the session. The comprehensive entry above covers the full day.*
+
+---
+
+## Session: 2026-04-08 (Phase 2 + Polish — original log)
 
 ### What We Built
 - **Leagues landing page** (`/leagues`) — Live Now + Coming Up sections

@@ -45,7 +45,6 @@ yarn-error.log*
 /assets/
 NEXT-STEPS.md
 VERSION
-CHANGELOG.md
 .claude-flow/
 
 # typescript
