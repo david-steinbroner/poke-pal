@@ -161,6 +161,7 @@ Known remaining items:
 4. **Empty state UX** — new users on the home page see nothing useful until they search.
 5. **Counter page to team builder flow** — no way to go from "here are counters for X" to "build a team with these counters."
 6. **Data freshness indicator** — users have no way to know if league/raid data is current.
+7. **Slim search index for full Pokedex** — before expanding beyond ~200 Pokemon, create `pokemon-search-index.json` with just `{id, name}` pairs so the client bundle stays small. Full data stays server-side for counter page builds. This is a prerequisite for scaling to ~1000 Pokemon.
 
 ---
 
