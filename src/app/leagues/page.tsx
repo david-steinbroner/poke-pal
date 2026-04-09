@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import { LeagueCard } from "@/components/league-card";
-
-import fantasyCup from "@/data/leagues/fantasy-cup.json";
-import greatLeague from "@/data/leagues/great-league.json";
-import ultraLeague from "@/data/leagues/ultra-league.json";
-import masterLeague from "@/data/leagues/master-league.json";
+import { getActiveLeagues, getUpcomingLeagues } from "@/data/leagues";
 
 export const metadata: Metadata = {
   title: "Leagues — Poke Pal",
@@ -17,15 +13,16 @@ export const metadata: Metadata = {
   },
 };
 
-const allLeagues = [fantasyCup, greatLeague, ultraLeague, masterLeague];
-
 export default function LeaguesPage() {
-  const liveLeagues = allLeagues.filter((l) => l.active);
-  const upcomingLeagues = allLeagues.filter((l) => !l.active);
+  const liveLeagues = getActiveLeagues();
+  const upcomingLeagues = getUpcomingLeagues();
 
   return (
     <div className="space-y-6 pt-4">
       <h1 className="text-xl font-bold">Leagues</h1>
+      <p className="text-[13px] text-muted-foreground">
+        Select a league, copy Meta Search String, and paste in GO to find collected metas.
+      </p>
 
       {liveLeagues.length > 0 && (
         <div>

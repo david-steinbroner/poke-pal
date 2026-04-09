@@ -7,36 +7,23 @@ import type {
   TypeCoverage,
   TeamThreat,
   SwapSuggestion,
-  LeagueId,
   RoleAssignment,
   TeamRole,
 } from "./team-types";
+import type { LeagueId } from "@/data/leagues";
 import pokemonData from "@/data/pokemon.json";
-import greatLeague from "@/data/leagues/great-league.json";
-import ultraLeague from "@/data/leagues/ultra-league.json";
-import masterLeague from "@/data/leagues/master-league.json";
-import fantasyCup from "@/data/leagues/fantasy-cup.json";
-
-// Cast JSON imports to proper League shape
-const LEAGUES = {
-  "great-league": greatLeague,
-  "ultra-league": ultraLeague,
-  "master-league": masterLeague,
-  "fantasy-cup": fantasyCup,
-} as const;
+import { LEAGUE_MAP } from "@/data/leagues";
 
 /**
  * Returns league metadata: name, cpCap, meta list, and optional type restrictions.
  */
 export function getLeagueInfo(id: LeagueId) {
-  const league = LEAGUES[id];
+  const league = LEAGUE_MAP[id]!;
   return {
     name: league.name,
     cpCap: league.cpCap,
     meta: league.meta,
-    typeRestrictions: "typeRestrictions" in league
-      ? (league as typeof fantasyCup).typeRestrictions as PokemonType[]
-      : undefined,
+    typeRestrictions: league.typeRestrictions as PokemonType[] | undefined,
   };
 }
 

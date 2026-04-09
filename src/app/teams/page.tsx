@@ -13,10 +13,7 @@ import { pokemonToSlot } from "@/lib/pokemon-utils";
 import { loadTeam, saveTeam, clearTeam } from "@/lib/team-storage";
 import { calculateTeamRating, RATING_COLORS } from "@/lib/team-rating";
 import { getGapTypes } from "@/lib/team-rating";
-import { buildAbsoluteTeamUrl } from "@/lib/team-urls";
-import { copyToClipboard } from "@/lib/copy-to-clipboard";
-import { toast } from "sonner";
-import { Share2, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import type { LeagueId, TeamSlot } from "@/lib/team-types";
 import type { MetaPokemon } from "@/lib/types";
@@ -177,21 +174,13 @@ function TeamsPage() {
     [hasTeam, analysis.offensiveCoverage],
   );
 
-  const handleShare = useCallback(async () => {
-    if (pokemonIds.length === 0) return;
-    const url = buildAbsoluteTeamUrl(league, pokemonIds);
-    const success = await copyToClipboard(url);
-    if (success) {
-      toast("Link copied!");
-    } else {
-      toast("Could not copy link");
-    }
-  }, [league, pokemonIds]);
-
   return (
     <div className="space-y-5 pt-4 pb-8">
       <div>
         <h1 className="text-xl font-bold">Team Builder</h1>
+        <p className="mt-2 text-[13px] text-muted-foreground">
+          Select a league and build your team; meta suggestions will adjust to maximize team synergy; copy Team Search String and paste in GO to assemble for battle.
+        </p>
         <div className="mt-4 flex gap-1.5">
           {(LEAGUE_IDS as readonly string[]).map((id) => {
             const isActive = league === id;
@@ -224,35 +213,17 @@ function TeamsPage() {
 
       <SearchInput mode="select" onSelect={handlePokemonSelect} placeholder="Add a Pokemon..." />
 
-      {/* Copy + Share row — always visible, greyed out until conditions met */}
-      <div className="flex gap-2">
-        <div className="flex-1">
-          {hasTeam && analysis.searchString ? (
-            <CopyButton searchString={analysis.searchString} label="Copy Search String" compact />
-          ) : (
-            <button
-              disabled
-              className="w-full min-h-11 rounded-lg px-4 py-3 text-sm font-semibold bg-primary/30 text-primary-foreground/50 cursor-not-allowed"
-            >
-              Copy Search String
-            </button>
-          )}
-        </div>
-        <div className="flex-1">
-          <button
-            onClick={pokemonIds.length >= 3 ? handleShare : undefined}
-            disabled={pokemonIds.length < 3}
-            className={`w-full min-h-11 flex items-center justify-center gap-2 rounded-lg border text-sm font-medium transition-colors ${
-              pokemonIds.length >= 3
-                ? "text-foreground hover:bg-muted"
-                : "text-muted-foreground/40 border-border/40 cursor-not-allowed"
-            }`}
-          >
-            <Share2 className="h-4 w-4" />
-            Share
-          </button>
-        </div>
-      </div>
+      {/* Copy button — greyed out until team has members */}
+      {hasTeam && analysis.searchString ? (
+        <CopyButton searchString={analysis.searchString} label="Copy Team Search String" />
+      ) : (
+        <button
+          disabled
+          className="w-full min-h-11 rounded-lg px-4 py-3 text-sm font-semibold bg-primary/30 text-primary-foreground/50 cursor-not-allowed"
+        >
+          Copy Team Search String
+        </button>
+      )}
 
       {/* Team slots with inline suggestions on next empty slot */}
       <div className="space-y-2">

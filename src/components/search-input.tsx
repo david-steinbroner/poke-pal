@@ -3,7 +3,7 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
-import pokemonData from "@/data/pokemon.json";
+import pokemonData from "@/data/pokemon-search-index.json";
 
 type PokemonOption = {
   id: string;

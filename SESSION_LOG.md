@@ -155,13 +155,13 @@ All in `docs/superpowers/specs/`:
 David is "rethinking a few things" — wait for his direction before starting new work.
 
 Known remaining items:
-1. **Stale raid/league data** — no update mechanism. League JSON files are manually maintained. Needs either a data pipeline or a manual update workflow.
-2. **League barrel export** — adding a league currently touches 5+ files. Needs a barrel export or registry pattern.
+1. ~~**Stale raid/league data**~~ — DONE (v1.0.2): `scripts/update-data.ts` validates all data, reports staleness.
+2. ~~**League barrel export**~~ — DONE (v1.0.2): `src/data/leagues/index.ts` — adding a league is 3 lines in 1 file.
 3. **OG images for social sharing** — link previews are dead right now (no images).
 4. **Empty state UX** — new users on the home page see nothing useful until they search.
 5. **Counter page to team builder flow** — no way to go from "here are counters for X" to "build a team with these counters."
-6. **Data freshness indicator** — users have no way to know if league/raid data is current.
-7. **Slim search index for full Pokedex** — before expanding beyond ~200 Pokemon, create `pokemon-search-index.json` with just `{id, name}` pairs so the client bundle stays small. Full data stays server-side for counter page builds. This is a prerequisite for scaling to ~1000 Pokemon.
+6. **Data freshness UI** — backend utility done (`src/lib/data-freshness.ts`), needs UI wired up. Coming back to this later.
+7. ~~**Slim search index for full Pokedex**~~ — DONE (v1.0.2): `src/data/pokemon-search-index.json` + generator script. SearchInput uses it.
 
 ---
 

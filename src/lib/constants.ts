@@ -1,21 +1,12 @@
-export const APP_VERSION = "1.0.1";
+export const APP_VERSION = "1.0.2";
 
-export const LEAGUE_IDS = ["fantasy-cup", "great-league", "ultra-league", "master-league"] as const;
+// League IDs, names, and short names are now in @/data/leagues/index.ts
+// Re-export for backward compatibility
+export { LEAGUE_IDS, LEAGUE_SHORT_NAMES } from "@/data/leagues";
+export { ALL_LEAGUES as LEAGUE_LIST } from "@/data/leagues";
 
-export const LEAGUE_NAMES: Record<string, string> = {
-  "great-league": "Great League",
-  "ultra-league": "Ultra League",
-  "master-league": "Master League",
-  "fantasy-cup": "Fantasy Cup",
-};
-
-/** Short league names for compact UI (e.g. league picker buttons) */
-export const LEAGUE_SHORT_NAMES: Record<string, string> = {
-  "great-league": "Great",
-  "ultra-league": "Ultra",
-  "master-league": "Master",
-  "fantasy-cup": "Fantasy",
-};
+/** Full league names — derived from data */
+export { LEAGUE_MAP } from "@/data/leagues";
 
 export const TYPE_COLORS: Record<string, string> = {
   Normal: "bg-stone-400",

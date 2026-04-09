@@ -6,6 +6,38 @@ This project uses [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.0.2] - 2026-04-09
+
+### Added
+- League barrel export (`src/data/leagues/index.ts`) — adding a league is now 3 lines in 1 file instead of 5+
+- Slim search index (`pokemon-search-index.json`) — {id, name} pairs only for lighter client bundle
+- Data freshness utility (`src/lib/data-freshness.ts`) — surfaces lastUpdated from all data sources
+- Data validation script (`scripts/update-data.ts`) — validates all league/raid JSON, reports staleness
+- Search index generator (`scripts/generate-search-index.ts`)
+- Explainer copy on Home, Leagues, and Teams pages for onboarding
+- Mid-page connector text on Home between raids and leagues sections
+- "Your Team - [League Name]" label on league detail inline team section
+
+### Changed
+- League detail: removed SearchInput and "Copy Your Team" button — team building belongs on Teams tab
+- League detail: single "Copy Meta Search String" button (was dual copy)
+- League detail: back arrow + title on same line, tiers above team section
+- Teams: removed Share button (not needed at MVP)
+- Teams: renamed "Copy Search String" → "Copy Team Search String" (full width)
+- Home: "MY TEAMS" → "MY BATTLE LEAGUE TEAMS"
+- Home: updated explainer copy to mention all entry points
+- SearchInput now imports slim search index instead of full pokemon.json
+- Refactored 4 files to use league barrel export instead of individual imports
+- LeagueId type now derived from barrel export, not hardcoded
+
+### Removed
+- Share button and share URL logic from Teams page
+- SearchInput from league detail pages
+- DualCopyButtons from league detail pages
+- Duplicate league imports across 4 consumer files
+
+---
+
 ## [1.0.1] - 2026-04-08
 
 ### Fixed

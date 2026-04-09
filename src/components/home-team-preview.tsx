@@ -6,10 +6,10 @@ import { Plus, Pencil } from "lucide-react";
 import { PokemonChip } from "@/components/pokemon-chip";
 import { getPokemonName } from "@/lib/pokemon-utils";
 import { getAllSavedTeams } from "@/lib/team-storage";
-import { LEAGUE_SHORT_NAMES } from "@/lib/constants";
+import { LEAGUE_IDS, LEAGUE_SHORT_NAMES } from "@/data/leagues";
 
-// Order: limited cups first, then regular cups
-const LEAGUE_ORDER = ["fantasy-cup", "great-league", "ultra-league", "master-league"];
+// Derived from barrel — order defined in leagues/index.ts
+const LEAGUE_ORDER = LEAGUE_IDS;
 
 export function HomeTeamPreview() {
   const [savedTeams, setSavedTeams] = useState<Map<string, string[]>>(new Map());

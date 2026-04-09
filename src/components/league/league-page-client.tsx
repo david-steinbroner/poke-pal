@@ -3,8 +3,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { toast } from "sonner";
 import { TierAccordion } from "@/components/tier-accordion";
-import { DualCopyButtons } from "@/components/dual-copy-buttons";
-import { SearchInput } from "@/components/search-input";
+import { CopyButton } from "@/components/copy-button";
 import Link from "next/link";
 import { InlineTeamSection } from "./inline-team-section";
 import { saveTeam, loadTeam } from "@/lib/team-storage";
@@ -88,38 +87,17 @@ export function LeaguePageClient({
   return (
     <div className="space-y-4 pt-4">
       <div className="sticky top-0 z-10 bg-background pb-2 pt-4 -mx-4 px-4">
-        <Link href="/leagues" className="text-sm text-muted-foreground hover:text-foreground">← Leagues</Link>
+        <Link href="/leagues" className="flex items-baseline gap-2 text-sm text-muted-foreground hover:text-foreground">
+          <span>←</span>
+          <span className="text-xl font-bold text-foreground">{leagueName}</span>
+        </Link>
       </div>
-      <div>
-        <h1 className="text-xl font-bold">{leagueName}</h1>
-        <p className="text-sm text-muted-foreground">
-          {cpCap === 9999 ? "No CP limit" : `CP ${cpCap.toLocaleString()}`}
-          {typeRestrictions && ` · ${typeRestrictions.join(", ")}`}
-        </p>
-      </div>
+      <p className="text-sm text-muted-foreground">
+        {cpCap === 9999 ? "No CP limit" : `CP ${cpCap.toLocaleString()}`}
+        {typeRestrictions && ` · ${typeRestrictions.join(", ")}`}
+      </p>
 
-      <SearchInput
-        mode="select"
-        onSelect={handleAddToTeam}
-        placeholder="Add a Pokemon..."
-      />
-
-      <DualCopyButtons
-        buttons={[
-          { searchString: fullSearchString, label: "Copy Meta Pokemon" },
-          ...(team.length > 0 && analysis?.searchString
-            ? [{ searchString: analysis.searchString, label: "Copy Your Team" }]
-            : []),
-        ]}
-      />
-
-      {team.length > 0 && (
-        <InlineTeamSection
-          team={team}
-          leagueId={leagueId}
-          onRemove={handleRemoveFromTeam}
-        />
-      )}
+      <CopyButton searchString={fullSearchString} label="Copy Meta Search String" />
 
       <TierAccordion
         meta={meta}
@@ -127,6 +105,15 @@ export function LeaguePageClient({
         teamPokemonIds={team}
         recommendedIds={recommendedIds}
       />
+
+      {team.length > 0 && (
+        <InlineTeamSection
+          team={team}
+          leagueId={leagueId}
+          leagueName={leagueName}
+          onRemove={handleRemoveFromTeam}
+        />
+      )}
     </div>
   );
 }

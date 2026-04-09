@@ -6,13 +6,10 @@ import {
 } from "@/lib/search-string";
 import type { MetaPokemon } from "@/lib/types";
 import pokemonData from "@/data/pokemon.json";
-import greatLeague from "@/data/leagues/great-league.json";
-import ultraLeague from "@/data/leagues/ultra-league.json";
-import masterLeague from "@/data/leagues/master-league.json";
-import fantasyCup from "@/data/leagues/fantasy-cup.json";
+import { ALL_LEAGUES } from "@/data/leagues";
 import { LeaguePageClient } from "@/components/league/league-page-client";
 
-const leagues = [fantasyCup, greatLeague, ultraLeague, masterLeague];
+const leagues = ALL_LEAGUES;
 
 export function generateStaticParams() {
   return leagues.map((league) => ({ leagueSlug: league.id }));

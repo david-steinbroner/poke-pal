@@ -1,6 +1,7 @@
 import type { PokemonType } from "./types";
 
-export type LeagueId = "great-league" | "ultra-league" | "master-league" | "fantasy-cup";
+// LeagueId is now derived from data — re-export for convenience
+export type { LeagueId } from "@/data/leagues";
 
 export type TeamRole = "lead" | "safe-swap" | "closer";
 

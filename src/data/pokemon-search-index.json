@@ -1,0 +1,478 @@
+[
+  {
+    "id": "absol",
+    "name": "Absol"
+  },
+  {
+    "id": "aggron",
+    "name": "Aggron"
+  },
+  {
+    "id": "alakazam",
+    "name": "Alakazam"
+  },
+  {
+    "id": "altaria",
+    "name": "Altaria"
+  },
+  {
+    "id": "arcanine",
+    "name": "Arcanine"
+  },
+  {
+    "id": "mewtwo-armored",
+    "name": "Armored Mewtwo"
+  },
+  {
+    "id": "azumarill",
+    "name": "Azumarill"
+  },
+  {
+    "id": "bastiodon",
+    "name": "Bastiodon"
+  },
+  {
+    "id": "blastoise",
+    "name": "Blastoise"
+  },
+  {
+    "id": "blaziken",
+    "name": "Blaziken"
+  },
+  {
+    "id": "breloom",
+    "name": "Breloom"
+  },
+  {
+    "id": "chandelure",
+    "name": "Chandelure"
+  },
+  {
+    "id": "charizard",
+    "name": "Charizard"
+  },
+  {
+    "id": "clefable",
+    "name": "Clefable"
+  },
+  {
+    "id": "cobalion",
+    "name": "Cobalion"
+  },
+  {
+    "id": "cofagrigus",
+    "name": "Cofagrigus"
+  },
+  {
+    "id": "conkeldurr",
+    "name": "Conkeldurr"
+  },
+  {
+    "id": "cresselia",
+    "name": "Cresselia"
+  },
+  {
+    "id": "darkrai",
+    "name": "Darkrai"
+  },
+  {
+    "id": "deoxys-defense",
+    "name": "Deoxys (Defense)"
+  },
+  {
+    "id": "dialga",
+    "name": "Dialga"
+  },
+  {
+    "id": "dragonite",
+    "name": "Dragonite"
+  },
+  {
+    "id": "drifblim",
+    "name": "Drifblim"
+  },
+  {
+    "id": "electabuzz",
+    "name": "Electabuzz"
+  },
+  {
+    "id": "electivire",
+    "name": "Electivire"
+  },
+  {
+    "id": "empoleon",
+    "name": "Empoleon"
+  },
+  {
+    "id": "entei",
+    "name": "Entei"
+  },
+  {
+    "id": "espeon",
+    "name": "Espeon"
+  },
+  {
+    "id": "excadrill",
+    "name": "Excadrill"
+  },
+  {
+    "id": "exeggutor",
+    "name": "Exeggutor"
+  },
+  {
+    "id": "feraligatr",
+    "name": "Feraligatr"
+  },
+  {
+    "id": "flareon",
+    "name": "Flareon"
+  },
+  {
+    "id": "flygon",
+    "name": "Flygon"
+  },
+  {
+    "id": "gallade",
+    "name": "Gallade"
+  },
+  {
+    "id": "garchomp",
+    "name": "Garchomp"
+  },
+  {
+    "id": "gardevoir",
+    "name": "Gardevoir"
+  },
+  {
+    "id": "genesect",
+    "name": "Genesect"
+  },
+  {
+    "id": "gengar",
+    "name": "Gengar"
+  },
+  {
+    "id": "giratina-altered",
+    "name": "Giratina (Altered)"
+  },
+  {
+    "id": "giratina-origin",
+    "name": "Giratina (Origin)"
+  },
+  {
+    "id": "glaceon",
+    "name": "Glaceon"
+  },
+  {
+    "id": "golem",
+    "name": "Golem"
+  },
+  {
+    "id": "granbull",
+    "name": "Granbull"
+  },
+  {
+    "id": "groudon",
+    "name": "Groudon"
+  },
+  {
+    "id": "gyarados",
+    "name": "Gyarados"
+  },
+  {
+    "id": "hariyama",
+    "name": "Hariyama"
+  },
+  {
+    "id": "haxorus",
+    "name": "Haxorus"
+  },
+  {
+    "id": "heracross",
+    "name": "Heracross"
+  },
+  {
+    "id": "ho-oh",
+    "name": "Ho-Oh"
+  },
+  {
+    "id": "honchkrow",
+    "name": "Honchkrow"
+  },
+  {
+    "id": "hydreigon",
+    "name": "Hydreigon"
+  },
+  {
+    "id": "infernape",
+    "name": "Infernape"
+  },
+  {
+    "id": "jellicent",
+    "name": "Jellicent"
+  },
+  {
+    "id": "jolteon",
+    "name": "Jolteon"
+  },
+  {
+    "id": "keldeo",
+    "name": "Keldeo"
+  },
+  {
+    "id": "kyogre",
+    "name": "Kyogre"
+  },
+  {
+    "id": "landorus",
+    "name": "Landorus"
+  },
+  {
+    "id": "lapras",
+    "name": "Lapras"
+  },
+  {
+    "id": "latias",
+    "name": "Latias"
+  },
+  {
+    "id": "latios",
+    "name": "Latios"
+  },
+  {
+    "id": "leafeon",
+    "name": "Leafeon"
+  },
+  {
+    "id": "lucario",
+    "name": "Lucario"
+  },
+  {
+    "id": "lugia",
+    "name": "Lugia"
+  },
+  {
+    "id": "luxray",
+    "name": "Luxray"
+  },
+  {
+    "id": "machamp",
+    "name": "Machamp"
+  },
+  {
+    "id": "magmar",
+    "name": "Magmar"
+  },
+  {
+    "id": "magmortar",
+    "name": "Magmortar"
+  },
+  {
+    "id": "magnezone",
+    "name": "Magnezone"
+  },
+  {
+    "id": "mamoswine",
+    "name": "Mamoswine"
+  },
+  {
+    "id": "manectric",
+    "name": "Manectric"
+  },
+  {
+    "id": "medicham",
+    "name": "Medicham"
+  },
+  {
+    "id": "swampert-mega",
+    "name": "Mega Swampert"
+  },
+  {
+    "id": "meganium",
+    "name": "Meganium"
+  },
+  {
+    "id": "melmetal",
+    "name": "Melmetal"
+  },
+  {
+    "id": "metagross",
+    "name": "Metagross"
+  },
+  {
+    "id": "mewtwo",
+    "name": "Mewtwo"
+  },
+  {
+    "id": "milotic",
+    "name": "Milotic"
+  },
+  {
+    "id": "nidoqueen",
+    "name": "Nidoqueen"
+  },
+  {
+    "id": "obstagoon",
+    "name": "Obstagoon"
+  },
+  {
+    "id": "palkia",
+    "name": "Palkia"
+  },
+  {
+    "id": "pikachu",
+    "name": "Pikachu"
+  },
+  {
+    "id": "raichu",
+    "name": "Raichu"
+  },
+  {
+    "id": "raikou",
+    "name": "Raikou"
+  },
+  {
+    "id": "rampardos",
+    "name": "Rampardos"
+  },
+  {
+    "id": "rayquaza",
+    "name": "Rayquaza"
+  },
+  {
+    "id": "regice",
+    "name": "Regice"
+  },
+  {
+    "id": "regirock",
+    "name": "Regirock"
+  },
+  {
+    "id": "registeel",
+    "name": "Registeel"
+  },
+  {
+    "id": "reshiram",
+    "name": "Reshiram"
+  },
+  {
+    "id": "rhyperior",
+    "name": "Rhyperior"
+  },
+  {
+    "id": "roserade",
+    "name": "Roserade"
+  },
+  {
+    "id": "sableye",
+    "name": "Sableye"
+  },
+  {
+    "id": "salamence",
+    "name": "Salamence"
+  },
+  {
+    "id": "sceptile",
+    "name": "Sceptile"
+  },
+  {
+    "id": "scizor",
+    "name": "Scizor"
+  },
+  {
+    "id": "swampert-shadow",
+    "name": "Shadow Swampert"
+  },
+  {
+    "id": "snorlax",
+    "name": "Snorlax"
+  },
+  {
+    "id": "steelix",
+    "name": "Steelix"
+  },
+  {
+    "id": "stunfisk-galarian",
+    "name": "Stunfisk (Galarian)"
+  },
+  {
+    "id": "suicune",
+    "name": "Suicune"
+  },
+  {
+    "id": "swampert",
+    "name": "Swampert"
+  },
+  {
+    "id": "sylveon",
+    "name": "Sylveon"
+  },
+  {
+    "id": "talonflame",
+    "name": "Talonflame"
+  },
+  {
+    "id": "terrakion",
+    "name": "Terrakion"
+  },
+  {
+    "id": "togekiss",
+    "name": "Togekiss"
+  },
+  {
+    "id": "torterra",
+    "name": "Torterra"
+  },
+  {
+    "id": "toxicroak",
+    "name": "Toxicroak"
+  },
+  {
+    "id": "trevenant",
+    "name": "Trevenant"
+  },
+  {
+    "id": "typhlosion",
+    "name": "Typhlosion"
+  },
+  {
+    "id": "tyranitar",
+    "name": "Tyranitar"
+  },
+  {
+    "id": "umbreon",
+    "name": "Umbreon"
+  },
+  {
+    "id": "vaporeon",
+    "name": "Vaporeon"
+  },
+  {
+    "id": "venusaur",
+    "name": "Venusaur"
+  },
+  {
+    "id": "virizion",
+    "name": "Virizion"
+  },
+  {
+    "id": "walrein",
+    "name": "Walrein"
+  },
+  {
+    "id": "weavile",
+    "name": "Weavile"
+  },
+  {
+    "id": "wigglytuff",
+    "name": "Wigglytuff"
+  },
+  {
+    "id": "zangoose",
+    "name": "Zangoose"
+  },
+  {
+    "id": "zekrom",
+    "name": "Zekrom"
+  }
+]

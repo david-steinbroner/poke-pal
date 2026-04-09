@@ -10,12 +10,14 @@ import type { LeagueId } from "@/lib/team-types";
 type InlineTeamSectionProps = {
   team: string[];
   leagueId: string;
+  leagueName?: string;
   onRemove: (pokemonId: string) => void;
 };
 
 export function InlineTeamSection({
   team,
   leagueId,
+  leagueName,
   onRemove,
 }: InlineTeamSectionProps) {
   if (team.length === 0) return null;
@@ -24,7 +26,7 @@ export function InlineTeamSection({
     <div className="rounded-lg border p-4 space-y-3">
       {/* Header row: "Your Team" + rating (left) | arrow link (right) */}
       <div className="flex items-center justify-between">
-        <span className="text-sm font-semibold">Your Team</span>
+        <span className="text-sm font-semibold">Your Team{leagueName ? ` - ${leagueName}` : ""}</span>
         <Link
           href={`/teams?l=${leagueId}&p=${team.join(",")}`}
           className="text-primary hover:text-primary/80"

@@ -3,14 +3,10 @@ import { HomeTeamPreview } from "@/components/home-team-preview";
 import { getPokemonName } from "@/lib/pokemon-utils";
 import currentRaids from "@/data/current-raids.json";
 import pokemonData from "@/data/pokemon.json";
-import greatLeague from "@/data/leagues/great-league.json";
-import ultraLeague from "@/data/leagues/ultra-league.json";
-import masterLeague from "@/data/leagues/master-league.json";
-import fantasyCup from "@/data/leagues/fantasy-cup.json";
+import { getActiveLeagues } from "@/data/leagues";
 import Link from "next/link";
 
-const allLeagues = [fantasyCup, greatLeague, ultraLeague, masterLeague];
-const activeLeagues = allLeagues.filter((l) => l.active);
+const activeLeagues = getActiveLeagues();
 
 // Current raid bosses filtered to Pokemon we have data for
 const raidBosses = [
@@ -25,7 +21,7 @@ export default function Home() {
     <div className="space-y-8 pt-4">
       <h1 className="text-xl font-bold">Poke Pal</h1>
       <p className="text-[13px] text-muted-foreground">
-        Search a Pokemon, copy the string, paste in GO to find counters.
+        Search a Pokemon or select from Current Raids, copy the Counters Search String, and paste in GO to find counters.
       </p>
       <SearchInput />
 
@@ -43,6 +39,10 @@ export default function Home() {
           ))}
         </div>
       </div>
+
+      <p className="text-[13px] text-muted-foreground">
+        Quickly access current Leagues and your Battle League Teams.
+      </p>
 
       {activeLeagues.length > 0 && (
         <div className="space-y-3">
@@ -62,7 +62,7 @@ export default function Home() {
       )}
 
       <div className="space-y-3">
-        <h2 className="text-[13px] font-medium uppercase tracking-wide text-muted-foreground">My Teams</h2>
+        <h2 className="text-[13px] font-medium uppercase tracking-wide text-muted-foreground">My Battle League Teams</h2>
         <HomeTeamPreview />
       </div>
     </div>
