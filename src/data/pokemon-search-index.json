@@ -1,7 +1,19 @@
 [
   {
+    "id": "abomasnow",
+    "name": "Abomasnow"
+  },
+  {
     "id": "absol",
     "name": "Absol"
+  },
+  {
+    "id": "aegislash",
+    "name": "Aegislash"
+  },
+  {
+    "id": "aerodactyl",
+    "name": "Aerodactyl"
   },
   {
     "id": "aggron",
@@ -12,16 +24,64 @@
     "name": "Alakazam"
   },
   {
+    "id": "alolan-exeggutor",
+    "name": "Alolan Exeggutor"
+  },
+  {
+    "id": "alolan-golem",
+    "name": "Alolan Golem"
+  },
+  {
+    "id": "alolan-marowak",
+    "name": "Alolan Marowak"
+  },
+  {
+    "id": "alolan-muk",
+    "name": "Alolan Muk"
+  },
+  {
+    "id": "alolan-ninetales",
+    "name": "Alolan Ninetales"
+  },
+  {
+    "id": "alolan-raichu",
+    "name": "Alolan Raichu"
+  },
+  {
+    "id": "alolan-sandslash",
+    "name": "Alolan Sandslash"
+  },
+  {
     "id": "altaria",
     "name": "Altaria"
+  },
+  {
+    "id": "ampharos",
+    "name": "Ampharos"
+  },
+  {
+    "id": "annihilape",
+    "name": "Annihilape"
   },
   {
     "id": "arcanine",
     "name": "Arcanine"
   },
   {
+    "id": "arctovish",
+    "name": "Arctovish"
+  },
+  {
     "id": "mewtwo-armored",
     "name": "Armored Mewtwo"
+  },
+  {
+    "id": "articuno",
+    "name": "Articuno"
+  },
+  {
+    "id": "avalugg",
+    "name": "Avalugg"
   },
   {
     "id": "azumarill",
@@ -32,6 +92,18 @@
     "name": "Bastiodon"
   },
   {
+    "id": "bewear",
+    "name": "Bewear"
+  },
+  {
+    "id": "bisharp",
+    "name": "Bisharp"
+  },
+  {
+    "id": "blacephalon",
+    "name": "Blacephalon"
+  },
+  {
     "id": "blastoise",
     "name": "Blastoise"
   },
@@ -40,20 +112,80 @@
     "name": "Blaziken"
   },
   {
+    "id": "blissey",
+    "name": "Blissey"
+  },
+  {
+    "id": "braviary",
+    "name": "Braviary"
+  },
+  {
     "id": "breloom",
     "name": "Breloom"
+  },
+  {
+    "id": "bulbasaur",
+    "name": "Bulbasaur"
+  },
+  {
+    "id": "buzzwole",
+    "name": "Buzzwole"
+  },
+  {
+    "id": "carbink",
+    "name": "Carbink"
+  },
+  {
+    "id": "celebi",
+    "name": "Celebi"
+  },
+  {
+    "id": "celesteela",
+    "name": "Celesteela"
   },
   {
     "id": "chandelure",
     "name": "Chandelure"
   },
   {
+    "id": "chansey",
+    "name": "Chansey"
+  },
+  {
     "id": "charizard",
     "name": "Charizard"
   },
   {
+    "id": "charjabug",
+    "name": "Charjabug"
+  },
+  {
+    "id": "charmander",
+    "name": "Charmander"
+  },
+  {
+    "id": "charmeleon",
+    "name": "Charmeleon"
+  },
+  {
+    "id": "chesnaught",
+    "name": "Chesnaught"
+  },
+  {
+    "id": "clawitzer",
+    "name": "Clawitzer"
+  },
+  {
     "id": "clefable",
     "name": "Clefable"
+  },
+  {
+    "id": "clodsire",
+    "name": "Clodsire"
+  },
+  {
+    "id": "cloyster",
+    "name": "Cloyster"
   },
   {
     "id": "cobalion",
@@ -68,28 +200,124 @@
     "name": "Conkeldurr"
   },
   {
+    "id": "copperajah",
+    "name": "Copperajah"
+  },
+  {
+    "id": "corviknight",
+    "name": "Corviknight"
+  },
+  {
     "id": "cresselia",
     "name": "Cresselia"
+  },
+  {
+    "id": "crobat",
+    "name": "Crobat"
   },
   {
     "id": "darkrai",
     "name": "Darkrai"
   },
   {
+    "id": "darmanitan",
+    "name": "Darmanitan"
+  },
+  {
+    "id": "darumaka",
+    "name": "Darumaka"
+  },
+  {
+    "id": "decidueye",
+    "name": "Decidueye"
+  },
+  {
+    "id": "delphox",
+    "name": "Delphox"
+  },
+  {
+    "id": "deoxys-attack",
+    "name": "Deoxys (Attack)"
+  },
+  {
     "id": "deoxys-defense",
     "name": "Deoxys (Defense)"
+  },
+  {
+    "id": "deoxys-speed",
+    "name": "Deoxys (Speed)"
+  },
+  {
+    "id": "dewgong",
+    "name": "Dewgong"
   },
   {
     "id": "dialga",
     "name": "Dialga"
   },
   {
+    "id": "diggersby",
+    "name": "Diggersby"
+  },
+  {
+    "id": "ditto",
+    "name": "Ditto"
+  },
+  {
+    "id": "donphan",
+    "name": "Donphan"
+  },
+  {
+    "id": "dracovish",
+    "name": "Dracovish"
+  },
+  {
+    "id": "dragalge",
+    "name": "Dragalge"
+  },
+  {
+    "id": "dragonair",
+    "name": "Dragonair"
+  },
+  {
     "id": "dragonite",
     "name": "Dragonite"
   },
   {
+    "id": "drampa",
+    "name": "Drampa"
+  },
+  {
+    "id": "drapion",
+    "name": "Drapion"
+  },
+  {
     "id": "drifblim",
     "name": "Drifblim"
+  },
+  {
+    "id": "dubwool",
+    "name": "Dubwool"
+  },
+  {
+    "id": "duraludon",
+    "name": "Duraludon"
+  },
+  {
+    "id": "durant",
+    "name": "Durant"
+  },
+  {
+    "id": "dusclops",
+    "name": "Dusclops"
+  },
+  {
+    "id": "dusknoir",
+    "name": "Dusknoir"
+  },
+  {
+    "id": "eelektross",
+    "name": "Eelektross"
   },
   {
     "id": "electabuzz",
@@ -100,12 +328,24 @@
     "name": "Electivire"
   },
   {
+    "id": "electrode",
+    "name": "Electrode"
+  },
+  {
+    "id": "emboar",
+    "name": "Emboar"
+  },
+  {
     "id": "empoleon",
     "name": "Empoleon"
   },
   {
     "id": "entei",
     "name": "Entei"
+  },
+  {
+    "id": "escavalier",
+    "name": "Escavalier"
   },
   {
     "id": "espeon",
@@ -120,20 +360,48 @@
     "name": "Exeggutor"
   },
   {
+    "id": "falinks",
+    "name": "Falinks"
+  },
+  {
     "id": "feraligatr",
     "name": "Feraligatr"
+  },
+  {
+    "id": "ferroseed",
+    "name": "Ferroseed"
+  },
+  {
+    "id": "ferrothorn",
+    "name": "Ferrothorn"
   },
   {
     "id": "flareon",
     "name": "Flareon"
   },
   {
+    "id": "florges",
+    "name": "Florges"
+  },
+  {
     "id": "flygon",
     "name": "Flygon"
   },
   {
+    "id": "froslass",
+    "name": "Froslass"
+  },
+  {
+    "id": "galarian-darmanitan",
+    "name": "Galarian Darmanitan"
+  },
+  {
     "id": "gallade",
     "name": "Gallade"
+  },
+  {
+    "id": "galvantula",
+    "name": "Galvantula"
   },
   {
     "id": "garchomp",
@@ -142,6 +410,10 @@
   {
     "id": "gardevoir",
     "name": "Gardevoir"
+  },
+  {
+    "id": "gastrodon",
+    "name": "Gastrodon"
   },
   {
     "id": "genesect",
@@ -168,12 +440,32 @@
     "name": "Golem"
   },
   {
+    "id": "golisopod",
+    "name": "Golisopod"
+  },
+  {
+    "id": "golurk",
+    "name": "Golurk"
+  },
+  {
+    "id": "goodra",
+    "name": "Goodra"
+  },
+  {
     "id": "granbull",
     "name": "Granbull"
   },
   {
+    "id": "greninja",
+    "name": "Greninja"
+  },
+  {
     "id": "groudon",
     "name": "Groudon"
+  },
+  {
+    "id": "guzzlord",
+    "name": "Guzzlord"
   },
   {
     "id": "gyarados",
@@ -184,12 +476,32 @@
     "name": "Hariyama"
   },
   {
+    "id": "haunter",
+    "name": "Haunter"
+  },
+  {
+    "id": "hawlucha",
+    "name": "Hawlucha"
+  },
+  {
     "id": "haxorus",
     "name": "Haxorus"
   },
   {
     "id": "heracross",
     "name": "Heracross"
+  },
+  {
+    "id": "hitmonchan",
+    "name": "Hitmonchan"
+  },
+  {
+    "id": "hitmonlee",
+    "name": "Hitmonlee"
+  },
+  {
+    "id": "hitmontop",
+    "name": "Hitmontop"
   },
   {
     "id": "ho-oh",
@@ -204,8 +516,16 @@
     "name": "Hydreigon"
   },
   {
+    "id": "incineroar",
+    "name": "Incineroar"
+  },
+  {
     "id": "infernape",
     "name": "Infernape"
+  },
+  {
+    "id": "ivysaur",
+    "name": "Ivysaur"
   },
   {
     "id": "jellicent",
@@ -216,8 +536,36 @@
     "name": "Jolteon"
   },
   {
+    "id": "jynx",
+    "name": "Jynx"
+  },
+  {
+    "id": "kabutops",
+    "name": "Kabutops"
+  },
+  {
+    "id": "kartana",
+    "name": "Kartana"
+  },
+  {
     "id": "keldeo",
     "name": "Keldeo"
+  },
+  {
+    "id": "kingdra",
+    "name": "Kingdra"
+  },
+  {
+    "id": "kingler",
+    "name": "Kingler"
+  },
+  {
+    "id": "kommo-o",
+    "name": "Kommo-o"
+  },
+  {
+    "id": "krookodile",
+    "name": "Krookodile"
   },
   {
     "id": "kyogre",
@@ -226,6 +574,10 @@
   {
     "id": "landorus",
     "name": "Landorus"
+  },
+  {
+    "id": "lanturn",
+    "name": "Lanturn"
   },
   {
     "id": "lapras",
@@ -244,20 +596,44 @@
     "name": "Leafeon"
   },
   {
+    "id": "lickilicky",
+    "name": "Lickilicky"
+  },
+  {
+    "id": "lickitung",
+    "name": "Lickitung"
+  },
+  {
     "id": "lucario",
     "name": "Lucario"
+  },
+  {
+    "id": "ludicolo",
+    "name": "Ludicolo"
   },
   {
     "id": "lugia",
     "name": "Lugia"
   },
   {
+    "id": "lurantis",
+    "name": "Lurantis"
+  },
+  {
     "id": "luxray",
     "name": "Luxray"
   },
   {
+    "id": "lycanroc",
+    "name": "Lycanroc"
+  },
+  {
     "id": "machamp",
     "name": "Machamp"
+  },
+  {
+    "id": "magikarp",
+    "name": "Magikarp"
   },
   {
     "id": "magmar",
@@ -276,16 +652,112 @@
     "name": "Mamoswine"
   },
   {
+    "id": "mandibuzz",
+    "name": "Mandibuzz"
+  },
+  {
     "id": "manectric",
     "name": "Manectric"
+  },
+  {
+    "id": "mantine",
+    "name": "Mantine"
   },
   {
     "id": "medicham",
     "name": "Medicham"
   },
   {
+    "id": "abomasnow-mega",
+    "name": "Mega Abomasnow"
+  },
+  {
+    "id": "absol-mega",
+    "name": "Mega Absol"
+  },
+  {
+    "id": "aggron-mega",
+    "name": "Mega Aggron"
+  },
+  {
+    "id": "blastoise-mega",
+    "name": "Mega Blastoise"
+  },
+  {
+    "id": "mega-blaziken",
+    "name": "Mega Blaziken"
+  },
+  {
+    "id": "charizard-mega-x",
+    "name": "Mega Charizard X"
+  },
+  {
+    "id": "mega-charizard-y",
+    "name": "Mega Charizard Y"
+  },
+  {
+    "id": "gallade-mega",
+    "name": "Mega Gallade"
+  },
+  {
+    "id": "garchomp-mega",
+    "name": "Mega Garchomp"
+  },
+  {
+    "id": "gardevoir-mega",
+    "name": "Mega Gardevoir"
+  },
+  {
+    "id": "mega-gengar",
+    "name": "Mega Gengar"
+  },
+  {
+    "id": "mega-gyarados",
+    "name": "Mega Gyarados"
+  },
+  {
+    "id": "latias-mega",
+    "name": "Mega Latias"
+  },
+  {
+    "id": "latios-mega",
+    "name": "Mega Latios"
+  },
+  {
+    "id": "lucario-mega",
+    "name": "Mega Lucario"
+  },
+  {
+    "id": "metagross-mega",
+    "name": "Mega Metagross"
+  },
+  {
+    "id": "mega-rayquaza",
+    "name": "Mega Rayquaza"
+  },
+  {
+    "id": "mega-salamence",
+    "name": "Mega Salamence"
+  },
+  {
+    "id": "scizor-mega",
+    "name": "Mega Scizor"
+  },
+  {
+    "id": "steelix-mega",
+    "name": "Mega Steelix"
+  },
+  {
     "id": "swampert-mega",
     "name": "Mega Swampert"
+  },
+  {
+    "id": "tyranitar-mega",
+    "name": "Mega Tyranitar"
+  },
+  {
+    "id": "venusaur-mega",
+    "name": "Mega Venusaur"
   },
   {
     "id": "meganium",
@@ -300,28 +772,152 @@
     "name": "Metagross"
   },
   {
+    "id": "mew",
+    "name": "Mew"
+  },
+  {
     "id": "mewtwo",
     "name": "Mewtwo"
+  },
+  {
+    "id": "mienshao",
+    "name": "Mienshao"
   },
   {
     "id": "milotic",
     "name": "Milotic"
   },
   {
+    "id": "mimikyu",
+    "name": "Mimikyu"
+  },
+  {
+    "id": "moltres",
+    "name": "Moltres"
+  },
+  {
+    "id": "mudsdale",
+    "name": "Mudsdale"
+  },
+  {
+    "id": "naganadel",
+    "name": "Naganadel"
+  },
+  {
+    "id": "nidoking",
+    "name": "Nidoking"
+  },
+  {
     "id": "nidoqueen",
     "name": "Nidoqueen"
+  },
+  {
+    "id": "nihilego",
+    "name": "Nihilego"
+  },
+  {
+    "id": "noctowl",
+    "name": "Noctowl"
+  },
+  {
+    "id": "noivern",
+    "name": "Noivern"
   },
   {
     "id": "obstagoon",
     "name": "Obstagoon"
   },
   {
+    "id": "omastar",
+    "name": "Omastar"
+  },
+  {
+    "id": "oranguru",
+    "name": "Oranguru"
+  },
+  {
     "id": "palkia",
     "name": "Palkia"
   },
   {
+    "id": "palossand",
+    "name": "Palossand"
+  },
+  {
+    "id": "pangoro",
+    "name": "Pangoro"
+  },
+  {
+    "id": "passimian",
+    "name": "Passimian"
+  },
+  {
+    "id": "pelipper",
+    "name": "Pelipper"
+  },
+  {
+    "id": "perrserker",
+    "name": "Perrserker"
+  },
+  {
+    "id": "pheromosa",
+    "name": "Pheromosa"
+  },
+  {
+    "id": "pidgeot",
+    "name": "Pidgeot"
+  },
+  {
     "id": "pikachu",
     "name": "Pikachu"
+  },
+  {
+    "id": "pinsir",
+    "name": "Pinsir"
+  },
+  {
+    "id": "politoed",
+    "name": "Politoed"
+  },
+  {
+    "id": "poliwag",
+    "name": "Poliwag"
+  },
+  {
+    "id": "poliwrath",
+    "name": "Poliwrath"
+  },
+  {
+    "id": "porygon-z",
+    "name": "Porygon-Z"
+  },
+  {
+    "id": "porygon2",
+    "name": "Porygon2"
+  },
+  {
+    "id": "primal-groudon",
+    "name": "Primal Groudon"
+  },
+  {
+    "id": "primal-kyogre",
+    "name": "Primal Kyogre"
+  },
+  {
+    "id": "primarina",
+    "name": "Primarina"
+  },
+  {
+    "id": "primeape",
+    "name": "Primeape"
+  },
+  {
+    "id": "pyroar",
+    "name": "Pyroar"
+  },
+  {
+    "id": "quagsire",
+    "name": "Quagsire"
   },
   {
     "id": "raichu",
@@ -356,12 +952,24 @@
     "name": "Reshiram"
   },
   {
+    "id": "reuniclus",
+    "name": "Reuniclus"
+  },
+  {
     "id": "rhyperior",
     "name": "Rhyperior"
   },
   {
+    "id": "ribombee",
+    "name": "Ribombee"
+  },
+  {
     "id": "roserade",
     "name": "Roserade"
+  },
+  {
+    "id": "runerigus",
+    "name": "Runerigus"
   },
   {
     "id": "sableye",
@@ -372,6 +980,10 @@
     "name": "Salamence"
   },
   {
+    "id": "samurott",
+    "name": "Samurott"
+  },
+  {
     "id": "sceptile",
     "name": "Sceptile"
   },
@@ -380,12 +992,108 @@
     "name": "Scizor"
   },
   {
+    "id": "scrafty",
+    "name": "Scrafty"
+  },
+  {
+    "id": "scraggy",
+    "name": "Scraggy"
+  },
+  {
+    "id": "serperior",
+    "name": "Serperior"
+  },
+  {
+    "id": "cobalion-shadow",
+    "name": "Shadow Cobalion"
+  },
+  {
+    "id": "metagross-shadow",
+    "name": "Shadow Metagross"
+  },
+  {
+    "id": "snorlax-shadow",
+    "name": "Shadow Snorlax"
+  },
+  {
     "id": "swampert-shadow",
     "name": "Shadow Swampert"
   },
   {
+    "id": "talonflame-shadow",
+    "name": "Shadow Talonflame"
+  },
+  {
+    "id": "trevenant-shadow",
+    "name": "Shadow Trevenant"
+  },
+  {
+    "id": "umbreon-shadow",
+    "name": "Shadow Umbreon"
+  },
+  {
+    "id": "weavile-shadow",
+    "name": "Shadow Weavile"
+  },
+  {
+    "id": "wigglytuff-shadow",
+    "name": "Shadow Wigglytuff"
+  },
+  {
+    "id": "shiftry",
+    "name": "Shiftry"
+  },
+  {
+    "id": "silvally",
+    "name": "Silvally"
+  },
+  {
+    "id": "sirfetchd",
+    "name": "Sirfetch'd"
+  },
+  {
+    "id": "skarmory",
+    "name": "Skarmory"
+  },
+  {
+    "id": "skeledirge",
+    "name": "Skeledirge"
+  },
+  {
+    "id": "slaking",
+    "name": "Slaking"
+  },
+  {
+    "id": "slowbro",
+    "name": "Slowbro"
+  },
+  {
+    "id": "slowking",
+    "name": "Slowking"
+  },
+  {
     "id": "snorlax",
     "name": "Snorlax"
+  },
+  {
+    "id": "spiritomb",
+    "name": "Spiritomb"
+  },
+  {
+    "id": "squirtle",
+    "name": "Squirtle"
+  },
+  {
+    "id": "stakataka",
+    "name": "Stakataka"
+  },
+  {
+    "id": "staraptor",
+    "name": "Staraptor"
+  },
+  {
+    "id": "starmie",
+    "name": "Starmie"
   },
   {
     "id": "steelix",
@@ -396,6 +1104,10 @@
     "name": "Stunfisk (Galarian)"
   },
   {
+    "id": "sudowoodo",
+    "name": "Sudowoodo"
+  },
+  {
     "id": "suicune",
     "name": "Suicune"
   },
@@ -404,12 +1116,36 @@
     "name": "Swampert"
   },
   {
+    "id": "swellow",
+    "name": "Swellow"
+  },
+  {
     "id": "sylveon",
     "name": "Sylveon"
   },
   {
     "id": "talonflame",
     "name": "Talonflame"
+  },
+  {
+    "id": "tangela",
+    "name": "Tangela"
+  },
+  {
+    "id": "tangrowth",
+    "name": "Tangrowth"
+  },
+  {
+    "id": "tapu-fini",
+    "name": "Tapu Fini"
+  },
+  {
+    "id": "tauros",
+    "name": "Tauros"
+  },
+  {
+    "id": "tentacruel",
+    "name": "Tentacruel"
   },
   {
     "id": "terrakion",
@@ -424,12 +1160,28 @@
     "name": "Torterra"
   },
   {
+    "id": "toucannon",
+    "name": "Toucannon"
+  },
+  {
+    "id": "toxapex",
+    "name": "Toxapex"
+  },
+  {
     "id": "toxicroak",
     "name": "Toxicroak"
   },
   {
     "id": "trevenant",
     "name": "Trevenant"
+  },
+  {
+    "id": "tropius",
+    "name": "Tropius"
+  },
+  {
+    "id": "turtonator",
+    "name": "Turtonator"
   },
   {
     "id": "typhlosion",
@@ -444,6 +1196,10 @@
     "name": "Umbreon"
   },
   {
+    "id": "urshifu",
+    "name": "Urshifu"
+  },
+  {
     "id": "vaporeon",
     "name": "Vaporeon"
   },
@@ -452,27 +1208,67 @@
     "name": "Venusaur"
   },
   {
+    "id": "vigoroth",
+    "name": "Vigoroth"
+  },
+  {
     "id": "virizion",
     "name": "Virizion"
+  },
+  {
+    "id": "volcarona",
+    "name": "Volcarona"
   },
   {
     "id": "walrein",
     "name": "Walrein"
   },
   {
+    "id": "wartortle",
+    "name": "Wartortle"
+  },
+  {
     "id": "weavile",
     "name": "Weavile"
+  },
+  {
+    "id": "whiscash",
+    "name": "Whiscash"
   },
   {
     "id": "wigglytuff",
     "name": "Wigglytuff"
   },
   {
+    "id": "wobbuffet",
+    "name": "Wobbuffet"
+  },
+  {
+    "id": "xurkitree",
+    "name": "Xurkitree"
+  },
+  {
+    "id": "zacian",
+    "name": "Zacian"
+  },
+  {
     "id": "zangoose",
     "name": "Zangoose"
   },
   {
+    "id": "zapdos",
+    "name": "Zapdos"
+  },
+  {
     "id": "zekrom",
     "name": "Zekrom"
+  },
+  {
+    "id": "zoroark",
+    "name": "Zoroark"
+  },
+  {
+    "id": "zweilous",
+    "name": "Zweilous"
   }
 ]
