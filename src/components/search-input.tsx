@@ -88,7 +88,7 @@ export function SearchInput({
           {results.map((pokemon, index) => (
             <li key={pokemon.id}>
               <button
-                className={`w-full min-h-11 px-3 py-2 text-left text-sm capitalize hover:bg-muted ${
+                className={`w-full min-h-11 px-3 py-2 text-left text-base capitalize hover:bg-muted ${
                   index === selectedIndex ? "bg-muted" : ""
                 }`}
                 onMouseDown={() => selectPokemon(pokemon)}

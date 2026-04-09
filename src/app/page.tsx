@@ -24,13 +24,13 @@ export default function Home() {
   return (
     <div className="space-y-8 pt-4">
       <h1 className="text-xl font-bold">Poke Pal</h1>
-      <p className="text-sm text-muted-foreground">
+      <p className="text-[13px] text-muted-foreground">
         Search a Pokemon, copy the string, paste in GO to find counters.
       </p>
       <SearchInput />
 
       <div className="space-y-3">
-        <h2 className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Current Raids</h2>
+        <h2 className="text-[13px] font-medium uppercase tracking-wide text-muted-foreground">Current Raids</h2>
         <div className="flex flex-wrap gap-2">
           {raidBosses.map((id) => (
             <Link
@@ -46,7 +46,7 @@ export default function Home() {
 
       {activeLeagues.length > 0 && (
         <div className="space-y-3">
-          <h2 className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Go Battle League</h2>
+          <h2 className="text-[13px] font-medium uppercase tracking-wide text-muted-foreground">Go Battle League</h2>
           <div className="flex flex-wrap gap-2">
             {activeLeagues.map((l) => (
               <Link
@@ -62,7 +62,7 @@ export default function Home() {
       )}
 
       <div className="space-y-3">
-        <h2 className="text-xs font-medium uppercase tracking-wide text-muted-foreground">My Teams</h2>
+        <h2 className="text-[13px] font-medium uppercase tracking-wide text-muted-foreground">My Teams</h2>
         <HomeTeamPreview />
       </div>
     </div>

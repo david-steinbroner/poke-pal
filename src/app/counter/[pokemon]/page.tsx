@@ -74,7 +74,7 @@ export default async function CounterPage({
           <div className="space-y-3">
             {weakTo.length > 0 && (
               <div className="flex flex-wrap items-center gap-1.5">
-                <span className="text-xs font-medium text-muted-foreground">
+                <span className="text-[13px] font-medium text-muted-foreground">
                   Weak to
                 </span>
                 {weakTo.map((t) => {
@@ -84,7 +84,7 @@ export default async function CounterPage({
                     <span key={t} className="inline-flex items-center gap-0.5">
                       <TypeBadge type={t} />
                       {isDouble && (
-                        <span className="text-xs font-medium text-muted-foreground">
+                        <span className="text-[13px] font-medium text-muted-foreground">
                           2{"\u00d7"}
                         </span>
                       )}
@@ -95,7 +95,7 @@ export default async function CounterPage({
             )}
             {resists.length > 0 && (
               <div className="flex flex-wrap items-center gap-1.5">
-                <span className="text-xs font-medium text-muted-foreground">
+                <span className="text-[13px] font-medium text-muted-foreground">
                   Resists
                 </span>
                 {resists.map((t) => (

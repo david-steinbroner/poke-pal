@@ -46,7 +46,7 @@ export function InlineTeamSection({
         {Array.from({ length: 3 - team.length }).map((_, i) => (
           <span
             key={`empty-${i}`}
-            className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-dashed text-muted-foreground text-xs"
+            className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-dashed text-muted-foreground text-[13px]"
           >
             {team.length + i + 1}
           </span>

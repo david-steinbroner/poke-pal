@@ -207,7 +207,7 @@ function TeamsPage() {
               <button
                 key={id}
                 onClick={() => handleLeagueChange(id as LeagueId)}
-                className={`flex-1 rounded-lg px-2 py-1.5 text-xs font-medium transition-colors ${
+                className={`flex-1 rounded-lg px-2 py-1.5 text-[13px] font-medium transition-colors ${
                   isActive
                     ? "bg-primary text-primary-foreground"
                     : hasSavedTeam
@@ -294,7 +294,7 @@ function TeamsPage() {
                     })}
                     <Link
                       href={`/league/${league}`}
-                      className="inline-flex items-center gap-1 rounded-full border px-3 py-1.5 text-xs font-medium text-muted-foreground hover:bg-accent"
+                      className="inline-flex items-center gap-1 rounded-full border px-3 py-1.5 text-[13px] font-medium text-muted-foreground hover:bg-accent"
                     >
                       See more <ArrowRight className="h-3 w-3" />
                     </Link>
@@ -308,7 +308,7 @@ function TeamsPage() {
 
       <Link
         href={`/league/${league}`}
-        className="flex items-center justify-center gap-1 text-xs uppercase tracking-wide text-muted-foreground/60 hover:text-muted-foreground"
+        className="flex items-center justify-center gap-1 text-[13px] uppercase tracking-wide text-muted-foreground/60 hover:text-muted-foreground"
       >
         SEE LEAGUE INFO <ArrowRight className="h-3 w-3" />
       </Link>

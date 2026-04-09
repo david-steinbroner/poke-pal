@@ -65,7 +65,7 @@ export function PokemonListItem({
         </div>
         {/* Moves on second line */}
         {(fastMove || chargedMoves) && (
-          <div className="mt-1 text-xs text-muted-foreground truncate">
+          <div className="mt-1 text-[13px] text-muted-foreground truncate">
             {fastMove && <span>{fastMove}</span>}
             {fastMove && chargedMoves && chargedMoves.length > 0 && <span className="mx-1">|</span>}
             {chargedMoves && <span>{chargedMoves.join(", ")}</span>}

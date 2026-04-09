@@ -20,7 +20,7 @@ export function TeamSlotCard({
   if (!slot) {
     return (
       <div className="rounded-lg border border-dashed p-3">
-        <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+        <span className="text-[13px] font-medium text-muted-foreground uppercase tracking-wide">
           {label}
         </span>
         {children && <div className="mt-2">{children}</div>}
@@ -31,12 +31,12 @@ export function TeamSlotCard({
   return (
     <div className="flex items-center gap-3 rounded-lg border p-3">
       <div className="flex-1 min-w-0">
-        <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+        <span className="text-[13px] font-medium text-muted-foreground uppercase tracking-wide">
           {label}
         </span>
         <p className="mt-0.5 font-medium text-sm">{slot.name}</p>
         {moveset && (
-          <p className="mt-0.5 text-xs text-muted-foreground">{moveset}</p>
+          <p className="mt-0.5 text-[13px] text-muted-foreground">{moveset}</p>
         )}
       </div>
       <button
