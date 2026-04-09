@@ -1,5 +1,66 @@
 # Poke Pal — Session Log
 
+## Session: 2026-04-09 (UX Refocus + Data Expansion — v1.0.2)
+
+Figma-driven UX review session. David prototyped layout changes in Figma while backend infrastructure was built in parallel. Then implemented all proposed UX changes and expanded Pokemon data from 119 to 318.
+
+---
+
+### What We Built
+
+**Backend Infrastructure (v1.0.2)**
+- League barrel export (`src/data/leagues/index.ts`) — adding a league is 3 lines in 1 file instead of 5+
+- Slim search index (`pokemon-search-index.json`) — client bundle stays light at any scale
+- Data freshness utility (`src/lib/data-freshness.ts`) — ready for UI, not wired up yet
+- Data validation script (`scripts/update-data.ts`) — validates all league/raid JSON
+- Search index generator (`scripts/generate-search-index.ts`)
+
+**UX Refocus (from Figma review)**
+- League pages: removed SearchInput and "Copy Your Team" — focused on browsing metas only
+- League pages: single "Copy Meta Search String" button, tiers above team section
+- League pages: back arrow + title on same line, InlineTeamSection still modifiable (X to remove)
+- Teams page: removed Share button (not needed at MVP), renamed to "Copy Team Search String"
+- All tab-level pages: added onboarding explainer copy
+- Home: "MY TEAMS" → "MY BATTLE LEAGUE TEAMS", mid-page connector text
+
+**Data Expansion**
+- 119 → 318 Pokemon (+199): PvP meta, raid counters, Ultra Beasts, Megas, Primals, Community Day, Gen 5-9
+- 328 static pages generated (318 counter + leagues + teams + home)
+
+### Figma Prototype
+
+- File: `Poke Pal — Screen Layouts` (pzUuVqXAuLxl2ucJLIEguv)
+- Page: "Current & Proposed" — side-by-side comparison with David's Figma comments
+- Used as directional sandbox for layout/copy changes, not pixel-perfect spec
+
+### Decisions Made
+
+1. **League pages are read-only for teams** — browsing metas is the value. Team building belongs on Teams tab. SearchInput on league pages was a distraction that let users add non-league Pokemon.
+2. **Share removed at MVP** — no incentive for users to share yet (no social features, no leaderboards).
+3. **Copy button naming clarified** — "Copy Meta Search String" vs "Copy Team Search String" vs "Copy Counters Search String" across the three contexts.
+4. **Onboarding copy on every tab** — each page now tells new users what to do and how the flow works.
+5. **Data freshness UI deferred** — backend utility done, UI will be wired up later.
+
+### Current State
+
+- **Version**: 1.0.2
+- **Live at**: https://poke-pal.pages.dev
+- **Data**: 318 Pokemon, 4 leagues
+- **Tests**: 33 passing
+- **Pages**: 328 static pages
+- **Stack**: Next.js 16, TypeScript strict, Tailwind CSS, Cloudflare Pages
+
+### What's Next
+
+1. **OG images for social sharing** — link previews still have no images
+2. **Empty state UX** — new users on home page before they search
+3. **Counter → team builder flow** — no way to go from counters to "build a team with these"
+4. **Data freshness UI** — wire up `data-freshness.ts` to show "Updated X days ago"
+5. **More leagues** — easy now with barrel export (Spring Cup, Jungle Cup, etc.)
+6. **Better counter scoring** — factor in bulk/STAB/energy, not just ATK
+
+---
+
 ## Session: 2026-04-08 (Marathon — v0.1.0 to v1.0.1)
 
 This was a full-day marathon session. Built the entire Phase 2 feature set, went through dozens of design iterations, ran multiple audit cycles, and shipped v1.0.0 to production. 65+ commits in one day.
@@ -26,6 +87,7 @@ This was a full-day marathon session. Built the entire Phase 2 feature set, went
 | **v0.9.0** | `c989852`..`5e6d91b` | Teams containers redesign (Select League / See more / type suggestions), nav Search→Home, league tabs |
 | **v1.0.0** | `dd33d79` | MVP cleanup: explainer text, 1-star raids, better copy toast, nav text-only, dead code purge |
 | **v1.0.1** | `5f68f6a` | Font accessibility: text-xs→text-[13px] across 9 files, bottom nav text-base |
+| **v1.0.2** | `42ee325`..`2b8a564` | UX refocus, league barrel export, search index, 318 Pokemon, onboarding copy |
 
 ---
 

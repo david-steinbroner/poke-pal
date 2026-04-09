@@ -9,6 +9,7 @@ This project uses [Semantic Versioning](https://semver.org/).
 ## [1.0.2] - 2026-04-09
 
 ### Added
+- 199 new Pokemon (119 → 318): PvP meta, raid counters, Ultra Beasts, Megas, Primals, Community Day, Gen 5-9
 - League barrel export (`src/data/leagues/index.ts`) — adding a league is now 3 lines in 1 file instead of 5+
 - Slim search index (`pokemon-search-index.json`) — {id, name} pairs only for lighter client bundle
 - Data freshness utility (`src/lib/data-freshness.ts`) — surfaces lastUpdated from all data sources
