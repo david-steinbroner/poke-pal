@@ -1,0 +1,85 @@
+{
+  "lastUpdated": "2026-04-10",
+  "teams": {
+    "fantasy-cup": [
+      {
+        "name": "Steel Wall",
+        "pokemon": ["registeel", "bastiodon", "togekiss"],
+        "why": "Double Steel core walls most threats. Togekiss covers Fighting weakness with Fairy/Flying and hits Dragons hard.",
+        "lead": "registeel"
+      },
+      {
+        "name": "Fairy Pressure",
+        "pokemon": ["azumarill", "gardevoir", "steelix"],
+        "why": "Azumarill leads with bulk and Fairy coverage. Gardevoir nukes Dragons. Steelix tanks everything else and resists Poison.",
+        "lead": "azumarill"
+      },
+      {
+        "name": "Dragon Control",
+        "pokemon": ["altaria", "stunfisk-galarian", "azumarill"],
+        "why": "Altaria pressures other Dragons. G-Stunfisk counters Steel and Fairy types. Azumarill fills coverage gaps with Water/Fairy.",
+        "lead": "altaria"
+      }
+    ],
+    "great-league": [
+      {
+        "name": "ABB Classic",
+        "pokemon": ["medicham", "stunfisk-galarian", "registeel"],
+        "why": "Medicham leads and baits Fighting counters. Two Steel closers — once the opponent burns resources on one, the other sweeps.",
+        "lead": "medicham"
+      },
+      {
+        "name": "Tanky Core",
+        "pokemon": ["azumarill", "bastiodon", "trevenant"],
+        "why": "Three bulky Pokemon that cover each other's weaknesses. Azumarill handles Fire/Ground, Bastiodon walls Flyers, Trevenant hits Water types.",
+        "lead": "azumarill"
+      },
+      {
+        "name": "Shadow Rush",
+        "pokemon": ["sableye", "swampert", "medicham"],
+        "why": "Fast energy generation across the board. Sableye has no weaknesses in practice, Swampert spams Hydro Cannon, Medicham stacks Power-Up Punch.",
+        "lead": "sableye"
+      }
+    ],
+    "ultra-league": [
+      {
+        "name": "Giratina Core",
+        "pokemon": ["giratina-altered", "registeel", "swampert"],
+        "why": "Giratina dominates neutral matchups. Registeel walls Fairies that threaten Giratina. Swampert covers Steel and Fire types.",
+        "lead": "giratina-altered"
+      },
+      {
+        "name": "Fighter Lead",
+        "pokemon": ["machamp", "togekiss", "trevenant"],
+        "why": "Machamp pressures Registeel and Snorlax leads. Togekiss covers Fighting weakness and handles Dragons. Trevenant rounds out with Ghost/Grass coverage.",
+        "lead": "machamp"
+      },
+      {
+        "name": "Dragon Slayer",
+        "pokemon": ["togekiss", "registeel", "swampert"],
+        "why": "Built to beat Giratina teams. Togekiss double-resists Dragon. Registeel handles Fairies. Swampert covers the Steel matchups.",
+        "lead": "togekiss"
+      }
+    ],
+    "master-league": [
+      {
+        "name": "Legendary Core",
+        "pokemon": ["dialga", "giratina-origin", "kyogre"],
+        "why": "Dialga's Steel/Dragon typing has one weakness. Giratina-O nukes with Shadow Ball. Kyogre covers Ground and Fire threats to Dialga.",
+        "lead": "dialga"
+      },
+      {
+        "name": "Dragon Trio",
+        "pokemon": ["dialga", "zekrom", "garchomp"],
+        "why": "Triple Dragon pressure. Dialga resists Dragon moves. Zekrom covers Water/Flying. Garchomp covers Steel types with Ground moves.",
+        "lead": "dialga"
+      },
+      {
+        "name": "Balanced Legends",
+        "pokemon": ["mewtwo", "dialga", "reshiram"],
+        "why": "Mewtwo leads with unmatched move coverage. Dialga anchors with bulk. Reshiram covers Ice and Steel types with Fire.",
+        "lead": "mewtwo"
+      }
+    ]
+  }
+}

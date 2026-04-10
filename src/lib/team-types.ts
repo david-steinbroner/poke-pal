@@ -36,8 +36,9 @@ export type SwapSuggestion = {
   pokemonId: string;
   name: string;
   types: PokemonType[];
-  reason: string;           // e.g. "Covers Ice, Dragon gaps"
+  reason: string;           // e.g. "covers Ice, Dragon; resists shared weaknesses"
   gapsCovered: number;
+  score?: number;           // weighted composite score for ranking
 };
 
 export type TeamAnalysis = {

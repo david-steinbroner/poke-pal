@@ -3,12 +3,15 @@
 import Link from "next/link";
 import { PokemonChip } from "@/components/pokemon-chip";
 import { getPokemonName } from "@/lib/pokemon-utils";
+import { RATING_COLORS } from "@/lib/team-rating";
+import type { TeamRating } from "@/lib/team-rating";
 
 type InlineTeamSectionProps = {
   team: string[];
   leagueId: string;
   leagueName?: string;
   onRemove: (pokemonId: string) => void;
+  rating?: TeamRating;
 };
 
 export function InlineTeamSection({
@@ -16,6 +19,7 @@ export function InlineTeamSection({
   leagueId,
   leagueName,
   onRemove,
+  rating,
 }: InlineTeamSectionProps) {
   if (team.length === 0) return null;
 
@@ -23,7 +27,14 @@ export function InlineTeamSection({
     <div className="space-y-3">
       {/* Header row: "Your Team" + rating (left) | arrow link (right) */}
       <div className="flex items-center justify-between">
-        <span className="text-sm font-semibold">Your Team{leagueName ? ` - ${leagueName}` : ""}</span>
+        <div className="flex items-center gap-2">
+          <span className="text-sm font-semibold">Your Team{leagueName ? ` - ${leagueName}` : ""}</span>
+          {rating && (
+            <span className={`inline-flex items-center rounded-md px-1.5 py-0.5 text-[11px] font-semibold ${RATING_COLORS[rating]}`}>
+              {rating}
+            </span>
+          )}
+        </div>
         <Link
           href={`/teams?l=${leagueId}&p=${team.join(",")}`}
           className="flex items-center justify-center min-h-11 min-w-11 text-primary hover:text-primary/80 active:opacity-70"

@@ -161,61 +161,98 @@ function detectThreats(
 }
 
 /**
- * Suggests swaps from the meta that cover offensive gaps.
+ * Suggests Pokemon from the meta that best complete the team.
+ *
+ * Scoring (weighted):
+ * - Gap coverage (50%): how many offensive type gaps does this Pokemon fill?
+ * - Anti-synergy bonus (25%): does it resist the team's shared weaknesses?
+ * - Meta tier (25%): higher-tier picks are preferred, all else being equal
+ *
+ * This makes suggestions get smarter with each pick — not just "more S tiers"
+ * but "what actually completes your team."
  */
 function suggestSwaps(
   members: NonNullable<TeamSlot>[],
   offensiveCoverage: TypeCoverage[],
   leagueId: LeagueId,
 ): SwapSuggestion[] {
-  // Find uncovered types (multiplier <= 1.0)
+  const league = getLeagueInfo(leagueId);
+  const teamIds = new Set(members.map((m) => m.pokemonId));
+
+  // Find offensive gaps (types we can't hit SE)
   const gaps = offensiveCoverage
     .filter((c) => c.multiplier <= 1.0)
     .map((c) => c.type);
 
-  if (gaps.length === 0) return [];
+  // Find shared defensive weaknesses
+  const sharedWeaknesses: PokemonType[] = [];
+  for (const attackType of POKEMON_TYPES) {
+    const weakCount = members.filter(
+      (m) => getEffectiveness(attackType, m.types) > 1.0,
+    ).length;
+    if (weakCount >= 2) sharedWeaknesses.push(attackType);
+  }
 
-  const league = getLeagueInfo(leagueId);
-  const teamIds = new Set(members.map((m) => m.pokemonId));
+  const tierScores: Record<string, number> = { S: 4, A: 3, B: 2, C: 1 };
+
   const suggestions: SwapSuggestion[] = [];
 
   for (const metaMon of league.meta) {
-    // Skip Pokemon already on the team
     if (teamIds.has(metaMon.pokemonId)) continue;
 
     const pokemon = getPokemonById(metaMon.pokemonId);
     if (!pokemon) continue;
 
-    // Check which gaps this Pokemon's moves cover
     const moveTypes = new Set<PokemonType>();
     for (const m of pokemon.fastMoves) moveTypes.add(m.type);
     for (const m of pokemon.chargedMoves) moveTypes.add(m.type);
 
+    // Score 1: Gap coverage (how many offensive gaps does this fill?)
     const covered: PokemonType[] = [];
     for (const gap of gaps) {
       for (const moveType of moveTypes) {
-        const eff = getEffectiveness(moveType, [gap]);
-        if (eff > 1.0) {
+        if (getEffectiveness(moveType, [gap]) > 1.0) {
           covered.push(gap);
           break;
         }
       }
     }
+    const gapScore = gaps.length > 0 ? covered.length / gaps.length : 0; // 0-1
 
-    if (covered.length > 0) {
-      suggestions.push({
-        pokemonId: pokemon.id,
-        name: pokemon.name,
-        types: pokemon.types,
-        reason: `Covers ${covered.join(", ")} gaps`,
-        gapsCovered: covered.length,
-      });
+    // Score 2: Anti-synergy (does it resist the team's shared weaknesses?)
+    let resistCount = 0;
+    for (const weakness of sharedWeaknesses) {
+      if (getEffectiveness(weakness, pokemon.types as PokemonType[]) < 1.0) {
+        resistCount++;
+      }
     }
+    const antiSynergyScore =
+      sharedWeaknesses.length > 0 ? resistCount / sharedWeaknesses.length : 0.5; // 0-1
+
+    // Score 3: Meta tier
+    const tierScore = (tierScores[metaMon.tier] ?? 1) / 4; // 0-1
+
+    // Weighted total
+    const totalScore = gapScore * 0.5 + antiSynergyScore * 0.25 + tierScore * 0.25;
+
+    // Build reason string
+    const reasons: string[] = [];
+    if (covered.length > 0) reasons.push(`covers ${covered.join(", ")}`);
+    if (resistCount > 0) reasons.push(`resists shared weaknesses`);
+
+    suggestions.push({
+      pokemonId: pokemon.id,
+      name: pokemon.name,
+      types: pokemon.types,
+      reason: reasons.length > 0 ? reasons.join("; ") : `${metaMon.tier} tier pick`,
+      gapsCovered: covered.length,
+      score: totalScore,
+    });
   }
 
-  // Sort by gaps covered descending, return top 5
+  // Sort by total score descending
   return suggestions
-    .sort((a, b) => b.gapsCovered - a.gapsCovered)
+    .sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
     .slice(0, 5);
 }
 

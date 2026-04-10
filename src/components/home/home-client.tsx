@@ -5,12 +5,22 @@ import { SearchInput } from "@/components/search-input";
 import { FixedHeader } from "@/components/fixed-header";
 import { CollapsibleSection } from "./collapsible-section";
 import { HomeLeagueCard } from "./home-league-card";
+import { CuratedTeams } from "./curated-teams";
+
+type CuratedTeam = {
+  name: string;
+  pokemon: string[];
+  why: string;
+  lead: string;
+  searchString: string;
+};
 
 type LeagueData = {
   id: string;
   name: string;
   metaPokemonIds: string[];
   searchString: string;
+  curatedTeams: CuratedTeam[];
 };
 
 type RaidBoss = {
@@ -39,13 +49,17 @@ export function HomeClient({ leagues, raidBosses }: HomeClientProps) {
         <CollapsibleSection id="leagues" label="GO BATTLE LEAGUES">
           <div className="space-y-3">
             {leagues.map((league) => (
-              <HomeLeagueCard
-                key={league.id}
-                leagueId={league.id}
-                leagueName={league.name}
-                metaPokemonIds={league.metaPokemonIds}
-                searchString={league.searchString}
-              />
+              <div key={league.id} className="space-y-3">
+                <HomeLeagueCard
+                  leagueId={league.id}
+                  leagueName={league.name}
+                  metaPokemonIds={league.metaPokemonIds}
+                  searchString={league.searchString}
+                />
+                {league.curatedTeams.length > 0 && (
+                  <CuratedTeams teams={league.curatedTeams} leagueId={league.id} />
+                )}
+              </div>
             ))}
           </div>
         </CollapsibleSection>

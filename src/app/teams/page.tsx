@@ -12,7 +12,7 @@ import { SearchInput } from "@/components/search-input";
 import { analyzeTeam, getLeagueInfo, getPokemonById } from "@/lib/team-analysis";
 import { pokemonToSlot } from "@/lib/pokemon-utils";
 import { loadTeam, saveTeam } from "@/lib/team-storage";
-import { getGapTypes } from "@/lib/team-rating";
+import { getGapTypes, calculateTeamRating, RATING_COLORS, RATING_LABELS } from "@/lib/team-rating";
 import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 import Link from "next/link";
 import type { LeagueId, TeamSlot } from "@/lib/team-types";
@@ -194,6 +194,18 @@ function TeamsPage() {
     [hasTeam, analysis.offensiveCoverage],
   );
 
+  // Team rating based on coverage + tier + weaknesses + threats
+  const teamRating = useMemo(
+    () => hasTeam ? calculateTeamRating(
+      pokemonIds,
+      league,
+      analysis.offensiveCoverage,
+      analysis.defensiveWeaknesses,
+      analysis.threats,
+    ) : null,
+    [hasTeam, pokemonIds, league, analysis],
+  );
+
   return (
     <div className="space-y-5 pb-8">
       <FixedHeader>
@@ -229,8 +241,16 @@ function TeamsPage() {
             );
           })}
         </div>
-        {/* Copy button in fixed header */}
-        <div className="mt-3">
+        {/* Team rating + Copy button in fixed header */}
+        {teamRating && (
+          <div className="mt-2 flex items-center gap-2">
+            <span className={`inline-flex items-center rounded-md px-2 py-0.5 text-[13px] font-semibold ${RATING_COLORS[teamRating]}`}>
+              {teamRating}
+            </span>
+            <span className="text-[13px] text-muted-foreground">{RATING_LABELS[teamRating]}</span>
+          </div>
+        )}
+        <div className="mt-2">
           {hasTeam && analysis.searchString ? (
             <CopyButton searchString={analysis.searchString} label="Copy Team Search String" />
           ) : (

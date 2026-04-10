@@ -10,6 +10,7 @@ import { InlineTeamSection } from "./inline-team-section";
 import { saveTeam, loadTeam } from "@/lib/team-storage";
 import { analyzeTeam } from "@/lib/team-analysis";
 import { pokemonToSlot } from "@/lib/pokemon-utils";
+import { calculateTeamRating, RATING_COLORS } from "@/lib/team-rating";
 import type { MetaPokemon } from "@/lib/types";
 import type { LeagueId } from "@/lib/team-types";
 
@@ -119,6 +120,13 @@ export function LeaguePageClient({
               leagueId={leagueId}
               leagueName={leagueName}
               onRemove={handleRemoveFromTeam}
+              rating={analysis ? calculateTeamRating(
+                team,
+                leagueId as LeagueId,
+                analysis.offensiveCoverage,
+                analysis.defensiveWeaknesses,
+                analysis.threats,
+              ) : undefined}
             />
           </div>
         </div>
