@@ -674,60 +674,59 @@ function TeamsPage() {
   const isFullTeam = team.every((s) => s !== null);
 
   // Suggest pool Pokemon that best complement the current partial team
+  // Uses the same scoring as the team advisor: actually scores the full trio
   const suggestedPoolPokemon = useMemo(() => {
     if (isFullTeam || pool.length === 0) return [];
     const teamMembers = team.filter((s): s is NonNullable<TeamSlot> => s !== null);
     if (teamMembers.length === 0) return [];
 
-    const gaps = analysis.offensiveCoverage
-      .filter((c) => c.multiplier <= 1.0)
-      .map((c) => c.type);
+    const candidates = pool.filter((id) => !excludeIds.includes(id));
 
-    // Types that hit current team SE (defensive weaknesses)
-    const weakTypes: string[] = [];
-    for (const t of POKEMON_TYPES) {
-      for (const member of teamMembers) {
-        if (getEffectiveness(t, member.types) > 1.0) {
-          if (!weakTypes.includes(t)) weakTypes.push(t);
-        }
-      }
+    if (teamMembers.length === 1) {
+      // 1 on team: we need 2 more — use recommendTeams with pool filtered to include the existing member
+      // For now, just score each candidate as if it were added (partial team of 2)
+      const scored = candidates.map((id) => {
+        const candidateSlot = pokemonToSlot(id);
+        if (!candidateSlot) return { id, name: id, score: -999 };
+        const trialTeam: TeamSlot[] = [...teamMembers.map(m => m as TeamSlot), candidateSlot];
+        const trialAnalysis = analyzeTeam([trialTeam[0]!, trialTeam[1]!, null], league);
+        const coverage = trialAnalysis.coverageScore;
+        const sharedWeaknesses = trialAnalysis.defensiveWeaknesses.length;
+        const score = coverage - sharedWeaknesses * 3;
+        const p = getPokemonById(id);
+        return { id, name: p?.name ?? id, score };
+      });
+      return scored.sort((a, b) => b.score - a.score).slice(0, 3);
     }
 
-    // Score each pool Pokemon not on team
-    const scored = pool
-      .filter((id) => !excludeIds.includes(id))
-      .map((id) => {
+    if (teamMembers.length === 2) {
+      // 2 on team: score each candidate as the 3rd member using full team rating
+      const scored = candidates.map((id) => {
+        const candidateSlot = pokemonToSlot(id);
+        if (!candidateSlot) return { id, name: id, score: -999 };
+        const trialTeam: [TeamSlot, TeamSlot, TeamSlot] = [
+          teamMembers[0] as TeamSlot,
+          teamMembers[1] as TeamSlot,
+          candidateSlot,
+        ];
+        const trialAnalysis = analyzeTeam(trialTeam, league);
+        const rating = calculateTeamRating(
+          [teamMembers[0]!.pokemonId, teamMembers[1]!.pokemonId, id],
+          league,
+          trialAnalysis.offensiveCoverage,
+          trialAnalysis.defensiveWeaknesses,
+          trialAnalysis.threats,
+        );
+        const ratingScores: Record<string, number> = { S: 5, A: 4, B: 3, C: 2, D: 1 };
+        const score = (ratingScores[rating] ?? 1) + trialAnalysis.coverageScore / 18;
         const p = getPokemonById(id);
-        if (!p) return { id, name: id, score: 0 };
+        return { id, name: p?.name ?? id, score };
+      });
+      return scored.sort((a, b) => b.score - a.score).slice(0, 3);
+    }
 
-        let score = 0;
-        // +1 for each offensive gap this Pokemon's moves cover
-        const moveTypes = new Set([
-          ...p.fastMoves.map((m) => m.type),
-          ...p.chargedMoves.map((m) => m.type),
-        ]);
-        for (const gap of gaps) {
-          for (const mt of moveTypes) {
-            if (getEffectiveness(mt as PokemonType, [gap as PokemonType]) > 1.0) {
-              score++;
-              break;
-            }
-          }
-        }
-        // +1 for each team weakness this Pokemon resists
-        for (const wt of weakTypes) {
-          if (getEffectiveness(wt as PokemonType, p.types as PokemonType[]) < 1.0) {
-            score++;
-          }
-        }
-        return { id, name: p.name, score };
-      })
-      .filter((p) => p.score > 0)
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 3);
-
-    return scored;
-  }, [team, pool, analysis.offensiveCoverage, isFullTeam, excludeIds]);
+    return [];
+  }, [team, pool, league, isFullTeam, excludeIds]);
 
   function getRoleLabel(pokemonId: string): string | undefined {
     // Only show roles when all 3 slots are filled
