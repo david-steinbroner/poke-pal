@@ -41,29 +41,11 @@ const raidBosses = raidEntries
   .filter(({ id }) => pokemonData.some((p) => p.id === id))
   .map(({ id, tag }) => ({ id, name: getPokemonName(id), tag }));
 
-// Quick picks for counter search — top countered Pokemon across active leagues
-// Use S and A tier picks that players commonly face
-const quickPickIds = new Set<string>();
-for (const league of activeLeagues) {
-  for (const m of league.meta) {
-    if (m.tier === "S" || m.tier === "A") {
-      quickPickIds.add(m.pokemonId);
-    }
-    if (quickPickIds.size >= 6) break;
-  }
-  if (quickPickIds.size >= 6) break;
-}
-const quickPicks = [...quickPickIds].map((id) => ({
-  id,
-  name: getPokemonName(id),
-}));
-
 export default function Home() {
   return (
     <HomeClient
       leagues={leagueData}
       raidBosses={raidBosses}
-      quickPicks={quickPicks}
     />
   );
 }

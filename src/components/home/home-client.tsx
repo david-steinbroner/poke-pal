@@ -22,10 +22,9 @@ type RaidBoss = {
 type HomeClientProps = {
   leagues: LeagueData[];
   raidBosses: RaidBoss[];
-  quickPicks: RaidBoss[];
 };
 
-export function HomeClient({ leagues, raidBosses, quickPicks }: HomeClientProps) {
+export function HomeClient({ leagues, raidBosses }: HomeClientProps) {
   return (
     <div className="space-y-5">
       <FixedHeader>
@@ -95,19 +94,6 @@ export function HomeClient({ leagues, raidBosses, quickPicks }: HomeClientProps)
       {/* Section 3: Counter Search */}
       <CollapsibleSection id="counters" label="COUNTERS" prefix="SEARCH:" accentColor="text-amber-600">
         <SearchInput placeholder="Who are you fighting?" />
-        {quickPicks.length > 0 && (
-          <div className="flex flex-wrap gap-2">
-            {quickPicks.map((pick) => (
-              <Link
-                key={pick.id}
-                href={`/counter/${pick.id}`}
-                className="inline-flex min-h-11 items-center rounded-full border px-3 py-1.5 text-sm font-medium capitalize transition-colors hover:bg-accent active:bg-accent active:scale-95"
-              >
-                {pick.name}
-              </Link>
-            ))}
-          </div>
-        )}
       </CollapsibleSection>
 
       {/* Footer */}
