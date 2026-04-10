@@ -262,6 +262,16 @@ function TeamsPage() {
             </button>
           )}
         </div>
+        {/* Discovery string — find complementary Pokemon in GO storage */}
+        {analysis.discoveryString && (
+          <div className="mt-2">
+            <CopyButton
+              searchString={analysis.discoveryString}
+              label="Find Teammates in GO →"
+              compact
+            />
+          </div>
+        )}
       </FixedHeader>
 
       <div className="space-y-2">

@@ -47,5 +47,6 @@ export type TeamAnalysis = {
   threats: TeamThreat[];               // meta Pokemon that threaten the team
   suggestions: SwapSuggestion[];       // swap suggestions from meta
   searchString: string;                // combined name + CP search string
+  discoveryString: string;             // search string to find complementary Pokemon in GO storage
   coverageScore: number;               // X out of 18 types covered (SE)
 };

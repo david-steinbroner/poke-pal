@@ -257,6 +257,73 @@ function suggestSwaps(
 }
 
 /**
+ * Builds a "discovery" search string to find complementary Pokemon in GO storage.
+ *
+ * Analyzes the team's weaknesses and offensive gaps, then generates a search string
+ * that surfaces Pokemon with moves covering those gaps — filtered by league CP cap.
+ *
+ * After Pokemon 1: "find Pokemon that cover my starter's weaknesses"
+ * After Pokemon 2: "find Pokemon that complete the remaining gaps"
+ * Full team (3): returns empty — no discovery needed.
+ */
+function buildDiscoveryString(
+  members: NonNullable<TeamSlot>[],
+  offensiveCoverage: TypeCoverage[],
+  leagueId: LeagueId,
+): string {
+  // No discovery needed for empty or full teams
+  if (members.length === 0 || members.length >= 3) return "";
+
+  const league = getLeagueInfo(leagueId);
+
+  // Find types the team is weak to
+  const teamWeaknesses: PokemonType[] = [];
+  for (const attackType of POKEMON_TYPES) {
+    for (const member of members) {
+      if (getEffectiveness(attackType, member.types) > 1.0) {
+        if (!teamWeaknesses.includes(attackType)) {
+          teamWeaknesses.push(attackType);
+        }
+      }
+    }
+  }
+
+  // Find move types that are SE against the types we're weak to.
+  // e.g., if weak to Ice, find types that beat Ice-type Pokemon: Fire, Fighting, Rock, Steel
+  const counterTypes = new Set<PokemonType>();
+  for (const weakness of teamWeaknesses) {
+    // What move types are super effective against a Pokemon of the weakness type?
+    for (const atkType of POKEMON_TYPES) {
+      if (getEffectiveness(atkType, [weakness]) > 1.0) {
+        counterTypes.add(atkType);
+      }
+    }
+  }
+
+  // Also add offensive gaps — types we can't currently hit SE
+  const offensiveGaps = offensiveCoverage
+    .filter((c) => c.multiplier <= 1.0)
+    .map((c) => c.type);
+
+  // Merge: counter types (defend against our weaknesses) + offensive gaps
+  // Counter types are higher priority since they address survivability
+  const allTypes = [...counterTypes];
+  for (const gap of offensiveGaps) {
+    if (!allTypes.includes(gap)) allTypes.push(gap);
+  }
+
+  // Pick top 4 to keep the search string useful (too many = too broad)
+  const searchTypes = allTypes.slice(0, 4);
+  if (searchTypes.length === 0) return "";
+
+  // @1type finds Pokemon with moves of that type in GO storage
+  const typeFilters = searchTypes.map((t) => `@1${t.toLowerCase()}`).join(",");
+  const cpStr = league.cpCap < 9999 ? `&cp-${league.cpCap}` : "";
+
+  return `${typeFilters}${cpStr}`;
+}
+
+/**
  * Builds the search string for the team: name filter + CP cap.
  * For Master League (cpCap 9999), skip the CP filter.
  */
@@ -300,6 +367,7 @@ export function analyzeTeam(
       threats: [],
       suggestions: [],
       searchString: "",
+      discoveryString: "",
       coverageScore: 0,
     };
   }
@@ -309,6 +377,7 @@ export function analyzeTeam(
   const threats = detectThreats(members, leagueId);
   const suggestions = suggestSwaps(members, offensiveCoverage, leagueId);
   const searchString = buildSearchString(members, leagueId);
+  const discoveryString = buildDiscoveryString(members, offensiveCoverage, leagueId);
   const coverageScore = offensiveCoverage.filter((c) => c.multiplier > 1.0).length;
 
   return {
@@ -317,6 +386,7 @@ export function analyzeTeam(
     threats,
     suggestions,
     searchString,
+    discoveryString,
     coverageScore,
   };
 }
