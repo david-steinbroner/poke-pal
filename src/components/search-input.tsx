@@ -48,6 +48,11 @@ export function SearchInput({
     setIsOpen(false);
     if (mode === "select" && onSelect) {
       onSelect(pokemon.id);
+      // Blur to dismiss keyboard, then scroll back to top after iOS keyboard animation
+      inputRef.current?.blur();
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
     } else {
       router.push(`/counter/${pokemon.id}`);
     }
@@ -79,7 +84,13 @@ export function SearchInput({
         onChange={(event) => setQuery(event.target.value)}
         onKeyDown={handleKeyDown}
         onFocus={() => results.length > 0 && setIsOpen(true)}
-        onBlur={() => setTimeout(() => setIsOpen(false), 150)}
+        onBlur={() => {
+          setTimeout(() => setIsOpen(false), 150);
+          // Scroll back to top after keyboard dismisses (iOS keyboard animation delay)
+          if (mode === "select") {
+            setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 300);
+          }
+        }}
         className="min-h-14 text-lg"
         autoComplete="off"
       />

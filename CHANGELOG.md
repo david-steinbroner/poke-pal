@@ -6,6 +6,47 @@ This project uses [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.1.0] - 2026-04-10
+
+### Added
+- **Team Advisor**: 4-state flow on Teams page — copy league CP string, build Pokemon pool, get team recommendations, load team with analysis
+- **Team Advisor engine** (`team-advisor.ts`): Two-pass brute-force combo scoring (fast pass on all C(n,3) combos, full analysis on top 5) with template-based strategy tips
+- **Screenshot scanning** (`functions/api/scan.ts`): Cloudflare Pages Function that sends GO storage screenshots to Claude Vision API and returns Pokemon names
+- **Pokemon name matcher** (`pokemon-utils.ts`): Fuzzy matches OCR names to dataset IDs — case-insensitive, form names, base names
+- **Pool storage** (`team-storage.ts`): localStorage persistence for Pokemon pool per league with advisor state
+- **Smart empty slot hints**: shows which types your team can't beat yet, with copy button for GO search string that finds counter Pokemon
+- **Pool suggestion chips**: empty team slots show top 3 Pokemon from your pool that best fill coverage gaps (scored by offensive gap coverage + defensive weakness resistance)
+- **Dual copy buttons**: "League" (copies CP/type filter) and "My Team" (copies team search string) side by side in header
+- **Team Analysis section**: rating badge + label, coverage score, shared weakness details with Pokemon names — only shows with full team of 3
+- **Strategy section**: Lead/Safe Swap/Closer tactical tips based on move energy costs, type matchups, and role assignments
+- **Role labels on team slots**: LEAD / SAFE SWAP / CLOSER appear when all 3 slots filled
+- **Auto-sort by role**: team reorders to Lead → Safe Swap → Closer when 3rd Pokemon is added
+- **Compact on remove**: removing a Pokemon shifts remaining ones up, no gaps
+- **Screenshot upload component**: upload 2 GO screenshots with preview thumbnails, scan button, error handling
+- **Pokemon pool component**: collapsible "My Pokemon (N)" with dual-action chips (+/×), search bar, screenshot upload
+- **Recommended teams component**: collapsible ranked team cards with movesets, roles, strategy tips, "Use This Team" button
+
+### Changed
+- Teams page completely rewritten with state-driven advisor flow
+- Copy search strings now use correct counter types (Ground to beat Electric, not Electric itself)
+- Search strings exclude Pokemon already on your team
+- Fantasy Cup search string includes type restrictions (`@dragon,@steel,@fairy`)
+- Master League search string uses `cp2500-` instead of broken `cp4000-`
+- PokemonChip supports new "pool" variant with + (add to team) and × (remove from pool)
+- SearchInput blurs and scrolls to top after selecting (prevents iOS keyboard scroll jump)
+- TeamSlotCard supports role label, copy hint button, and children (suggestion chips)
+
+### Removed
+- `buildDiscoveryString` from team-analysis.ts (replaced by advisor scan flow)
+- `suggestSwaps` from team-analysis.ts (replaced by combo recommender)
+- `SwapSuggestion` type from team-types.ts
+- `discoveryString` and `suggestions` fields from `TeamAnalysis`
+- "Find Teammates in GO" discovery string button
+- League info row + rating row from Teams page header (moved into Analysis section)
+- Standalone "Swap a Pokemon" search bar from State 4
+
+---
+
 ## [1.0.6] - 2026-04-10
 
 ### Added

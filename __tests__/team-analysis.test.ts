@@ -48,13 +48,6 @@ describe("analyzeTeam", () => {
     expect(iceWeakness!.coveredBy.length).toBeGreaterThanOrEqual(2);
   });
 
-  it("suggests swaps from meta", () => {
-    const team = [makeSlot("medicham"), makeSlot("registeel"), null];
-    const result = analyzeTeam(team, "great-league");
-    expect(result.suggestions.length).toBeGreaterThan(0);
-    expect(result.suggestions[0]!.reason).toBeTruthy();
-  });
-
   it("handles Fantasy Cup with type restrictions", () => {
     const team = [makeSlot("registeel"), makeSlot("altaria"), null];
     const result = analyzeTeam(team, "fantasy-cup");

@@ -1,5 +1,77 @@
 # Poke Pal — Session Log
 
+## Session: 2026-04-10 (Team Advisor — v1.1.0)
+
+Major feature session. Built the Team Advisor: a state-driven flow that helps users build optimal PvP teams from their Pokemon collection. Started with brainstorming the user flow, created Figma wireframes, wrote spec + implementation plan, ran product + engineering reviews, then executed with parallel agents.
+
+---
+
+### What We Built
+
+**Team Advisor Engine**
+- Two-pass brute-force combo scoring: fast pass on all C(n,3) combos, full analysis on top 5 only
+- Template-based strategy tips generated from move energy costs and type matchups
+- Pokemon name matcher for OCR screenshot results (fuzzy matching)
+- Pool storage with advisor state per league in localStorage
+
+**Teams Page Rewrite (4-State Flow)**
+- State 1: Copy league CP string, start building pool
+- State 2: Add Pokemon via search or screenshots, see pool chips
+- State 3: 3+ Pokemon → see recommended teams with ratings, movesets, strategy
+- State 4: Team loaded with Analysis (rating + coverage + weaknesses) and Strategy (lead/swap/closer tips)
+
+**Smart Team Building UX**
+- Dual-action pool chips: + adds to team, × removes from pool
+- Empty slot hints: "Can't beat Electric, Poison types yet" with copy button for counter search string
+- Suggestion chips in empty slots: top 3 pool Pokemon that fill coverage gaps
+- Auto-sort to Lead → Safe Swap → Closer when 3rd Pokemon added
+- Compact on remove: remaining Pokemon shift up
+- Search strings use correct counter types and exclude team members
+
+**Screenshot Scanning (Cloudflare Pages Function)**
+- `functions/api/scan.ts` — sends GO storage screenshots to Claude Vision API
+- Returns Pokemon names, client-side matcher resolves to dataset IDs
+- Works in production on Cloudflare Pages, graceful fallback in dev
+
+**Figma**
+- Proposed Updates 5: Home (current), Leagues (current), Teams States 1-4 (proposed)
+- All frames use auto-layout for drag-and-drop editing
+
+### Decisions Made
+
+1. **4-state flow over separate advisor page** — keeps everything on Teams tab, state derived from data
+2. **Pool + recommendations coexist with manual building** — + chips on pool let users build manually while recommendations handle "do it for me"
+3. **Two-pass scoring** — fast lightweight pass on all combos, full analysis only on top 5 (performance)
+4. **Pages Function over standalone Worker** — deploys with the project, no CORS, no separate infra
+5. **Storage abstracted for future accounts** — components never touch localStorage directly, storage module is swappable
+6. **Dead code cleanup first** — removed suggestSwaps, buildDiscoveryString, SwapSuggestion before building new features
+7. **Counter search strings use correct types** — "Can't beat Electric" copies `@1ground` (what beats Electric), not `@1electric`
+
+### Specs & Plans
+
+- Spec: `docs/superpowers/specs/2026-04-10-team-advisor-design.md`
+- Plan: `docs/superpowers/plans/2026-04-10-team-advisor.md`
+- Figma: Proposed Updates 5 in Screen Layouts file
+
+### Current State
+
+- **Version**: 1.1.0
+- **Live at**: https://poke-pal.pages.dev (after push)
+- **Data**: 1560 Pokemon, 4 leagues
+- **Tests**: 46 passing (8 test files)
+- **Pages**: 1570 static pages
+
+### What's Next
+
+1. Deploy and test screenshot scanning on Cloudflare (needs ANTHROPIC_API_KEY in env)
+2. Meta threat callouts in strategy tips ("struggles against Giratina")
+3. Community Day / legacy move warnings ("Venusaur must have Frenzy Plant")
+4. Individual weakness display (not just shared weaknesses)
+5. User accounts with server-side Pokemon storage
+6. GBL schedule automation
+
+---
+
 ## Session: 2026-04-09 (UX Refocus + Data Expansion — v1.0.2)
 
 Figma-driven UX review session. David prototyped layout changes in Figma while backend infrastructure was built in parallel. Then implemented all proposed UX changes and expanded Pokemon data from 119 to 318.

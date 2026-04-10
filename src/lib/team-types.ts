@@ -32,21 +32,10 @@ export type TeamThreat = {
   threatenedMembers: string[]; // which team members are threatened
 };
 
-export type SwapSuggestion = {
-  pokemonId: string;
-  name: string;
-  types: PokemonType[];
-  reason: string;           // e.g. "covers Ice, Dragon; resists shared weaknesses"
-  gapsCovered: number;
-  score?: number;           // weighted composite score for ranking
-};
-
 export type TeamAnalysis = {
   offensiveCoverage: TypeCoverage[];   // all 18 types, sorted by coverage
   defensiveWeaknesses: TypeCoverage[]; // types that hit 2+ members SE
   threats: TeamThreat[];               // meta Pokemon that threaten the team
-  suggestions: SwapSuggestion[];       // swap suggestions from meta
   searchString: string;                // combined name + CP search string
-  discoveryString: string;             // search string to find complementary Pokemon in GO storage
   coverageScore: number;               // X out of 18 types covered (SE)
 };

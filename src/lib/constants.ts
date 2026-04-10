@@ -1,4 +1,7 @@
-export const APP_VERSION = "1.0.2";
+export const APP_VERSION = "1.1.0";
+
+/** Cloudflare Pages Function endpoint for screenshot scanning */
+export const SCAN_API_URL = "/api/scan";
 
 // League IDs, names, and short names are now in @/data/leagues/index.ts
 // Re-export for backward compatibility

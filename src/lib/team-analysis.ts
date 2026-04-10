@@ -6,7 +6,6 @@ import type {
   TeamAnalysis,
   TypeCoverage,
   TeamThreat,
-  SwapSuggestion,
   RoleAssignment,
   TeamRole,
 } from "./team-types";
@@ -161,169 +160,6 @@ function detectThreats(
 }
 
 /**
- * Suggests Pokemon from the meta that best complete the team.
- *
- * Scoring (weighted):
- * - Gap coverage (50%): how many offensive type gaps does this Pokemon fill?
- * - Anti-synergy bonus (25%): does it resist the team's shared weaknesses?
- * - Meta tier (25%): higher-tier picks are preferred, all else being equal
- *
- * This makes suggestions get smarter with each pick — not just "more S tiers"
- * but "what actually completes your team."
- */
-function suggestSwaps(
-  members: NonNullable<TeamSlot>[],
-  offensiveCoverage: TypeCoverage[],
-  leagueId: LeagueId,
-): SwapSuggestion[] {
-  const league = getLeagueInfo(leagueId);
-  const teamIds = new Set(members.map((m) => m.pokemonId));
-
-  // Find offensive gaps (types we can't hit SE)
-  const gaps = offensiveCoverage
-    .filter((c) => c.multiplier <= 1.0)
-    .map((c) => c.type);
-
-  // Find shared defensive weaknesses
-  const sharedWeaknesses: PokemonType[] = [];
-  for (const attackType of POKEMON_TYPES) {
-    const weakCount = members.filter(
-      (m) => getEffectiveness(attackType, m.types) > 1.0,
-    ).length;
-    if (weakCount >= 2) sharedWeaknesses.push(attackType);
-  }
-
-  const tierScores: Record<string, number> = { S: 4, A: 3, B: 2, C: 1 };
-
-  const suggestions: SwapSuggestion[] = [];
-
-  for (const metaMon of league.meta) {
-    if (teamIds.has(metaMon.pokemonId)) continue;
-
-    const pokemon = getPokemonById(metaMon.pokemonId);
-    if (!pokemon) continue;
-
-    const moveTypes = new Set<PokemonType>();
-    for (const m of pokemon.fastMoves) moveTypes.add(m.type);
-    for (const m of pokemon.chargedMoves) moveTypes.add(m.type);
-
-    // Score 1: Gap coverage (how many offensive gaps does this fill?)
-    const covered: PokemonType[] = [];
-    for (const gap of gaps) {
-      for (const moveType of moveTypes) {
-        if (getEffectiveness(moveType, [gap]) > 1.0) {
-          covered.push(gap);
-          break;
-        }
-      }
-    }
-    const gapScore = gaps.length > 0 ? covered.length / gaps.length : 0; // 0-1
-
-    // Score 2: Anti-synergy (does it resist the team's shared weaknesses?)
-    let resistCount = 0;
-    for (const weakness of sharedWeaknesses) {
-      if (getEffectiveness(weakness, pokemon.types as PokemonType[]) < 1.0) {
-        resistCount++;
-      }
-    }
-    const antiSynergyScore =
-      sharedWeaknesses.length > 0 ? resistCount / sharedWeaknesses.length : 0.5; // 0-1
-
-    // Score 3: Meta tier
-    const tierScore = (tierScores[metaMon.tier] ?? 1) / 4; // 0-1
-
-    // Weighted total
-    const totalScore = gapScore * 0.5 + antiSynergyScore * 0.25 + tierScore * 0.25;
-
-    // Build reason string
-    const reasons: string[] = [];
-    if (covered.length > 0) reasons.push(`covers ${covered.join(", ")}`);
-    if (resistCount > 0) reasons.push(`resists shared weaknesses`);
-
-    suggestions.push({
-      pokemonId: pokemon.id,
-      name: pokemon.name,
-      types: pokemon.types,
-      reason: reasons.length > 0 ? reasons.join("; ") : `${metaMon.tier} tier pick`,
-      gapsCovered: covered.length,
-      score: totalScore,
-    });
-  }
-
-  // Sort by total score descending
-  return suggestions
-    .sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
-    .slice(0, 5);
-}
-
-/**
- * Builds a "discovery" search string to find complementary Pokemon in GO storage.
- *
- * Analyzes the team's weaknesses and offensive gaps, then generates a search string
- * that surfaces Pokemon with moves covering those gaps — filtered by league CP cap.
- *
- * After Pokemon 1: "find Pokemon that cover my starter's weaknesses"
- * After Pokemon 2: "find Pokemon that complete the remaining gaps"
- * Full team (3): returns empty — no discovery needed.
- */
-function buildDiscoveryString(
-  members: NonNullable<TeamSlot>[],
-  offensiveCoverage: TypeCoverage[],
-  leagueId: LeagueId,
-): string {
-  // No discovery needed for empty or full teams
-  if (members.length === 0 || members.length >= 3) return "";
-
-  const league = getLeagueInfo(leagueId);
-
-  // Find types the team is weak to
-  const teamWeaknesses: PokemonType[] = [];
-  for (const attackType of POKEMON_TYPES) {
-    for (const member of members) {
-      if (getEffectiveness(attackType, member.types) > 1.0) {
-        if (!teamWeaknesses.includes(attackType)) {
-          teamWeaknesses.push(attackType);
-        }
-      }
-    }
-  }
-
-  // Find move types that are SE against the types we're weak to.
-  // e.g., if weak to Ice, find types that beat Ice-type Pokemon: Fire, Fighting, Rock, Steel
-  const counterTypes = new Set<PokemonType>();
-  for (const weakness of teamWeaknesses) {
-    // What move types are super effective against a Pokemon of the weakness type?
-    for (const atkType of POKEMON_TYPES) {
-      if (getEffectiveness(atkType, [weakness]) > 1.0) {
-        counterTypes.add(atkType);
-      }
-    }
-  }
-
-  // Also add offensive gaps — types we can't currently hit SE
-  const offensiveGaps = offensiveCoverage
-    .filter((c) => c.multiplier <= 1.0)
-    .map((c) => c.type);
-
-  // Merge: counter types (defend against our weaknesses) + offensive gaps
-  // Counter types are higher priority since they address survivability
-  const allTypes = [...counterTypes];
-  for (const gap of offensiveGaps) {
-    if (!allTypes.includes(gap)) allTypes.push(gap);
-  }
-
-  // Pick top 4 to keep the search string useful (too many = too broad)
-  const searchTypes = allTypes.slice(0, 4);
-  if (searchTypes.length === 0) return "";
-
-  // @1type finds Pokemon with moves of that type in GO storage
-  const typeFilters = searchTypes.map((t) => `@1${t.toLowerCase()}`).join(",");
-  const cpStr = league.cpCap < 9999 ? `&cp-${league.cpCap}` : "";
-
-  return `${typeFilters}${cpStr}`;
-}
-
-/**
  * Builds the search string for the team: name filter + CP cap.
  * For Master League (cpCap 9999), skip the CP filter.
  */
@@ -346,7 +182,7 @@ function buildSearchString(
 
 /**
  * Main analysis function: takes a team of up to 3 slots and a league,
- * returns full offensive/defensive analysis with threats and suggestions.
+ * returns full offensive/defensive analysis with threats.
  */
 export function analyzeTeam(
   team: TeamSlot[],
@@ -365,9 +201,7 @@ export function analyzeTeam(
       })),
       defensiveWeaknesses: [],
       threats: [],
-      suggestions: [],
       searchString: "",
-      discoveryString: "",
       coverageScore: 0,
     };
   }
@@ -375,18 +209,14 @@ export function analyzeTeam(
   const offensiveCoverage = computeOffensiveCoverage(members);
   const defensiveWeaknesses = computeDefensiveWeaknesses(members);
   const threats = detectThreats(members, leagueId);
-  const suggestions = suggestSwaps(members, offensiveCoverage, leagueId);
   const searchString = buildSearchString(members, leagueId);
-  const discoveryString = buildDiscoveryString(members, offensiveCoverage, leagueId);
   const coverageScore = offensiveCoverage.filter((c) => c.multiplier > 1.0).length;
 
   return {
     offensiveCoverage,
     defensiveWeaknesses,
     threats,
-    suggestions,
     searchString,
-    discoveryString,
     coverageScore,
   };
 }

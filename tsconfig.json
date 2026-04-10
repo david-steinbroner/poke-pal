@@ -32,5 +32,5 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules", "web", "scans", "skill"]
+  "exclude": ["node_modules", "web", "scans", "skill", "functions"]
 }

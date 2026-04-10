@@ -84,13 +84,8 @@ export function LeaguePageClient({
     return analyzeTeam(slots, leagueId as LeagueId);
   }, [team, leagueId]);
 
-  // Recommended IDs from analysis suggestions
-  const recommendedIds = useMemo(() => {
-    if (!analysis) return undefined;
-    return analysis.suggestions
-      .filter((s) => !team.includes(s.pokemonId))
-      .map((s) => s.pokemonId);
-  }, [analysis, team]);
+  // Recommended IDs (placeholder — will be powered by Team Advisor)
+  const recommendedIds = undefined;
 
   // Full meta search string (with CP filter when applicable)
   const fullSearchString =
