@@ -62,8 +62,6 @@ export default async function LeaguePage({
       leagueId={league.id}
       leagueName={league.name}
       cpCap={league.cpCap}
-      season={league.season}
-      lastUpdated={league.lastUpdated}
       typeRestrictions={typeRestrictions}
       meta={league.meta as MetaPokemon[]}
       metaSearchString={metaSearchString}

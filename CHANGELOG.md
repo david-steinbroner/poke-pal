@@ -6,6 +6,53 @@ This project uses [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.0.4] - 2026-04-09
+
+### Added
+- Home page redesign: coaching flow with collapsible LIVE: LEAGUES, LIVE: RAIDS, SEARCH: COUNTERS sections
+- Fixed header bar on all pages — title, subtitle, and copy buttons always visible while scrolling
+- Fade gradient below fixed header for smooth content scroll-behind
+- Shadow/Dynamax raid type tags on home page raid pills
+- Persistent team bar on league pages — fixed above bottom nav, always visible
+- League info bar on Teams page — quick link back to league detail
+- Collapsible Meta Threats section on Teams page (starts collapsed)
+- Footer on home page: version, MIT license, Skunk Labs credit, feedback form link
+- Google Form for beta feedback
+- localStorage collapse state persistence for sections and league cards
+- Quick pick pills for counter search (S/A tier meta Pokemon)
+- Empty state for no active leagues
+
+### Changed
+- Home subtitle: "Always know which Pokemon to play: find copiable search strings for every battle."
+- Chevron icons standardized: down=expanded, up=collapsed (Lucide ChevronDown/Up everywhere)
+- Navigation arrows standardized: → for navigate, ← for back (text characters, not Lucide icons)
+- Back button on same line as page title (counter pages match league page pattern)
+- Copy button moved into fixed header on league, counter, and teams pages
+- Toast notifications removed from copy actions — green button state is the only feedback
+- Raid tag text bumped from 11px to 13px for readability
+- Section spacing tightened on home page (space-y-8 → space-y-5)
+- Team slot Pokemon name made bolder and larger (font-semibold text-base)
+- Touch targets: section headers, remove button, arrow links all min 44px
+- Collapsible sections merged into single component with prefix prop
+
+### Fixed
+- useEffect infinite loop in FixedHeader (no dependency array → ResizeObserver)
+- Hydration mismatch: localStorage reads in Teams page moved to useEffect
+- Team not persisting when navigating from Teams to league page (save effect race condition)
+- iOS scroll jump on copy — clipboard textarea focus() with preventScroll + requestAnimationFrame restore
+- Content scrolling behind iOS status bar — fixed header covers safe area
+- useLayoutEffect for header measurement (eliminates visible spacer jump on page load)
+- z-index: fade gradient lowered to z-20 to avoid overlap with team bar (z-30)
+
+### Removed
+- home-team-preview.tsx (team preview moved to Teams tab)
+- Duplicate CollapsibleSearchSection component
+- Dead imports: RATING_COLORS, handleClear, teamRating, LeagueSlug, useMemo, LeagueId
+- Toast import from copy-button.tsx
+- Sticky headers on league/counter pages (caused iOS scroll jumps, replaced by FixedHeader)
+
+---
+
 ## [1.0.3] - 2026-04-09
 
 ### Added

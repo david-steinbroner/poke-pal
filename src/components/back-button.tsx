@@ -18,7 +18,7 @@ export function BackButton() {
       onClick={handleBack}
       className="text-sm text-muted-foreground hover:text-foreground active:opacity-70"
     >
-      &larr; Back
+      ←
     </button>
   );
 }

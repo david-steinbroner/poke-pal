@@ -117,6 +117,16 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* Sonner toast: overlay without pushing page content */
+[data-sonner-toaster] {
+  position: fixed !important;
+  z-index: 9999 !important;
+  pointer-events: none;
+}
+[data-sonner-toaster] > * {
+  pointer-events: auto;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

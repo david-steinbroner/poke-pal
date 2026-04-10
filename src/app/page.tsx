@@ -1,70 +1,69 @@
-import { SearchInput } from "@/components/search-input";
-import { HomeTeamPreview } from "@/components/home-team-preview";
 import { getPokemonName } from "@/lib/pokemon-utils";
+import { buildNameSearchString, buildLeagueEligibleString } from "@/lib/search-string";
 import currentRaids from "@/data/current-raids.json";
 import pokemonData from "@/data/pokemon.json";
 import { getActiveLeagues } from "@/data/leagues";
-import Link from "next/link";
+import { HomeClient } from "@/components/home/home-client";
 
 const activeLeagues = getActiveLeagues();
 
-// Current raid bosses filtered to Pokemon we have data for
-const raidBosses = [
-  ...currentRaids.fivestar,
-  ...currentRaids.mega,
-  ...currentRaids.threestar,
-  ...currentRaids.onestar,
-].filter((id) => pokemonData.some((p) => p.id === id));
+// Build league data with search strings (at build time)
+const leagueData = activeLeagues.map((league) => {
+  const metaNames = league.meta.map((m) => {
+    const pokemon = pokemonData.find((p) => p.id === m.pokemonId);
+    return pokemon?.name ?? m.pokemonId;
+  });
+  const metaSearchString = buildNameSearchString(metaNames);
+  const cpString = buildLeagueEligibleString(league.cpCap);
+  const fullSearchString =
+    league.cpCap === 9999 ? metaSearchString : `${metaSearchString}&${cpString}`;
+
+  return {
+    id: league.id,
+    name: league.name,
+    metaPokemonIds: league.meta.map((m) => m.pokemonId),
+    searchString: fullSearchString,
+  };
+});
+
+// Current raid bosses filtered to Pokemon we have data for, tagged by raid type
+type RaidTag = "5★" | "Mega" | "Shadow" | "Dynamax" | "3★" | "1★";
+const raidEntries: { ids: string[]; tag: RaidTag }[] = [
+  { ids: currentRaids.fivestar, tag: "5★" },
+  { ids: currentRaids.mega, tag: "Mega" },
+  { ids: currentRaids.shadow, tag: "Shadow" },
+  { ids: currentRaids.dynamax, tag: "Dynamax" },
+  { ids: currentRaids.threestar, tag: "3★" },
+  { ids: currentRaids.onestar, tag: "1★" },
+];
+const raidBosses = raidEntries
+  .flatMap(({ ids, tag }) => ids.map((id) => ({ id, tag })))
+  .filter(({ id }) => pokemonData.some((p) => p.id === id))
+  .map(({ id, tag }) => ({ id, name: getPokemonName(id), tag }));
+
+// Quick picks for counter search — top countered Pokemon across active leagues
+// Use S and A tier picks that players commonly face
+const quickPickIds = new Set<string>();
+for (const league of activeLeagues) {
+  for (const m of league.meta) {
+    if (m.tier === "S" || m.tier === "A") {
+      quickPickIds.add(m.pokemonId);
+    }
+    if (quickPickIds.size >= 6) break;
+  }
+  if (quickPickIds.size >= 6) break;
+}
+const quickPicks = [...quickPickIds].map((id) => ({
+  id,
+  name: getPokemonName(id),
+}));
 
 export default function Home() {
   return (
-    <div className="space-y-8 pt-4">
-      <h1 className="text-xl font-bold">Poke Pal</h1>
-      <p className="text-[13px] text-muted-foreground">
-        Search a Pokemon or select from Current Raids, copy the Counters Search String, and paste in GO to find counters.
-      </p>
-      <SearchInput />
-
-      <div className="space-y-3">
-        <h2 className="text-[13px] font-medium uppercase tracking-wide text-muted-foreground">Current Raids</h2>
-        <div className="flex flex-wrap gap-2">
-          {raidBosses.map((id) => (
-            <Link
-              key={id}
-              href={`/counter/${id}`}
-              className="inline-flex min-h-12 items-center rounded-full border px-4 py-2 text-base font-semibold capitalize transition-colors hover:bg-accent active:bg-accent active:scale-95"
-            >
-              {getPokemonName(id)}
-            </Link>
-          ))}
-        </div>
-      </div>
-
-      <p className="text-[13px] text-muted-foreground">
-        Quickly access current Leagues and your Battle League Teams.
-      </p>
-
-      {activeLeagues.length > 0 && (
-        <div className="space-y-3">
-          <h2 className="text-[13px] font-medium uppercase tracking-wide text-muted-foreground">Go Battle League</h2>
-          <div className="flex flex-wrap gap-2">
-            {activeLeagues.map((l) => (
-              <Link
-                key={l.id}
-                href={`/league/${l.id}`}
-                className="inline-flex min-h-12 items-center rounded-full border px-4 py-2 text-base font-semibold transition-colors hover:bg-accent active:bg-accent active:scale-95"
-              >
-                {l.name}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
-
-      <div className="space-y-3">
-        <h2 className="text-[13px] font-medium uppercase tracking-wide text-muted-foreground">My Battle League Teams</h2>
-        <HomeTeamPreview />
-      </div>
-    </div>
+    <HomeClient
+      leagues={leagueData}
+      raidBosses={raidBosses}
+      quickPicks={quickPicks}
+    />
   );
 }

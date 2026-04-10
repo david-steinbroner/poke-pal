@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { toast } from "sonner";
 import { copyToClipboard } from "@/lib/copy-to-clipboard";
 
 type CopyButtonProps = {
@@ -18,10 +17,9 @@ export function CopyButton({ searchString, label, compact }: CopyButtonProps) {
     if (success) {
       setCopied(true);
       if (navigator.vibrate) navigator.vibrate(50);
-      toast("Copied — paste in Pokemon GO search");
       setTimeout(() => setCopied(false), 3000);
     } else {
-      toast("Long-press to copy manually");
+      setCopied(false);
     }
   }, [searchString]);
 

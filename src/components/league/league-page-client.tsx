@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from "react";
 import { toast } from "sonner";
 import { TierAccordion } from "@/components/tier-accordion";
 import { CopyButton } from "@/components/copy-button";
+import { FixedHeader } from "@/components/fixed-header";
 import Link from "next/link";
 import { InlineTeamSection } from "./inline-team-section";
 import { saveTeam, loadTeam } from "@/lib/team-storage";
@@ -16,8 +17,6 @@ type LeaguePageClientProps = {
   leagueId: string;
   leagueName: string;
   cpCap: number;
-  season: string;
-  lastUpdated: string;
   typeRestrictions?: string[];
   meta: MetaPokemon[];
   metaSearchString: string;
@@ -29,24 +28,25 @@ export function LeaguePageClient({
   leagueId,
   leagueName,
   cpCap,
-  season,
-  lastUpdated,
   typeRestrictions,
   meta,
   metaSearchString,
   cpString,
 }: LeaguePageClientProps) {
   const [team, setTeam] = useState<string[]>([]);
+  const [loaded, setLoaded] = useState(false);
 
   // Restore team from localStorage on mount (avoids SSR mismatch)
   useEffect(() => {
     setTeam(loadTeam(leagueId));
+    setLoaded(true);
   }, [leagueId]);
 
-  // Persist team to localStorage whenever it changes
+  // Persist team to localStorage whenever it changes — but only after initial load
   useEffect(() => {
+    if (!loaded) return;
     saveTeam(leagueId, team);
-  }, [team, leagueId]);
+  }, [team, leagueId, loaded]);
 
   function handleAddToTeam(pokemonId: string) {
     if (team.length >= 3) {
@@ -85,19 +85,20 @@ export function LeaguePageClient({
     cpCap === 9999 ? metaSearchString : `${metaSearchString}&${cpString}`;
 
   return (
-    <div className="space-y-4 pt-4">
-      <div className="sticky top-0 z-10 bg-background pb-2 pt-4 -mx-4 px-4">
+    <div className="space-y-4">
+      <FixedHeader>
         <Link href="/leagues" className="flex items-baseline gap-2 text-sm text-muted-foreground hover:text-foreground">
           <span>←</span>
           <span className="text-xl font-bold text-foreground">{leagueName}</span>
         </Link>
-      </div>
-      <p className="text-sm text-muted-foreground">
-        {cpCap === 9999 ? "No CP limit" : `CP ${cpCap.toLocaleString()}`}
-        {typeRestrictions && ` · ${typeRestrictions.join(", ")}`}
-      </p>
-
-      <CopyButton searchString={fullSearchString} label="Copy Meta Search String" />
+        <p className="mt-1 text-sm text-muted-foreground">
+          {cpCap === 9999 ? "No CP limit" : `CP ${cpCap.toLocaleString()}`}
+          {typeRestrictions && ` · ${typeRestrictions.join(", ")}`}
+        </p>
+        <div className="mt-3">
+          <CopyButton searchString={fullSearchString} label="Copy Meta Search String" />
+        </div>
+      </FixedHeader>
 
       <TierAccordion
         meta={meta}
@@ -106,13 +107,21 @@ export function LeaguePageClient({
         recommendedIds={recommendedIds}
       />
 
+      {/* Spacer so content isn't hidden behind fixed team bar */}
+      {team.length > 0 && <div className="h-28" />}
+
+      {/* Fixed team bar above bottom nav */}
       {team.length > 0 && (
-        <InlineTeamSection
-          team={team}
-          leagueId={leagueId}
-          leagueName={leagueName}
-          onRemove={handleRemoveFromTeam}
-        />
+        <div className="fixed bottom-[calc(env(safe-area-inset-bottom,0px)+49px)] left-0 right-0 z-30 border-t-2 border-border bg-background/95 backdrop-blur-sm shadow-[0_-2px_8px_rgba(0,0,0,0.08)]">
+          <div className="mx-auto max-w-lg px-4 py-4">
+            <InlineTeamSection
+              team={team}
+              leagueId={leagueId}
+              leagueName={leagueName}
+              onRemove={handleRemoveFromTeam}
+            />
+          </div>
+        </div>
       )}
     </div>
   );

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LeagueCard } from "@/components/league-card";
+import { FixedHeader } from "@/components/fixed-header";
 import { getActiveLeagues, getUpcomingLeagues } from "@/data/leagues";
 
 export const metadata: Metadata = {
@@ -18,11 +19,13 @@ export default function LeaguesPage() {
   const upcomingLeagues = getUpcomingLeagues();
 
   return (
-    <div className="space-y-6 pt-4">
-      <h1 className="text-xl font-bold">Leagues</h1>
-      <p className="text-[13px] text-muted-foreground">
-        Select a league, copy Meta Search String, and paste in GO to find collected metas.
-      </p>
+    <div className="space-y-6">
+      <FixedHeader>
+        <h1 className="text-xl font-bold">Leagues</h1>
+        <p className="mt-1 text-[13px] text-muted-foreground">
+          Select a league, copy Meta Search String, and paste in GO to find collected metas.
+        </p>
+      </FixedHeader>
 
       {liveLeagues.length > 0 && (
         <div>

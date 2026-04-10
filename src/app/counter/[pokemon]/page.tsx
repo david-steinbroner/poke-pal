@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { CopyButton } from "@/components/copy-button";
 import { PokemonListItem } from "@/components/pokemon-list-item";
 import { BackButton } from "@/components/back-button";
+import { FixedHeader } from "@/components/fixed-header";
 import { getCountersFor, getAllPokemonIds } from "@/lib/counters";
 import {
   getEffectiveness,
@@ -47,20 +48,19 @@ export default async function CounterPage({
   const result = getCountersFor(pokemonId);
 
   return (
-    <div className="space-y-4 pt-4">
-      <div className="sticky top-0 z-10 bg-background pb-2 pt-4 -mx-4 px-4">
-        <BackButton />
-      </div>
-      <div>
+    <div className="space-y-4">
+      <FixedHeader>
         <div className="flex items-baseline gap-2">
+          <BackButton />
           <h1 className="text-xl font-bold">{pokemon.name}</h1>
           {pokemon.types.map((t) => (
             <TypeBadge key={t} type={t} variant="muted" />
           ))}
         </div>
-      </div>
-
-      <CopyButton searchString={result.searchString} label="Copy Counters Search String" />
+        <div className="mt-3">
+          <CopyButton searchString={result.searchString} label="Copy Counters Search String" />
+        </div>
+      </FixedHeader>
 
       {/* Type effectiveness badges */}
       {(() => {

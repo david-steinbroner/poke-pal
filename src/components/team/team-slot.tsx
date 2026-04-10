@@ -34,14 +34,14 @@ export function TeamSlotCard({
         <span className="text-[13px] font-medium text-muted-foreground uppercase tracking-wide">
           {label}
         </span>
-        <p className="mt-0.5 font-medium text-sm">{slot.name}</p>
+        <p className="mt-0.5 font-semibold text-base">{slot.name}</p>
         {moveset && (
           <p className="mt-0.5 text-[13px] text-muted-foreground">{moveset}</p>
         )}
       </div>
       <button
         onClick={onRemove}
-        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-muted-foreground hover:bg-muted hover:text-foreground"
+        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-muted-foreground hover:bg-muted hover:text-foreground"
         aria-label={`Remove ${slot.name}`}
       >
         <X className="h-4 w-4" />
