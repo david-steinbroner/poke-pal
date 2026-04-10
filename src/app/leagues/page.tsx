@@ -22,7 +22,7 @@ export default function LeaguesPage() {
     <div className="space-y-6">
       <FixedHeader>
         <h1 className="text-xl font-bold">Leagues</h1>
-        <p className="mt-1 text-[13px] text-muted-foreground">
+        <p className="mt-1 text-sm text-muted-foreground">
           Select a league, copy Meta Search String, and paste in GO to find collected metas.
         </p>
       </FixedHeader>

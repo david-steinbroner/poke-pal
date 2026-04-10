@@ -35,7 +35,7 @@ export function ThreatList({ threats }: { threats: TeamThreat[] }) {
                 <TypeBadge key={t} type={t} />
               ))}
             </div>
-            <p className="mt-1 text-[13px] text-muted-foreground">
+            <p className="mt-1 text-sm text-muted-foreground">
               Threatens{" "}
               {threat.threatenedMembers
                 .map((m) => m.replace(/-/g, " "))

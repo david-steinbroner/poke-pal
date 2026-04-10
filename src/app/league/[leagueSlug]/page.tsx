@@ -6,7 +6,9 @@ import {
 } from "@/lib/search-string";
 import type { MetaPokemon } from "@/lib/types";
 import pokemonData from "@/data/pokemon.json";
+import curatedTeamsData from "@/data/curated-teams.json";
 import { ALL_LEAGUES } from "@/data/leagues";
+import { getPokemonName } from "@/lib/pokemon-utils";
 import { LeaguePageClient } from "@/components/league/league-page-client";
 
 const leagues = ALL_LEAGUES;
@@ -57,6 +59,15 @@ export default async function LeaguePage({
       ? (league as { typeRestrictions?: string[] }).typeRestrictions
       : undefined;
 
+  // Build curated teams with search strings
+  const rawTeams = (curatedTeamsData.teams as Record<string, Array<{ name: string; pokemon: string[]; why: string; lead: string }>>)[league.id] ?? [];
+  const curatedTeams = rawTeams.map((t) => {
+    const teamNames = t.pokemon.map((id) => getPokemonName(id));
+    const teamSearchString = buildNameSearchString(teamNames);
+    const teamFullString = league.cpCap === 9999 ? teamSearchString : `${teamSearchString}&${cpString}`;
+    return { ...t, searchString: teamFullString };
+  });
+
   return (
     <LeaguePageClient
       leagueId={league.id}
@@ -66,6 +77,7 @@ export default async function LeaguePage({
       meta={league.meta as MetaPokemon[]}
       metaSearchString={metaSearchString}
       cpString={cpString}
+      curatedTeams={curatedTeams}
     />
   );
 }

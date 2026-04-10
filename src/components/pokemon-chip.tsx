@@ -1,6 +1,6 @@
 "use client";
 
-import { X, Plus } from "lucide-react";
+import { X, Plus, Check } from "lucide-react";
 
 export function PokemonChip({
   name,
@@ -9,18 +9,20 @@ export function PokemonChip({
 }: {
   name: string;
   onAction?: () => void;
-  variant?: "remove" | "add";
+  variant?: "remove" | "add" | "added";
 }) {
-  const Icon = variant === "add" ? Plus : X;
+  const Icon = variant === "add" ? Plus : variant === "added" ? Check : X;
+  const isDisabled = variant === "added";
 
   return (
-    <span className="inline-flex items-center gap-1 rounded-full border bg-card px-3 py-1.5 text-sm font-medium">
+    <span className={`inline-flex items-center gap-1 rounded-full border bg-card px-3 py-1.5 text-sm font-medium ${isDisabled ? "opacity-60" : ""}`}>
       <span className="max-w-[120px] truncate">{name}</span>
-      {onAction && (
+      {(onAction || isDisabled) && (
         <button
-          onClick={onAction}
-          className="ml-0.5 -mr-1 p-1 text-muted-foreground hover:text-foreground"
-          aria-label={`${variant === "add" ? "Add" : "Remove"} ${name}`}
+          onClick={isDisabled ? undefined : onAction}
+          className={`ml-0.5 -mr-1 p-1 ${isDisabled ? "text-green-600 pointer-events-none" : "text-muted-foreground hover:text-foreground"}`}
+          aria-label={`${variant === "add" ? "Add" : variant === "added" ? "Added" : "Remove"} ${name}`}
+          aria-disabled={isDisabled}
         >
           <Icon className="h-3 w-3" />
         </button>

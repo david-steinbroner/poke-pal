@@ -11,8 +11,17 @@ import { saveTeam, loadTeam } from "@/lib/team-storage";
 import { analyzeTeam } from "@/lib/team-analysis";
 import { pokemonToSlot } from "@/lib/pokemon-utils";
 import { calculateTeamRating, RATING_COLORS } from "@/lib/team-rating";
+import { CuratedTeams } from "@/components/home/curated-teams";
 import type { MetaPokemon } from "@/lib/types";
 import type { LeagueId } from "@/lib/team-types";
+
+type CuratedTeam = {
+  name: string;
+  pokemon: string[];
+  why: string;
+  lead: string;
+  searchString: string;
+};
 
 type LeaguePageClientProps = {
   leagueId: string;
@@ -22,6 +31,7 @@ type LeaguePageClientProps = {
   meta: MetaPokemon[];
   metaSearchString: string;
   cpString: string;
+  curatedTeams?: CuratedTeam[];
 };
 
 
@@ -33,6 +43,7 @@ export function LeaguePageClient({
   meta,
   metaSearchString,
   cpString,
+  curatedTeams = [],
 }: LeaguePageClientProps) {
   const [team, setTeam] = useState<string[]>([]);
   const [loaded, setLoaded] = useState(false);
@@ -88,10 +99,7 @@ export function LeaguePageClient({
   return (
     <div className="space-y-4">
       <FixedHeader>
-        <Link href="/leagues" className="flex items-baseline gap-2 text-sm text-muted-foreground hover:text-foreground">
-          <span>←</span>
-          <span className="text-xl font-bold text-foreground">{leagueName}</span>
-        </Link>
+        <h1 className="text-xl font-bold">{leagueName}</h1>
         <p className="mt-1 text-sm text-muted-foreground">
           {cpCap === 9999 ? "No CP limit" : `CP ${cpCap.toLocaleString()}`}
           {typeRestrictions && ` · ${typeRestrictions.join(", ")}`}
@@ -108,17 +116,26 @@ export function LeaguePageClient({
         recommendedIds={recommendedIds}
       />
 
+      {/* Curated team recommendations */}
+      {curatedTeams.length > 0 && (
+        <CuratedTeams
+          teams={curatedTeams}
+          leagueId={leagueId}
+          onAddToTeam={handleAddToTeam}
+          teamPokemonIds={team}
+        />
+      )}
+
       {/* Spacer so content isn't hidden behind fixed team bar */}
       {team.length > 0 && <div className="h-28" />}
 
       {/* Fixed team bar above bottom nav */}
       {team.length > 0 && (
         <div className="fixed bottom-[calc(env(safe-area-inset-bottom,0px)+49px)] left-0 right-0 z-30 border-t-2 border-border bg-background/95 backdrop-blur-sm shadow-[0_-2px_8px_rgba(0,0,0,0.08)]">
-          <div className="mx-auto max-w-lg px-4 py-4">
+          <div className="mx-auto max-w-lg px-4 pt-4 pb-5">
             <InlineTeamSection
               team={team}
               leagueId={leagueId}
-              leagueName={leagueName}
               onRemove={handleRemoveFromTeam}
               rating={analysis ? calculateTeamRating(
                 team,
@@ -127,6 +144,7 @@ export function LeaguePageClient({
                 analysis.defensiveWeaknesses,
                 analysis.threats,
               ) : undefined}
+              coverageScore={analysis?.coverageScore}
             />
           </div>
         </div>

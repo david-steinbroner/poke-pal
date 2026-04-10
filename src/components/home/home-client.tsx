@@ -5,22 +5,11 @@ import { SearchInput } from "@/components/search-input";
 import { FixedHeader } from "@/components/fixed-header";
 import { CollapsibleSection } from "./collapsible-section";
 import { HomeLeagueCard } from "./home-league-card";
-import { CuratedTeams } from "./curated-teams";
-
-type CuratedTeam = {
-  name: string;
-  pokemon: string[];
-  why: string;
-  lead: string;
-  searchString: string;
-};
 
 type LeagueData = {
   id: string;
   name: string;
-  metaPokemonIds: string[];
   searchString: string;
-  curatedTeams: CuratedTeam[];
 };
 
 type RaidBoss = {
@@ -39,8 +28,8 @@ export function HomeClient({ leagues, raidBosses }: HomeClientProps) {
     <div className="space-y-5">
       <FixedHeader>
         <h1 className="text-xl font-bold">Poke Pal</h1>
-        <p className="mt-1 text-[13px] text-muted-foreground">
-          Always know which Pokemon to play: find copiable search strings for every battle.
+        <p className="mt-1 text-sm text-muted-foreground">
+          Always know which Pokemon to play; find copiable search strings for every battle.
         </p>
       </FixedHeader>
 
@@ -49,17 +38,12 @@ export function HomeClient({ leagues, raidBosses }: HomeClientProps) {
         <CollapsibleSection id="leagues" label="GO BATTLE LEAGUES">
           <div className="space-y-3">
             {leagues.map((league) => (
-              <div key={league.id} className="space-y-3">
-                <HomeLeagueCard
-                  leagueId={league.id}
-                  leagueName={league.name}
-                  metaPokemonIds={league.metaPokemonIds}
-                  searchString={league.searchString}
-                />
-                {league.curatedTeams.length > 0 && (
-                  <CuratedTeams teams={league.curatedTeams} leagueId={league.id} />
-                )}
-              </div>
+              <HomeLeagueCard
+                key={league.id}
+                leagueId={league.id}
+                leagueName={league.name}
+                searchString={league.searchString}
+              />
             ))}
           </div>
         </CollapsibleSection>
@@ -68,7 +52,7 @@ export function HomeClient({ leagues, raidBosses }: HomeClientProps) {
       {/* Empty state: no active leagues */}
       {leagues.length === 0 && (
         <div className="space-y-3">
-          <p className="text-[13px] font-medium uppercase tracking-wide text-muted-foreground">
+          <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
             No leagues live right now
           </p>
           <p className="text-sm text-muted-foreground">
@@ -95,7 +79,7 @@ export function HomeClient({ leagues, raidBosses }: HomeClientProps) {
               >
                 {boss.name}
                 {boss.tag && !["3★", "1★"].includes(boss.tag) && (
-                  <span className="text-[13px] font-normal text-muted-foreground">
+                  <span className="text-sm font-normal text-muted-foreground">
                     {boss.tag}
                   </span>
                 )}
@@ -111,8 +95,8 @@ export function HomeClient({ leagues, raidBosses }: HomeClientProps) {
       </CollapsibleSection>
 
       {/* Footer */}
-      <footer className="pt-8 pb-4 text-center text-[13px] text-muted-foreground/50 space-y-1">
-        <p>Poke Pal v1.0.4 · Open source · MIT License</p>
+      <footer className="pt-8 pb-4 text-center text-sm text-muted-foreground/50 space-y-1">
+        <p>Poke Pal v1.0.5 · Open source · MIT License</p>
         <p>Built by Skunk Labs</p>
         <a
           href="https://docs.google.com/forms/d/e/1FAIpQLSfDeXbnLSRJmte9vrxWlyNJl65jQ0FCU6y3qkESMdaJxi6Awg/viewform"

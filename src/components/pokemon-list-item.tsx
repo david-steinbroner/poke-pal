@@ -42,49 +42,40 @@ export function PokemonListItem({
   const isDisabled = action === "added";
 
   return (
-    <div className="flex items-center gap-3 rounded-lg border p-3">
-      {tier && (
-        <span className={`text-sm font-bold shrink-0 ${TIER_COLORS[tier] ?? "text-muted-foreground"}`}>
-          {tier}
-        </span>
-      )}
-      <div className="flex-1 min-w-0">
-        {/* Name + types on same line */}
-        <div className="flex items-center gap-2">
-          <span className="font-medium text-sm truncate">{name}</span>
-          {recommended && (
-            <StatusPill variant="emerald" className="shrink-0">Rec</StatusPill>
-          )}
-          {types && types.length > 0 && (
-            <div className="ml-auto flex shrink-0 gap-1">
-              {types.map((t) => (
-                <TypeBadge key={t} type={t} />
-              ))}
-            </div>
-          )}
-        </div>
-        {/* Moves on second line */}
-        {(fastMove || chargedMoves) && (
-          <div className="mt-1 text-[13px] text-muted-foreground truncate">
-            {fastMove && <span>{fastMove}</span>}
-            {fastMove && chargedMoves && chargedMoves.length > 0 && <span className="mx-1">|</span>}
-            {chargedMoves && <span>{chargedMoves.join(", ")}</span>}
-          </div>
+    <div className={`rounded-lg p-3 ${action ? "border" : "border border-dashed"}`}>
+      {/* Top row: tier + name + rec + action icon */}
+      <div className="flex items-center gap-2">
+        {tier && (
+          <span className={`text-sm font-bold shrink-0 ${TIER_COLORS[tier] ?? "text-muted-foreground"}`}>
+            {tier}
+          </span>
+        )}
+        <span className="font-medium text-sm truncate">{name}</span>
+        {recommended && (
+          <StatusPill variant="emerald" className="shrink-0">Rec</StatusPill>
+        )}
+        {action && onAction && (
+          <button
+            onClick={isDisabled ? undefined : onAction}
+            className={`ml-auto shrink-0 flex items-center justify-center min-h-11 min-w-11 ${
+              isDisabled
+                ? "text-green-600 pointer-events-none"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+            aria-label={`${action} ${name}`}
+            aria-disabled={isDisabled}
+          >
+            {ActionIcon && <ActionIcon className="h-4 w-4" />}
+          </button>
         )}
       </div>
-      {action && onAction && (
-        <button
-          onClick={isDisabled ? undefined : onAction}
-          className={`shrink-0 flex items-center justify-center min-h-11 min-w-11 ${
-            isDisabled
-              ? "text-green-600 pointer-events-none"
-              : "text-muted-foreground hover:text-foreground"
-          }`}
-          aria-label={`${action} ${name}`}
-          aria-disabled={isDisabled}
-        >
-          {ActionIcon && <ActionIcon className="h-4 w-4" />}
-        </button>
+      {/* Bottom row: moveset — full width, no truncation competition */}
+      {(fastMove || chargedMoves) && (
+        <div className="mt-1 text-sm text-muted-foreground">
+          {fastMove && <span>{fastMove}</span>}
+          {fastMove && chargedMoves && chargedMoves.length > 0 && <span className="mx-1">|</span>}
+          {chargedMoves && <span>{chargedMoves.join(", ")}</span>}
+        </div>
       )}
     </div>
   );

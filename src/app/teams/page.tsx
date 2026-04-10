@@ -13,7 +13,7 @@ import { analyzeTeam, getLeagueInfo, getPokemonById } from "@/lib/team-analysis"
 import { pokemonToSlot } from "@/lib/pokemon-utils";
 import { loadTeam, saveTeam } from "@/lib/team-storage";
 import { getGapTypes, calculateTeamRating, RATING_COLORS, RATING_LABELS } from "@/lib/team-rating";
-import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
+import { ChevronDownIcon, ChevronRightIcon } from "lucide-react";
 import Link from "next/link";
 import type { LeagueId, TeamSlot } from "@/lib/team-types";
 import type { MetaPokemon } from "@/lib/types";
@@ -40,7 +40,7 @@ function MetaThreatsSection({ threats }: { threats: Parameters<typeof ThreatList
         {open ? (
           <ChevronDownIcon className="size-4 text-muted-foreground" />
         ) : (
-          <ChevronUpIcon className="size-4 text-muted-foreground" />
+          <ChevronRightIcon className="size-4 text-muted-foreground" />
         )}
       </button>
       {open && <ThreatList threats={threats} />}
@@ -210,7 +210,7 @@ function TeamsPage() {
     <div className="space-y-5 pb-8">
       <FixedHeader>
         <h1 className="text-xl font-bold">Team Builder</h1>
-        <p className="mt-1 text-[13px] text-muted-foreground">
+        <p className="mt-1 text-sm text-muted-foreground">
           Select a league and build your team. Copy the search string and paste in GO.
         </p>
         <div className="mt-3 flex gap-1.5">
@@ -228,7 +228,7 @@ function TeamsPage() {
               <button
                 key={id}
                 onClick={() => handleLeagueChange(id as LeagueId)}
-                className={`flex-1 rounded-lg px-2 py-1.5 text-[13px] font-medium transition-colors ${
+                className={`flex-1 rounded-lg px-2 py-1.5 text-sm font-medium transition-colors ${
                   isActive
                     ? "bg-primary text-primary-foreground"
                     : hasSavedTeam
@@ -241,15 +241,6 @@ function TeamsPage() {
             );
           })}
         </div>
-        {/* Team rating + Copy button in fixed header */}
-        {teamRating && (
-          <div className="mt-2 flex items-center gap-2">
-            <span className={`inline-flex items-center rounded-md px-2 py-0.5 text-[13px] font-semibold ${RATING_COLORS[teamRating]}`}>
-              {teamRating}
-            </span>
-            <span className="text-[13px] text-muted-foreground">{RATING_LABELS[teamRating]}</span>
-          </div>
-        )}
         <div className="mt-2">
           {hasTeam && analysis.searchString ? (
             <CopyButton searchString={analysis.searchString} label="Copy Team Search String" />
@@ -262,7 +253,6 @@ function TeamsPage() {
             </button>
           )}
         </div>
-        {/* Discovery string — find complementary Pokemon in GO storage */}
         {analysis.discoveryString && (
           <div className="mt-2">
             <CopyButton
@@ -273,6 +263,37 @@ function TeamsPage() {
           </div>
         )}
       </FixedHeader>
+
+      {/* League link + Team rating — below header, above Pokemon cards */}
+      <div className="flex items-center justify-between">
+        <Link
+          href={`/league/${league}`}
+          className="text-sm text-muted-foreground hover:text-foreground active:opacity-70"
+        >
+          ← League info
+        </Link>
+        <div className="flex items-center gap-2">
+          {teamRating ? (
+            <>
+              <span className="text-sm text-muted-foreground">
+                {analysis.coverageScore}/18 types covered
+              </span>
+              <span className={`inline-flex items-center rounded-md px-2 py-0.5 text-sm font-semibold ${RATING_COLORS[teamRating]}`}>
+                {teamRating}
+              </span>
+            </>
+          ) : (
+            <>
+              <span className="text-sm text-muted-foreground">
+                0/18 types covered
+              </span>
+              <span className="inline-flex items-center rounded-md px-2 py-0.5 text-sm font-semibold text-muted-foreground bg-muted">
+                —
+              </span>
+            </>
+          )}
+        </div>
+      </div>
 
       <div className="space-y-2">
         {SLOT_LABELS.map((label, i) => {
@@ -310,7 +331,7 @@ function TeamsPage() {
                     })}
                     <Link
                       href={`/league/${league}`}
-                      className="inline-flex items-center gap-1 rounded-full border px-3 py-1.5 text-[13px] font-medium text-muted-foreground hover:bg-accent"
+                      className="inline-flex items-center gap-1 rounded-full border px-3 py-1.5 text-sm font-medium text-muted-foreground hover:bg-accent"
                     >
                       See more →
                     </Link>
@@ -329,21 +350,6 @@ function TeamsPage() {
         <MetaThreatsSection threats={analysis.threats} />
       )}
 
-      {/* Spacer for fixed bottom bar */}
-      <div className="h-12" />
-
-      {/* Fixed league info bar above bottom nav */}
-      <div className="fixed bottom-[calc(env(safe-area-inset-bottom,0px)+49px)] left-0 right-0 z-30 border-t-2 border-border bg-background/95 backdrop-blur-sm shadow-[0_-2px_8px_rgba(0,0,0,0.08)]">
-        <div className="mx-auto max-w-lg px-4">
-          <Link
-            href={`/league/${league}`}
-            className="flex items-center gap-1.5 py-2.5 text-[13px] font-medium text-muted-foreground active:opacity-70"
-          >
-            <span>←</span>
-            <span>{leagueInfo.name} info</span>
-          </Link>
-        </div>
-      </div>
     </div>
   );
 }

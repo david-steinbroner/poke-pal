@@ -2,7 +2,6 @@ import { getPokemonName } from "@/lib/pokemon-utils";
 import { buildNameSearchString, buildLeagueEligibleString } from "@/lib/search-string";
 import currentRaids from "@/data/current-raids.json";
 import pokemonData from "@/data/pokemon.json";
-import curatedTeamsData from "@/data/curated-teams.json";
 import { getActiveLeagues } from "@/data/leagues";
 import { HomeClient } from "@/components/home/home-client";
 
@@ -19,21 +18,10 @@ const leagueData = activeLeagues.map((league) => {
   const fullSearchString =
     league.cpCap === 9999 ? metaSearchString : `${metaSearchString}&${cpString}`;
 
-  // Build curated teams with search strings
-  const rawTeams = (curatedTeamsData.teams as Record<string, Array<{ name: string; pokemon: string[]; why: string; lead: string }>>)[league.id] ?? [];
-  const curatedTeams = rawTeams.map((t) => {
-    const teamNames = t.pokemon.map((id) => getPokemonName(id));
-    const teamSearchString = buildNameSearchString(teamNames);
-    const teamFullString = league.cpCap === 9999 ? teamSearchString : `${teamSearchString}&${cpString}`;
-    return { ...t, searchString: teamFullString };
-  });
-
   return {
     id: league.id,
     name: league.name,
-    metaPokemonIds: league.meta.map((m) => m.pokemonId),
     searchString: fullSearchString,
-    curatedTeams,
   };
 });
 

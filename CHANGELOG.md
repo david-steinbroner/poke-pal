@@ -6,6 +6,64 @@ This project uses [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.0.6] - 2026-04-10
+
+### Added
+- 1560 Pokemon from PvPoke gamemaster (was 318) — full Pokemon GO dex with types, moves, base stats
+- Import script: `scripts/import-pvpoke-data.mjs` for future data updates
+- Curated team recommendations: 3 per league (12 total) with "why it works" explanations and copy buttons
+- Curated teams on league detail pages — Pokemon pills with + buttons to add directly to your team
+- "Find Teammates in GO" discovery search string on Teams page — generates a GO search string targeting move types that counter your team's weaknesses
+- Team rating system: coverage-dominant scoring with hard penalties for shared weaknesses and meta threats
+- Team rating badge on Teams page (below copy button) and league team container
+- Types covered indicator (X/18 types covered) on Teams page and league team container
+- Smarter team suggestions: scored by gap coverage (50%) + anti-synergy resistance (25%) + meta tier (25%)
+- Shadow/Dynamax raid type tags in `current-raids.json`
+- Empty state team rating: shows "— · 0/18 types covered" before any Pokemon are added
+- PokemonChip "added" variant (check mark, dimmed) for curated team Pokemon already on your team
+
+### Changed
+- Home page: league cards simplified to static cards (name + copy button + see more link, no expand/collapse)
+- Home page: removed curated teams (moved to league pages)
+- Home page: subtitle updated to semicolon instead of colon
+- Chevrons standardized to future-state: right (▸) = collapsed, down (▾) = expanded
+- Tier accordion chevrons moved next to title text (was right-aligned)
+- Font size: base bumped to 18px, all hardcoded `text-[13px]` replaced with rem-based `text-sm`
+- "Edition" shortened to "Ed." in league names
+- Ultra League now active, Great League inactive (reflecting current GBL rotation)
+- Back buttons removed from league and counter pages — browser back handles navigation
+- Pokemon list items: +/✓/X icons moved to top row (right-aligned), moveset gets full width
+- Team slot cards: "POKEMON 1/2/3" label removed, X moved to top row
+- Counter/raid result cards: dashed borders on non-tappable Pokemon cards
+- League team container: "Your Team" (removed cup name), tighter padding, coverage score shown
+- Teams page: league info link moved to rating line (left-aligned), removed sticky bottom bar
+- Curated team cards: title merged into description paragraph, pills are first row
+- Copy feedback: toast notifications removed — green button state only
+
+### Fixed
+- Team rating formula: coverage-dominant (70%) with hard penalties instead of tier-dominant
+- Hydration mismatches in Teams page (localStorage reads moved to useEffect)
+- useEffect infinite loop in FixedHeader (added dependency array + ResizeObserver)
+- Dead imports removed across 10+ files
+- Duplicate CollapsibleSection components merged into one with prefix prop
+
+### Removed
+- Back buttons from league and counter pages
+- "POKEMON 1/2/3" labels from team slot cards
+- Curated teams from home page
+- Sticky league info bar from Teams page
+- `home-team-preview.tsx` component
+- `handleClear`, `teamRating`, `RATING_COLORS` unused variables from Teams page
+
+---
+
+## [1.0.5] - 2026-04-10
+
+### Added
+- Curated teams, smarter suggestions, improved team rating (initial implementation)
+
+---
+
 ## [1.0.4] - 2026-04-09
 
 ### Added

@@ -137,6 +137,7 @@
   }
   html {
     @apply font-sans;
+    font-size: 18px;
   }
   /* Kill 300ms tap delay on mobile */
   a, button, [role="button"], input, select, textarea {
