@@ -7,9 +7,9 @@ import { pokemonToSlot } from "@/lib/pokemon-utils";
 const POOL = ["dragonite", "venusaur", "feraligatr", "swampert", "togekiss", "machamp"];
 
 describe("recommendTeams", () => {
-  it("returns up to 5 ranked teams from a pool", () => {
+  it("returns up to 10 ranked teams from a pool", () => {
     const results = recommendTeams(POOL, "great-league");
-    expect(results.length).toBeLessThanOrEqual(5);
+    expect(results.length).toBeLessThanOrEqual(10);
     expect(results.length).toBeGreaterThan(0);
 
     for (const team of results) {

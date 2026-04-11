@@ -64,22 +64,22 @@ export function calculateTeamRating(
   const threatCount = threats?.length ?? 0;
 
   // Base score from coverage (primary) + tier (secondary)
-  let score = coverageScore * 0.7 + tierScore * 0.3;
+  let score = coverageScore * 0.5 + tierScore * 0.5;
 
   // Hard penalties — shared weaknesses are team-killers
-  // Each shared weakness drops the score significantly
-  score -= sharedWeaknessCount * 0.12;
+  score -= sharedWeaknessCount * 0.15;
 
   // Each meta threat that hits 2+ members is a real problem
-  score -= threatCount * 0.05;
+  score -= threatCount * 0.06;
 
   // Clamp to 0-1
   score = Math.max(0, Math.min(1, score));
 
-  if (score >= 0.75) return "S";
-  if (score >= 0.55) return "A";
-  if (score >= 0.40) return "B";
-  if (score >= 0.25) return "C";
+  // Tighter thresholds — S should be rare
+  if (score >= 0.85) return "S";
+  if (score >= 0.65) return "A";
+  if (score >= 0.45) return "B";
+  if (score >= 0.30) return "C";
   return "D";
 }
 

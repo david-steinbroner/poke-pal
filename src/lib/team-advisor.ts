@@ -111,7 +111,7 @@ type FastScoreResult = {
 
 /**
  * Lightweight scorer for a single combo of 3 Pokemon.
- * Evaluates offensive coverage, shared weakness penalty, and tier bonus.
+ * Evaluates offensive coverage, shared weakness penalty, tier bonus, and bulk.
  */
 function fastScore(
   trio: Pokemon[],
@@ -155,10 +155,24 @@ function fastScore(
     tierScore += TIER_SCORES[tier ?? ""] ?? 0;
   }
 
+  // Bulk score: average stat product (DEF * STA) normalized
+  // Penalizes glass cannons like Mewtwo (high ATK, low DEF/STA)
+  // Rewards bulky Pokemon like Snorlax, Venusaur
+  let bulkScore = 0;
+  for (const pokemon of trio) {
+    const { def, sta } = pokemon.baseStats;
+    // DEF * STA gives a bulk metric; normalize to 0-1 range
+    // Typical range: 10000 (glass) to 50000 (tank)
+    const bulk = def * sta;
+    bulkScore += Math.min(bulk / 40000, 1);
+  }
+  bulkScore = bulkScore / 3; // average, 0-1
+
   const score =
-    (coverageCount / 18) * 0.7 +
-    (tierScore / (3 * 4)) * 0.3 -
-    sharedWeaknesses * 0.12;
+    (coverageCount / 18) * 0.4 +
+    bulkScore * 0.25 +
+    (tierScore / (3 * 4)) * 0.15 -
+    sharedWeaknesses * 0.15;
 
   return {
     ids: [trio[0]!.id, trio[1]!.id, trio[2]!.id],
@@ -373,7 +387,7 @@ function generateCloserTip(
 export function recommendTeams(
   poolIds: string[],
   leagueId: LeagueId,
-  maxResults: number = 5,
+  maxResults: number = 10,
 ): RecommendedTeam[] {
   // Resolve pool to valid Pokemon
   const pool = poolIds

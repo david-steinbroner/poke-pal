@@ -536,11 +536,16 @@ function TeamsPage() {
         // Build status message
         const parts: string[] = [];
         parts.push(`Found ${matched.length} Pokemon`);
-        if (dupes > 0) parts.push(`${dupes} duplicate${dupes > 1 ? "s" : ""} skipped`);
-        if (unmatched.length > 0) parts.push(`couldn't match: ${unmatched.join(", ")} (nicknamed?)`);
+        if (dupes.length > 0) {
+          const dupeList = dupes.map((d) => `${d.name} ×${d.count}`).join(", ");
+          parts.push(`duplicates skipped: ${dupeList}`);
+        }
+        if (unmatched.length > 0) {
+          parts.push(`couldn't match: ${unmatched.join(", ")} (nicknamed?)`);
+        }
 
-        if (unmatched.length > 0 || dupes > 0) {
-          setScanError(`${parts.join(" · ")}. ${unmatched.length > 0 ? "Add unmatched manually below." : ""}`);
+        if (unmatched.length > 0 || dupes.length > 0) {
+          setScanError(`${parts.join(" · ")}.${unmatched.length > 0 ? " Add unmatched manually in My Pokemon above." : ""}`);
         }
       } catch (err) {
         setScanError(

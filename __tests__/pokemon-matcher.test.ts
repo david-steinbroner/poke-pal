@@ -46,7 +46,7 @@ describe("matchPokemonNames", () => {
     );
   });
 
-  it("deduplicates", () => {
+  it("deduplicates and reports dupe counts", () => {
     const result = matchPokemonNames([
       "Dragonite",
       "dragonite",
@@ -55,6 +55,11 @@ describe("matchPokemonNames", () => {
     expect(result.matched).toHaveLength(1);
     expect(result.matched[0]!.id).toBe("dragonite");
     expect(result.unmatched).toHaveLength(0);
+    expect(result.dupes).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ name: "Dragonite", count: 3 }),
+      ]),
+    );
   });
 
   it("handles empty input", () => {
