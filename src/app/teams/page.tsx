@@ -689,7 +689,15 @@ function TeamsPage() {
     const teamMembers = team.filter((s): s is NonNullable<TeamSlot> => s !== null);
     if (teamMembers.length === 0) return [];
 
-    const candidates = pool.filter((id) => !excludeIds.includes(id));
+    // Filter by type restrictions (e.g. Fantasy Cup: Dragon/Steel/Fairy only)
+    const typeRestrictions = leagueInfo.typeRestrictions;
+    let candidates = pool.filter((id) => !excludeIds.includes(id));
+    if (typeRestrictions && typeRestrictions.length > 0) {
+      candidates = candidates.filter((id) => {
+        const p = getPokemonById(id);
+        return p && p.types.some((t) => (typeRestrictions as string[]).includes(t));
+      });
+    }
 
     if (teamMembers.length === 1) {
       // 1 on team: we need 2 more — use recommendTeams with pool filtered to include the existing member
