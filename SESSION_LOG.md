@@ -61,14 +61,57 @@ Major feature session. Built the Team Advisor: a state-driven flow that helps us
 - **Tests**: 46 passing (8 test files)
 - **Pages**: 1570 static pages
 
+### Post-Build Polish (same session)
+
+After initial build, tested extensively on iOS Safari and iterated on UX:
+
+**Scoring Improvements**
+- Added bulk scoring (DEF × STA) to fast pass — penalizes glass cannons like Mewtwo, rewards tanks like Venusaur/Snorlax
+- Rebalanced fast scorer weights: coverage 40%, bulk 25%, tier 15%, weakness penalty 15%
+- Tightened rating thresholds — S is now rare (≥0.85), not handed out to every team
+- Increased recommended teams from 5 to 10
+- Suggestion chips now score candidates using full team rating, not just gap counting
+
+**League Type Restrictions**
+- Recommendation engine filters pool by league type restrictions (Fantasy Cup = Dragon/Steel/Fairy only)
+- Suggestion chips in empty slots also filtered
+- CP copy string includes type restrictions: `cp-1500&@dragon,@steel,@fairy`
+
+**UX Fixes**
+- CP copy button always visible (was disappearing after State 1)
+- Dual copy buttons: "League" + "My Team" side by side with copy icons
+- Upload screenshots moved inside My Pokemon collapsible section
+- Scroll to top after selecting Pokemon or using a team
+- "Can't beat X types" wording (was confusing "Needs X coverage")
+- Counter search strings use correct types (`@1ground` to beat Electric, not `@1electric`)
+- Search strings exclude team members (`!venusaur&!zapdos`)
+- Movesets show for all team Pokemon (fallback to pokemon.json if not in league meta)
+- Pool chips: 2 per row, stretching to fill
+- Empty slot 3 says "Add a 2nd Pokemon first" when slot 2 is empty
+- Scan error shows per-Pokemon dupe counts: "duplicates skipped: Dragonite ×2"
+- "Add unmatched manually in My Pokemon above" (was "below")
+- Vision prompt identifies by sprite, not nickname
+- My Team section wraps slots + analysis + strategy in collapsible
+- Roles + strategy only appear with full team of 3
+- Removing a Pokemon compacts remaining ones upward, clears role labels
+
+### Current State
+
+- **Version**: 1.1.0
+- **Live at**: https://poke-pal.pages.dev
+- **Data**: 1560 Pokemon, 4 leagues
+- **Tests**: 46 passing (8 test files)
+- **Pages**: 1570 static pages
+
 ### What's Next
 
-1. Deploy and test screenshot scanning on Cloudflare (needs ANTHROPIC_API_KEY in env)
-2. Meta threat callouts in strategy tips ("struggles against Giratina")
-3. Community Day / legacy move warnings ("Venusaur must have Frenzy Plant")
-4. Individual weakness display (not just shared weaknesses)
-5. User accounts with server-side Pokemon storage
-6. GBL schedule automation
+1. **Audit Home + Leagues pages** — product, design, and engineering agents audit to match the Teams page look and feel. Teams page is now the design standard.
+2. Deploy and test screenshot scanning on Cloudflare (needs ANTHROPIC_API_KEY in env)
+3. Meta threat callouts in strategy tips ("struggles against Giratina")
+4. Community Day / legacy move warnings ("Venusaur must have Frenzy Plant")
+5. Individual weakness display (not just shared weaknesses)
+6. User accounts with server-side Pokemon storage
+7. GBL schedule automation
 
 ---
 

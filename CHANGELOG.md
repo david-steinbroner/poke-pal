@@ -45,6 +45,17 @@ This project uses [Semantic Versioning](https://semver.org/).
 - League info row + rating row from Teams page header (moved into Analysis section)
 - Standalone "Swap a Pokemon" search bar from State 4
 
+### Fixed (post-build polish)
+- Scoring: added bulk (DEF×STA) to penalize glass cannons, rebalanced weights, tightened rating thresholds
+- Scoring: suggestion chips use full team rating instead of gap counting
+- League type restrictions: recommendations and suggestions filter by allowed types (Fantasy Cup)
+- CP copy string: includes type restrictions for special cups, Master League uses `cp2500-`
+- Counter search strings: use correct counter types (`@1ground` to beat Electric) and exclude team members
+- Movesets: fallback to pokemon.json when Pokemon isn't in league meta
+- Scan: Vision prompt identifies by sprite not nickname, dupe messages show per-Pokemon counts
+- UX: pool chips 2 per row stretching, scroll to top on actions, "Add a 2nd Pokemon first" on slot 3
+- Max recommended teams increased from 5 to 10
+
 ---
 
 ## [1.0.6] - 2026-04-10
