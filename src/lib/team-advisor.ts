@@ -390,9 +390,19 @@ export function recommendTeams(
   maxResults: number = 10,
 ): RecommendedTeam[] {
   // Resolve pool to valid Pokemon
-  const pool = poolIds
+  const league = getLeagueInfo(leagueId);
+  const typeRestrictions = league.typeRestrictions as PokemonType[] | undefined;
+
+  let pool = poolIds
     .map((id) => getPokemonById(id))
     .filter((p): p is Pokemon => p !== null);
+
+  // Filter by league type restrictions (e.g. Fantasy Cup: Dragon/Steel/Fairy only)
+  if (typeRestrictions && typeRestrictions.length > 0) {
+    pool = pool.filter((p) =>
+      p.types.some((t) => typeRestrictions.includes(t as PokemonType)),
+    );
+  }
 
   // Need at least 3 Pokemon to form a team
   if (pool.length < 3) return [];
