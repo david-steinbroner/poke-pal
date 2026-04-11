@@ -75,7 +75,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       ...imageBlocks,
       {
         type: "text" as const,
-        text: 'List every Pokemon visible in this Pokemon GO storage screenshot. Return ONLY a JSON array of Pokemon names, e.g. ["Dragonite", "Venusaur"]. Include every visible Pokemon. Do not include any other text.',
+        text: 'List every Pokemon visible in this Pokemon GO storage screenshot. Use the SPECIES name (e.g. "Dragonite"), not nicknames — identify each Pokemon by its appearance/sprite even if the displayed name is a nickname. Return ONLY a JSON array of species names, e.g. ["Dragonite", "Venusaur"]. Include every visible Pokemon. Do not include any other text.',
       },
     ];
 

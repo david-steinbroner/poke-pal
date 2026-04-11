@@ -535,7 +535,11 @@ function TeamsPage() {
 
         if (unmatched.length > 0) {
           setScanError(
-            `Couldn't match: ${unmatched.join(", ")}. Add them manually below.`,
+            `Found ${matched.length} of ${names.length} Pokemon. Couldn't match: ${unmatched.join(", ")} (nicknamed?). Add them manually below.`,
+          );
+        } else if (matched.length < names.length) {
+          setScanError(
+            `Found ${matched.length} Pokemon (${names.length - matched.length} duplicates removed).`,
           );
         }
       } catch (err) {
