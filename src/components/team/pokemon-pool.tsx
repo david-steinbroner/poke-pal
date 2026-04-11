@@ -50,7 +50,7 @@ export function PokemonPool({
       {isOpen && (
         <div className="space-y-3">
           {pool.length > 0 && (
-            <div className="flex flex-wrap gap-1.5">
+            <div className="grid grid-cols-2 gap-1.5">
               {pool.map((id) => {
                 const isOnTeam = teamIds.includes(id);
                 return onAddToTeam ? (

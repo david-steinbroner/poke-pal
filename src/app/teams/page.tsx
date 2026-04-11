@@ -524,7 +524,7 @@ function TeamsPage() {
           return;
         }
 
-        const { matched, unmatched } = matchPokemonNames(names);
+        const { matched, unmatched, dupes } = matchPokemonNames(names);
 
         // Add all matched Pokemon to pool
         let updatedPool = pool;
@@ -533,14 +533,14 @@ function TeamsPage() {
         }
         setPool(updatedPool);
 
-        if (unmatched.length > 0) {
-          setScanError(
-            `Found ${matched.length} of ${names.length} Pokemon. Couldn't match: ${unmatched.join(", ")} (nicknamed?). Add them manually below.`,
-          );
-        } else if (matched.length < names.length) {
-          setScanError(
-            `Found ${matched.length} Pokemon (${names.length - matched.length} duplicates removed).`,
-          );
+        // Build status message
+        const parts: string[] = [];
+        parts.push(`Found ${matched.length} Pokemon`);
+        if (dupes > 0) parts.push(`${dupes} duplicate${dupes > 1 ? "s" : ""} skipped`);
+        if (unmatched.length > 0) parts.push(`couldn't match: ${unmatched.join(", ")} (nicknamed?)`);
+
+        if (unmatched.length > 0 || dupes > 0) {
+          setScanError(`${parts.join(" · ")}. ${unmatched.length > 0 ? "Add unmatched manually below." : ""}`);
         }
       } catch (err) {
         setScanError(

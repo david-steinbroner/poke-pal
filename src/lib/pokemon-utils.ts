@@ -35,6 +35,7 @@ export function getPokemonName(id: string): string {
 export function matchPokemonNames(names: string[]): {
   matched: { id: string; name: string }[];
   unmatched: string[];
+  dupes: number;
 } {
   const index = searchIndex as { id: string; name: string }[];
 
@@ -46,6 +47,7 @@ export function matchPokemonNames(names: string[]): {
 
   const matchedMap = new Map<string, { id: string; name: string }>();
   const unmatched: string[] = [];
+  let dupes = 0;
 
   for (const raw of names) {
     const trimmed = raw.trim();
@@ -56,6 +58,7 @@ export function matchPokemonNames(names: string[]): {
     // 1. Case-insensitive exact match on name
     const exactMatch = nameMap.get(lower);
     if (exactMatch) {
+      if (matchedMap.has(exactMatch.id)) dupes++;
       matchedMap.set(exactMatch.id, exactMatch);
       continue;
     }
@@ -92,5 +95,6 @@ export function matchPokemonNames(names: string[]): {
   return {
     matched: [...matchedMap.values()],
     unmatched,
+    dupes,
   };
 }

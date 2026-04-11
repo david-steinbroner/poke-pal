@@ -18,7 +18,7 @@ export function PokemonChip({
 
   if (isPool) {
     return (
-      <span className="inline-flex items-center gap-1 rounded-full border bg-card px-2 py-1.5 text-sm font-medium">
+      <span className="flex items-center gap-1 rounded-full border bg-card px-2 py-1.5 text-sm font-medium">
         <button
           onClick={onAction}
           className="p-1 text-muted-foreground hover:text-foreground"
@@ -26,7 +26,7 @@ export function PokemonChip({
         >
           <Plus className="h-3 w-3" />
         </button>
-        <span className="max-w-[120px] truncate">{name}</span>
+        <span className="flex-1 truncate">{name}</span>
         <button
           onClick={onSecondaryAction}
           className="p-1 text-muted-foreground hover:text-foreground"
