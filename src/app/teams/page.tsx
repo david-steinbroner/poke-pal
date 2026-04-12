@@ -25,6 +25,7 @@ import { copyToClipboard } from "@/lib/copy-to-clipboard";
 import { buildLeagueEligibleString } from "@/lib/search-string";
 import { getEffectiveness } from "@/lib/type-effectiveness";
 import { PokemonChip } from "@/components/pokemon-chip";
+import { CopyIconButton } from "@/components/copy-icon-button";
 import { ChevronDownIcon, ChevronRightIcon } from "lucide-react";
 import type { LeagueId, TeamSlot } from "@/lib/team-types";
 import { POKEMON_TYPES, type PokemonType, type MetaPokemon } from "@/lib/types";
@@ -41,47 +42,7 @@ export default function TeamsPageWrapper() {
 /*  Collapsible sections                                               */
 /* ------------------------------------------------------------------ */
 
-function CopyIconButton({
-  label,
-  searchString,
-  onCopy,
-  disabled,
-}: {
-  label: string;
-  searchString: string;
-  onCopy?: () => void;
-  disabled?: boolean;
-}) {
-  const [copied, setCopied] = useState(false);
-  const handleClick = useCallback(async () => {
-    if (disabled) return;
-    await copyToClipboard(searchString);
-    if (onCopy) onCopy();
-    setCopied(true);
-    if (navigator.vibrate) navigator.vibrate(50);
-    setTimeout(() => setCopied(false), 3000);
-  }, [searchString, onCopy, disabled]);
-
-  return (
-    <button
-      onClick={handleClick}
-      disabled={disabled}
-      className={`flex-1 flex items-center justify-center gap-1.5 min-h-11 rounded-lg px-3 py-2.5 text-sm font-semibold transition-all active:scale-[0.98] ${
-        copied
-          ? "bg-green-600 text-white"
-          : disabled
-            ? "bg-primary/30 text-primary-foreground/50 cursor-not-allowed"
-            : "bg-primary text-primary-foreground"
-      }`}
-    >
-      <svg className="size-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-      </svg>
-      {copied ? "Copied!" : label}
-    </button>
-  );
-}
+// CopyIconButton extracted to @/components/copy-icon-button
 
 function MetaThreatsSection({ threats }: { threats: Parameters<typeof ThreatList>[0]["threats"] }) {
   const [open, setOpen] = useState(false);

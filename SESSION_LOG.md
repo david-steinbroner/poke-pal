@@ -1,5 +1,54 @@
 # Poke Pal — Session Log
 
+## Session: 2026-04-12 (Team Rocket — v1.2.0)
+
+New feature session. Added Team Rocket tab with counter teams for every Grunt, Leader, and Giovanni. Wrote spec, ran product + engineering agent audits, iterated on coaching mechanics, then built.
+
+---
+
+### What We Built
+
+**Rockets Page (`/rockets`)**
+- 4th nav tab: Home | Leagues | Rocket | Teams
+- Giovanni section (expanded by default) with enemy lineup, 3 counter Pokemon with movesets, key type badges, copy button with search string visibility
+- Leaders section: Sierra, Cliff, Arlo with variable lineups and "best all-around" counter teams with why-it-works explanations
+- Grunts section: 18 type-based grunt cards, collapsed by default, each with enemy slots + counter team + key types + copy
+- Rocket Essentials section (bottom): 6 core Pokemon that cover ~90% of encounters, with "Copy Squad" button
+
+**Home Page Updates**
+- New Team Rocket section with leader pills (Sierra, Cliff, Arlo, Giovanni)
+- Section order: Leagues → Team Rocket → Raids → Counters
+- Footer version now dynamic from APP_VERSION
+
+**Component Extraction**
+- CopyIconButton extracted from teams/page.tsx into shared component with primary/secondary variants
+
+**Figma**
+- Current v1.2.0 section: Home (updated), Rocket (Giovanni expanded), Rocket scrolled (Grunts + Essentials)
+
+### Decisions Made
+
+1. **Option A: separate tab + home section** — Rocket gets its own tab rather than being embedded in an existing page
+2. **No pool/advisor/scanning** — Rocket battles are simpler than GBL; users just need reference counters, not team building
+3. **Specific Pokemon names in copy strings** — not type-based searches, to prevent users stacking 3 of the same type
+4. **Key type badges per encounter** — coaching without computation, helps users build balanced teams
+5. **Rocket Essentials at bottom** — specific encounter info is more important upfront than general advice
+6. **"Copy Type" button removed** — replaced with informational key type badges to guide team composition
+7. **Search string shown below copy button** — transparency about what's being copied
+
+### Specs & Reviews
+
+- Spec: `docs/superpowers/specs/2026-04-12-team-rocket.md`
+- Product audit: concerns about 4th tab (accepted), data maintenance, prioritization
+- Engineering audit: CopyIconButton extraction, grunt accordion, version drift fix
+- Figma: Current v1.2.0 section in Screen Layouts file
+
+### Current State
+
+- **Version**: 1.2.0
+- **Data**: 1560 Pokemon, 4 leagues, 18 grunt types, 3 leaders, Giovanni
+- **Nav**: 4 tabs (Home, Leagues, Rocket, Teams)
+
 ## Session: 2026-04-10 (Team Advisor — v1.1.0)
 
 Major feature session. Built the Team Advisor: a state-driven flow that helps users build optimal PvP teams from their Pokemon collection. Started with brainstorming the user flow, created Figma wireframes, wrote spec + implementation plan, ran product + engineering reviews, then executed with parallel agents.

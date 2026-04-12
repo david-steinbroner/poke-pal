@@ -6,6 +6,32 @@ This project uses [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.2.0] - 2026-04-12
+
+### Added
+- **Team Rocket tab**: new 4th nav tab with counter teams for every Grunt, Leader, and Giovanni
+- **Rocket Essentials**: curated squad of 6 Pokemon that handle ~90% of Rocket encounters, with "Copy Squad" button
+- **18 Grunt type cards**: each with enemy lineup (3 slots), recommended 3-Pokemon counter team, key type badges, and one-tap "Copy Counter Team" button
+- **3 Leader cards**: Sierra, Cliff, Arlo with variable slot 2/3 lineups and "best all-around" counter teams with why-it-works explanations
+- **Giovanni card**: current legendary (Shadow Tornadus), full lineup, counter team
+- **Search string visibility**: every copy button shows what it searches below the button (e.g. "Searches: swampert,mamoswine,machamp")
+- **Key type badges**: per-encounter type indicators showing what types you need for balanced team building
+- **Home page Team Rocket section**: Sierra, Cliff, Arlo, Giovanni pills linking to Rockets tab
+- **`CopyIconButton` shared component**: extracted from Teams page for reuse across Teams and Rockets
+- **Rocket lineups data file**: `src/data/rocket-lineups.json` sourced from LeekDuck (April 2026)
+- **Figma wireframes**: Current v1.2.0 section with Home, Rocket, and Rocket (scrolled) frames
+
+### Changed
+- Bottom nav: 4 tabs (Home | Leagues | Rocket | Teams), evenly spaced with `basis-0`
+- Home page section order: Leagues → Team Rocket → Raids → Counters
+- Home footer version now reads from `APP_VERSION` constant (was hardcoded `v1.0.5`)
+- Teams page imports `CopyIconButton` from shared component (was inline)
+
+### Fixed
+- Version drift: home footer was showing v1.0.5 while constants had v1.1.0
+
+---
+
 ## [1.1.0] - 2026-04-10
 
 ### Added

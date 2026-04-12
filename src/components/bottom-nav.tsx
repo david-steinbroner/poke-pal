@@ -12,6 +12,7 @@ type NavItem = {
 const NAV_ITEMS: NavItem[] = [
   { href: "/", label: "Home", match: (p) => p === "/" || p.startsWith("/counter") },
   { href: "/leagues", label: "Leagues", match: (p) => p === "/leagues" || p.startsWith("/league/") },
+  { href: "/rockets", label: "Rocket", match: (p) => p.startsWith("/rockets") },
   { href: "/teams", label: "Teams", match: (p) => p.startsWith("/teams") },
 ];
 
@@ -30,7 +31,7 @@ export function BottomNav() {
             <Link
               key={item.label}
               href={item.href}
-              className={`flex flex-1 items-center justify-center py-3 text-base font-medium transition-colors ${
+              className={`flex flex-1 basis-0 items-center justify-center py-3 text-base font-medium transition-colors ${
                 active
                   ? "text-foreground font-semibold"
                   : "text-muted-foreground"

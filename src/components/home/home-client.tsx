@@ -5,6 +5,7 @@ import { SearchInput } from "@/components/search-input";
 import { FixedHeader } from "@/components/fixed-header";
 import { CollapsibleSection } from "./collapsible-section";
 import { HomeLeagueCard } from "./home-league-card";
+import { APP_VERSION } from "@/lib/constants";
 
 type LeagueData = {
   id: string;
@@ -67,7 +68,22 @@ export function HomeClient({ leagues, raidBosses }: HomeClientProps) {
         </div>
       )}
 
-      {/* Section 2: Live Raids */}
+      {/* Section 2: Team Rocket */}
+      <CollapsibleSection id="rockets" label="TEAM ROCKET" accentColor="text-red-500">
+        <div className="flex flex-wrap gap-2">
+          {["Sierra", "Cliff", "Arlo", "Giovanni"].map((name) => (
+            <Link
+              key={name}
+              href="/rockets"
+              className="inline-flex min-h-11 items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium transition-colors hover:bg-accent active:bg-accent active:scale-95"
+            >
+              {name} →
+            </Link>
+          ))}
+        </div>
+      </CollapsibleSection>
+
+      {/* Section 3: Live Raids */}
       {raidBosses.length > 0 && (
         <CollapsibleSection id="raids" label="RAIDS" accentColor="text-orange-600">
           <div className="flex flex-wrap gap-2">
@@ -89,14 +105,14 @@ export function HomeClient({ leagues, raidBosses }: HomeClientProps) {
         </CollapsibleSection>
       )}
 
-      {/* Section 3: Counter Search */}
+      {/* Section 4: Counter Search */}
       <CollapsibleSection id="counters" label="COUNTERS" prefix="SEARCH:" accentColor="text-amber-600">
         <SearchInput placeholder="Who are you fighting?" />
       </CollapsibleSection>
 
       {/* Footer */}
       <footer className="pt-8 pb-4 text-center text-sm text-muted-foreground/50 space-y-1">
-        <p>Poke Pal v1.0.5 · Open source · MIT License</p>
+        <p>Poke Pal v{APP_VERSION} · Open source · MIT License</p>
         <p>Built by Skunk Labs</p>
         <a
           href="https://docs.google.com/forms/d/e/1FAIpQLSfDeXbnLSRJmte9vrxWlyNJl65jQ0FCU6y3qkESMdaJxi6Awg/viewform"

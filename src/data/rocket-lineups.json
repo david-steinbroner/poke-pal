@@ -1,0 +1,440 @@
+{
+  "lastUpdated": "2026-04-12",
+  "grunts": [
+    {
+      "id": "normal",
+      "name": "Normal Grunt",
+      "type": "Normal",
+      "taunt": "Normal does not mean weak.",
+      "slots": [
+        ["Herdier", "Growlithe", "Skitty"],
+        ["Kangaskhan", "Spearow", "Rattata"],
+        ["Dodrio", "Kangaskhan", "Ursaring"]
+      ],
+      "counters": {
+        "pokemon": [
+          { "id": "machamp", "name": "Machamp", "fastMove": "Counter", "chargedMoves": ["Cross Chop", "Rock Slide"] },
+          { "id": "lucario", "name": "Lucario", "fastMove": "Counter", "chargedMoves": ["Aura Sphere", "Shadow Ball"] },
+          { "id": "conkeldurr", "name": "Conkeldurr", "fastMove": "Counter", "chargedMoves": ["Dynamic Punch", "Stone Edge"] }
+        ],
+        "searchString": "machamp,lucario,conkeldurr",
+        "fallbackString": "@1fighting"
+      }
+    },
+    {
+      "id": "fire",
+      "name": "Fire Grunt",
+      "type": "Fire",
+      "taunt": "Do you know how hot Pokemon fire breath can get?",
+      "slots": [
+        ["Vulpix", "Litwick", "Fennekin"],
+        ["Magnemite", "Sandslash", "Braixen"],
+        ["Infernape", "Darumaka", "Delphox"]
+      ],
+      "counters": {
+        "pokemon": [
+          { "id": "swampert", "name": "Swampert", "fastMove": "Water Gun", "chargedMoves": ["Hydro Cannon", "Earthquake"] },
+          { "id": "kyogre", "name": "Kyogre", "fastMove": "Waterfall", "chargedMoves": ["Surf", "Thunder"] },
+          { "id": "rhyperior", "name": "Rhyperior", "fastMove": "Mud-Slap", "chargedMoves": ["Earthquake", "Rock Wrecker"] }
+        ],
+        "searchString": "swampert,kyogre,rhyperior",
+        "fallbackString": "@1water,@1ground"
+      }
+    },
+    {
+      "id": "water",
+      "name": "Water Grunt",
+      "type": "Water",
+      "taunt": "These waters are treacherous!",
+      "slots": [
+        ["Squirtle", "Krabby", "Shellder"],
+        ["Shellos", "Dewott", "Wailord"],
+        ["Blastoise", "Lapras", "Wailord"]
+      ],
+      "counters": {
+        "pokemon": [
+          { "id": "zekrom", "name": "Zekrom", "fastMove": "Charge Beam", "chargedMoves": ["Wild Charge", "Outrage"] },
+          { "id": "roserade", "name": "Roserade", "fastMove": "Razor Leaf", "chargedMoves": ["Grass Knot", "Sludge Bomb"] },
+          { "id": "magnezone", "name": "Magnezone", "fastMove": "Spark", "chargedMoves": ["Wild Charge", "Mirror Shot"] }
+        ],
+        "searchString": "zekrom,roserade,magnezone",
+        "fallbackString": "@1electric,@1grass"
+      }
+    },
+    {
+      "id": "electric",
+      "name": "Electric Grunt",
+      "type": "Electric",
+      "taunt": "Get ready to be shocked!",
+      "slots": [
+        ["Voltorb", "Electabuzz", "Electrike"],
+        ["Electabuzz", "Alolan Diglett"],
+        ["Magnezone", "Ampharos"]
+      ],
+      "counters": {
+        "pokemon": [
+          { "id": "garchomp", "name": "Garchomp", "fastMove": "Mud Shot", "chargedMoves": ["Earth Power", "Outrage"] },
+          { "id": "excadrill", "name": "Excadrill", "fastMove": "Mud-Slap", "chargedMoves": ["Drill Run", "Rock Slide"] },
+          { "id": "groudon", "name": "Groudon", "fastMove": "Mud Shot", "chargedMoves": ["Earthquake", "Fire Punch"] }
+        ],
+        "searchString": "garchomp,excadrill,groudon",
+        "fallbackString": "@1ground"
+      }
+    },
+    {
+      "id": "grass",
+      "name": "Grass Grunt",
+      "type": "Grass",
+      "taunt": "Don't tangle with us!",
+      "slots": [
+        ["Chespin", "Bellsprout"],
+        ["Mareep", "Lileep", "Quilava"],
+        ["Quilladin", "Lileep", "Leafeon"]
+      ],
+      "counters": {
+        "pokemon": [
+          { "id": "chandelure", "name": "Chandelure", "fastMove": "Fire Spin", "chargedMoves": ["Shadow Ball", "Overheat"] },
+          { "id": "reshiram", "name": "Reshiram", "fastMove": "Fire Fang", "chargedMoves": ["Overheat", "Draco Meteor"] },
+          { "id": "mamoswine", "name": "Mamoswine", "fastMove": "Powder Snow", "chargedMoves": ["Avalanche", "Bulldoze"] }
+        ],
+        "searchString": "chandelure,reshiram,mamoswine",
+        "fallbackString": "@1fire,@1ice"
+      }
+    },
+    {
+      "id": "ice",
+      "name": "Ice Grunt",
+      "type": "Ice",
+      "taunt": "You're gonna be frozen in your tracks.",
+      "slots": [
+        ["Spheal", "Swinub", "Sneasel"],
+        ["Glalie", "Alolan Vulpix", "Sealeo"],
+        ["Shellder", "Froslass", "Glalie"]
+      ],
+      "counters": {
+        "pokemon": [
+          { "id": "machamp", "name": "Machamp", "fastMove": "Counter", "chargedMoves": ["Cross Chop", "Rock Slide"] },
+          { "id": "metagross", "name": "Metagross", "fastMove": "Bullet Punch", "chargedMoves": ["Meteor Mash", "Earthquake"] },
+          { "id": "blaziken", "name": "Blaziken", "fastMove": "Counter", "chargedMoves": ["Blast Burn", "Brave Bird"] }
+        ],
+        "searchString": "machamp,metagross,blaziken",
+        "fallbackString": "@1fighting,@1fire,@1steel"
+      }
+    },
+    {
+      "id": "fighting",
+      "name": "Fighting Grunt",
+      "type": "Fighting",
+      "taunt": "This buff physique isn't just for show!",
+      "slots": [
+        ["Mankey", "Machop"],
+        ["Tyrogue", "Hitmonlee", "Hitmonchan"],
+        ["Primeape", "Infernape"]
+      ],
+      "counters": {
+        "pokemon": [
+          { "id": "togekiss", "name": "Togekiss", "fastMove": "Charm", "chargedMoves": ["Ancient Power", "Flamethrower"] },
+          { "id": "gardevoir", "name": "Gardevoir", "fastMove": "Charm", "chargedMoves": ["Synchronoise", "Shadow Ball"] },
+          { "id": "mewtwo", "name": "Mewtwo", "fastMove": "Psycho Cut", "chargedMoves": ["Psystrike", "Shadow Ball"] }
+        ],
+        "searchString": "togekiss,gardevoir,mewtwo",
+        "fallbackString": "@1fairy,@1psychic"
+      }
+    },
+    {
+      "id": "poison",
+      "name": "Poison Grunt",
+      "type": "Poison",
+      "taunt": "Coiled and ready to strike!",
+      "slots": [
+        ["Oddish", "Zubat", "Pineco"],
+        ["Slowpoke", "Grimer", "Alolan Muk"],
+        ["Amoonguss", "Muk", "Alolan Muk"]
+      ],
+      "counters": {
+        "pokemon": [
+          { "id": "mewtwo", "name": "Mewtwo", "fastMove": "Psycho Cut", "chargedMoves": ["Psystrike", "Shadow Ball"] },
+          { "id": "garchomp", "name": "Garchomp", "fastMove": "Mud Shot", "chargedMoves": ["Earth Power", "Outrage"] },
+          { "id": "espeon", "name": "Espeon", "fastMove": "Confusion", "chargedMoves": ["Psychic", "Shadow Ball"] }
+        ],
+        "searchString": "mewtwo,garchomp,espeon",
+        "fallbackString": "@1psychic,@1ground"
+      }
+    },
+    {
+      "id": "ground",
+      "name": "Ground Grunt",
+      "type": "Ground",
+      "taunt": "You'll be defeated into the ground!",
+      "slots": [
+        ["Diglett", "Trapinch", "Gligar"],
+        ["Rhyhorn", "Bagon", "Gligar"],
+        ["Crustle", "Sandslash", "Hippowdon"]
+      ],
+      "counters": {
+        "pokemon": [
+          { "id": "kyogre", "name": "Kyogre", "fastMove": "Waterfall", "chargedMoves": ["Surf", "Blizzard"] },
+          { "id": "roserade", "name": "Roserade", "fastMove": "Razor Leaf", "chargedMoves": ["Grass Knot", "Sludge Bomb"] },
+          { "id": "mamoswine", "name": "Mamoswine", "fastMove": "Powder Snow", "chargedMoves": ["Avalanche", "Bulldoze"] }
+        ],
+        "searchString": "kyogre,roserade,mamoswine",
+        "fallbackString": "@1water,@1grass,@1ice"
+      }
+    },
+    {
+      "id": "flying",
+      "name": "Flying Grunt",
+      "type": "Flying",
+      "taunt": "Battle against my Flying-type Pokemon!",
+      "slots": [
+        ["Skitty", "Pidgeotto", "Taillow"],
+        ["Zubat", "Gligar", "Scyther"],
+        ["Dragonite", "Talonflame"]
+      ],
+      "counters": {
+        "pokemon": [
+          { "id": "raikou", "name": "Raikou", "fastMove": "Volt Switch", "chargedMoves": ["Wild Charge", "Shadow Ball"] },
+          { "id": "mamoswine", "name": "Mamoswine", "fastMove": "Powder Snow", "chargedMoves": ["Avalanche", "Bulldoze"] },
+          { "id": "magnezone", "name": "Magnezone", "fastMove": "Spark", "chargedMoves": ["Wild Charge", "Mirror Shot"] }
+        ],
+        "searchString": "raikou,mamoswine,magnezone",
+        "fallbackString": "@1electric,@1ice,@1rock"
+      }
+    },
+    {
+      "id": "psychic",
+      "name": "Psychic Grunt",
+      "type": "Psychic",
+      "taunt": "Are you scared of psychics that use unseen power?",
+      "slots": [
+        ["Ralts", "Drowzee", "Wobbuffet"],
+        ["Duskull", "Drowzee", "Wobbuffet"],
+        ["Musharna", "Bronzong", "Espeon"]
+      ],
+      "counters": {
+        "pokemon": [
+          { "id": "tyranitar", "name": "Tyranitar", "fastMove": "Bite", "chargedMoves": ["Crunch", "Stone Edge"] },
+          { "id": "darkrai", "name": "Darkrai", "fastMove": "Snarl", "chargedMoves": ["Shadow Ball", "Dark Pulse"] },
+          { "id": "gengar", "name": "Gengar", "fastMove": "Shadow Claw", "chargedMoves": ["Shadow Ball", "Sludge Bomb"] }
+        ],
+        "searchString": "tyranitar,darkrai,gengar",
+        "fallbackString": "@1dark,@1ghost"
+      }
+    },
+    {
+      "id": "bug",
+      "name": "Bug Grunt",
+      "type": "Bug",
+      "taunt": "Go, my super bug Pokemon!",
+      "slots": [
+        ["Venonat", "Shellder", "Koffing"],
+        ["Scyther", "Scizor", "Lileep"],
+        ["Scizor", "Palpitoad"]
+      ],
+      "counters": {
+        "pokemon": [
+          { "id": "chandelure", "name": "Chandelure", "fastMove": "Fire Spin", "chargedMoves": ["Shadow Ball", "Overheat"] },
+          { "id": "reshiram", "name": "Reshiram", "fastMove": "Fire Fang", "chargedMoves": ["Overheat", "Draco Meteor"] },
+          { "id": "rhyperior", "name": "Rhyperior", "fastMove": "Smack Down", "chargedMoves": ["Rock Wrecker", "Earthquake"] }
+        ],
+        "searchString": "chandelure,reshiram,rhyperior",
+        "fallbackString": "@1fire,@1rock"
+      }
+    },
+    {
+      "id": "rock",
+      "name": "Rock Grunt",
+      "type": "Rock",
+      "taunt": "Let's rock and roll!",
+      "slots": [
+        ["Scizor", "Kabuto", "Cranidos"],
+        ["Geodude", "Rhyhorn", "Cranidos"],
+        ["Tyrantrum", "Graveler"]
+      ],
+      "counters": {
+        "pokemon": [
+          { "id": "swampert", "name": "Swampert", "fastMove": "Water Gun", "chargedMoves": ["Hydro Cannon", "Earthquake"] },
+          { "id": "machamp", "name": "Machamp", "fastMove": "Counter", "chargedMoves": ["Cross Chop", "Rock Slide"] },
+          { "id": "metagross", "name": "Metagross", "fastMove": "Bullet Punch", "chargedMoves": ["Meteor Mash", "Earthquake"] }
+        ],
+        "searchString": "swampert,machamp,metagross",
+        "fallbackString": "@1water,@1fighting,@1grass"
+      }
+    },
+    {
+      "id": "ghost",
+      "name": "Ghost Grunt",
+      "type": "Ghost",
+      "taunt": "Ke...ke...ke...ke...ke...ke!",
+      "slots": [
+        ["Gastly", "Yamask", "Duskull"],
+        ["Duskull", "Sableye", "Yamask"],
+        ["Yamask", "Haunter", "Glalie"]
+      ],
+      "counters": {
+        "pokemon": [
+          { "id": "tyranitar", "name": "Tyranitar", "fastMove": "Bite", "chargedMoves": ["Crunch", "Stone Edge"] },
+          { "id": "darkrai", "name": "Darkrai", "fastMove": "Snarl", "chargedMoves": ["Shadow Ball", "Dark Pulse"] },
+          { "id": "weavile", "name": "Weavile", "fastMove": "Snarl", "chargedMoves": ["Foul Play", "Avalanche"] }
+        ],
+        "searchString": "tyranitar,darkrai,weavile",
+        "fallbackString": "@1dark"
+      }
+    },
+    {
+      "id": "dragon",
+      "name": "Dragon Grunt",
+      "type": "Dragon",
+      "taunt": "ROAR! ...How'd that sound?",
+      "slots": [
+        ["Dratini", "Bagon", "Deino"],
+        ["Dragonair", "Gible"],
+        ["Dragonite", "Dragonair", "Garchomp"]
+      ],
+      "counters": {
+        "pokemon": [
+          { "id": "togekiss", "name": "Togekiss", "fastMove": "Charm", "chargedMoves": ["Ancient Power", "Flamethrower"] },
+          { "id": "gardevoir", "name": "Gardevoir", "fastMove": "Charm", "chargedMoves": ["Synchronoise", "Shadow Ball"] },
+          { "id": "mamoswine", "name": "Mamoswine", "fastMove": "Powder Snow", "chargedMoves": ["Avalanche", "Bulldoze"] }
+        ],
+        "searchString": "togekiss,gardevoir,mamoswine",
+        "fallbackString": "@1fairy,@1ice,@1dragon"
+      }
+    },
+    {
+      "id": "dark",
+      "name": "Dark Grunt",
+      "type": "Dark",
+      "taunt": "Wherever there is light, there is also shadow.",
+      "slots": [
+        ["Alolan Rattata", "Poochyena", "Mareep"],
+        ["Alolan Raticate", "Mightyena"],
+        ["Palpitoad", "Deino"]
+      ],
+      "counters": {
+        "pokemon": [
+          { "id": "machamp", "name": "Machamp", "fastMove": "Counter", "chargedMoves": ["Cross Chop", "Rock Slide"] },
+          { "id": "togekiss", "name": "Togekiss", "fastMove": "Charm", "chargedMoves": ["Ancient Power", "Flamethrower"] },
+          { "id": "lucario", "name": "Lucario", "fastMove": "Counter", "chargedMoves": ["Aura Sphere", "Shadow Ball"] }
+        ],
+        "searchString": "machamp,togekiss,lucario",
+        "fallbackString": "@1fighting,@1fairy"
+      }
+    },
+    {
+      "id": "steel",
+      "name": "Steel Grunt",
+      "type": "Steel",
+      "taunt": "You're no match for my iron will!",
+      "slots": [
+        ["Alolan Diglett", "Beldum", "Aron"],
+        ["Skarmory", "Metang", "Lairon"],
+        ["Alolan Sandslash", "Bronzor", "Aggron"]
+      ],
+      "counters": {
+        "pokemon": [
+          { "id": "machamp", "name": "Machamp", "fastMove": "Counter", "chargedMoves": ["Cross Chop", "Rock Slide"] },
+          { "id": "chandelure", "name": "Chandelure", "fastMove": "Fire Spin", "chargedMoves": ["Shadow Ball", "Overheat"] },
+          { "id": "garchomp", "name": "Garchomp", "fastMove": "Mud Shot", "chargedMoves": ["Earth Power", "Outrage"] }
+        ],
+        "searchString": "machamp,chandelure,garchomp",
+        "fallbackString": "@1fighting,@1fire,@1ground"
+      }
+    },
+    {
+      "id": "fairy",
+      "name": "Fairy Grunt",
+      "type": "Fairy",
+      "taunt": "Check out my cute Pokemon!",
+      "slots": [
+        ["Alolan Vulpix", "Ralts"],
+        ["Kirlia", "Alolan Muk"],
+        ["Alolan Vulpix", "Granbull", "Alolan Muk"]
+      ],
+      "counters": {
+        "pokemon": [
+          { "id": "metagross", "name": "Metagross", "fastMove": "Bullet Punch", "chargedMoves": ["Meteor Mash", "Earthquake"] },
+          { "id": "roserade", "name": "Roserade", "fastMove": "Poison Jab", "chargedMoves": ["Sludge Bomb", "Grass Knot"] },
+          { "id": "excadrill", "name": "Excadrill", "fastMove": "Metal Claw", "chargedMoves": ["Iron Head", "Drill Run"] }
+        ],
+        "searchString": "metagross,roserade,excadrill",
+        "fallbackString": "@1steel,@1poison"
+      }
+    }
+  ],
+  "leaders": [
+    {
+      "id": "sierra",
+      "name": "Sierra",
+      "slots": [
+        ["Hoppip"],
+        ["Mareep", "Shellos", "Blastoise"],
+        ["Houndoom", "Sharpedo", "Dragonite"]
+      ],
+      "counters": {
+        "pokemon": [
+          { "id": "mamoswine", "name": "Mamoswine", "fastMove": "Powder Snow", "chargedMoves": ["Avalanche", "Bulldoze"], "why": "Destroys Hoppip and Dragonite with Ice" },
+          { "id": "machamp", "name": "Machamp", "fastMove": "Counter", "chargedMoves": ["Cross Chop", "Rock Slide"], "why": "Handles Houndoom and Sharpedo" },
+          { "id": "magnezone", "name": "Magnezone", "fastMove": "Spark", "chargedMoves": ["Wild Charge", "Mirror Shot"], "why": "Covers Blastoise and Sharpedo" }
+        ],
+        "searchString": "mamoswine,machamp,magnezone",
+        "fallbackString": "@1ice,@1fighting,@1electric"
+      }
+    },
+    {
+      "id": "cliff",
+      "name": "Cliff",
+      "slots": [
+        ["Magikarp"],
+        ["Lileep", "Hisuian Zoroark", "Skarmory"],
+        ["Sandslash", "Tyranitar", "Bronzong"]
+      ],
+      "counters": {
+        "pokemon": [
+          { "id": "machamp", "name": "Machamp", "fastMove": "Counter", "chargedMoves": ["Cross Chop", "Rock Slide"], "why": "Beats Tyranitar, Sandslash, and Lileep" },
+          { "id": "swampert", "name": "Swampert", "fastMove": "Water Gun", "chargedMoves": ["Hydro Cannon", "Earthquake"], "why": "Handles Sandslash and Bronzong" },
+          { "id": "chandelure", "name": "Chandelure", "fastMove": "Fire Spin", "chargedMoves": ["Shadow Ball", "Overheat"], "why": "Covers Skarmory, Bronzong, and Hisuian Zoroark" }
+        ],
+        "searchString": "machamp,swampert,chandelure",
+        "fallbackString": "@1fighting,@1water,@1fire"
+      }
+    },
+    {
+      "id": "arlo",
+      "name": "Arlo",
+      "slots": [
+        ["Growlithe"],
+        ["Slowbro", "Sharpedo", "Crustle"],
+        ["Scizor", "Exeggcute", "Charizard"]
+      ],
+      "counters": {
+        "pokemon": [
+          { "id": "rhyperior", "name": "Rhyperior", "fastMove": "Mud-Slap", "chargedMoves": ["Rock Wrecker", "Earthquake"], "why": "Beats Growlithe, Charizard, and Scizor" },
+          { "id": "tyranitar", "name": "Tyranitar", "fastMove": "Bite", "chargedMoves": ["Crunch", "Stone Edge"], "why": "Covers Slowbro and Exeggcute" },
+          { "id": "swampert", "name": "Swampert", "fastMove": "Water Gun", "chargedMoves": ["Hydro Cannon", "Earthquake"], "why": "Handles Growlithe, Crustle, and Charizard" }
+        ],
+        "searchString": "rhyperior,tyranitar,swampert",
+        "fallbackString": "@1water,@1rock,@1dark"
+      }
+    }
+  ],
+  "giovanni": {
+    "id": "giovanni",
+    "name": "Giovanni",
+    "subtitle": "Current legendary: Shadow Tornadus",
+    "slots": [
+      ["Nidoking"],
+      ["Rhyhorn", "Kangaskhan", "Rhyperior"],
+      ["Tornadus"]
+    ],
+    "counters": {
+      "pokemon": [
+        { "id": "swampert", "name": "Swampert", "fastMove": "Water Gun", "chargedMoves": ["Hydro Cannon", "Earthquake"], "why": "Beats Nidoking, Rhyhorn, and Rhyperior" },
+        { "id": "mamoswine", "name": "Mamoswine", "fastMove": "Powder Snow", "chargedMoves": ["Avalanche", "Bulldoze"], "why": "Ice wrecks Tornadus, Ground hits Nidoking" },
+        { "id": "machamp", "name": "Machamp", "fastMove": "Counter", "chargedMoves": ["Cross Chop", "Rock Slide"], "why": "Handles Kangaskhan and Rhyperior" }
+      ],
+      "searchString": "swampert,mamoswine,machamp",
+      "fallbackString": "@1water,@1ice,@1fighting"
+    }
+  }
+}
