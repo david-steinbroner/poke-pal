@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ChevronDownIcon, ChevronRightIcon } from "lucide-react";
 import { TypeBadge } from "@/components/type-badge";
 import { CopyIconButton } from "@/components/copy-icon-button";
+import { CollapsibleSubSection } from "@/components/rocket/collapsible-sub-section";
 
 type CounterPick = {
   id: string;
@@ -11,6 +12,12 @@ type CounterPick = {
   fastMove: string;
   chargedMoves: string[];
   why?: string;
+};
+
+type CounterTypeEntry = {
+  type: string;
+  count: number;
+  beats: string;
 };
 
 type RocketEncounterCardProps = {
@@ -24,6 +31,10 @@ type RocketEncounterCardProps = {
     searchString: string;
     fallbackString: string;
   };
+  counterTypes?: {
+    team: CounterTypeEntry[];
+    searchString: string;
+  };
   keyTypes?: string[];
   defaultOpen?: boolean;
 };
@@ -35,6 +46,7 @@ export function RocketEncounterCard({
   subtitle,
   slots,
   counters,
+  counterTypes,
   keyTypes,
   defaultOpen = false,
 }: RocketEncounterCardProps) {
@@ -84,11 +96,8 @@ export function RocketEncounterCard({
             ))}
           </div>
 
-          {/* Counter team */}
-          <div className="space-y-1.5">
-            <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
-              Counters
-            </p>
+          {/* Best Counter Pokemon — collapsible, expanded by default */}
+          <CollapsibleSubSection label="Best Counter Pokemon" defaultOpen>
             {counters.pokemon.map((pick) => (
               <div key={pick.id} className="text-sm">
                 <p>
@@ -105,30 +114,51 @@ export function RocketEncounterCard({
                 )}
               </div>
             ))}
-          </div>
 
-          {/* Key types needed */}
-          {keyTypes && keyTypes.length > 0 && (
-            <div className="flex flex-wrap items-center gap-1.5">
-              <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
-                Key types:
-              </span>
-              {keyTypes.map((t) => (
-                <TypeBadge key={t} type={t} />
-              ))}
+            {/* Key types needed */}
+            {keyTypes && keyTypes.length > 0 && (
+              <div className="flex flex-wrap items-center gap-1.5 pt-1">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                  Key types:
+                </span>
+                {keyTypes.map((t) => (
+                  <TypeBadge key={t} type={t} />
+                ))}
+              </div>
+            )}
+
+            {/* Copy button */}
+            <div className="pt-1">
+              <CopyIconButton
+                label="Copy Counter Team"
+                searchString={counters.searchString}
+              />
             </div>
-          )}
+          </CollapsibleSubSection>
 
-          {/* Copy button + search string note */}
-          <div className="space-y-1">
-            <CopyIconButton
-              label="Copy Counter Team"
-              searchString={counters.searchString}
-            />
-            <p className="text-[12px] text-muted-foreground text-center">
-              Searches: {counters.searchString}
-            </p>
-          </div>
+          {/* Counter by Type — collapsible, collapsed by default */}
+          {counterTypes && counterTypes.team.length > 0 && (
+            <CollapsibleSubSection label="Counter by Type">
+              {counterTypes.team.map((entry) => (
+                <div key={entry.type} className="flex items-start gap-2 text-sm">
+                  <span className="font-medium shrink-0">
+                    {entry.count} <TypeBadge type={entry.type} />
+                  </span>
+                  <span className="text-muted-foreground">
+                    — beats {entry.beats}
+                  </span>
+                </div>
+              ))}
+
+              {/* Copy button */}
+              <div className="pt-1">
+                <CopyIconButton
+                  label="Copy Counter Types"
+                  searchString={counterTypes.searchString}
+                />
+              </div>
+            </CollapsibleSubSection>
+          )}
         </div>
       )}
     </div>

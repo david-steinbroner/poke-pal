@@ -39,34 +39,6 @@ export default function RocketsPage() {
         </p>
       </FixedHeader>
 
-      {/* Giovanni — top priority, always expanded */}
-      <CollapsibleSection id="rocket-giovanni" label="GIOVANNI" prefix="" accentColor="text-red-600">
-        <RocketEncounterCard
-          name={giovanni.name}
-          subtitle={giovanni.subtitle}
-          slots={giovanni.slots}
-          counters={giovanni.counters}
-          keyTypes={parseKeyTypes(giovanni.counters.fallbackString)}
-          defaultOpen
-        />
-      </CollapsibleSection>
-
-      {/* Leaders — expanded by default */}
-      <CollapsibleSection id="rocket-leaders" label="LEADERS" prefix="" accentColor="text-red-500">
-        <div className="space-y-2">
-          {leaders.map((leader) => (
-            <RocketEncounterCard
-              key={leader.id}
-              name={leader.name}
-              slots={leader.slots}
-              counters={leader.counters}
-              keyTypes={parseKeyTypes(leader.counters.fallbackString)}
-              defaultOpen
-            />
-          ))}
-        </div>
-      </CollapsibleSection>
-
       {/* Grunts — collapsed by default */}
       <CollapsibleSection id="rocket-grunts" label="GRUNTS" prefix="" accentColor="text-muted-foreground">
         <div className="space-y-2">
@@ -78,10 +50,41 @@ export default function RocketsPage() {
               taunt={grunt.taunt}
               slots={grunt.slots}
               counters={grunt.counters}
+              counterTypes={grunt.counterTypes}
               keyTypes={parseKeyTypes(grunt.counters.fallbackString)}
             />
           ))}
         </div>
+      </CollapsibleSection>
+
+      {/* Leaders — expanded by default */}
+      <CollapsibleSection id="rocket-leaders" label="LEADERS" prefix="" accentColor="text-red-500">
+        <div className="space-y-2">
+          {leaders.map((leader) => (
+            <RocketEncounterCard
+              key={leader.id}
+              name={leader.name}
+              slots={leader.slots}
+              counters={leader.counters}
+              counterTypes={leader.counterTypes}
+              keyTypes={parseKeyTypes(leader.counters.fallbackString)}
+              defaultOpen
+            />
+          ))}
+        </div>
+      </CollapsibleSection>
+
+      {/* Giovanni — always expanded */}
+      <CollapsibleSection id="rocket-giovanni" label="GIOVANNI" prefix="" accentColor="text-red-600">
+        <RocketEncounterCard
+          name={giovanni.name}
+          subtitle={giovanni.subtitle}
+          slots={giovanni.slots}
+          counters={giovanni.counters}
+          counterTypes={giovanni.counterTypes}
+          keyTypes={parseKeyTypes(giovanni.counters.fallbackString)}
+          defaultOpen
+        />
       </CollapsibleSection>
 
       {/* Rocket Essentials — at bottom */}
@@ -99,15 +102,10 @@ export default function RocketsPage() {
               </div>
             ))}
           </div>
-          <div className="space-y-1">
-            <CopyIconButton
-              label="Copy Squad"
-              searchString={ESSENTIALS_SEARCH}
-            />
-            <p className="text-[12px] text-muted-foreground text-center">
-              Searches: {ESSENTIALS_SEARCH}
-            </p>
-          </div>
+          <CopyIconButton
+            label="Copy Squad"
+            searchString={ESSENTIALS_SEARCH}
+          />
         </div>
       </CollapsibleSection>
 

@@ -19,6 +19,12 @@
         ],
         "searchString": "machamp,lucario,conkeldurr",
         "fallbackString": "@1fighting"
+      },
+      "counterTypes": {
+        "team": [
+          { "type": "Fighting", "count": 3, "beats": "Normal-types across all slots" }
+        ],
+        "searchString": "@fighting"
       }
     },
     {
@@ -39,6 +45,13 @@
         ],
         "searchString": "swampert,kyogre,rhyperior",
         "fallbackString": "@1water,@1ground"
+      },
+      "counterTypes": {
+        "team": [
+          { "type": "Water", "count": 2, "beats": "Fire-types in slots 1 and 3" },
+          { "type": "Ground", "count": 1, "beats": "Magnemite, Sandslash, Fire-types" }
+        ],
+        "searchString": "@water,@ground"
       }
     },
     {
@@ -59,6 +72,13 @@
         ],
         "searchString": "zekrom,roserade,magnezone",
         "fallbackString": "@1electric,@1grass"
+      },
+      "counterTypes": {
+        "team": [
+          { "type": "Electric", "count": 2, "beats": "Water-types across all slots" },
+          { "type": "Grass", "count": 1, "beats": "Water-types, especially Shellos and Wailord" }
+        ],
+        "searchString": "@electric,@grass"
       }
     },
     {
@@ -79,6 +99,12 @@
         ],
         "searchString": "garchomp,excadrill,groudon",
         "fallbackString": "@1ground"
+      },
+      "counterTypes": {
+        "team": [
+          { "type": "Ground", "count": 3, "beats": "Electric-types across all slots, immune to Electric moves" }
+        ],
+        "searchString": "@ground"
       }
     },
     {
@@ -99,6 +125,13 @@
         ],
         "searchString": "chandelure,reshiram,mamoswine",
         "fallbackString": "@1fire,@1ice"
+      },
+      "counterTypes": {
+        "team": [
+          { "type": "Fire", "count": 2, "beats": "Grass-types and Lileep" },
+          { "type": "Ice", "count": 1, "beats": "Grass-types, Leafeon" }
+        ],
+        "searchString": "@fire,@ice"
       }
     },
     {
@@ -119,6 +152,14 @@
         ],
         "searchString": "machamp,metagross,blaziken",
         "fallbackString": "@1fighting,@1fire,@1steel"
+      },
+      "counterTypes": {
+        "team": [
+          { "type": "Fighting", "count": 1, "beats": "Spheal, Swinub, Sneasel, Glalie" },
+          { "type": "Fire", "count": 1, "beats": "Ice-types, Froslass" },
+          { "type": "Steel", "count": 1, "beats": "Ice-types, resists Ice moves" }
+        ],
+        "searchString": "@fighting,@fire,@steel"
       }
     },
     {
@@ -139,6 +180,13 @@
         ],
         "searchString": "togekiss,gardevoir,mewtwo",
         "fallbackString": "@1fairy,@1psychic"
+      },
+      "counterTypes": {
+        "team": [
+          { "type": "Fairy", "count": 2, "beats": "Fighting-types, resists Fighting moves" },
+          { "type": "Psychic", "count": 1, "beats": "Fighting-types across all slots" }
+        ],
+        "searchString": "@fairy,@psychic"
       }
     },
     {
@@ -159,6 +207,13 @@
         ],
         "searchString": "mewtwo,garchomp,espeon",
         "fallbackString": "@1psychic,@1ground"
+      },
+      "counterTypes": {
+        "team": [
+          { "type": "Psychic", "count": 2, "beats": "Poison-types, Oddish, Zubat" },
+          { "type": "Ground", "count": 1, "beats": "Grimer, Muk, Alolan Muk" }
+        ],
+        "searchString": "@psychic,@ground"
       }
     },
     {
@@ -179,6 +234,14 @@
         ],
         "searchString": "kyogre,roserade,mamoswine",
         "fallbackString": "@1water,@1grass,@1ice"
+      },
+      "counterTypes": {
+        "team": [
+          { "type": "Water", "count": 1, "beats": "Ground-types, Rhyhorn, Sandslash" },
+          { "type": "Grass", "count": 1, "beats": "Ground-types, Rhyhorn, Hippowdon" },
+          { "type": "Ice", "count": 1, "beats": "Gligar, Bagon, Trapinch" }
+        ],
+        "searchString": "@water,@grass,@ice"
       }
     },
     {
@@ -199,6 +262,14 @@
         ],
         "searchString": "raikou,mamoswine,magnezone",
         "fallbackString": "@1electric,@1ice,@1rock"
+      },
+      "counterTypes": {
+        "team": [
+          { "type": "Electric", "count": 1, "beats": "Flying-types, Talonflame" },
+          { "type": "Ice", "count": 1, "beats": "Dragonite, Gligar, Scyther" },
+          { "type": "Rock", "count": 1, "beats": "Flying-types, Talonflame, Scyther" }
+        ],
+        "searchString": "@electric,@ice,@rock"
       }
     },
     {
@@ -219,6 +290,13 @@
         ],
         "searchString": "tyranitar,darkrai,gengar",
         "fallbackString": "@1dark,@1ghost"
+      },
+      "counterTypes": {
+        "team": [
+          { "type": "Dark", "count": 2, "beats": "Psychic-types, immune to Psychic moves" },
+          { "type": "Ghost", "count": 1, "beats": "Psychic-types, Duskull, Bronzong" }
+        ],
+        "searchString": "@dark,@ghost"
       }
     },
     {
@@ -239,6 +317,13 @@
         ],
         "searchString": "chandelure,reshiram,rhyperior",
         "fallbackString": "@1fire,@1rock"
+      },
+      "counterTypes": {
+        "team": [
+          { "type": "Fire", "count": 2, "beats": "Bug-types, Scyther, Scizor, Venonat" },
+          { "type": "Rock", "count": 1, "beats": "Bug-types, Scyther, Koffing" }
+        ],
+        "searchString": "@fire,@rock"
       }
     },
     {
@@ -259,6 +344,14 @@
         ],
         "searchString": "swampert,machamp,metagross",
         "fallbackString": "@1water,@1fighting,@1grass"
+      },
+      "counterTypes": {
+        "team": [
+          { "type": "Water", "count": 1, "beats": "Rock-types, Geodude, Rhyhorn" },
+          { "type": "Fighting", "count": 1, "beats": "Rock-types, Tyrantrum, Cranidos" },
+          { "type": "Steel", "count": 1, "beats": "Rock-types, Scizor resists Rock" }
+        ],
+        "searchString": "@water,@fighting,@steel"
       }
     },
     {
@@ -279,6 +372,12 @@
         ],
         "searchString": "tyranitar,darkrai,weavile",
         "fallbackString": "@1dark"
+      },
+      "counterTypes": {
+        "team": [
+          { "type": "Dark", "count": 3, "beats": "Ghost-types across all slots, immune to Ghost moves" }
+        ],
+        "searchString": "@dark"
       }
     },
     {
@@ -299,6 +398,13 @@
         ],
         "searchString": "togekiss,gardevoir,mamoswine",
         "fallbackString": "@1fairy,@1ice,@1dragon"
+      },
+      "counterTypes": {
+        "team": [
+          { "type": "Fairy", "count": 2, "beats": "Dragon-types, immune to Dragon moves" },
+          { "type": "Ice", "count": 1, "beats": "Dragon-types, double effective on Dragonite and Garchomp" }
+        ],
+        "searchString": "@fairy,@ice"
       }
     },
     {
@@ -319,6 +425,13 @@
         ],
         "searchString": "machamp,togekiss,lucario",
         "fallbackString": "@1fighting,@1fairy"
+      },
+      "counterTypes": {
+        "team": [
+          { "type": "Fighting", "count": 2, "beats": "Dark-types, Alolan Raticate, Deino" },
+          { "type": "Fairy", "count": 1, "beats": "Dark-types, immune to Dark moves" }
+        ],
+        "searchString": "@fighting,@fairy"
       }
     },
     {
@@ -339,6 +452,14 @@
         ],
         "searchString": "machamp,chandelure,garchomp",
         "fallbackString": "@1fighting,@1fire,@1ground"
+      },
+      "counterTypes": {
+        "team": [
+          { "type": "Fighting", "count": 1, "beats": "Steel-types, Aron, Lairon, Aggron" },
+          { "type": "Fire", "count": 1, "beats": "Steel-types, Skarmory, Alolan Sandslash" },
+          { "type": "Ground", "count": 1, "beats": "Steel-types, Alolan Diglett, Beldum" }
+        ],
+        "searchString": "@fighting,@fire,@ground"
       }
     },
     {
@@ -359,6 +480,13 @@
         ],
         "searchString": "metagross,roserade,excadrill",
         "fallbackString": "@1steel,@1poison"
+      },
+      "counterTypes": {
+        "team": [
+          { "type": "Steel", "count": 2, "beats": "Fairy-types, resists Fairy moves" },
+          { "type": "Poison", "count": 1, "beats": "Fairy-types, Ralts, Kirlia, Granbull" }
+        ],
+        "searchString": "@steel,@poison"
       }
     }
   ],
@@ -379,6 +507,14 @@
         ],
         "searchString": "mamoswine,machamp,magnezone",
         "fallbackString": "@1ice,@1fighting,@1electric"
+      },
+      "counterTypes": {
+        "team": [
+          { "type": "Ice", "count": 1, "beats": "Hoppip, Dragonite" },
+          { "type": "Fighting", "count": 1, "beats": "Houndoom, Sharpedo" },
+          { "type": "Electric", "count": 1, "beats": "Blastoise, Sharpedo" }
+        ],
+        "searchString": "@ice,@fighting,@electric"
       }
     },
     {
@@ -397,6 +533,14 @@
         ],
         "searchString": "machamp,swampert,chandelure",
         "fallbackString": "@1fighting,@1water,@1fire"
+      },
+      "counterTypes": {
+        "team": [
+          { "type": "Fighting", "count": 1, "beats": "Tyranitar, Sandslash, Lileep" },
+          { "type": "Water", "count": 1, "beats": "Sandslash, Bronzong" },
+          { "type": "Fire", "count": 1, "beats": "Skarmory, Bronzong, Hisuian Zoroark" }
+        ],
+        "searchString": "@fighting,@water,@fire"
       }
     },
     {
@@ -415,6 +559,14 @@
         ],
         "searchString": "rhyperior,tyranitar,swampert",
         "fallbackString": "@1water,@1rock,@1dark"
+      },
+      "counterTypes": {
+        "team": [
+          { "type": "Water", "count": 1, "beats": "Growlithe, Crustle, Charizard" },
+          { "type": "Rock", "count": 1, "beats": "Growlithe, Charizard, Scizor" },
+          { "type": "Dark", "count": 1, "beats": "Slowbro, Exeggcute" }
+        ],
+        "searchString": "@water,@rock,@dark"
       }
     }
   ],
@@ -435,6 +587,14 @@
       ],
       "searchString": "swampert,mamoswine,machamp",
       "fallbackString": "@1water,@1ice,@1fighting"
+    },
+    "counterTypes": {
+      "team": [
+        { "type": "Water", "count": 1, "beats": "Nidoking, Rhyhorn, Rhyperior" },
+        { "type": "Ice", "count": 1, "beats": "Tornadus, Nidoking" },
+        { "type": "Fighting", "count": 1, "beats": "Kangaskhan, Rhyperior" }
+      ],
+      "searchString": "@water,@ice,@fighting"
     }
   }
 }

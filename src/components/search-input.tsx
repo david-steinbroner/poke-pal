@@ -26,6 +26,7 @@ export function SearchInput({
   const [selectedIndex, setSelectedIndex] = useState(0);
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
+  const tappingRef = useRef(false);
 
   const results = useMemo(() => {
     if (query.length < 2) return [];
@@ -85,7 +86,13 @@ export function SearchInput({
         onKeyDown={handleKeyDown}
         onFocus={() => results.length > 0 && setIsOpen(true)}
         onBlur={() => {
-          setTimeout(() => setIsOpen(false), 150);
+          // Delay closing so touch/click on results can fire first
+          setTimeout(() => {
+            if (!tappingRef.current) {
+              setIsOpen(false);
+            }
+            tappingRef.current = false;
+          }, 200);
           // Scroll back to top after keyboard dismisses (iOS keyboard animation delay)
           if (mode === "select") {
             setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 300);
@@ -102,7 +109,9 @@ export function SearchInput({
                 className={`w-full min-h-11 px-3 py-2 text-left text-base capitalize hover:bg-muted ${
                   index === selectedIndex ? "bg-muted" : ""
                 }`}
-                onMouseDown={() => selectPokemon(pokemon)}
+                onTouchStart={() => { tappingRef.current = true; }}
+                onMouseDown={() => { tappingRef.current = true; }}
+                onClick={() => selectPokemon(pokemon)}
               >
                 {pokemon.name}
               </button>

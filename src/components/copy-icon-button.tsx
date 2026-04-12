@@ -29,7 +29,7 @@ export function CopyIconButton({
   }, [searchString, onCopy, disabled]);
 
   const baseClass =
-    "flex-1 flex items-center justify-center gap-1.5 min-h-11 rounded-lg px-3 py-2.5 text-sm font-semibold transition-all active:scale-[0.98]";
+    "w-full flex items-center justify-center gap-1.5 min-h-11 rounded-lg px-3 py-2.5 text-sm font-semibold transition-all active:scale-[0.98]";
 
   const variantClass = copied
     ? "bg-green-600 text-white"

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ChevronDownIcon, ChevronRightIcon } from "lucide-react";
 import { isCollapsed, setCollapsed } from "@/lib/home-collapse-storage";
 
@@ -21,9 +21,20 @@ export function CollapsibleSection({
 }: CollapsibleSectionProps) {
   const [open, setOpen] = useState(true);
   const [mounted, setMounted] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setOpen(!isCollapsed(`section:${id}`));
+    const hash = window.location.hash.replace("#", "");
+    if (hash === id) {
+      // Linked directly — force open and scroll into view
+      setOpen(true);
+      setCollapsed(`section:${id}`, false);
+      setTimeout(() => {
+        sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    } else {
+      setOpen(!isCollapsed(`section:${id}`));
+    }
     setMounted(true);
   }, [id]);
 
@@ -34,7 +45,7 @@ export function CollapsibleSection({
   }
 
   return (
-    <div className="space-y-3">
+    <div ref={sectionRef} id={id} className="space-y-3">
       <button
         onClick={toggle}
         className="flex min-h-11 items-center gap-1 text-sm font-medium uppercase tracking-wide active:opacity-70 transition-opacity"

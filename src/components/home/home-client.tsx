@@ -71,13 +71,17 @@ export function HomeClient({ leagues, raidBosses }: HomeClientProps) {
       {/* Section 2: Team Rocket */}
       <CollapsibleSection id="rockets" label="TEAM ROCKET" accentColor="text-red-500">
         <div className="flex flex-wrap gap-2">
-          {["Sierra", "Cliff", "Arlo", "Giovanni"].map((name) => (
+          {[
+            { label: "Grunts", hash: "rocket-grunts" },
+            { label: "Leaders", hash: "rocket-leaders" },
+            { label: "Giovanni", hash: "rocket-giovanni" },
+          ].map(({ label, hash }) => (
             <Link
-              key={name}
-              href="/rockets"
+              key={label}
+              href={`/rockets#${hash}`}
               className="inline-flex min-h-11 items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium transition-colors hover:bg-accent active:bg-accent active:scale-95"
             >
-              {name} →
+              {label}
             </Link>
           ))}
         </div>
