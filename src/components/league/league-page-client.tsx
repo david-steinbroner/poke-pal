@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { TierAccordion } from "@/components/tier-accordion";
 import { CopyButton } from "@/components/copy-button";
 import { FixedHeader } from "@/components/fixed-header";
+import { BackButton } from "@/components/back-button";
 import Link from "next/link";
 import { InlineTeamSection } from "./inline-team-section";
 import { saveTeam, loadTeam } from "@/lib/team-storage";
@@ -92,8 +93,9 @@ export function LeaguePageClient({
     cpCap === 9999 ? metaSearchString : `${metaSearchString}&${cpString}`;
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       <FixedHeader>
+        <BackButton />
         <h1 className="text-xl font-bold">{leagueName}</h1>
         <p className="mt-1 text-sm text-muted-foreground">
           {cpCap === 9999 ? "No CP limit" : `CP ${cpCap.toLocaleString()}`}

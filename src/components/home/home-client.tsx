@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Star, Atom, Flame, Crown } from "lucide-react";
 import { SearchInput } from "@/components/search-input";
 import { FixedHeader } from "@/components/fixed-header";
 import { CollapsibleSection } from "./collapsible-section";
@@ -16,13 +17,33 @@ type LeagueData = {
 type RaidBoss = {
   id: string;
   name: string;
-  tag?: string;
+  tier: 1 | 3 | 5 | "mega" | "dynamax";
+  shadow: boolean;
+  mega: boolean;
+  dynamax: boolean;
 };
 
 type HomeClientProps = {
   leagues: LeagueData[];
   raidBosses: RaidBoss[];
 };
+
+// Minimal monochrome icons (lucide).
+// Tier pill (N + star) shows raid difficulty on the right.
+// Mega → Crown on the LEFT (no right-side indicator).
+// Shadow → Flame on the LEFT. Dynamax → Atom on the right.
+function TierIndicator({ tier }: { tier: RaidBoss["tier"] }) {
+  if (tier === "mega") return null;
+  if (tier === "dynamax") {
+    return <Atom aria-label="Dynamax raid" className="h-3.5 w-3.5 shrink-0" />;
+  }
+  return (
+    <span className="inline-flex items-center gap-0.5 tabular-nums" aria-label={`${tier}-star raid`}>
+      <span>{tier}</span>
+      <Star className="h-3 w-3 shrink-0 fill-current" />
+    </span>
+  );
+}
 
 export function HomeClient({ leagues, raidBosses }: HomeClientProps) {
   return (
@@ -69,7 +90,7 @@ export function HomeClient({ leagues, raidBosses }: HomeClientProps) {
       )}
 
       {/* Section 2: Team Rocket */}
-      <CollapsibleSection id="rockets" label="TEAM ROCKET" accentColor="text-red-500">
+      <CollapsibleSection id="rockets" label="TEAM ROCKET">
         <div className="flex flex-wrap gap-2">
           {[
             { label: "Grunts", hash: "rocket-grunts" },
@@ -89,20 +110,32 @@ export function HomeClient({ leagues, raidBosses }: HomeClientProps) {
 
       {/* Section 3: Live Raids */}
       {raidBosses.length > 0 && (
-        <CollapsibleSection id="raids" label="RAIDS" accentColor="text-orange-600">
-          <div className="flex flex-wrap gap-2">
+        <CollapsibleSection id="raids" label="RAIDS">
+          <div className="grid grid-cols-2 gap-2">
             {raidBosses.map((boss) => (
               <Link
                 key={boss.id}
                 href={`/counter/${boss.id}`}
-                className="inline-flex min-h-11 items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium capitalize transition-colors hover:bg-accent active:bg-accent active:scale-95"
+                className="flex min-h-11 items-center justify-between gap-2 rounded-full border px-3 py-1.5 text-sm font-medium capitalize transition-colors hover:bg-accent active:bg-accent active:scale-95"
               >
-                {boss.name}
-                {boss.tag && !["3★", "1★"].includes(boss.tag) && (
-                  <span className="text-sm font-normal text-muted-foreground">
-                    {boss.tag}
-                  </span>
-                )}
+                <span className="flex min-w-0 items-center gap-1.5">
+                  {boss.shadow && (
+                    <Flame
+                      aria-label="Shadow"
+                      className="h-3.5 w-3.5 shrink-0 text-muted-foreground"
+                    />
+                  )}
+                  {boss.mega && (
+                    <Crown
+                      aria-label="Mega raid"
+                      className="h-4 w-4 shrink-0 text-muted-foreground"
+                    />
+                  )}
+                  <span className="truncate">{boss.name}</span>
+                </span>
+                <span className="shrink-0 text-muted-foreground">
+                  <TierIndicator tier={boss.tier} />
+                </span>
               </Link>
             ))}
           </div>
@@ -110,7 +143,7 @@ export function HomeClient({ leagues, raidBosses }: HomeClientProps) {
       )}
 
       {/* Section 4: Counter Search */}
-      <CollapsibleSection id="counters" label="COUNTERS" prefix="SEARCH:" accentColor="text-amber-600">
+      <CollapsibleSection id="counters" label="COUNTERS">
         <SearchInput placeholder="Who are you fighting?" />
       </CollapsibleSection>
 

@@ -15,7 +15,7 @@ export function HomeLeagueCard({
   searchString,
 }: HomeLeagueCardProps) {
   return (
-    <div className="rounded-lg border px-4 py-3 space-y-2">
+    <div className="rounded-lg border p-3 space-y-2">
       <span className="block text-base font-semibold">{leagueName}</span>
       <CopyButton
         searchString={searchString}

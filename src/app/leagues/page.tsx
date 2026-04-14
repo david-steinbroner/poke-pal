@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { LeagueCard } from "@/components/league-card";
 import { FixedHeader } from "@/components/fixed-header";
+import { CollapsibleSection } from "@/components/home/collapsible-section";
 import { getActiveLeagues, getUpcomingLeagues } from "@/data/leagues";
 
 export const metadata: Metadata = {
@@ -19,7 +20,7 @@ export default function LeaguesPage() {
   const upcomingLeagues = getUpcomingLeagues();
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <FixedHeader>
         <h1 className="text-xl font-bold">Leagues</h1>
         <p className="mt-1 text-sm text-muted-foreground">
@@ -28,10 +29,7 @@ export default function LeaguesPage() {
       </FixedHeader>
 
       {liveLeagues.length > 0 && (
-        <div>
-          <h2 className="mb-2 text-sm font-medium text-muted-foreground">
-            Live Now
-          </h2>
+        <CollapsibleSection id="leagues-live" label="LIVE NOW">
           <div className="space-y-2">
             {liveLeagues.map((league) => (
               <LeagueCard
@@ -45,7 +43,7 @@ export default function LeaguesPage() {
               />
             ))}
           </div>
-        </div>
+        </CollapsibleSection>
       )}
 
       {liveLeagues.length === 0 && (
@@ -56,10 +54,7 @@ export default function LeaguesPage() {
       )}
 
       {upcomingLeagues.length > 0 && (
-        <div>
-          <h2 className="mb-2 text-sm font-medium text-muted-foreground">
-            Coming Up
-          </h2>
+        <CollapsibleSection id="leagues-upcoming" label="COMING UP">
           <div className="space-y-2">
             {upcomingLeagues.map((league) => (
               <LeagueCard
@@ -75,7 +70,7 @@ export default function LeaguesPage() {
               />
             ))}
           </div>
-        </div>
+        </CollapsibleSection>
       )}
     </div>
   );

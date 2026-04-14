@@ -12,7 +12,10 @@ export function FixedHeader({ children }: FixedHeaderProps) {
 
   const measure = useCallback(() => {
     if (headerRef.current) {
-      setHeight(headerRef.current.offsetHeight);
+      const h = headerRef.current.offsetHeight;
+      setHeight(h);
+      // Publish for descendants (e.g. sticky section headers) to offset below us.
+      document.documentElement.style.setProperty("--fixed-header-h", `${h}px`);
     }
   }, []);
 

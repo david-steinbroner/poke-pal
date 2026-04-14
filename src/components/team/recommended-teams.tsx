@@ -6,6 +6,7 @@ import type { RecommendedTeam, StrategyTip } from "@/lib/team-advisor";
 import { RATING_COLORS } from "@/lib/team-rating";
 import { getPokemonName } from "@/lib/pokemon-utils";
 import { getLeagueInfo, getPokemonById } from "@/lib/team-analysis";
+import { CollapsibleSection } from "@/components/home/collapsible-section";
 import type { MetaPokemon } from "@/lib/types";
 import type { LeagueId } from "@/data/leagues";
 
@@ -40,28 +41,15 @@ export function RecommendedTeams({
   teams,
   leagueId,
   onUseTeam,
-  defaultOpen = true,
-}: RecommendedTeamsProps & { defaultOpen?: boolean }) {
-  const [sectionOpen, setSectionOpen] = useState(defaultOpen);
+}: RecommendedTeamsProps) {
   const [expandedIndex, setExpandedIndex] = useState(0);
 
   if (teams.length === 0) return null;
 
   return (
-    <div className="space-y-3">
-      <button
-        onClick={() => setSectionOpen(!sectionOpen)}
-        className="flex w-full items-center gap-1 py-2 text-sm font-semibold active:opacity-70"
-      >
-        {sectionOpen ? (
-          <ChevronDown className="size-4 text-muted-foreground" />
-        ) : (
-          <ChevronRight className="size-4 text-muted-foreground" />
-        )}
-        Recommended Teams ({teams.length})
-      </button>
-
-      {!sectionOpen ? null : teams.map((team, index) => {
+    <CollapsibleSection id="teams-recommended" label={`RECOMMENDED TEAMS (${teams.length})`}>
+      <div className="space-y-3">
+      {teams.map((team, index) => {
         const isExpanded = expandedIndex === index;
         const ratingClasses = RATING_COLORS[team.rating];
 
@@ -145,6 +133,7 @@ export function RecommendedTeams({
           </div>
         );
       })}
-    </div>
+      </div>
+    </CollapsibleSection>
   );
 }

@@ -38,7 +38,11 @@ export function getEffectiveness(
 ): number {
   let multiplier = 1.0;
   for (const defType of defenderTypes) {
-    multiplier *= CHART[attackType][defType];
+    const row = CHART[attackType];
+    const cell = row?.[defType];
+    // Skip placeholder/missing types (e.g. "None" for single-type Pokemon in data)
+    if (typeof cell !== "number") continue;
+    multiplier *= cell;
   }
   return multiplier;
 }

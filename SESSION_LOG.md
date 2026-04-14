@@ -1,5 +1,51 @@
 # Poke Pal — Session Log
 
+## Session: 2026-04-14 (Raid automation, design unification, back buttons — v1.3.0 → v1.7.1)
+
+Session goals: (1) fix Counter pages that rendered blank for popular Pokemon; (2) automate raid roster updates; (3) polish home page raid chips with icons + two-column layout + sticky section headers; (4) audit the app against the Teams page design baseline and unify; (5) wire back buttons into Counter and League detail pages.
+
+### What shipped
+
+**Data / automation**
+- `scripts/fetch-raids.ts` scrapes leekduck.com/raid-bosses/ and writes `src/data/current-raids.json` with a richer `bosses[]` schema plus legacy tier arrays for back-compat. Handles Mega/Shadow/Alolan/Galarian/Hisuian/Paldean normalization, prefers `-shadow`/`-mega` IDs when present, warns on unmatched names. `npm run update:raids` added. Daily cron automation deferred to a future GitHub Action (header TODO in the script).
+
+**Bug fix**
+- `getEffectiveness()` was producing `NaN` for single-type Pokemon because `pokemon.json` stores them as `["Psychic", "None"]` and `"None"` isn't in the type chart. Fixed the lib to skip non-chart defender types. Mewtwo, Kyogre, Groudon, Vulpix (Alolan), Dhelmise, and every pure-type boss now render counters.
+
+**Home raids UX**
+- Two-column `grid grid-cols-2` of raid chips, stretches to fill.
+- Monochrome lucide icons: `Star` tier pill (`N ★`), `Flame` for shadow (left), `Crown` for mega (left, bigger `h-4 w-4`), `Atom` for dynamax (right).
+- Raid chips strip `(Shadow)` / `(Mega)` / `(Alolan)` etc. from display — base name only.
+- Sort order: non-shadow 5★ → 3★ → 1★ → Mega → Dynamax → all shadows.
+
+**Sticky section headers**
+- `FixedHeader` publishes `--fixed-header-h` CSS variable.
+- Attempted a one-way JS sticky (scroll-down only), then replaced with native `position: sticky` — sticks below the top bar while in-section, releases naturally at section end. Sticky row stretches edge-to-edge and carries the same `from-background to-transparent` fade the top bar uses.
+
+**Design unification (Teams baseline)**
+- Spawned two audit agents: one documented Teams-page patterns as the baseline, the other inventoried every other route. Identified drift and merged everything.
+- `CollapsibleSection` now the canonical section header across home, rockets, teams, and leagues. Style: `text-sm font-medium uppercase tracking-wide`, `text-muted-foreground` label (accent colors dropped), chevron on right.
+- Removed `prefix` ("LIVE:", "SEARCH:") and `accentColor` props from `CollapsibleSection`.
+- Teams page's four inline collapsibles (My Team, My Pokemon, Recommended Teams, Meta Threats) converted to `CollapsibleSection` — now sticky.
+- Leagues page `LIVE NOW` / `COMING UP` converted.
+- Page-level vertical rhythm normalized to `space-y-5` across counter, league detail, and leagues list.
+- Counter page subheaders bumped to `font-semibold`; home league card padding unified to `p-3`.
+
+**Back buttons**
+- `BackButton` updated to lucide `ArrowLeft` at `size-6` with 44px tap target.
+- Rendered above the title in `FixedHeader` on `/counter/[pokemon]` and `/league/[leagueSlug]`.
+
+### Open items (carried forward)
+
+- **Rocket sub-pages audit** concluded: no `/rockets/*` sub-routes exist. Nested expandables (`RocketEncounterCard`, `CollapsibleSubSection`) were left non-sticky — stacking three levels of sticky would fight over the same top offset. Spec a ladder-style offset if we want nested sticky.
+- **GitHub Action** for daily `npm run update:raids` cron.
+- **Dynamax raids** — no scraper source; currently empty array.
+- **Separate `/raids` tab** — noted for later.
+- **`pokemon.json` data cleanup** — remove literal `"None"` placeholder second types so future bugs don't trip over it.
+- **P2 optional** — consider whether nested Teams/Rockets sticky levels are worth the complexity.
+
+---
+
 ## Session: 2026-04-12 (Team Rocket — v1.2.0)
 
 New feature session. Added Team Rocket tab with counter teams for every Grunt, Leader, and Giovanni. Wrote spec, ran product + engineering agent audits, iterated on coaching mechanics, then built.

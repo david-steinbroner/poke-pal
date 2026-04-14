@@ -6,6 +6,98 @@ This project uses [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.7.1] - 2026-04-14
+
+### Added
+- **Back button** on Counter and League detail pages — lucide `ArrowLeft` at `size-6` above the page title in `FixedHeader`; 44px tap target.
+
+### Changed
+- `BackButton` component uses lucide `ArrowLeft` instead of `←` text glyph.
+
+## [1.7.0] - 2026-04-14
+
+### Added
+- **Teams page collapsibles converted to `CollapsibleSection`**: My Team, My Pokemon, Recommended Teams, and Meta Threats now get the same sticky-on-scroll + gradient-fade treatment as the rest of the app.
+
+### Changed
+- Counter page: `Top Counters` / `Budget Picks` subheaders bumped to `font-semibold` for consistency with Teams baseline.
+- `home-league-card` padding unified to `p-3` (was `px-4 py-3`).
+
+## [1.6.1] - 2026-04-14
+
+### Changed
+- Removed accent colors from all section headers (home, rockets, teams, leagues) — all now use `text-muted-foreground` for a single neutral look.
+- `CollapsibleSection` no longer accepts `accentColor` prop.
+- Leagues page sections (`LIVE NOW`, `COMING UP`) converted to `CollapsibleSection` — inherit sticky behavior + gradient fade.
+
+## [1.6.0] - 2026-04-14
+
+### Changed
+- **Design system unification pass**: section headers across home, rockets, and teams aligned to a single pattern — `text-sm font-medium uppercase tracking-wide`, accent color on label (later removed in 1.6.1), chevron on right.
+- `CollapsibleSection`: removed `prefix` prop (no more `LIVE:` / `SEARCH:` prefix words).
+- Page-level `space-y-*` normalized to `space-y-5` across counter, league detail, and leagues list.
+
+## [1.5.6] - 2026-04-14
+
+### Changed
+- Raid chips on home sorted: non-shadow 5★ → 3★ → 1★ → Mega → Dynamax → all shadows (by tier desc).
+
+## [1.5.5] - 2026-04-14
+
+### Changed
+- Raid chip icons: Shadow → lucide `Flame` (was `Ghost`); Mega → lucide `Crown` moved to the left side (was `Sparkles` on right); tier (1/3/5) + Dynamax still on the right.
+
+## [1.5.4] - 2026-04-14
+
+### Changed
+- Home raid chips strip regional/shadow/mega suffixes from display names — pills show base names only ("Vulpix", "Marowak"). Counter page keeps the full form name.
+
+## [1.5.3] - 2026-04-14
+
+### Added
+- Sticky section headers now carry the same 24px `from-background to-transparent` fade gradient the main `FixedHeader` uses, absolutely positioned below the row.
+
+## [1.5.2] - 2026-04-14
+
+### Changed
+- Sticky section header renders as a full-width row across the content column (`-mx-4 px-4` + `w-[calc(100%+2rem)]`), not just behind the text.
+
+## [1.5.1] - 2026-04-14
+
+### Changed
+- Replaced the custom one-way sticky hook with native `position: sticky` on section headers — sticks whenever natural position scrolls under the top bar, releases when the section's end passes. Hook `useStickyOnScrollDown` deleted (dead code).
+
+## [1.5.0] - 2026-04-14
+
+### Added
+- **Sticky collapsible section headers**: section header docks below the main `FixedHeader` when scrolling down through its body. `FixedHeader` publishes `--fixed-header-h` CSS variable for descendants to align against.
+
+## [1.4.2] - 2026-04-14
+
+### Fixed
+- **Counter pages for single-type Pokemon were blank**: root cause was single-type entries in `pokemon.json` stored with `"None"` as a placeholder second type, which wasn't in the type-effectiveness chart and poisoned multiplier math with `NaN`. Fixed `getEffectiveness()` to skip non-chart defender types. Affected Mewtwo, Kyogre, Groudon, Vulpix (Alolan), Dhelmise, and every other pure-type boss.
+
+## [1.4.1] - 2026-04-14
+
+### Changed
+- Raid chips: two-column grid that stretches to fill; monochrome lucide icons replacing emoji (`Star`, `Sparkles`, `Ghost`, `Atom`); tier pill shows `N ★` (number + single star).
+
+## [1.4.0] - 2026-04-14
+
+### Added
+- **Structured `bosses[]` array** in `current-raids.json` with `{ id, tier, shadow }` per entry; legacy tier arrays (`fivestar`, `mega`, `shadow`, etc.) kept for back-compat.
+- Raid chips render shadow icon on left + tier icon on right; `cleanDisplayName()` strips `(Shadow)` and `(Mega)` from pokemon.json labels.
+
+## [1.3.0] - 2026-04-13
+
+### Added
+- **`scripts/fetch-raids.ts`**: scrapes `leekduck.com/raid-bosses/` and writes `src/data/current-raids.json` — normalizes names (Mega/Shadow/Alolan/Galarian/Hisuian/Paldean) to our pokemon IDs, prefers `-shadow`/`-mega` variants when they exist, warns on unmatched names.
+- `npm run update:raids` script hook.
+- TODO comment in the script sketches a future GitHub Action for daily cron automation (not yet built).
+
+### Known gaps
+- Dynamax raids: LeekDuck has no stable listing page, so `dynamax[]` stays empty. Needs another source or manual curation.
+
 ## [1.2.0] - 2026-04-12
 
 ### Added

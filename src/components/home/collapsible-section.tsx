@@ -7,16 +7,12 @@ import { isCollapsed, setCollapsed } from "@/lib/home-collapse-storage";
 type CollapsibleSectionProps = {
   id: string;
   label: string;
-  prefix?: string;
-  accentColor?: string;
   children: React.ReactNode;
 };
 
 export function CollapsibleSection({
   id,
   label,
-  prefix = "LIVE:",
-  accentColor = "text-green-600",
   children,
 }: CollapsibleSectionProps) {
   const [open, setOpen] = useState(true);
@@ -46,18 +42,28 @@ export function CollapsibleSection({
 
   return (
     <div ref={sectionRef} id={id} className="space-y-3">
-      <button
-        onClick={toggle}
-        className="flex min-h-11 items-center gap-1 text-sm font-medium uppercase tracking-wide active:opacity-70 transition-opacity"
+      <div
+        style={{ top: "var(--fixed-header-h, 0px)" }}
+        className="sticky z-30 -mx-4 relative"
       >
-        <span className={accentColor}>{prefix}</span>
-        <span className="text-muted-foreground">{label}</span>
-        {mounted && open ? (
-          <ChevronDownIcon className="ml-1 size-4 text-muted-foreground" />
-        ) : (
-          <ChevronRightIcon className="ml-1 size-4 text-muted-foreground" />
-        )}
-      </button>
+        <button
+          onClick={toggle}
+          className="flex w-full min-h-11 items-center gap-1.5 bg-background px-4 text-left text-sm font-medium uppercase tracking-wide active:opacity-70 transition-opacity"
+        >
+          <span className="text-muted-foreground">{label}</span>
+          {mounted && open ? (
+            <ChevronDownIcon className="size-4 text-muted-foreground" />
+          ) : (
+            <ChevronRightIcon className="size-4 text-muted-foreground" />
+          )}
+        </button>
+        {/* Fade below the sticky row — mirrors the main FixedHeader gradient.
+            Absolutely positioned so it overlays content and doesn't add layout height. */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-0 right-0 top-full h-6 bg-gradient-to-b from-background to-transparent"
+        />
+      </div>
       {mounted && open && children}
     </div>
   );

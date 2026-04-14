@@ -40,7 +40,7 @@ export default function RocketsPage() {
       </FixedHeader>
 
       {/* Grunts — collapsed by default */}
-      <CollapsibleSection id="rocket-grunts" label="GRUNTS" prefix="" accentColor="text-muted-foreground">
+      <CollapsibleSection id="rocket-grunts" label="GRUNTS">
         <div className="space-y-2">
           {grunts.map((grunt) => (
             <RocketEncounterCard
@@ -58,7 +58,7 @@ export default function RocketsPage() {
       </CollapsibleSection>
 
       {/* Leaders — expanded by default */}
-      <CollapsibleSection id="rocket-leaders" label="LEADERS" prefix="" accentColor="text-red-500">
+      <CollapsibleSection id="rocket-leaders" label="LEADERS">
         <div className="space-y-2">
           {leaders.map((leader) => (
             <RocketEncounterCard
@@ -75,7 +75,7 @@ export default function RocketsPage() {
       </CollapsibleSection>
 
       {/* Giovanni — always expanded */}
-      <CollapsibleSection id="rocket-giovanni" label="GIOVANNI" prefix="" accentColor="text-red-600">
+      <CollapsibleSection id="rocket-giovanni" label="GIOVANNI">
         <RocketEncounterCard
           name={giovanni.name}
           subtitle={giovanni.subtitle}
@@ -88,7 +88,7 @@ export default function RocketsPage() {
       </CollapsibleSection>
 
       {/* Rocket Essentials — at bottom */}
-      <CollapsibleSection id="rocket-essentials" label="ROCKET ESSENTIALS" prefix="" accentColor="text-red-600">
+      <CollapsibleSection id="rocket-essentials" label="ROCKET ESSENTIALS">
         <div className="space-y-3">
           <p className="text-sm text-muted-foreground">
             Power up these 6 and you can handle almost every Rocket encounter.

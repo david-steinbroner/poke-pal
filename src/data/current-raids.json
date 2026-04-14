@@ -1,9 +1,119 @@
 {
-  "lastUpdated": "2026-04-08",
-  "fivestar": ["kyogre", "reshiram"],
-  "mega": ["rayquaza"],
-  "shadow": [],
-  "dynamax": [],
-  "threestar": ["machamp", "alakazam", "gengar"],
-  "onestar": ["luxray", "pikachu"]
+  "lastUpdated": "2026-04-14",
+  "source": "https://leekduck.com/raid-bosses/",
+  "bosses": [
+    {
+      "id": "vulpix-alolan",
+      "tier": 1,
+      "shadow": false
+    },
+    {
+      "id": "goomy",
+      "tier": 1,
+      "shadow": false
+    },
+    {
+      "id": "rookidee",
+      "tier": 1,
+      "shadow": false
+    },
+    {
+      "id": "sinistea",
+      "tier": 1,
+      "shadow": false
+    },
+    {
+      "id": "ampharos",
+      "tier": 3,
+      "shadow": false
+    },
+    {
+      "id": "shiftry",
+      "tier": 3,
+      "shadow": false
+    },
+    {
+      "id": "dhelmise",
+      "tier": 3,
+      "shadow": false
+    },
+    {
+      "id": "kyogre",
+      "tier": 5,
+      "shadow": false
+    },
+    {
+      "id": "aerodactyl-mega",
+      "tier": "mega",
+      "shadow": false
+    },
+    {
+      "id": "dratini-shadow",
+      "tier": 1,
+      "shadow": true
+    },
+    {
+      "id": "gligar-shadow",
+      "tier": 1,
+      "shadow": true
+    },
+    {
+      "id": "cacnea-shadow",
+      "tier": 1,
+      "shadow": true
+    },
+    {
+      "id": "joltik-shadow",
+      "tier": 1,
+      "shadow": true
+    },
+    {
+      "id": "marowak-alolan-shadow",
+      "tier": 3,
+      "shadow": true
+    },
+    {
+      "id": "lapras-shadow",
+      "tier": 3,
+      "shadow": true
+    },
+    {
+      "id": "stantler-shadow",
+      "tier": 3,
+      "shadow": true
+    },
+    {
+      "id": "latios-shadow",
+      "tier": 5,
+      "shadow": true
+    }
+  ],
+  "onestar": [
+    "vulpix-alolan",
+    "goomy",
+    "rookidee",
+    "sinistea"
+  ],
+  "threestar": [
+    "ampharos",
+    "shiftry",
+    "dhelmise"
+  ],
+  "fivestar": [
+    "kyogre"
+  ],
+  "mega": [
+    "aerodactyl-mega"
+  ],
+  "shadow": [
+    "dratini-shadow",
+    "gligar-shadow",
+    "cacnea-shadow",
+    "joltik-shadow",
+    "marowak-alolan-shadow",
+    "lapras-shadow",
+    "stantler-shadow",
+    "latios-shadow"
+  ],
+  "dynamax": []
 }

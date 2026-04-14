@@ -48,8 +48,9 @@ export default async function CounterPage({
   const result = getCountersFor(pokemonId);
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       <FixedHeader>
+        <BackButton />
         <div className="flex items-baseline gap-2">
           <h1 className="text-xl font-bold">{pokemon.name}</h1>
           {pokemon.types.map((t) => (
@@ -108,7 +109,7 @@ export default async function CounterPage({
 
       {result.topCounters.length > 0 && (
         <div>
-          <h2 className="mb-2 text-sm font-medium text-muted-foreground">
+          <h2 className="mb-2 text-sm font-semibold text-muted-foreground">
             Top Counters
           </h2>
           <div className="space-y-3">
@@ -132,7 +133,7 @@ export default async function CounterPage({
 
       {result.budgetCounters.length > 0 && (
         <div>
-          <h2 className="mb-2 text-sm font-medium text-muted-foreground">
+          <h2 className="mb-2 text-sm font-semibold text-muted-foreground">
             Budget Picks
           </h2>
           <div className="space-y-3">

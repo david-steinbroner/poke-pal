@@ -27,6 +27,7 @@ import { getEffectiveness } from "@/lib/type-effectiveness";
 import { PokemonChip } from "@/components/pokemon-chip";
 import { CopyIconButton } from "@/components/copy-icon-button";
 import { ChevronDownIcon, ChevronRightIcon } from "lucide-react";
+import { CollapsibleSection } from "@/components/home/collapsible-section";
 import type { LeagueId, TeamSlot } from "@/lib/team-types";
 import { POKEMON_TYPES, type PokemonType, type MetaPokemon } from "@/lib/types";
 
@@ -45,22 +46,10 @@ export default function TeamsPageWrapper() {
 // CopyIconButton extracted to @/components/copy-icon-button
 
 function MetaThreatsSection({ threats }: { threats: Parameters<typeof ThreatList>[0]["threats"] }) {
-  const [open, setOpen] = useState(false);
   return (
-    <div>
-      <button
-        onClick={() => setOpen(!open)}
-        className="flex w-full items-center justify-between py-2 text-sm font-medium active:opacity-70"
-      >
-        <span>Meta Threats ({threats.length})</span>
-        {open ? (
-          <ChevronDownIcon className="size-4 text-muted-foreground" />
-        ) : (
-          <ChevronRightIcon className="size-4 text-muted-foreground" />
-        )}
-      </button>
-      {open && <ThreatList threats={threats} />}
-    </div>
+    <CollapsibleSection id="teams-meta-threats" label={`META THREATS (${threats.length})`}>
+      <ThreatList threats={threats} />
+    </CollapsibleSection>
   );
 }
 
@@ -93,7 +82,6 @@ function MyTeamSection({
   coverageScore?: number;
   suggestedPoolPokemon: { id: string; name: string }[];
 }) {
-  const [open, setOpen] = useState(true);
   const filledCount = team.filter((s) => s !== null).length;
   const isFullTeamLocal = filledCount === 3;
 
@@ -127,22 +115,10 @@ function MyTeamSection({
   }
 
   return (
-    <div>
-      <button
-        onClick={() => setOpen(!open)}
-        className="flex w-full items-center gap-1.5 py-2 text-sm font-semibold active:opacity-70"
-      >
-        {open ? (
-          <ChevronDownIcon className="size-4 text-muted-foreground" />
-        ) : (
-          <ChevronRightIcon className="size-4 text-muted-foreground" />
-        )}
-        My Team ({filledCount})
-      </button>
-      {open && (
-        <div className="space-y-3">
-          {/* Team slots */}
-          <div className="space-y-2">
+    <CollapsibleSection id="teams-my-team" label={`MY TEAM (${filledCount})`}>
+      <div className="space-y-3">
+        {/* Team slots */}
+        <div className="space-y-2">
             {(() => {
               let nextEmptyFound = false;
               return ([0, 1, 2] as const).map((i) => {
@@ -246,9 +222,8 @@ function MyTeamSection({
               ))}
             </div>
           )}
-        </div>
-      )}
-    </div>
+      </div>
+    </CollapsibleSection>
   );
 }
 
@@ -816,7 +791,7 @@ function TeamsPage() {
             teams={recommendations}
             leagueId={league}
             onUseTeam={handleUseTeam}
-            defaultOpen={false}
+
           />
         </div>
       )}
@@ -866,7 +841,7 @@ function TeamsPage() {
             onAdd={handlePoolAdd}
             onAddToTeam={handlePokemonSelect}
             teamIds={excludeIds}
-            defaultOpen={false}
+
             onScan={handleScan}
             isScanning={isScanning}
             scanError={scanError}
@@ -878,7 +853,7 @@ function TeamsPage() {
               teams={recommendations}
               leagueId={league}
               onUseTeam={handleUseTeam}
-              defaultOpen={false}
+
             />
           )}
 
