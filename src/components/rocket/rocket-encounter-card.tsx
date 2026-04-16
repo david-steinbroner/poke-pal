@@ -77,18 +77,20 @@ export function RocketEncounterCard({
         ) : (
           <ChevronRightIcon className="size-4 shrink-0 text-muted-foreground" />
         )}
-        <span className="font-semibold text-sm">{name}</span>
-        {subtitle && (
-          <span className="ml-auto text-sm text-muted-foreground truncate">
-            {subtitle}
-          </span>
-        )}
+        <div className="flex-1 min-w-0">
+          <span className="font-semibold text-sm">{name}</span>
+          {subtitle && (
+            <span className="block text-sm text-muted-foreground">
+              {subtitle}
+            </span>
+          )}
+        </div>
       </button>
 
       {/* Quote tag — visible when collapsed */}
       {!open && taunt && (
         <div className="px-3 pb-2.5 -mt-1">
-          <span className="inline-block max-w-full truncate rounded-md bg-muted/50 px-2 py-0.5 text-sm italic text-muted-foreground">
+          <span className="inline-block rounded-md bg-muted/50 px-2 py-0.5 text-sm italic text-muted-foreground">
             &ldquo;{taunt}&rdquo;
           </span>
         </div>

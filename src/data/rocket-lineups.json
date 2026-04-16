@@ -284,7 +284,7 @@
       "id": "electric",
       "name": "Electric Grunt",
       "type": "Electric",
-      "taunt": "Get ready to be Pokemon shocked!",
+      "taunt": "Get ready to be shocked!",
       "slots": [
         [
           "Voltorb",
@@ -421,7 +421,7 @@
       "id": "poison",
       "name": "Poison Grunt",
       "type": "Poison",
-      "taunt": "Coiled and ready to Pokemon strike!",
+      "taunt": "Coiled and ready to strike!",
       "slots": [
         [
           "Grimer",
@@ -563,7 +563,7 @@
       "id": "ground",
       "name": "Ground Grunt",
       "type": "Ground",
-      "taunt": "You'll be Pokemon pokemon defeated into the Pokemon ground!",
+      "taunt": "You'll be Pokemon defeated into the ground!",
       "slots": [
         [
           "Sandshrew",
@@ -639,7 +639,7 @@
       "id": "rock",
       "name": "Rock Grunt",
       "type": "Rock",
-      "taunt": "Let's rock and pokemon roll!",
+      "taunt": "Let's rock and roll!",
       "slots": [
         [
           "Geodude",
@@ -781,7 +781,7 @@
       "id": "dragon",
       "name": "Dragon Grunt",
       "type": "Dragon",
-      "taunt": "POKEMON roar! ... How otherwise otherwise otherwise does otherwise that Pokemon make you feel?",
+      "taunt": "ROAR! ... How did that make you feel?",
       "slots": [
         [
           "Dratini",
@@ -852,7 +852,7 @@
       "id": "dark",
       "name": "Dark Grunt",
       "type": "Dark",
-      "taunt": "Wherever there is Pokemon light, there is also pokemon shadow.",
+      "taunt": "Wherever there is light, there is also shadow.",
       "slots": [
         [
           "Murkrow",
@@ -923,7 +923,7 @@
       "id": "fairy",
       "name": "Fairy Grunt",
       "type": "Fairy",
-      "taunt": "Check out my Pokemon cute Pokemon!",
+      "taunt": "Check out my cute Pokemon!",
       "slots": [
         [
           "Snubbull",
@@ -994,7 +994,7 @@
       "id": "ice",
       "name": "Ice Grunt",
       "type": "Ice",
-      "taunt": "You're Pokemon Pokemon gonna be Pokemon Pokemon Pokemon Pokemon Pokemon pokemon Pokemon Pokemon Pokemon Pokemon Pokemon left Pokemon Pokemon Pokemon out Pokemon Pokemon in the pokemon cold.",
+      "taunt": "You're Pokemon gonna be Pokemon left Pokemon out in the Pokemon cold.",
       "slots": [
         [
           "Snorunt",
@@ -1070,7 +1070,7 @@
       "id": "bug",
       "name": "Bug Grunt",
       "type": "Bug",
-      "taunt": "Go, pokemon bug Pokemon pokemon my Pokemon!",
+      "taunt": "Go, my super bug Pokemon!",
       "slots": [
         [
           "Weedle",
@@ -1136,7 +1136,7 @@
       "id": "flying",
       "name": "Flying Grunt",
       "type": "Flying",
-      "taunt": "My bird Pokemon wants to Pokemon Pokemon Pokemon Pokemon Pokemon battle with pokemon you!",
+      "taunt": "My bird Pokemon wants to battle with you!",
       "slots": [
         [
           "Pidgey",
@@ -1207,7 +1207,7 @@
       "id": "steel",
       "name": "Steel Grunt",
       "type": "Steel",
-      "taunt": "Don't bother — I've Pokemon already Pokemon won! Get Pokemon Pokemon going!",
+      "taunt": "Don't bother — I've already won! Get going!",
       "slots": [
         [
           "Beldum",

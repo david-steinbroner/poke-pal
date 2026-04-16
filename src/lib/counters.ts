@@ -55,11 +55,21 @@ export function getCountersFor(pokemonId: string): CounterResult {
       const charged =
         bestCharged.length > 0 ? bestCharged : p.chargedMoves.slice(0, 1);
 
+      // Score: ATK × sqrt(DEF × STA) × best move DPS × STAB bonus
+      const bulk = Math.sqrt(p.baseStats.def * p.baseStats.sta);
+      const moveDps = fast ? fast.pvpPower : 1;
+      const hasStab = p.types.some((t) =>
+        superEffective.includes(t as PokemonType),
+      );
+      const stabBonus = hasStab ? 1.2 : 1.0;
+      const isShadow = p.id.endsWith("-shadow");
+      const shadowBonus = isShadow ? 1.2 : 1.0;
+
       return {
         pokemon: p.id,
         fastMove: fast?.name ?? "Unknown",
         chargedMoves: charged.map((m) => m.name),
-        score: p.baseStats.atk,
+        score: p.baseStats.atk * shadowBonus * bulk * moveDps * stabBonus,
         isBudget: budgetPicks.includes(p.id),
       };
     })

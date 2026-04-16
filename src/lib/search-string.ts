@@ -2,7 +2,7 @@ import type { PokemonType } from "./types";
 
 export function buildTypeSearchString(types: PokemonType[]): string {
   if (types.length === 0) return "";
-  return types.map((t) => `@1${t.toLowerCase()}`).join(",");
+  return types.map((t) => `@${t.toLowerCase()}`).join(",");
 }
 
 export function buildNameSearchString(names: string[]): string {
