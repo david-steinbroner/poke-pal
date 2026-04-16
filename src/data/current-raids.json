@@ -3,47 +3,47 @@
   "source": "https://leekduck.com/raid-bosses/",
   "bosses": [
     {
-      "id": "vulpix-alolan",
+      "id": "foongus",
       "tier": 1,
       "shadow": false
     },
     {
-      "id": "goomy",
+      "id": "phantump",
       "tier": 1,
       "shadow": false
     },
     {
-      "id": "rookidee",
+      "id": "sandygast",
       "tier": 1,
       "shadow": false
     },
     {
-      "id": "sinistea",
+      "id": "gossifleur",
       "tier": 1,
       "shadow": false
     },
     {
-      "id": "ampharos",
+      "id": "vileplume",
       "tier": 3,
       "shadow": false
     },
     {
-      "id": "shiftry",
+      "id": "dugtrio",
       "tier": 3,
       "shadow": false
     },
     {
-      "id": "dhelmise",
+      "id": "torterra",
       "tier": 3,
       "shadow": false
     },
     {
-      "id": "kyogre",
+      "id": "groudon",
       "tier": 5,
       "shadow": false
     },
     {
-      "id": "aerodactyl-mega",
+      "id": "alakazam-mega",
       "tier": "mega",
       "shadow": false
     },
@@ -89,21 +89,21 @@
     }
   ],
   "onestar": [
-    "vulpix-alolan",
-    "goomy",
-    "rookidee",
-    "sinistea"
+    "foongus",
+    "phantump",
+    "sandygast",
+    "gossifleur"
   ],
   "threestar": [
-    "ampharos",
-    "shiftry",
-    "dhelmise"
+    "vileplume",
+    "dugtrio",
+    "torterra"
   ],
   "fivestar": [
-    "kyogre"
+    "groudon"
   ],
   "mega": [
-    "aerodactyl-mega"
+    "alakazam-mega"
   ],
   "shadow": [
     "dratini-shadow",
