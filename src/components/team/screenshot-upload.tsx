@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useMemo, useEffect } from "react";
 import { Upload, X, Loader2 } from "lucide-react";
 
 type ScreenshotUploadProps = {
@@ -18,6 +18,11 @@ export function ScreenshotUpload({
 }: ScreenshotUploadProps) {
   const [files, setFiles] = useState<File[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const objectUrls = useMemo(() => files.map((f) => URL.createObjectURL(f)), [files]);
+  useEffect(() => {
+    return () => objectUrls.forEach((url) => URL.revokeObjectURL(url));
+  }, [objectUrls]);
 
   const handleFiles = useCallback(
     (incoming: FileList | null) => {
@@ -69,7 +74,7 @@ export function ScreenshotUpload({
           {files.map((file, i) => (
             <div key={`${file.name}-${i}`} className="relative">
               <img
-                src={URL.createObjectURL(file)}
+                src={objectUrls[i]}
                 alt={file.name}
                 className="h-20 w-20 rounded object-cover"
               />

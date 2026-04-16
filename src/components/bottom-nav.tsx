@@ -14,16 +14,17 @@ function RocketR({ className }: { className?: string }) {
 
 type NavItem = {
   href: string;
+  label: string;
   icon: React.ComponentType<{ className?: string }>;
   match: (p: string) => boolean;
 };
 
 const NAV_ITEMS: NavItem[] = [
-  { href: "/", icon: Home, match: (p) => p === "/" || p.startsWith("/counter") },
-  { href: "/raids", icon: Swords, match: (p) => p.startsWith("/raids") },
-  { href: "/rockets", icon: RocketR, match: (p) => p.startsWith("/rockets") },
-  { href: "/leagues", icon: Trophy, match: (p) => p === "/leagues" || p.startsWith("/league/") },
-  { href: "/teams", icon: Users, match: (p) => p.startsWith("/teams") },
+  { href: "/", label: "Home", icon: Home, match: (p) => p === "/" || p.startsWith("/counter") },
+  { href: "/raids", label: "Raids", icon: Swords, match: (p) => p.startsWith("/raids") },
+  { href: "/rockets", label: "Rockets", icon: RocketR, match: (p) => p.startsWith("/rockets") },
+  { href: "/leagues", label: "Leagues", icon: Trophy, match: (p) => p === "/leagues" || p.startsWith("/league/") },
+  { href: "/teams", label: "Teams", icon: Users, match: (p) => p.startsWith("/teams") },
 ];
 
 export function BottomNav() {
@@ -42,6 +43,7 @@ export function BottomNav() {
             <Link
               key={item.href}
               href={item.href}
+              aria-label={item.label}
               className={`flex flex-1 basis-0 flex-col items-center justify-center py-2.5 transition-colors ${
                 active
                   ? "text-foreground"

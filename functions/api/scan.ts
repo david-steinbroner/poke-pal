@@ -11,6 +11,12 @@ interface Env {
 
 const MAX_FILES = 2;
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+const ALLOWED_MEDIA_TYPES = new Set([
+  "image/jpeg",
+  "image/png",
+  "image/gif",
+  "image/webp",
+]);
 
 export const onRequestPost: PagesFunction<Env> = async (context) => {
   try {
@@ -36,6 +42,16 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         { error: "Max 2 screenshots" },
         { status: 400 },
       );
+    }
+
+    // Validate media types
+    for (const file of files) {
+      if (!ALLOWED_MEDIA_TYPES.has(file.type)) {
+        return Response.json(
+          { error: `Unsupported image type: ${file.type}` },
+          { status: 400 },
+        );
+      }
     }
 
     // Validate sizes and convert to base64
@@ -124,7 +140,23 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       );
     }
 
-    const pokemon: string[] = JSON.parse(match[0]);
+    const parsed: unknown = JSON.parse(match[0]);
+
+    // Validate: must be an array of strings (Pokemon names only)
+    if (
+      !Array.isArray(parsed) ||
+      !parsed.every((item): item is string => typeof item === "string")
+    ) {
+      return Response.json(
+        { error: "Could not parse Pokemon list" },
+        { status: 502 },
+      );
+    }
+
+    // Sanitize: strip any non-alphanumeric/space/hyphen characters from names
+    const pokemon = parsed
+      .map((name) => name.replace(/[^a-zA-Z0-9 \-'.]/g, "").trim())
+      .filter((name) => name.length > 0 && name.length <= 50);
 
     return Response.json({ pokemon });
   } catch (error) {

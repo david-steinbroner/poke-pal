@@ -145,7 +145,7 @@
   }
   /* Tap feedback — works on iOS with touchstart listener in layout */
   a:active, button:active {
-    opacity: 0.6 !important;
+    opacity: 0.6;
     transform: scale(0.97);
     transition: none;
   }
