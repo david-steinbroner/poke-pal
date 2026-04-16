@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { scrollToSectionAfterKeyboardDismiss } from "@/lib/keyboard-dismiss";
 import { Input } from "@/components/ui/input";
 import pokemonData from "@/data/pokemon-search-index.json";
 
@@ -39,10 +40,13 @@ export function SearchInput({
       .map((p): PokemonOption => ({ id: p.id, name: p.name }));
   }, [query]);
 
+  // Sync dropdown state when search results change
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     setSelectedIndex(0);
     setIsOpen(results.length > 0);
   }, [results]);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   function selectPokemon(pokemon: PokemonOption) {
     setQuery("");
@@ -86,17 +90,13 @@ export function SearchInput({
         onKeyDown={handleKeyDown}
         onFocus={() => results.length > 0 && setIsOpen(true)}
         onBlur={() => {
-          // Delay closing so touch/click on results can fire first
           setTimeout(() => {
             if (!tappingRef.current) {
               setIsOpen(false);
             }
             tappingRef.current = false;
           }, 200);
-          // Scroll back to top after keyboard dismisses (iOS keyboard animation delay)
-          if (mode === "select") {
-            setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 300);
-          }
+          scrollToSectionAfterKeyboardDismiss(inputRef.current);
         }}
         className="min-h-14 text-lg"
         autoComplete="off"

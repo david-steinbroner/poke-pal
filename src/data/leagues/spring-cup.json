@@ -1,0 +1,27 @@
+{
+  "id": "spring-cup",
+  "name": "Spring Cup",
+  "cpCap": 1500,
+  "typeRestrictions": ["Fairy", "Grass", "Water"],
+  "season": "Memories in Motion",
+  "active": true,
+  "startDate": "2026-04-14",
+  "endDate": "2026-04-28",
+  "lastUpdated": "2026-04-15",
+  "meta": [
+    { "pokemonId": "empoleon-shadow", "tier": "S", "recommendedFast": "Metal Sound", "recommendedCharged": ["Hydro Cannon", "Drill Peck"], "elite": ["Hydro Cannon"] },
+    { "pokemonId": "tentacruel", "tier": "S", "recommendedFast": "Acid", "recommendedCharged": ["Scald", "Payback"] },
+    { "pokemonId": "tinkaton", "tier": "S", "recommendedFast": "Fairy Wind", "recommendedCharged": ["Gigaton Hammer", "Bulldoze"] },
+    { "pokemonId": "weezing-galarian-shadow", "tier": "S", "recommendedFast": "Fairy Wind", "recommendedCharged": ["Sludge", "Overheat"] },
+    { "pokemonId": "victreebel-shadow", "tier": "A", "recommendedFast": "Acid", "recommendedCharged": ["Leaf Blade", "Sludge Bomb"] },
+    { "pokemonId": "jellicent", "tier": "A", "recommendedFast": "Hex", "recommendedCharged": ["Surf", "Shadow Ball"] },
+    { "pokemonId": "klefki", "tier": "A", "recommendedFast": "Astonish", "recommendedCharged": ["Foul Play", "Play Rough"] },
+    { "pokemonId": "ferrothorn", "tier": "A", "recommendedFast": "Bullet Seed", "recommendedCharged": ["Power Whip", "Flash Cannon"] },
+    { "pokemonId": "araquanid", "tier": "A", "recommendedFast": "Bug Bite", "recommendedCharged": ["Bubble Beam", "Bug Buzz"] },
+    { "pokemonId": "lapras", "tier": "A", "recommendedFast": "Psywave", "recommendedCharged": ["Sparkling Aria", "Ice Beam"], "elite": ["Ice Beam"] },
+    { "pokemonId": "walrein", "tier": "A", "recommendedFast": "Powder Snow", "recommendedCharged": ["Icicle Spear", "Earthquake"], "elite": ["Powder Snow", "Icicle Spear"] },
+    { "pokemonId": "mantine", "tier": "B", "recommendedFast": "Wing Attack", "recommendedCharged": ["Aerial Ace", "Ice Beam"] },
+    { "pokemonId": "mawile", "tier": "B", "recommendedFast": "Astonish", "recommendedCharged": ["Vice Grip", "Iron Head"] },
+    { "pokemonId": "seaking", "tier": "B", "recommendedFast": "Peck", "recommendedCharged": ["Drill Run", "Icy Wind"], "elite": ["Drill Run", "Icy Wind"] }
+  ]
+}

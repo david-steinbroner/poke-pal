@@ -48,4 +48,5 @@ export type MetaPokemon = {
   tier: "S" | "A" | "B" | "C";
   recommendedFast: string;
   recommendedCharged: string[];
+  elite?: string[];
 };

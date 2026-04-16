@@ -19,7 +19,7 @@ type CuratedTeamsProps = {
   teamPokemonIds?: string[];
 };
 
-export function CuratedTeams({ teams, leagueId, onAddToTeam, teamPokemonIds = [] }: CuratedTeamsProps) {
+export function CuratedTeams({ teams, onAddToTeam, teamPokemonIds = [] }: CuratedTeamsProps) {
   if (teams.length === 0) return null;
 
   return (

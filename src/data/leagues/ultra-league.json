@@ -3,7 +3,7 @@
   "name": "Ultra League",
   "cpCap": 2500,
   "season": "Season 22",
-  "active": true,
+  "active": false,
   "startDate": "2026-04-22",
   "endDate": "2026-05-20",
   "lastUpdated": "2026-04-07",

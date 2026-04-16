@@ -1,4 +1,4 @@
-export const APP_VERSION = "1.7.1";
+export const APP_VERSION = "1.8.0";
 
 /** Cloudflare Pages Function endpoint for screenshot scanning */
 export const SCAN_API_URL = "/api/scan";

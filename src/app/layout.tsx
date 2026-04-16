@@ -50,7 +50,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} min-h-screen bg-background font-sans antialiased`}
       >
-        <main className="mx-auto max-w-lg px-4 pb-24">{children}</main>
+        <main className="mx-auto flex min-h-[100dvh] max-w-lg flex-col px-4 pb-20">{children}</main>
         <BottomNav />
         <ToastProvider />
       </body>

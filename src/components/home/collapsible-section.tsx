@@ -8,31 +8,57 @@ type CollapsibleSectionProps = {
   id: string;
   label: string;
   children: React.ReactNode;
+  forceOpen?: boolean;
 };
 
 export function CollapsibleSection({
   id,
   label,
   children,
+  forceOpen,
 }: CollapsibleSectionProps) {
   const [open, setOpen] = useState(true);
   const [mounted, setMounted] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const scrolledRef = useRef(false);
 
+  // Hydrate collapsed state from localStorage on mount (intentional SSR pattern)
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
-    const hash = window.location.hash.replace("#", "");
-    if (hash === id) {
-      // Linked directly — force open and scroll into view
+    const raw = window.location.hash.replace("#", "");
+    if (!raw || !/^[a-z0-9-]+$/.test(raw)) {
+      setOpen(forceOpen === true || !isCollapsed(`section:${id}`));
+      setMounted(true);
+      return;
+    }
+    if (raw === id) {
       setOpen(true);
       setCollapsed(`section:${id}`, false);
-      setTimeout(() => {
-        sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 100);
+      scrolledRef.current = false;
     } else {
       setOpen(!isCollapsed(`section:${id}`));
     }
     setMounted(true);
   }, [id]);
+  /* eslint-enable react-hooks/set-state-in-effect */
+
+  useEffect(() => {
+    if (!mounted || scrolledRef.current) return;
+    const raw = window.location.hash.replace("#", "");
+    if (raw !== id || !open) return;
+    scrolledRef.current = true;
+    requestAnimationFrame(() => {
+      const el = sectionRef.current;
+      if (!el) return;
+      const headerH = parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue("--fixed-header-h") || "72"
+      );
+      window.scrollTo({
+        top: el.offsetTop - headerH - 8,
+        behavior: "smooth",
+      });
+    });
+  }, [mounted, open, id]);
 
   function toggle() {
     const next = !open;
@@ -41,7 +67,7 @@ export function CollapsibleSection({
   }
 
   return (
-    <div ref={sectionRef} id={id} className="space-y-3">
+    <div ref={sectionRef} id={id} className="scroll-mt-[var(--fixed-header-h,72px)] space-y-3">
       <div
         style={{ top: "var(--fixed-header-h, 0px)" }}
         className="sticky z-30 -mx-4 relative"
@@ -57,8 +83,6 @@ export function CollapsibleSection({
             <ChevronRightIcon className="size-4 text-muted-foreground" />
           )}
         </button>
-        {/* Fade below the sticky row — mirrors the main FixedHeader gradient.
-            Absolutely positioned so it overlays content and doesn't add layout height. */}
         <div
           aria-hidden
           className="pointer-events-none absolute left-0 right-0 top-full h-6 bg-gradient-to-b from-background to-transparent"

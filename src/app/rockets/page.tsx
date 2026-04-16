@@ -11,7 +11,7 @@ import rocketData from "@/data/rocket-lineups.json";
 function parseKeyTypes(fallbackString: string): string[] {
   return fallbackString
     .split(",")
-    .map((s) => s.replace("@1", "").trim())
+    .map((s) => s.replace("@1", "").replace("@", "").trim())
     .filter(Boolean)
     .map((t) => t.charAt(0).toUpperCase() + t.slice(1));
 }
@@ -31,12 +31,12 @@ export default function RocketsPage() {
   const { grunts, leaders, giovanni, lastUpdated } = rocketData;
 
   return (
-    <div className="space-y-5 pb-8">
+    <div className="flex flex-1 flex-col space-y-3">
       <FixedHeader>
-        <h1 className="text-xl font-bold">Team Rocket</h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Counter teams for every Grunt, Leader, and Giovanni.
-        </p>
+        <div className="flex items-center gap-2">
+          <h1 className="text-xl font-bold">Team Rocket</h1>
+          <span aria-hidden className="invisible rounded-lg border px-2.5 py-1.5 text-sm">.</span>
+        </div>
       </FixedHeader>
 
       {/* Grunts — collapsed by default */}
@@ -110,9 +110,9 @@ export default function RocketsPage() {
       </CollapsibleSection>
 
       {/* Data freshness */}
-      <p className="text-center text-sm text-muted-foreground/50">
-        Lineups as of {new Date(lastUpdated).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
-      </p>
+      <footer className="mt-auto text-center text-xs text-muted-foreground/40">
+        <p>Updated {lastUpdated}</p>
+      </footer>
     </div>
   );
 }

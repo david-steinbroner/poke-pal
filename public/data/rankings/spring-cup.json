@@ -1,0 +1,4046 @@
+[
+  {
+    "speciesId": "empoleon_shadow",
+    "speciesName": "Empoleon (Shadow)",
+    "rank": 1,
+    "score": 95.2,
+    "moveset": [
+      "Metal Sound",
+      "Hydro Cannon",
+      "Drill Peck"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "tentacruel",
+    "speciesName": "Tentacruel",
+    "rank": 2,
+    "score": 95.2,
+    "moveset": [
+      "Acid",
+      "Scald",
+      "Payback"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "empoleon",
+    "speciesName": "Empoleon",
+    "rank": 3,
+    "score": 95.1,
+    "moveset": [
+      "Metal Sound",
+      "Hydro Cannon",
+      "Drill Peck"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "tinkaton",
+    "speciesName": "Tinkaton",
+    "rank": 4,
+    "score": 94.7,
+    "moveset": [
+      "Fairy Wind",
+      "Gigaton Hammer",
+      "Bulldoze"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "weezing_galarian_shadow",
+    "speciesName": "Weezing (Galarian) (Shadow)",
+    "rank": 5,
+    "score": 94,
+    "moveset": [
+      "Fairy Wind",
+      "Sludge",
+      "Overheat"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "victreebel_shadow",
+    "speciesName": "Victreebel (Shadow)",
+    "rank": 6,
+    "score": 93.7,
+    "moveset": [
+      "Acid",
+      "Leaf Blade",
+      "Sludge Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "jellicent",
+    "speciesName": "Jellicent",
+    "rank": 7,
+    "score": 92.9,
+    "moveset": [
+      "Hex",
+      "Surf",
+      "Shadow Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "klefki",
+    "speciesName": "Klefki",
+    "rank": 8,
+    "score": 92.9,
+    "moveset": [
+      "Astonish",
+      "Foul Play",
+      "Play Rough"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "ferrothorn",
+    "speciesName": "Ferrothorn",
+    "rank": 9,
+    "score": 92.8,
+    "moveset": [
+      "Bullet Seed",
+      "Power Whip",
+      "Flash Cannon"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tentacruel_shadow",
+    "speciesName": "Tentacruel (Shadow)",
+    "rank": 10,
+    "score": 92.6,
+    "moveset": [
+      "Acid",
+      "Scald",
+      "Payback"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "araquanid",
+    "speciesName": "Araquanid",
+    "rank": 11,
+    "score": 91.4,
+    "moveset": [
+      "Bug Bite",
+      "Bubble Beam",
+      "Bug Buzz"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "lapras",
+    "speciesName": "Lapras",
+    "rank": 12,
+    "score": 91.2,
+    "moveset": [
+      "Psywave",
+      "Sparkling Aria",
+      "Ice Beam"
+    ],
+    "elite": [
+      "Ice Beam"
+    ]
+  },
+  {
+    "speciesId": "walrein",
+    "speciesName": "Walrein",
+    "rank": 13,
+    "score": 91.1,
+    "moveset": [
+      "Powder Snow",
+      "Icicle Spear",
+      "Earthquake"
+    ],
+    "elite": [
+      "Powder Snow",
+      "Icicle Spear"
+    ]
+  },
+  {
+    "speciesId": "weezing_galarian",
+    "speciesName": "Weezing (Galarian)",
+    "rank": 14,
+    "score": 90.9,
+    "moveset": [
+      "Fairy Wind",
+      "Sludge",
+      "Overheat"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "mantine",
+    "speciesName": "Mantine",
+    "rank": 15,
+    "score": 90.6,
+    "moveset": [
+      "Wing Attack",
+      "Aerial Ace",
+      "Ice Beam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "mawile",
+    "speciesName": "Mawile",
+    "rank": 16,
+    "score": 90.2,
+    "moveset": [
+      "Astonish",
+      "Vice Grip",
+      "Iron Head"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "victreebel",
+    "speciesName": "Victreebel",
+    "rank": 17,
+    "score": 89.9,
+    "moveset": [
+      "Acid",
+      "Leaf Blade",
+      "Sludge Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "seaking",
+    "speciesName": "Seaking",
+    "rank": 18,
+    "score": 89.8,
+    "moveset": [
+      "Peck",
+      "Drill Run",
+      "Icy Wind"
+    ],
+    "elite": [
+      "Drill Run",
+      "Icy Wind"
+    ]
+  },
+  {
+    "speciesId": "dartrix",
+    "speciesName": "Dartrix",
+    "rank": 19,
+    "score": 89.6,
+    "moveset": [
+      "Peck",
+      "Brave Bird",
+      "Seed Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "togekiss",
+    "speciesName": "Togekiss",
+    "rank": 20,
+    "score": 89.6,
+    "moveset": [
+      "Peck",
+      "Psyshock",
+      "Aura Sphere"
+    ],
+    "elite": [
+      "Aura Sphere"
+    ]
+  },
+  {
+    "speciesId": "mawile_shadow",
+    "speciesName": "Mawile (Shadow)",
+    "rank": 21,
+    "score": 89.3,
+    "moveset": [
+      "Astonish",
+      "Iron Head",
+      "Vice Grip"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "venusaur",
+    "speciesName": "Venusaur",
+    "rank": 22,
+    "score": 89.3,
+    "moveset": [
+      "Vine Whip",
+      "Frenzy Plant",
+      "Sludge"
+    ],
+    "elite": [
+      "Frenzy Plant"
+    ]
+  },
+  {
+    "speciesId": "cradily",
+    "speciesName": "Cradily",
+    "rank": 23,
+    "score": 89.2,
+    "moveset": [
+      "Acid",
+      "Rock Tomb",
+      "Grass Knot"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "amoonguss",
+    "speciesName": "Amoonguss",
+    "rank": 24,
+    "score": 89,
+    "moveset": [
+      "Astonish",
+      "Grass Knot",
+      "Foul Play"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "ferrothorn_shadow",
+    "speciesName": "Ferrothorn (Shadow)",
+    "rank": 25,
+    "score": 88.8,
+    "moveset": [
+      "Bullet Seed",
+      "Power Whip",
+      "Flash Cannon"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "trevenant_shadow",
+    "speciesName": "Trevenant (Shadow)",
+    "rank": 26,
+    "score": 88.8,
+    "moveset": [
+      "Shadow Claw",
+      "Shadow Ball",
+      "Seed Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gourgeist_large",
+    "speciesName": "Gourgeist (Large)",
+    "rank": 27,
+    "score": 88.7,
+    "moveset": [
+      "Incinerate",
+      "Shadow Ball",
+      "Seed Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "kartana",
+    "speciesName": "Kartana",
+    "rank": 28,
+    "score": 88.4,
+    "moveset": [
+      "Fury Cutter",
+      "Leaf Blade",
+      "Sacred Sword"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "amoonguss_shadow",
+    "speciesName": "Amoonguss (Shadow)",
+    "rank": 29,
+    "score": 87.8,
+    "moveset": [
+      "Astonish",
+      "Grass Knot",
+      "Foul Play"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gourgeist_average",
+    "speciesName": "Gourgeist (Average)",
+    "rank": 30,
+    "score": 87.7,
+    "moveset": [
+      "Incinerate",
+      "Shadow Ball",
+      "Seed Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "pelipper",
+    "speciesName": "Pelipper",
+    "rank": 31,
+    "score": 87.7,
+    "moveset": [
+      "Wing Attack",
+      "Weather Ball Water",
+      "Hurricane"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "kingdra",
+    "speciesName": "Kingdra",
+    "rank": 32,
+    "score": 87.5,
+    "moveset": [
+      "Dragon Breath",
+      "Swift",
+      "Outrage"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "trevenant",
+    "speciesName": "Trevenant",
+    "rank": 33,
+    "score": 87.5,
+    "moveset": [
+      "Shadow Claw",
+      "Seed Bomb",
+      "Shadow Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gourgeist_super",
+    "speciesName": "Gourgeist (Super)",
+    "rank": 34,
+    "score": 87.4,
+    "moveset": [
+      "Incinerate",
+      "Shadow Ball",
+      "Seed Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "venusaur_shadow",
+    "speciesName": "Venusaur (Shadow)",
+    "rank": 35,
+    "score": 87.4,
+    "moveset": [
+      "Vine Whip",
+      "Frenzy Plant",
+      "Sludge"
+    ],
+    "elite": [
+      "Frenzy Plant"
+    ]
+  },
+  {
+    "speciesId": "lapras_shadow",
+    "speciesName": "Lapras (Shadow)",
+    "rank": 36,
+    "score": 87.2,
+    "moveset": [
+      "Psywave",
+      "Sparkling Aria",
+      "Ice Beam"
+    ],
+    "elite": [
+      "Ice Beam"
+    ]
+  },
+  {
+    "speciesId": "walrein_shadow",
+    "speciesName": "Walrein (Shadow)",
+    "rank": 37,
+    "score": 87.2,
+    "moveset": [
+      "Powder Snow",
+      "Icicle Spear",
+      "Earthquake"
+    ],
+    "elite": [
+      "Powder Snow",
+      "Icicle Spear"
+    ]
+  },
+  {
+    "speciesId": "tinkatuff",
+    "speciesName": "Tinkatuff",
+    "rank": 38,
+    "score": 86.6,
+    "moveset": [
+      "Fairy Wind",
+      "Play Rough",
+      "Flash Cannon"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "dewgong",
+    "speciesName": "Dewgong",
+    "rank": 39,
+    "score": 86.4,
+    "moveset": [
+      "Ice Shard",
+      "Icy Wind",
+      "Drill Run"
+    ],
+    "elite": [
+      "Ice Shard",
+      "Icy Wind"
+    ]
+  },
+  {
+    "speciesId": "golisopod",
+    "speciesName": "Golisopod",
+    "rank": 40,
+    "score": 86.3,
+    "moveset": [
+      "Fury Cutter",
+      "X Scissor",
+      "Aqua Jet"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "abomasnow_shadow",
+    "speciesName": "Abomasnow (Shadow)",
+    "rank": 41,
+    "score": 86.2,
+    "moveset": [
+      "Powder Snow",
+      "Weather Ball Ice",
+      "Energy Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gourgeist_small",
+    "speciesName": "Gourgeist (Small)",
+    "rank": 42,
+    "score": 86,
+    "moveset": [
+      "Incinerate",
+      "Shadow Ball",
+      "Seed Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "kingdra_shadow",
+    "speciesName": "Kingdra (Shadow)",
+    "rank": 43,
+    "score": 85.9,
+    "moveset": [
+      "Dragon Breath",
+      "Swift",
+      "Outrage"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "cradily_shadow",
+    "speciesName": "Cradily (Shadow)",
+    "rank": 44,
+    "score": 85.7,
+    "moveset": [
+      "Acid",
+      "Rock Tomb",
+      "Grass Knot"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "abomasnow",
+    "speciesName": "Abomasnow",
+    "rank": 45,
+    "score": 85.3,
+    "moveset": [
+      "Powder Snow",
+      "Weather Ball Ice",
+      "Energy Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "electrode_hisuian",
+    "speciesName": "Electrode (Hisuian)",
+    "rank": 46,
+    "score": 85,
+    "moveset": [
+      "Thunder Shock",
+      "Wild Charge",
+      "Swift"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "togetic",
+    "speciesName": "Togetic",
+    "rank": 47,
+    "score": 84.9,
+    "moveset": [
+      "Fairy Wind",
+      "Psyshock",
+      "Heat Wave"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "slowbro",
+    "speciesName": "Slowbro",
+    "rank": 48,
+    "score": 84.6,
+    "moveset": [
+      "Confusion",
+      "Drain Punch",
+      "Ice Beam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "sealeo",
+    "speciesName": "Sealeo",
+    "rank": 49,
+    "score": 84.3,
+    "moveset": [
+      "Powder Snow",
+      "Surf",
+      "Body Slam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "ludicolo",
+    "speciesName": "Ludicolo",
+    "rank": 50,
+    "score": 84.2,
+    "moveset": [
+      "Astonish",
+      "Weather Ball Water",
+      "Leaf Storm"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "qwilfish",
+    "speciesName": "Qwilfish",
+    "rank": 51,
+    "score": 84,
+    "moveset": [
+      "Poison Sting",
+      "Aqua Tail",
+      "Ice Beam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "carbink",
+    "speciesName": "Carbink",
+    "rank": 52,
+    "score": 83.8,
+    "moveset": [
+      "Rock Throw",
+      "Rock Slide",
+      "Moonblast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "ninetales_alolan",
+    "speciesName": "Ninetales (Alolan)",
+    "rank": 53,
+    "score": 83.8,
+    "moveset": [
+      "Powder Snow",
+      "Weather Ball Ice",
+      "Dazzling Gleam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "weepinbell_shadow",
+    "speciesName": "Weepinbell (Shadow)",
+    "rank": 54,
+    "score": 83.2,
+    "moveset": [
+      "Acid",
+      "Power Whip",
+      "Seed Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "sealeo_shadow",
+    "speciesName": "Sealeo (Shadow)",
+    "rank": 55,
+    "score": 83,
+    "moveset": [
+      "Powder Snow",
+      "Surf",
+      "Body Slam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "ninetales_alolan_shadow",
+    "speciesName": "Ninetales (Alolan) (Shadow)",
+    "rank": 56,
+    "score": 82.7,
+    "moveset": [
+      "Powder Snow",
+      "Weather Ball Ice",
+      "Dazzling Gleam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "bellossom",
+    "speciesName": "Bellossom",
+    "rank": 57,
+    "score": 82.6,
+    "moveset": [
+      "Acid",
+      "Leaf Blade",
+      "Dazzling Gleam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "clefable",
+    "speciesName": "Clefable",
+    "rank": 58,
+    "score": 82.4,
+    "moveset": [
+      "Fairy Wind",
+      "Moonblast",
+      "Meteor Mash"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "samurott_shadow",
+    "speciesName": "Samurott (Shadow)",
+    "rank": 59,
+    "score": 82.4,
+    "moveset": [
+      "Fury Cutter",
+      "Hydro Cannon",
+      "Megahorn"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "bellossom_shadow",
+    "speciesName": "Bellossom (Shadow)",
+    "rank": 60,
+    "score": 82.3,
+    "moveset": [
+      "Acid",
+      "Leaf Blade",
+      "Dazzling Gleam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "dewott_shadow",
+    "speciesName": "Dewott (Shadow)",
+    "rank": 61,
+    "score": 81.9,
+    "moveset": [
+      "Fury Cutter",
+      "Aqua Tail",
+      "X Scissor"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "qwilfish_shadow",
+    "speciesName": "Qwilfish (Shadow)",
+    "rank": 62,
+    "score": 81.9,
+    "moveset": [
+      "Poison Sting",
+      "Aqua Tail",
+      "Ice Beam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "serperior",
+    "speciesName": "Serperior",
+    "rank": 63,
+    "score": 81.8,
+    "moveset": [
+      "Vine Whip",
+      "Frenzy Plant",
+      "Aerial Ace"
+    ],
+    "elite": [
+      "Frenzy Plant"
+    ]
+  },
+  {
+    "speciesId": "tropius",
+    "speciesName": "Tropius",
+    "rank": 64,
+    "score": 81.8,
+    "moveset": [
+      "Air Slash",
+      "Leaf Blade",
+      "Aerial Ace"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "pumpkaboo_super",
+    "speciesName": "Pumpkaboo (Super)",
+    "rank": 65,
+    "score": 81.7,
+    "moveset": [
+      "Astonish",
+      "Grass Knot",
+      "Foul Play"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "samurott_hisuian",
+    "speciesName": "Samurott (Hisuian)",
+    "rank": 66,
+    "score": 81.7,
+    "moveset": [
+      "Fury Cutter",
+      "Sacred Sword",
+      "Icy Wind"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "slowbro_shadow",
+    "speciesName": "Slowbro (Shadow)",
+    "rank": 67,
+    "score": 81.7,
+    "moveset": [
+      "Confusion",
+      "Drain Punch",
+      "Ice Beam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "leavanny",
+    "speciesName": "Leavanny",
+    "rank": 68,
+    "score": 81.6,
+    "moveset": [
+      "Shadow Claw",
+      "Leaf Blade",
+      "X Scissor"
+    ],
+    "elite": [
+      "Shadow Claw"
+    ]
+  },
+  {
+    "speciesId": "morgrem",
+    "speciesName": "Morgrem",
+    "rank": 69,
+    "score": 81.6,
+    "moveset": [
+      "Sucker Punch",
+      "Foul Play",
+      "Play Rough"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "samurott",
+    "speciesName": "Samurott",
+    "rank": 70,
+    "score": 81.6,
+    "moveset": [
+      "Fury Cutter",
+      "Hydro Cannon",
+      "Megahorn"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "feraligatr",
+    "speciesName": "Feraligatr",
+    "rank": 71,
+    "score": 81.4,
+    "moveset": [
+      "Shadow Claw",
+      "Hydro Cannon",
+      "Ice Beam"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "feraligatr_shadow",
+    "speciesName": "Feraligatr (Shadow)",
+    "rank": 72,
+    "score": 81.3,
+    "moveset": [
+      "Shadow Claw",
+      "Hydro Cannon",
+      "Ice Beam"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "volcanion",
+    "speciesName": "Volcanion",
+    "rank": 73,
+    "score": 81.2,
+    "moveset": [
+      "Incinerate",
+      "Scald",
+      "Overheat"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gyarados",
+    "speciesName": "Gyarados",
+    "rank": 74,
+    "score": 80.9,
+    "moveset": [
+      "Dragon Breath",
+      "Aqua Tail",
+      "Crunch"
+    ],
+    "elite": [
+      "Aqua Tail"
+    ]
+  },
+  {
+    "speciesId": "dhelmise",
+    "speciesName": "Dhelmise",
+    "rank": 75,
+    "score": 80.7,
+    "moveset": [
+      "Shadow Claw",
+      "Power Whip",
+      "Brutal Swing"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gyarados_shadow",
+    "speciesName": "Gyarados (Shadow)",
+    "rank": 76,
+    "score": 80.5,
+    "moveset": [
+      "Dragon Breath",
+      "Aqua Tail",
+      "Crunch"
+    ],
+    "elite": [
+      "Aqua Tail"
+    ]
+  },
+  {
+    "speciesId": "wigglytuff",
+    "speciesName": "Wigglytuff",
+    "rank": 77,
+    "score": 80.5,
+    "moveset": [
+      "Charm",
+      "Icy Wind",
+      "Swift"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "bruxish",
+    "speciesName": "Bruxish",
+    "rank": 78,
+    "score": 80.3,
+    "moveset": [
+      "Confusion",
+      "Aqua Tail",
+      "Psychic Fangs"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "weepinbell",
+    "speciesName": "Weepinbell",
+    "rank": 79,
+    "score": 80.3,
+    "moveset": [
+      "Acid",
+      "Power Whip",
+      "Seed Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "starmie",
+    "speciesName": "Starmie",
+    "rank": 80,
+    "score": 80.2,
+    "moveset": [
+      "Psywave",
+      "Surf",
+      "Power Gem"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "pumpkaboo_large",
+    "speciesName": "Pumpkaboo (Large)",
+    "rank": 81,
+    "score": 80.1,
+    "moveset": [
+      "Astonish",
+      "Grass Knot",
+      "Foul Play"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "decidueye_hisuian",
+    "speciesName": "Decidueye (Hisuian)",
+    "rank": 82,
+    "score": 80,
+    "moveset": [
+      "Psycho Cut",
+      "Trailblaze",
+      "Aura Sphere"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "lileep",
+    "speciesName": "Lileep",
+    "rank": 83,
+    "score": 79.9,
+    "moveset": [
+      "Acid",
+      "Grass Knot",
+      "Ancient Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "sceptile_shadow",
+    "speciesName": "Sceptile (Shadow)",
+    "rank": 84,
+    "score": 79.9,
+    "moveset": [
+      "Fury Cutter",
+      "Leaf Blade",
+      "Breaking Swipe"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "barbaracle",
+    "speciesName": "Barbaracle",
+    "rank": 85,
+    "score": 79.6,
+    "moveset": [
+      "Fury Cutter",
+      "Cross Chop",
+      "Stone Edge"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "dewott",
+    "speciesName": "Dewott",
+    "rank": 86,
+    "score": 79.6,
+    "moveset": [
+      "Fury Cutter",
+      "Aqua Tail",
+      "X Scissor"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "lileep_shadow",
+    "speciesName": "Lileep (Shadow)",
+    "rank": 87,
+    "score": 79.6,
+    "moveset": [
+      "Acid",
+      "Grass Knot",
+      "Ancient Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "lurantis",
+    "speciesName": "Lurantis",
+    "rank": 88,
+    "score": 79.2,
+    "moveset": [
+      "Leafage",
+      "Leaf Blade",
+      "Super Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "celebi",
+    "speciesName": "Celebi",
+    "rank": 89,
+    "score": 79,
+    "moveset": [
+      "Confusion",
+      "Aura Sphere",
+      "Leaf Storm"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "meganium",
+    "speciesName": "Meganium",
+    "rank": 90,
+    "score": 79,
+    "moveset": [
+      "Vine Whip",
+      "Frenzy Plant",
+      "Earthquake"
+    ],
+    "elite": [
+      "Frenzy Plant"
+    ]
+  },
+  {
+    "speciesId": "starmie_shadow",
+    "speciesName": "Starmie (Shadow)",
+    "rank": 91,
+    "score": 78.5,
+    "moveset": [
+      "Psywave",
+      "Surf",
+      "Power Gem"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gogoat",
+    "speciesName": "Gogoat",
+    "rank": 92,
+    "score": 78.4,
+    "moveset": [
+      "Vine Whip",
+      "Leaf Blade",
+      "Rock Slide"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "dedenne",
+    "speciesName": "Dedenne",
+    "rank": 93,
+    "score": 78.3,
+    "moveset": [
+      "Thunder Shock",
+      "Discharge",
+      "Play Rough"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "lanturn",
+    "speciesName": "Lanturn",
+    "rank": 94,
+    "score": 78.2,
+    "moveset": [
+      "Spark",
+      "Surf",
+      "Thunderbolt"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "grimmsnarl",
+    "speciesName": "Grimmsnarl",
+    "rank": 95,
+    "score": 77.9,
+    "moveset": [
+      "Sucker Punch",
+      "Foul Play",
+      "Play Rough"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "frillish",
+    "speciesName": "Frillish",
+    "rank": 96,
+    "score": 77.8,
+    "moveset": [
+      "Hex",
+      "Night Shade",
+      "Ice Beam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "pumpkaboo_average",
+    "speciesName": "Pumpkaboo (Average)",
+    "rank": 97,
+    "score": 77.7,
+    "moveset": [
+      "Astonish",
+      "Grass Knot",
+      "Foul Play"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "pumpkaboo_small",
+    "speciesName": "Pumpkaboo (Small)",
+    "rank": 98,
+    "score": 77.2,
+    "moveset": [
+      "Astonish",
+      "Grass Knot",
+      "Foul Play"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "blastoise",
+    "speciesName": "Blastoise",
+    "rank": 99,
+    "score": 77,
+    "moveset": [
+      "Rollout",
+      "Hydro Cannon",
+      "Skull Bash"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "poliwrath",
+    "speciesName": "Poliwrath",
+    "rank": 100,
+    "score": 77,
+    "moveset": [
+      "Mud Shot",
+      "Dynamic Punch",
+      "Icy Wind"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "poliwrath_shadow",
+    "speciesName": "Poliwrath (Shadow)",
+    "rank": 101,
+    "score": 77,
+    "moveset": [
+      "Mud Shot",
+      "Dynamic Punch",
+      "Icy Wind"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "sceptile",
+    "speciesName": "Sceptile",
+    "rank": 102,
+    "score": 76.7,
+    "moveset": [
+      "Fury Cutter",
+      "Leaf Blade",
+      "Breaking Swipe"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "toedscruel",
+    "speciesName": "Toedscruel",
+    "rank": 103,
+    "score": 76.6,
+    "moveset": [
+      "Mud Slap",
+      "Seed Bomb",
+      "Wrap"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "oddish",
+    "speciesName": "Oddish",
+    "rank": 104,
+    "score": 76.4,
+    "moveset": [
+      "Acid",
+      "Seed Bomb",
+      "Sludge Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "oddish_shadow",
+    "speciesName": "Oddish (Shadow)",
+    "rank": 105,
+    "score": 76.3,
+    "moveset": [
+      "Acid",
+      "Seed Bomb",
+      "Sludge Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "ivysaur",
+    "speciesName": "Ivysaur",
+    "rank": 106,
+    "score": 76,
+    "moveset": [
+      "Vine Whip",
+      "Power Whip",
+      "Sludge Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "meowscarada",
+    "speciesName": "Meowscarada",
+    "rank": 107,
+    "score": 76,
+    "moveset": [
+      "Leafage",
+      "Frenzy Plant",
+      "Night Slash"
+    ],
+    "elite": [
+      "Frenzy Plant"
+    ]
+  },
+  {
+    "speciesId": "slowpoke_shadow",
+    "speciesName": "Slowpoke (Shadow)",
+    "rank": 108,
+    "score": 76,
+    "moveset": [
+      "Confusion",
+      "Psyshock",
+      "Water Pulse"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "blastoise_shadow",
+    "speciesName": "Blastoise (Shadow)",
+    "rank": 109,
+    "score": 75.7,
+    "moveset": [
+      "Rollout",
+      "Hydro Cannon",
+      "Skull Bash"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "aromatisse",
+    "speciesName": "Aromatisse",
+    "rank": 110,
+    "score": 75.6,
+    "moveset": [
+      "Charm",
+      "Psyshock",
+      "Moonblast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "politoed_shadow",
+    "speciesName": "Politoed (Shadow)",
+    "rank": 111,
+    "score": 75.5,
+    "moveset": [
+      "Mud Shot",
+      "Weather Ball Water",
+      "Ice Beam"
+    ],
+    "elite": [
+      "Ice Beam"
+    ]
+  },
+  {
+    "speciesId": "rapidash_galarian",
+    "speciesName": "Rapidash (Galarian)",
+    "rank": 112,
+    "score": 75.5,
+    "moveset": [
+      "Fairy Wind",
+      "Body Slam",
+      "Wild Charge"
+    ],
+    "elite": [
+      "Wild Charge"
+    ]
+  },
+  {
+    "speciesId": "parasect",
+    "speciesName": "Parasect",
+    "rank": 113,
+    "score": 75.4,
+    "moveset": [
+      "Fury Cutter",
+      "X Scissor",
+      "Cross Poison"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "meganium_shadow",
+    "speciesName": "Meganium (Shadow)",
+    "rank": 114,
+    "score": 75.3,
+    "moveset": [
+      "Vine Whip",
+      "Frenzy Plant",
+      "Earthquake"
+    ],
+    "elite": [
+      "Frenzy Plant"
+    ]
+  },
+  {
+    "speciesId": "servine_shadow",
+    "speciesName": "Servine (Shadow)",
+    "rank": 115,
+    "score": 75.3,
+    "moveset": [
+      "Vine Whip",
+      "Grass Knot",
+      "Wrap"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "shiftry_shadow",
+    "speciesName": "Shiftry (Shadow)",
+    "rank": 116,
+    "score": 75.3,
+    "moveset": [
+      "Snarl",
+      "Leaf Blade",
+      "Foul Play"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "cacturne",
+    "speciesName": "Cacturne",
+    "rank": 117,
+    "score": 74.9,
+    "moveset": [
+      "Sucker Punch",
+      "Trailblaze",
+      "Dynamic Punch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "vileplume",
+    "speciesName": "Vileplume",
+    "rank": 118,
+    "score": 74.9,
+    "moveset": [
+      "Acid",
+      "Sludge Bomb",
+      "Petal Blizzard"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "cacturne_shadow",
+    "speciesName": "Cacturne (Shadow)",
+    "rank": 119,
+    "score": 74.7,
+    "moveset": [
+      "Sucker Punch",
+      "Trailblaze",
+      "Dynamic Punch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "chesnaught",
+    "speciesName": "Chesnaught",
+    "rank": 120,
+    "score": 74.7,
+    "moveset": [
+      "Low Kick",
+      "Frenzy Plant",
+      "Super Power"
+    ],
+    "elite": [
+      "Frenzy Plant"
+    ]
+  },
+  {
+    "speciesId": "decidueye",
+    "speciesName": "Decidueye",
+    "rank": 121,
+    "score": 74.7,
+    "moveset": [
+      "Leafage",
+      "Frenzy Plant",
+      "Spirit Shackle"
+    ],
+    "elite": [
+      "Frenzy Plant"
+    ]
+  },
+  {
+    "speciesId": "servine",
+    "speciesName": "Servine",
+    "rank": 122,
+    "score": 74.6,
+    "moveset": [
+      "Vine Whip",
+      "Grass Knot",
+      "Wrap"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "mr_mime",
+    "speciesName": "Mr. Mime",
+    "rank": 123,
+    "score": 74.4,
+    "moveset": [
+      "Psywave",
+      "Shadow Ball",
+      "Psychic"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "slowpoke",
+    "speciesName": "Slowpoke",
+    "rank": 124,
+    "score": 74.2,
+    "moveset": [
+      "Confusion",
+      "Psyshock",
+      "Water Pulse"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "golduck_shadow",
+    "speciesName": "Golduck (Shadow)",
+    "rank": 125,
+    "score": 74,
+    "moveset": [
+      "Confusion",
+      "Cross Chop",
+      "Liquidation"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "greninja_shadow",
+    "speciesName": "Greninja (Shadow)",
+    "rank": 126,
+    "score": 74,
+    "moveset": [
+      "Water Shuriken",
+      "Hydro Cannon",
+      "Night Slash"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "hatterene",
+    "speciesName": "Hatterene",
+    "rank": 127,
+    "score": 74,
+    "moveset": [
+      "Psycho Cut",
+      "Psyshock",
+      "Power Whip"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "quagsire_shadow",
+    "speciesName": "Quagsire (Shadow)",
+    "rank": 128,
+    "score": 74,
+    "moveset": [
+      "Mud Shot",
+      "Aqua Tail",
+      "Stone Edge"
+    ],
+    "elite": [
+      "Aqua Tail"
+    ]
+  },
+  {
+    "speciesId": "appletun",
+    "speciesName": "Appletun",
+    "rank": 129,
+    "score": 73.9,
+    "moveset": [
+      "Astonish",
+      "Seed Bomb",
+      "Outrage"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gloom",
+    "speciesName": "Gloom",
+    "rank": 130,
+    "score": 73.5,
+    "moveset": [
+      "Acid",
+      "Sludge Bomb",
+      "Moonblast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "quaquaval",
+    "speciesName": "Quaquaval",
+    "rank": 131,
+    "score": 73.5,
+    "moveset": [
+      "Wing Attack",
+      "Close Combat",
+      "Hydro Cannon"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "swadloon",
+    "speciesName": "Swadloon",
+    "rank": 132,
+    "score": 73.5,
+    "moveset": [
+      "Bug Bite",
+      "Energy Ball",
+      "Silver Wind"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "swanna",
+    "speciesName": "Swanna",
+    "rank": 133,
+    "score": 73.5,
+    "moveset": [
+      "Air Slash",
+      "Fly",
+      "Ice Beam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "ivysaur_shadow",
+    "speciesName": "Ivysaur (Shadow)",
+    "rank": 134,
+    "score": 73.4,
+    "moveset": [
+      "Vine Whip",
+      "Power Whip",
+      "Sludge Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "azumarill",
+    "speciesName": "Azumarill",
+    "rank": 135,
+    "score": 73.3,
+    "moveset": [
+      "Bubble",
+      "Ice Beam",
+      "Play Rough"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gloom_shadow",
+    "speciesName": "Gloom (Shadow)",
+    "rank": 136,
+    "score": 73.3,
+    "moveset": [
+      "Acid",
+      "Sludge Bomb",
+      "Moonblast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "politoed",
+    "speciesName": "Politoed",
+    "rank": 137,
+    "score": 73.2,
+    "moveset": [
+      "Mud Shot",
+      "Weather Ball Water",
+      "Ice Beam"
+    ],
+    "elite": [
+      "Ice Beam"
+    ]
+  },
+  {
+    "speciesId": "dachsbun",
+    "speciesName": "Dachsbun",
+    "rank": 138,
+    "score": 72.7,
+    "moveset": [
+      "Charm",
+      "Psychic Fangs",
+      "Play Rough"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "grovyle",
+    "speciesName": "Grovyle",
+    "rank": 139,
+    "score": 72.7,
+    "moveset": [
+      "Quick Attack",
+      "Leaf Blade",
+      "Aerial Ace"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "quaxwell",
+    "speciesName": "Quaxwell",
+    "rank": 140,
+    "score": 72.7,
+    "moveset": [
+      "Wing Attack",
+      "Aqua Jet",
+      "Aerial Ace"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "wailmer_shadow",
+    "speciesName": "Wailmer (Shadow)",
+    "rank": 141,
+    "score": 72.7,
+    "moveset": [
+      "Rollout",
+      "Scald",
+      "Body Slam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "dipplin",
+    "speciesName": "Dipplin",
+    "rank": 142,
+    "score": 72.6,
+    "moveset": [
+      "Dragon Tail",
+      "Seed Bomb",
+      "Outrage"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "florges",
+    "speciesName": "Florges",
+    "rank": 143,
+    "score": 72.6,
+    "moveset": [
+      "Fairy Wind",
+      "Chilling Water",
+      "Disarming Voice"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "golduck",
+    "speciesName": "Golduck",
+    "rank": 144,
+    "score": 72.5,
+    "moveset": [
+      "Confusion",
+      "Cross Chop",
+      "Liquidation"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "quilladin_shadow",
+    "speciesName": "Quilladin (Shadow)",
+    "rank": 145,
+    "score": 72.5,
+    "moveset": [
+      "Vine Whip",
+      "Body Slam",
+      "Energy Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "palkia_shadow",
+    "speciesName": "Palkia (Shadow)",
+    "rank": 146,
+    "score": 72.3,
+    "moveset": [
+      "Dragon Breath",
+      "Aqua Tail",
+      "Draco Meteor"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "cherrim_sunny",
+    "speciesName": "Cherrim (Sunshine)",
+    "rank": 147,
+    "score": 72.2,
+    "moveset": [
+      "Bullet Seed",
+      "Weather Ball Fire",
+      "Solar Beam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "shiinotic",
+    "speciesName": "Shiinotic",
+    "rank": 148,
+    "score": 72.1,
+    "moveset": [
+      "Astonish",
+      "Seed Bomb",
+      "Moonblast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "sylveon",
+    "speciesName": "Sylveon",
+    "rank": 149,
+    "score": 72.1,
+    "moveset": [
+      "Charm",
+      "Psyshock",
+      "Moonblast"
+    ],
+    "elite": [
+      "Psyshock"
+    ]
+  },
+  {
+    "speciesId": "chesnaught_shadow",
+    "speciesName": "Chesnaught (Shadow)",
+    "rank": 150,
+    "score": 72,
+    "moveset": [
+      "Vine Whip",
+      "Frenzy Plant",
+      "Super Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "exeggutor_shadow",
+    "speciesName": "Exeggutor (Shadow)",
+    "rank": 151,
+    "score": 71.9,
+    "moveset": [
+      "Confusion",
+      "Seed Bomb",
+      "Psychic"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "torterra",
+    "speciesName": "Torterra",
+    "rank": 152,
+    "score": 71.8,
+    "moveset": [
+      "Mud Slap",
+      "Frenzy Plant",
+      "Sand Tomb"
+    ],
+    "elite": [
+      "Frenzy Plant"
+    ]
+  },
+  {
+    "speciesId": "shiftry",
+    "speciesName": "Shiftry",
+    "rank": 153,
+    "score": 71.7,
+    "moveset": [
+      "Snarl",
+      "Leaf Blade",
+      "Foul Play"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "serperior_shadow",
+    "speciesName": "Serperior (Shadow)",
+    "rank": 154,
+    "score": 71.6,
+    "moveset": [
+      "Vine Whip",
+      "Frenzy Plant",
+      "Leaf Tornado"
+    ],
+    "elite": [
+      "Frenzy Plant"
+    ]
+  },
+  {
+    "speciesId": "flapple",
+    "speciesName": "Flapple",
+    "rank": 155,
+    "score": 71.5,
+    "moveset": [
+      "Dragon Breath",
+      "Seed Bomb",
+      "Dragon Pulse"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "greninja",
+    "speciesName": "Greninja",
+    "rank": 156,
+    "score": 71.4,
+    "moveset": [
+      "Water Shuriken",
+      "Hydro Cannon",
+      "Night Slash"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "quilladin",
+    "speciesName": "Quilladin",
+    "rank": 157,
+    "score": 71.1,
+    "moveset": [
+      "Vine Whip",
+      "Body Slam",
+      "Energy Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "castform_rainy",
+    "speciesName": "Castform (Rainy)",
+    "rank": 158,
+    "score": 71,
+    "moveset": [
+      "Water Gun",
+      "Weather Ball Water",
+      "Thunder"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "dondozo",
+    "speciesName": "Dondozo",
+    "rank": 159,
+    "score": 70.8,
+    "moveset": [
+      "Waterfall",
+      "Surf",
+      "Outrage"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gastrodon",
+    "speciesName": "Gastrodon",
+    "rank": 160,
+    "score": 70.6,
+    "moveset": [
+      "Mud Slap",
+      "Body Slam",
+      "Water Pulse"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "quagsire",
+    "speciesName": "Quagsire",
+    "rank": 161,
+    "score": 70.6,
+    "moveset": [
+      "Mud Shot",
+      "Aqua Tail",
+      "Stone Edge"
+    ],
+    "elite": [
+      "Aqua Tail"
+    ]
+  },
+  {
+    "speciesId": "tangrowth",
+    "speciesName": "Tangrowth",
+    "rank": 162,
+    "score": 70.6,
+    "moveset": [
+      "Vine Whip",
+      "Power Whip",
+      "Rock Slide"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "bibarel_shadow",
+    "speciesName": "Bibarel (Shadow)",
+    "rank": 163,
+    "score": 70.5,
+    "moveset": [
+      "Rollout",
+      "Surf",
+      "Hyper Fang"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "grovyle_shadow",
+    "speciesName": "Grovyle (Shadow)",
+    "rank": 164,
+    "score": 70.4,
+    "moveset": [
+      "Bullet Seed",
+      "Leaf Blade",
+      "Aerial Ace"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "vileplume_shadow",
+    "speciesName": "Vileplume (Shadow)",
+    "rank": 165,
+    "score": 70.3,
+    "moveset": [
+      "Acid",
+      "Sludge Bomb",
+      "Moonblast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "wailmer",
+    "speciesName": "Wailmer",
+    "rank": 166,
+    "score": 70.3,
+    "moveset": [
+      "Rollout",
+      "Scald",
+      "Body Slam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "slowking_shadow",
+    "speciesName": "Slowking (Shadow)",
+    "rank": 167,
+    "score": 70.1,
+    "moveset": [
+      "Confusion",
+      "Surf",
+      "Blizzard"
+    ],
+    "elite": [
+      "Surf"
+    ]
+  },
+  {
+    "speciesId": "swampert_shadow",
+    "speciesName": "Swampert (Shadow)",
+    "rank": 168,
+    "score": 69.9,
+    "moveset": [
+      "Mud Shot",
+      "Hydro Cannon",
+      "Earthquake"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "wailord",
+    "speciesName": "Wailord",
+    "rank": 169,
+    "score": 69.8,
+    "moveset": [
+      "Rollout",
+      "Surf",
+      "Return"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "dolliv",
+    "speciesName": "Dolliv",
+    "rank": 170,
+    "score": 69.7,
+    "moveset": [
+      "Magical Leaf",
+      "Earth Power",
+      "Trailblaze"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "milotic_shadow",
+    "speciesName": "Milotic (Shadow)",
+    "rank": 171,
+    "score": 69.7,
+    "moveset": [
+      "Waterfall",
+      "Aqua Tail",
+      "Wrap"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "slowking",
+    "speciesName": "Slowking",
+    "rank": 172,
+    "score": 69.5,
+    "moveset": [
+      "Confusion",
+      "Surf",
+      "Blizzard"
+    ],
+    "elite": [
+      "Surf"
+    ]
+  },
+  {
+    "speciesId": "leafeon",
+    "speciesName": "Leafeon",
+    "rank": 173,
+    "score": 69.3,
+    "moveset": [
+      "Quick Attack",
+      "Leaf Blade",
+      "Last Resort"
+    ],
+    "elite": [
+      "Last Resort"
+    ]
+  },
+  {
+    "speciesId": "exeggutor",
+    "speciesName": "Exeggutor",
+    "rank": 174,
+    "score": 69,
+    "moveset": [
+      "Confusion",
+      "Seed Bomb",
+      "Psychic"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "hydrapple",
+    "speciesName": "Hydrapple",
+    "rank": 175,
+    "score": 69,
+    "moveset": [
+      "Dragon Tail",
+      "Seed Bomb",
+      "Outrage"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "swampert",
+    "speciesName": "Swampert",
+    "rank": 176,
+    "score": 69,
+    "moveset": [
+      "Mud Shot",
+      "Hydro Cannon",
+      "Earthquake"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "tangrowth_shadow",
+    "speciesName": "Tangrowth (Shadow)",
+    "rank": 177,
+    "score": 69,
+    "moveset": [
+      "Vine Whip",
+      "Power Whip",
+      "Rock Slide"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "skrelp",
+    "speciesName": "Skrelp",
+    "rank": 178,
+    "score": 68.5,
+    "moveset": [
+      "Acid",
+      "Aqua Tail",
+      "Twister"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "whimsicott",
+    "speciesName": "Whimsicott",
+    "rank": 179,
+    "score": 68.4,
+    "moveset": [
+      "Fairy Wind",
+      "Seed Bomb",
+      "Moonblast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "nuzleaf_shadow",
+    "speciesName": "Nuzleaf (Shadow)",
+    "rank": 180,
+    "score": 68.1,
+    "moveset": [
+      "Feint Attack",
+      "Leaf Blade",
+      "Foul Play"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "wailord_shadow",
+    "speciesName": "Wailord (Shadow)",
+    "rank": 181,
+    "score": 67.8,
+    "moveset": [
+      "Rollout",
+      "Surf",
+      "Hyper Beam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "bibarel",
+    "speciesName": "Bibarel",
+    "rank": 182,
+    "score": 67.7,
+    "moveset": [
+      "Rollout",
+      "Surf",
+      "Hyper Fang"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "marshtomp",
+    "speciesName": "Marshtomp",
+    "rank": 183,
+    "score": 67.6,
+    "moveset": [
+      "Mud Shot",
+      "Surf",
+      "Sludge"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "suicune",
+    "speciesName": "Suicune",
+    "rank": 184,
+    "score": 67.6,
+    "moveset": [
+      "Ice Fang",
+      "Bubble Beam",
+      "Scald"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "torterra_shadow",
+    "speciesName": "Torterra (Shadow)",
+    "rank": 185,
+    "score": 67.3,
+    "moveset": [
+      "Mud Slap",
+      "Frenzy Plant",
+      "Sand Tomb"
+    ],
+    "elite": [
+      "Frenzy Plant"
+    ]
+  },
+  {
+    "speciesId": "bayleef",
+    "speciesName": "Bayleef",
+    "rank": 186,
+    "score": 67.2,
+    "moveset": [
+      "Magical Leaf",
+      "Ancient Power",
+      "Energy Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "lumineon",
+    "speciesName": "Lumineon",
+    "rank": 187,
+    "score": 67.2,
+    "moveset": [
+      "Waterfall",
+      "Aqua Tail",
+      "Silver Wind"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "marshtomp_shadow",
+    "speciesName": "Marshtomp (Shadow)",
+    "rank": 188,
+    "score": 67,
+    "moveset": [
+      "Mud Shot",
+      "Surf",
+      "Sludge"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "wartortle",
+    "speciesName": "Wartortle",
+    "rank": 189,
+    "score": 67,
+    "moveset": [
+      "Water Gun",
+      "Aqua Jet",
+      "Ice Beam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "carnivine",
+    "speciesName": "Carnivine",
+    "rank": 190,
+    "score": 66.7,
+    "moveset": [
+      "Vine Whip",
+      "Power Whip",
+      "Crunch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "milotic",
+    "speciesName": "Milotic",
+    "rank": 191,
+    "score": 66.5,
+    "moveset": [
+      "Waterfall",
+      "Aqua Tail",
+      "Wrap"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "rotom_mow",
+    "speciesName": "Rotom (Mow)",
+    "rank": 192,
+    "score": 66.3,
+    "moveset": [
+      "Thunder Shock",
+      "Ominous Wind",
+      "Leaf Storm"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "suicune_shadow",
+    "speciesName": "Suicune (Shadow)",
+    "rank": 193,
+    "score": 66.3,
+    "moveset": [
+      "Ice Fang",
+      "Bubble Beam",
+      "Scald"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "rotom_wash",
+    "speciesName": "Rotom (Wash)",
+    "rank": 194,
+    "score": 66.1,
+    "moveset": [
+      "Thunder Shock",
+      "Thunderbolt",
+      "Hydro Pump"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "cloyster",
+    "speciesName": "Cloyster",
+    "rank": 195,
+    "score": 66,
+    "moveset": [
+      "Ice Shard",
+      "Icy Wind",
+      "Liquidation"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "kabuto_shadow",
+    "speciesName": "Kabuto (Shadow)",
+    "rank": 196,
+    "score": 65.6,
+    "moveset": [
+      "Mud Shot",
+      "Aqua Jet",
+      "Rock Tomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "nuzleaf",
+    "speciesName": "Nuzleaf",
+    "rank": 197,
+    "score": 65.4,
+    "moveset": [
+      "Feint Attack",
+      "Leaf Blade",
+      "Foul Play"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "wormadam_plant",
+    "speciesName": "Wormadam (Plant)",
+    "rank": 198,
+    "score": 65.4,
+    "moveset": [
+      "Sucker Punch",
+      "Energy Ball",
+      "Bug Buzz"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tauros_aqua",
+    "speciesName": "Tauros (Aqua)",
+    "rank": 199,
+    "score": 65.3,
+    "moveset": [
+      "Double Kick",
+      "Aqua Jet",
+      "Trailblaze"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tentacool",
+    "speciesName": "Tentacool",
+    "rank": 200,
+    "score": 65.3,
+    "moveset": [
+      "Poison Sting",
+      "Water Pulse",
+      "Wrap"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "mantyke",
+    "speciesName": "Mantyke",
+    "rank": 201,
+    "score": 65.2,
+    "moveset": [
+      "Bubble",
+      "Water Pulse",
+      "Aerial Ace"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "bayleef_shadow",
+    "speciesName": "Bayleef (Shadow)",
+    "rank": 202,
+    "score": 65.1,
+    "moveset": [
+      "Magical Leaf",
+      "Ancient Power",
+      "Energy Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "omanyte",
+    "speciesName": "Omanyte",
+    "rank": 203,
+    "score": 64.8,
+    "moveset": [
+      "Mud Shot",
+      "Rock Tomb",
+      "Rock Blast"
+    ],
+    "elite": [
+      "Rock Tomb"
+    ]
+  },
+  {
+    "speciesId": "omanyte_shadow",
+    "speciesName": "Omanyte (Shadow)",
+    "rank": 204,
+    "score": 64.7,
+    "moveset": [
+      "Mud Shot",
+      "Rock Tomb",
+      "Rock Blast"
+    ],
+    "elite": [
+      "Rock Tomb"
+    ]
+  },
+  {
+    "speciesId": "simisage",
+    "speciesName": "Simisage",
+    "rank": 205,
+    "score": 64.6,
+    "moveset": [
+      "Vine Whip",
+      "Grass Knot",
+      "Crunch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "whiscash_shadow",
+    "speciesName": "Whiscash (Shadow)",
+    "rank": 206,
+    "score": 64.6,
+    "moveset": [
+      "Mud Shot",
+      "Mud Bomb",
+      "Scald"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tangela",
+    "speciesName": "Tangela",
+    "rank": 207,
+    "score": 64.5,
+    "moveset": [
+      "Vine Whip",
+      "Grass Knot",
+      "Sludge Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "slurpuff",
+    "speciesName": "Slurpuff",
+    "rank": 208,
+    "score": 63.9,
+    "moveset": [
+      "Fairy Wind",
+      "Play Rough",
+      "Energy Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "floette",
+    "speciesName": "Floette",
+    "rank": 209,
+    "score": 63.8,
+    "moveset": [
+      "Vine Whip",
+      "Dazzling Gleam",
+      "Petal Blizzard"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "arboliva",
+    "speciesName": "Arboliva",
+    "rank": 210,
+    "score": 63.4,
+    "moveset": [
+      "Magical Leaf",
+      "Earth Power",
+      "Trailblaze"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "seismitoad",
+    "speciesName": "Seismitoad",
+    "rank": 211,
+    "score": 63.3,
+    "moveset": [
+      "Mud Shot",
+      "Earth Power",
+      "Sludge Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tentacool_shadow",
+    "speciesName": "Tentacool (Shadow)",
+    "rank": 212,
+    "score": 63.3,
+    "moveset": [
+      "Poison Sting",
+      "Water Pulse",
+      "Wrap"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "crawdaunt_shadow",
+    "speciesName": "Crawdaunt (Shadow)",
+    "rank": 213,
+    "score": 63.2,
+    "moveset": [
+      "Waterfall",
+      "Night Slash",
+      "Scald"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tsareena",
+    "speciesName": "Tsareena",
+    "rank": 214,
+    "score": 63.2,
+    "moveset": [
+      "Magical Leaf",
+      "Triple Axel",
+      "High Jump Kick"
+    ],
+    "elite": [
+      "High Jump Kick"
+    ]
+  },
+  {
+    "speciesId": "primarina",
+    "speciesName": "Primarina",
+    "rank": 215,
+    "score": 63.1,
+    "moveset": [
+      "Waterfall",
+      "Disarming Voice",
+      "Hydro Cannon"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "exeggcute_shadow",
+    "speciesName": "Exeggcute (Shadow)",
+    "rank": 216,
+    "score": 63,
+    "moveset": [
+      "Confusion",
+      "Seed Bomb",
+      "Ancient Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "kabuto",
+    "speciesName": "Kabuto",
+    "rank": 217,
+    "score": 62.9,
+    "moveset": [
+      "Mud Shot",
+      "Aqua Jet",
+      "Rock Tomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "whiscash",
+    "speciesName": "Whiscash",
+    "rank": 218,
+    "score": 62.9,
+    "moveset": [
+      "Mud Shot",
+      "Mud Bomb",
+      "Scald"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "wartortle_shadow",
+    "speciesName": "Wartortle (Shadow)",
+    "rank": 219,
+    "score": 62.7,
+    "moveset": [
+      "Water Gun",
+      "Aqua Jet",
+      "Ice Beam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "floragato",
+    "speciesName": "Floragato",
+    "rank": 220,
+    "score": 62.6,
+    "moveset": [
+      "Leafage",
+      "Grass Knot",
+      "Play Rough"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "exeggcute",
+    "speciesName": "Exeggcute",
+    "rank": 221,
+    "score": 62.5,
+    "moveset": [
+      "Confusion",
+      "Seed Bomb",
+      "Ancient Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "omastar_shadow",
+    "speciesName": "Omastar (Shadow)",
+    "rank": 222,
+    "score": 62.5,
+    "moveset": [
+      "Mud Shot",
+      "Rock Slide",
+      "Hydro Pump"
+    ],
+    "elite": [
+      "Rock Slide"
+    ]
+  },
+  {
+    "speciesId": "grotle_shadow",
+    "speciesName": "Grotle (Shadow)",
+    "rank": 223,
+    "score": 62.4,
+    "moveset": [
+      "Razor Leaf",
+      "Body Slam",
+      "Energy Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "relicanth",
+    "speciesName": "Relicanth",
+    "rank": 224,
+    "score": 62.4,
+    "moveset": [
+      "Water Gun",
+      "Aqua Tail",
+      "Ancient Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "exeggutor_alolan",
+    "speciesName": "Exeggutor (Alolan)",
+    "rank": 225,
+    "score": 62,
+    "moveset": [
+      "Dragon Tail",
+      "Seed Bomb",
+      "Draco Meteor"
+    ],
+    "elite": [
+      "Draco Meteor"
+    ]
+  },
+  {
+    "speciesId": "spritzee",
+    "speciesName": "Spritzee",
+    "rank": 226,
+    "score": 62,
+    "moveset": [
+      "Charm",
+      "Thunderbolt",
+      "Draining Kiss"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "snover",
+    "speciesName": "Snover",
+    "rank": 227,
+    "score": 61.7,
+    "moveset": [
+      "Powder Snow",
+      "Ice Beam",
+      "Energy Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tangela_shadow",
+    "speciesName": "Tangela (Shadow)",
+    "rank": 228,
+    "score": 61.5,
+    "moveset": [
+      "Vine Whip",
+      "Grass Knot",
+      "Sludge Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "cloyster_shadow",
+    "speciesName": "Cloyster (Shadow)",
+    "rank": 229,
+    "score": 61.2,
+    "moveset": [
+      "Ice Shard",
+      "Icy Wind",
+      "Liquidation"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "rillaboom",
+    "speciesName": "Rillaboom",
+    "rank": 230,
+    "score": 60.9,
+    "moveset": [
+      "Razor Leaf",
+      "Drum Beating",
+      "Frenzy Plant"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "roselia",
+    "speciesName": "Roselia",
+    "rank": 231,
+    "score": 60.8,
+    "moveset": [
+      "Poison Jab",
+      "Sludge Bomb",
+      "Petal Blizzard"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "corsola",
+    "speciesName": "Corsola",
+    "rank": 232,
+    "score": 60.7,
+    "moveset": [
+      "Bubble",
+      "Power Gem",
+      "Rock Blast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "exeggutor_alolan_shadow",
+    "speciesName": "Exeggutor (Alolan) (Shadow)",
+    "rank": 233,
+    "score": 60.7,
+    "moveset": [
+      "Dragon Tail",
+      "Seed Bomb",
+      "Draco Meteor"
+    ],
+    "elite": [
+      "Draco Meteor"
+    ]
+  },
+  {
+    "speciesId": "snover_shadow",
+    "speciesName": "Snover (Shadow)",
+    "rank": 234,
+    "score": 60.7,
+    "moveset": [
+      "Powder Snow",
+      "Ice Beam",
+      "Energy Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "alomomola",
+    "speciesName": "Alomomola",
+    "rank": 235,
+    "score": 60.6,
+    "moveset": [
+      "Waterfall",
+      "Hydro Pump",
+      "Blizzard"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "breloom",
+    "speciesName": "Breloom",
+    "rank": 236,
+    "score": 60.6,
+    "moveset": [
+      "Force Palm",
+      "Dynamic Punch",
+      "Grass Knot"
+    ],
+    "elite": [
+      "Grass Knot"
+    ]
+  },
+  {
+    "speciesId": "omastar",
+    "speciesName": "Omastar",
+    "rank": 237,
+    "score": 60.6,
+    "moveset": [
+      "Mud Shot",
+      "Rock Slide",
+      "Hydro Pump"
+    ],
+    "elite": [
+      "Rock Slide"
+    ]
+  },
+  {
+    "speciesId": "eldegoss",
+    "speciesName": "Eldegoss",
+    "rank": 238,
+    "score": 60.4,
+    "moveset": [
+      "Bullet Seed",
+      "Grass Knot",
+      "Energy Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "kabutops_shadow",
+    "speciesName": "Kabutops (Shadow)",
+    "rank": 239,
+    "score": 60.4,
+    "moveset": [
+      "Fury Cutter",
+      "Stone Edge",
+      "Water Pulse"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "brionne",
+    "speciesName": "Brionne",
+    "rank": 240,
+    "score": 60.3,
+    "moveset": [
+      "Charm",
+      "Aqua Jet",
+      "Disarming Voice"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "kabutops",
+    "speciesName": "Kabutops",
+    "rank": 241,
+    "score": 60.3,
+    "moveset": [
+      "Fury Cutter",
+      "Stone Edge",
+      "Water Pulse"
+    ],
+    "elite": [
+      "Fury Cutter"
+    ]
+  },
+  {
+    "speciesId": "urshifu_rapid_strike",
+    "speciesName": "Urshifu (Rapid Strike)",
+    "rank": 242,
+    "score": 60.2,
+    "moveset": [
+      "Counter",
+      "Aqua Jet",
+      "Dynamic Punch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "sunflora",
+    "speciesName": "Sunflora",
+    "rank": 243,
+    "score": 60.1,
+    "moveset": [
+      "Bullet Seed",
+      "Leaf Storm",
+      "Sludge Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "grotle",
+    "speciesName": "Grotle",
+    "rank": 244,
+    "score": 59.8,
+    "moveset": [
+      "Razor Leaf",
+      "Body Slam",
+      "Energy Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tapu_fini",
+    "speciesName": "Tapu Fini",
+    "rank": 245,
+    "score": 59.8,
+    "moveset": [
+      "Water Gun",
+      "Surf",
+      "Natures Madness"
+    ],
+    "elite": [
+      "Natures Madness"
+    ]
+  },
+  {
+    "speciesId": "shaymin_land",
+    "speciesName": "Shaymin (Land)",
+    "rank": 246,
+    "score": 59.5,
+    "moveset": [
+      "Magical Leaf",
+      "Grass Knot",
+      "Seed Flare"
+    ],
+    "elite": [
+      "Seed Flare"
+    ]
+  },
+  {
+    "speciesId": "shellos",
+    "speciesName": "Shellos",
+    "rank": 247,
+    "score": 59.4,
+    "moveset": [
+      "Mud Slap",
+      "Body Slam",
+      "Water Pulse"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "crawdaunt",
+    "speciesName": "Crawdaunt",
+    "rank": 248,
+    "score": 59.3,
+    "moveset": [
+      "Waterfall",
+      "Night Slash",
+      "Scald"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "vaporeon",
+    "speciesName": "Vaporeon",
+    "rank": 249,
+    "score": 59.3,
+    "moveset": [
+      "Water Gun",
+      "Aqua Tail",
+      "Last Resort"
+    ],
+    "elite": [
+      "Last Resort"
+    ]
+  },
+  {
+    "speciesId": "palpitoad",
+    "speciesName": "Palpitoad",
+    "rank": 250,
+    "score": 59.2,
+    "moveset": [
+      "Mud Shot",
+      "Water Pulse",
+      "Earth Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "ribombee",
+    "speciesName": "Ribombee",
+    "rank": 251,
+    "score": 59.1,
+    "moveset": [
+      "Fairy Wind",
+      "Dazzling Gleam",
+      "Bug Buzz"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "granbull_shadow",
+    "speciesName": "Granbull (Shadow)",
+    "rank": 252,
+    "score": 58.2,
+    "moveset": [
+      "Charm",
+      "Close Combat",
+      "Crunch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "goldeen",
+    "speciesName": "Goldeen",
+    "rank": 253,
+    "score": 58.1,
+    "moveset": [
+      "Peck",
+      "Aqua Tail",
+      "Horn Attack"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "bulbasaur",
+    "speciesName": "Bulbasaur",
+    "rank": 254,
+    "score": 57.8,
+    "moveset": [
+      "Vine Whip",
+      "Power Whip",
+      "Seed Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "comfey",
+    "speciesName": "Comfey",
+    "rank": 255,
+    "score": 57.8,
+    "moveset": [
+      "Vine Whip",
+      "Grass Knot",
+      "Draining Kiss"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "bulbasaur_shadow",
+    "speciesName": "Bulbasaur (Shadow)",
+    "rank": 256,
+    "score": 57.3,
+    "moveset": [
+      "Vine Whip",
+      "Power Whip",
+      "Seed Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "croconaw",
+    "speciesName": "Croconaw",
+    "rank": 257,
+    "score": 57.3,
+    "moveset": [
+      "Water Gun",
+      "Ice Punch",
+      "Water Pulse"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "sawsbuck",
+    "speciesName": "Sawsbuck",
+    "rank": 258,
+    "score": 57.3,
+    "moveset": [
+      "Feint Attack",
+      "Wild Charge",
+      "Trailblaze"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "floatzel",
+    "speciesName": "Floatzel",
+    "rank": 259,
+    "score": 57.2,
+    "moveset": [
+      "Waterfall",
+      "Aqua Jet",
+      "Swift"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "swanna_shadow",
+    "speciesName": "Swanna (Shadow)",
+    "rank": 260,
+    "score": 56.9,
+    "moveset": [
+      "Water Gun",
+      "Fly",
+      "Ice Beam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "thwackey",
+    "speciesName": "Thwackey",
+    "rank": 261,
+    "score": 56.5,
+    "moveset": [
+      "Razor Leaf",
+      "Grass Knot",
+      "Energy Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "croconaw_shadow",
+    "speciesName": "Croconaw (Shadow)",
+    "rank": 262,
+    "score": 56.4,
+    "moveset": [
+      "Water Gun",
+      "Ice Punch",
+      "Water Pulse"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "ferroseed",
+    "speciesName": "Ferroseed",
+    "rank": 263,
+    "score": 56.4,
+    "moveset": [
+      "Metal Claw",
+      "Gyro Ball",
+      "Return"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gardevoir_shadow",
+    "speciesName": "Gardevoir (Shadow)",
+    "rank": 264,
+    "score": 56.4,
+    "moveset": [
+      "Charm",
+      "Triple Axel",
+      "Shadow Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "granbull",
+    "speciesName": "Granbull",
+    "rank": 265,
+    "score": 56.3,
+    "moveset": [
+      "Charm",
+      "Close Combat",
+      "Crunch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "maractus",
+    "speciesName": "Maractus",
+    "rank": 266,
+    "score": 56.2,
+    "moveset": [
+      "Bullet Seed",
+      "Aerial Ace",
+      "Petal Blizzard"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "rowlet",
+    "speciesName": "Rowlet",
+    "rank": 267,
+    "score": 56.1,
+    "moveset": [
+      "Leafage",
+      "Seed Bomb",
+      "Energy Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "diancie",
+    "speciesName": "Diancie",
+    "rank": 268,
+    "score": 56,
+    "moveset": [
+      "Rock Throw",
+      "Rock Slide",
+      "Moonblast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "deerling",
+    "speciesName": "Deerling",
+    "rank": 269,
+    "score": 55.9,
+    "moveset": [
+      "Tackle",
+      "Wild Charge",
+      "Trailblaze"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "lilligant_hisuian",
+    "speciesName": "Lilligant (Hisuian)",
+    "rank": 270,
+    "score": 55.5,
+    "moveset": [
+      "Bullet Seed",
+      "Upper Hand",
+      "Petal Blizzard"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "prinplup",
+    "speciesName": "Prinplup",
+    "rank": 271,
+    "score": 55.4,
+    "moveset": [
+      "Bubble",
+      "Icy Wind",
+      "Hydro Pump"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "sharpedo_shadow",
+    "speciesName": "Sharpedo (Shadow)",
+    "rank": 272,
+    "score": 55.3,
+    "moveset": [
+      "Waterfall",
+      "Crunch",
+      "Poison Fang"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "huntail",
+    "speciesName": "Huntail",
+    "rank": 273,
+    "score": 54.4,
+    "moveset": [
+      "Water Gun",
+      "Aqua Tail",
+      "Crunch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "sharpedo",
+    "speciesName": "Sharpedo",
+    "rank": 274,
+    "score": 53.8,
+    "moveset": [
+      "Waterfall",
+      "Crunch",
+      "Poison Fang"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gardevoir",
+    "speciesName": "Gardevoir",
+    "rank": 275,
+    "score": 53.6,
+    "moveset": [
+      "Charm",
+      "Triple Axel",
+      "Shadow Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "carracosta_shadow",
+    "speciesName": "Carracosta (Shadow)",
+    "rank": 276,
+    "score": 53.4,
+    "moveset": [
+      "Water Gun",
+      "Ancient Power",
+      "Body Slam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "poliwhirl",
+    "speciesName": "Poliwhirl",
+    "rank": 277,
+    "score": 53.4,
+    "moveset": [
+      "Bubble",
+      "Scald",
+      "Mud Bomb"
+    ],
+    "elite": [
+      "Scald"
+    ]
+  },
+  {
+    "speciesId": "basculin",
+    "speciesName": "Basculin",
+    "rank": 278,
+    "score": 53,
+    "moveset": [
+      "Water Gun",
+      "Aqua Tail",
+      "Aqua Jet"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "chinchou",
+    "speciesName": "Chinchou",
+    "rank": 279,
+    "score": 52.8,
+    "moveset": [
+      "Bubble",
+      "Water Pulse",
+      "Thunderbolt"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tirtouga_shadow",
+    "speciesName": "Tirtouga (Shadow)",
+    "rank": 280,
+    "score": 52.8,
+    "moveset": [
+      "Water Gun",
+      "Surf",
+      "Body Slam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "chespin_shadow",
+    "speciesName": "Chespin (Shadow)",
+    "rank": 281,
+    "score": 52.5,
+    "moveset": [
+      "Vine Whip",
+      "Body Slam",
+      "Seed Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tirtouga",
+    "speciesName": "Tirtouga",
+    "rank": 282,
+    "score": 52.5,
+    "moveset": [
+      "Water Gun",
+      "Surf",
+      "Ancient Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "chespin",
+    "speciesName": "Chespin",
+    "rank": 283,
+    "score": 52.4,
+    "moveset": [
+      "Vine Whip",
+      "Body Slam",
+      "Seed Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "prinplup_shadow",
+    "speciesName": "Prinplup (Shadow)",
+    "rank": 284,
+    "score": 52.1,
+    "moveset": [
+      "Bubble",
+      "Icy Wind",
+      "Hydro Pump"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "poliwhirl_shadow",
+    "speciesName": "Poliwhirl (Shadow)",
+    "rank": 285,
+    "score": 51.9,
+    "moveset": [
+      "Bubble",
+      "Scald",
+      "Mud Bomb"
+    ],
+    "elite": [
+      "Scald"
+    ]
+  },
+  {
+    "speciesId": "seadra",
+    "speciesName": "Seadra",
+    "rank": 286,
+    "score": 51.1,
+    "moveset": [
+      "Dragon Breath",
+      "Hydro Pump",
+      "Dragon Pulse"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "toedscool",
+    "speciesName": "Toedscool",
+    "rank": 287,
+    "score": 51.1,
+    "moveset": [
+      "Mud Slap",
+      "Seed Bomb",
+      "Earth Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gorebyss",
+    "speciesName": "Gorebyss",
+    "rank": 288,
+    "score": 51,
+    "moveset": [
+      "Confusion",
+      "Water Pulse",
+      "Psychic"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "kyogre_shadow",
+    "speciesName": "Kyogre (Shadow)",
+    "rank": 289,
+    "score": 51,
+    "moveset": [
+      "Waterfall",
+      "Avalanche",
+      "Surf"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "clamperl",
+    "speciesName": "Clamperl",
+    "rank": 290,
+    "score": 50.5,
+    "moveset": [
+      "Water Gun",
+      "Body Slam",
+      "Water Pulse"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "snubbull",
+    "speciesName": "Snubbull",
+    "rank": 291,
+    "score": 50.5,
+    "moveset": [
+      "Tackle",
+      "Brick Break",
+      "Crunch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "shaymin_sky",
+    "speciesName": "Shaymin (Sky)",
+    "rank": 292,
+    "score": 50.3,
+    "moveset": [
+      "Magical Leaf",
+      "Grass Knot",
+      "Energy Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "turtwig_shadow",
+    "speciesName": "Turtwig (Shadow)",
+    "rank": 293,
+    "score": 50,
+    "moveset": [
+      "Tackle",
+      "Body Slam",
+      "Seed Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "carracosta",
+    "speciesName": "Carracosta",
+    "rank": 294,
+    "score": 49.4,
+    "moveset": [
+      "Water Gun",
+      "Liquidation",
+      "Ancient Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "ferroseed_shadow",
+    "speciesName": "Ferroseed (Shadow)",
+    "rank": 295,
+    "score": 49.4,
+    "moveset": [
+      "Metal Claw",
+      "Gyro Ball",
+      "Iron Head"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "snubbull_shadow",
+    "speciesName": "Snubbull (Shadow)",
+    "rank": 296,
+    "score": 48.4,
+    "moveset": [
+      "Tackle",
+      "Brick Break",
+      "Crunch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "wugtrio",
+    "speciesName": "Wugtrio",
+    "rank": 297,
+    "score": 48.3,
+    "moveset": [
+      "Mud Slap",
+      "Liquidation",
+      "Surf"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "kingler",
+    "speciesName": "Kingler",
+    "rank": 298,
+    "score": 48.2,
+    "moveset": [
+      "Bubble",
+      "Crabhammer",
+      "Vice Grip"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "simipour",
+    "speciesName": "Simipour",
+    "rank": 299,
+    "score": 48.2,
+    "moveset": [
+      "Water Gun",
+      "Surf",
+      "Crunch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "lombre",
+    "speciesName": "Lombre",
+    "rank": 300,
+    "score": 48.1,
+    "moveset": [
+      "Bubble",
+      "Scald",
+      "Grass Knot"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "seadra_shadow",
+    "speciesName": "Seadra (Shadow)",
+    "rank": 301,
+    "score": 47.4,
+    "moveset": [
+      "Dragon Breath",
+      "Hydro Pump",
+      "Dragon Pulse"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "turtwig",
+    "speciesName": "Turtwig",
+    "rank": 302,
+    "score": 47.4,
+    "moveset": [
+      "Tackle",
+      "Body Slam",
+      "Seed Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "octillery",
+    "speciesName": "Octillery",
+    "rank": 303,
+    "score": 47.1,
+    "moveset": [
+      "Lock On",
+      "Octazooka",
+      "Gunk Shot"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "corphish_shadow",
+    "speciesName": "Corphish (Shadow)",
+    "rank": 304,
+    "score": 46.2,
+    "moveset": [
+      "Bubble",
+      "Aqua Jet",
+      "Vice Grip"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "seel",
+    "speciesName": "Seel",
+    "rank": 305,
+    "score": 46,
+    "moveset": [
+      "Water Gun",
+      "Aqua Tail",
+      "Icy Wind"
+    ],
+    "elite": [
+      "Water Gun"
+    ]
+  },
+  {
+    "speciesId": "cherrim_overcast",
+    "speciesName": "Cherrim (Overcast)",
+    "rank": 306,
+    "score": 45.8,
+    "moveset": [
+      "Bullet Seed",
+      "Dazzling Gleam",
+      "Solar Beam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "totodile",
+    "speciesName": "Totodile",
+    "rank": 307,
+    "score": 44.8,
+    "moveset": [
+      "Water Gun",
+      "Aqua Jet",
+      "Crunch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "corphish",
+    "speciesName": "Corphish",
+    "rank": 308,
+    "score": 44.5,
+    "moveset": [
+      "Bubble",
+      "Aqua Jet",
+      "Vice Grip"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "piplup_shadow",
+    "speciesName": "Piplup (Shadow)",
+    "rank": 309,
+    "score": 43.9,
+    "moveset": [
+      "Bubble",
+      "Drill Peck",
+      "Icy Wind"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "krabby",
+    "speciesName": "Krabby",
+    "rank": 310,
+    "score": 43.6,
+    "moveset": [
+      "Bubble",
+      "Vice Grip",
+      "Razor Shell"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "popplio",
+    "speciesName": "Popplio",
+    "rank": 311,
+    "score": 43.3,
+    "moveset": [
+      "Water Gun",
+      "Aqua Tail",
+      "Aqua Jet"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "piplup",
+    "speciesName": "Piplup",
+    "rank": 312,
+    "score": 43.2,
+    "moveset": [
+      "Bubble",
+      "Drill Peck",
+      "Icy Wind"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "clauncher",
+    "speciesName": "Clauncher",
+    "rank": 313,
+    "score": 42.9,
+    "moveset": [
+      "Water Gun",
+      "Aqua Jet",
+      "Crabhammer"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "drizzile",
+    "speciesName": "Drizzile",
+    "rank": 314,
+    "score": 42.5,
+    "moveset": [
+      "Water Gun",
+      "Surf",
+      "Water Pulse"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "totodile_shadow",
+    "speciesName": "Totodile (Shadow)",
+    "rank": 315,
+    "score": 42.2,
+    "moveset": [
+      "Water Gun",
+      "Aqua Jet",
+      "Crunch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "flabebe",
+    "speciesName": "Flabebe",
+    "rank": 316,
+    "score": 41.9,
+    "moveset": [
+      "Vine Whip",
+      "Dazzling Gleam",
+      "Petal Blizzard"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "frogadier",
+    "speciesName": "Frogadier",
+    "rank": 317,
+    "score": 41.8,
+    "moveset": [
+      "Bubble",
+      "Surf",
+      "Aerial Ace"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "lilligant",
+    "speciesName": "Lilligant",
+    "rank": 318,
+    "score": 41.7,
+    "moveset": [
+      "Charm",
+      "Petal Blizzard",
+      "Hyper Beam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "skiddo",
+    "speciesName": "Skiddo",
+    "rank": 319,
+    "score": 41.3,
+    "moveset": [
+      "Rock Smash",
+      "Seed Bomb",
+      "Brick Break"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "frogadier_shadow",
+    "speciesName": "Frogadier (Shadow)",
+    "rank": 320,
+    "score": 41.1,
+    "moveset": [
+      "Bubble",
+      "Surf",
+      "Aerial Ace"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "swirlix",
+    "speciesName": "Swirlix",
+    "rank": 321,
+    "score": 40.9,
+    "moveset": [
+      "Tackle",
+      "Energy Ball",
+      "Draining Kiss"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tatsugiri_curly",
+    "speciesName": "Tatsugiri (Curly)",
+    "rank": 322,
+    "score": 40.9,
+    "moveset": [
+      "Water Gun",
+      "Surf",
+      "Outrage"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tatsugiri_droopy",
+    "speciesName": "Tatsugiri (Droopy)",
+    "rank": 323,
+    "score": 40.9,
+    "moveset": [
+      "Water Gun",
+      "Surf",
+      "Outrage"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tatsugiri_stretchy",
+    "speciesName": "Tatsugiri (Stretchy)",
+    "rank": 324,
+    "score": 40.9,
+    "moveset": [
+      "Water Gun",
+      "Surf",
+      "Outrage"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "clawitzer",
+    "speciesName": "Clawitzer",
+    "rank": 325,
+    "score": 40.5,
+    "moveset": [
+      "Water Gun",
+      "Crabhammer",
+      "Ice Beam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "inteleon",
+    "speciesName": "Inteleon",
+    "rank": 326,
+    "score": 33.6,
+    "moveset": [
+      "Water Gun",
+      "Surf",
+      "Shadow Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "clefairy",
+    "speciesName": "Clefairy",
+    "rank": 327,
+    "score": 29.8,
+    "moveset": [
+      "Zen Headbutt",
+      "Disarming Voice",
+      "Body Slam"
+    ],
+    "elite": []
+  }
+]

@@ -6,12 +6,11 @@ import { TierAccordion } from "@/components/tier-accordion";
 import { CopyButton } from "@/components/copy-button";
 import { FixedHeader } from "@/components/fixed-header";
 import { BackButton } from "@/components/back-button";
-import Link from "next/link";
 import { InlineTeamSection } from "./inline-team-section";
 import { saveTeam, loadTeam } from "@/lib/team-storage";
 import { analyzeTeam } from "@/lib/team-analysis";
 import { pokemonToSlot } from "@/lib/pokemon-utils";
-import { calculateTeamRating, RATING_COLORS } from "@/lib/team-rating";
+import { calculateTeamRating } from "@/lib/team-rating";
 import { CuratedTeams } from "@/components/home/curated-teams";
 import type { MetaPokemon } from "@/lib/types";
 import type { LeagueId } from "@/lib/team-types";
@@ -50,10 +49,12 @@ export function LeaguePageClient({
   const [loaded, setLoaded] = useState(false);
 
   // Restore team from localStorage on mount (avoids SSR mismatch)
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     setTeam(loadTeam(leagueId));
     setLoaded(true);
   }, [leagueId]);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   // Persist team to localStorage whenever it changes — but only after initial load
   useEffect(() => {
@@ -128,7 +129,7 @@ export function LeaguePageClient({
 
       {/* Fixed team bar above bottom nav */}
       {team.length > 0 && (
-        <div className="fixed bottom-[calc(env(safe-area-inset-bottom,0px)+49px)] left-0 right-0 z-30 border-t-2 border-border bg-background/95 backdrop-blur-sm shadow-[0_-2px_8px_rgba(0,0,0,0.08)]">
+        <div className="fixed bottom-[env(safe-area-inset-bottom,0px)] left-0 right-0 z-30 border-t-2 border-border bg-background/95 backdrop-blur-sm shadow-[0_-2px_8px_rgba(0,0,0,0.08)]">
           <div className="mx-auto max-w-lg px-4 pt-4 pb-5">
             <InlineTeamSection
               team={team}

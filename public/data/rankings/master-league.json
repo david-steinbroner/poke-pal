@@ -1,0 +1,5061 @@
+[
+  {
+    "speciesId": "zacian_crowned_sword",
+    "speciesName": "Zacian (Crowned Sword)",
+    "rank": 1,
+    "score": 99.1,
+    "moveset": [
+      "Metal Claw",
+      "Close Combat",
+      "Behemoth Blade"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "palkia_origin",
+    "speciesName": "Palkia (Origin)",
+    "rank": 2,
+    "score": 98.8,
+    "moveset": [
+      "Dragon Breath",
+      "Aqua Tail",
+      "Spacial Rend"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "metagross",
+    "speciesName": "Metagross",
+    "rank": 3,
+    "score": 96.7,
+    "moveset": [
+      "Shadow Claw",
+      "Meteor Mash",
+      "Earthquake"
+    ],
+    "elite": [
+      "Meteor Mash"
+    ]
+  },
+  {
+    "speciesId": "xerneas",
+    "speciesName": "Xerneas",
+    "rank": 4,
+    "score": 95,
+    "moveset": [
+      "Geomancy",
+      "Close Combat",
+      "Moonblast"
+    ],
+    "elite": [
+      "Geomancy"
+    ]
+  },
+  {
+    "speciesId": "kyurem_white",
+    "speciesName": "Kyurem (White)",
+    "rank": 5,
+    "score": 94.7,
+    "moveset": [
+      "Dragon Breath",
+      "Fusion Flare",
+      "Ice Burn"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "zamazenta_crowned_shield",
+    "speciesName": "Zamazenta (Crowned Shield)",
+    "rank": 6,
+    "score": 94.7,
+    "moveset": [
+      "Ice Fang",
+      "Close Combat",
+      "Behemoth Bash"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "dialga_origin",
+    "speciesName": "Dialga (Origin)",
+    "rank": 7,
+    "score": 94.5,
+    "moveset": [
+      "Dragon Breath",
+      "Roar Of Time",
+      "Iron Head"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "lunala",
+    "speciesName": "Lunala",
+    "rank": 8,
+    "score": 94.1,
+    "moveset": [
+      "Shadow Claw",
+      "Shadow Ball",
+      "Moonblast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "reshiram",
+    "speciesName": "Reshiram",
+    "rank": 9,
+    "score": 94.1,
+    "moveset": [
+      "Dragon Breath",
+      "Fusion Flare",
+      "Draco Meteor"
+    ],
+    "elite": [
+      "Fusion Flare"
+    ]
+  },
+  {
+    "speciesId": "kyurem_black",
+    "speciesName": "Kyurem (Black)",
+    "rank": 10,
+    "score": 92.9,
+    "moveset": [
+      "Dragon Tail",
+      "Freeze Shock",
+      "Fusion Bolt"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "zekrom",
+    "speciesName": "Zekrom",
+    "rank": 11,
+    "score": 92.6,
+    "moveset": [
+      "Dragon Breath",
+      "Outrage",
+      "Fusion Bolt"
+    ],
+    "elite": [
+      "Fusion Bolt"
+    ]
+  },
+  {
+    "speciesId": "marshadow",
+    "speciesName": "Marshadow",
+    "rank": 12,
+    "score": 92,
+    "moveset": [
+      "Shadow Claw",
+      "Close Combat",
+      "Ice Punch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "kyogre",
+    "speciesName": "Kyogre",
+    "rank": 13,
+    "score": 91.8,
+    "moveset": [
+      "Waterfall",
+      "Avalanche",
+      "Origin Pulse"
+    ],
+    "elite": [
+      "Origin Pulse"
+    ]
+  },
+  {
+    "speciesId": "palkia_shadow",
+    "speciesName": "Palkia (Shadow)",
+    "rank": 14,
+    "score": 90.8,
+    "moveset": [
+      "Dragon Breath",
+      "Aqua Tail",
+      "Draco Meteor"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "lugia",
+    "speciesName": "Lugia",
+    "rank": 15,
+    "score": 90.6,
+    "moveset": [
+      "Dragon Tail",
+      "Aeroblast",
+      "Fly"
+    ],
+    "elite": [
+      "Aeroblast"
+    ]
+  },
+  {
+    "speciesId": "eternatus",
+    "speciesName": "Eternatus",
+    "rank": 16,
+    "score": 90.5,
+    "moveset": [
+      "Dragon Tail",
+      "Dynamax Cannon",
+      "Flamethrower"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "lugia_shadow",
+    "speciesName": "Lugia (Shadow)",
+    "rank": 17,
+    "score": 89.9,
+    "moveset": [
+      "Dragon Tail",
+      "Aeroblast",
+      "Fly"
+    ],
+    "elite": [
+      "Aeroblast"
+    ]
+  },
+  {
+    "speciesId": "metagross_shadow",
+    "speciesName": "Metagross (Shadow)",
+    "rank": 18,
+    "score": 89.8,
+    "moveset": [
+      "Shadow Claw",
+      "Meteor Mash",
+      "Earthquake"
+    ],
+    "elite": [
+      "Meteor Mash"
+    ]
+  },
+  {
+    "speciesId": "necrozma_dawn_wings",
+    "speciesName": "Necrozma (Dawn Wings)",
+    "rank": 19,
+    "score": 89.3,
+    "moveset": [
+      "Shadow Claw",
+      "Dark Pulse",
+      "Moongeist Beam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "yveltal",
+    "speciesName": "Yveltal",
+    "rank": 20,
+    "score": 88.9,
+    "moveset": [
+      "Sucker Punch",
+      "Dark Pulse",
+      "Oblivion Wing"
+    ],
+    "elite": [
+      "Oblivion Wing"
+    ]
+  },
+  {
+    "speciesId": "ho_oh",
+    "speciesName": "Ho-Oh",
+    "rank": 21,
+    "score": 88.5,
+    "moveset": [
+      "Incinerate",
+      "Brave Bird",
+      "Sacred Fire"
+    ],
+    "elite": [
+      "Sacred Fire"
+    ]
+  },
+  {
+    "speciesId": "necrozma_dusk_mane",
+    "speciesName": "Necrozma (Dusk Mane)",
+    "rank": 22,
+    "score": 88.3,
+    "moveset": [
+      "Shadow Claw",
+      "Dark Pulse",
+      "Sunsteel Strike"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "garchomp",
+    "speciesName": "Garchomp",
+    "rank": 23,
+    "score": 87.9,
+    "moveset": [
+      "Dragon Tail",
+      "Twister",
+      "Earth Power"
+    ],
+    "elite": [
+      "Earth Power"
+    ]
+  },
+  {
+    "speciesId": "groudon",
+    "speciesName": "Groudon",
+    "rank": 24,
+    "score": 87.8,
+    "moveset": [
+      "Dragon Tail",
+      "Fire Punch",
+      "Precipice Blades"
+    ],
+    "elite": [
+      "Fire Punch",
+      "Precipice Blades"
+    ]
+  },
+  {
+    "speciesId": "meloetta_aria",
+    "speciesName": "Meloetta (Aria)",
+    "rank": 25,
+    "score": 87.6,
+    "moveset": [
+      "Confusion",
+      "Psyshock",
+      "Dazzling Gleam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "garchomp_shadow",
+    "speciesName": "Garchomp (Shadow)",
+    "rank": 26,
+    "score": 87.4,
+    "moveset": [
+      "Dragon Tail",
+      "Twister",
+      "Earth Power"
+    ],
+    "elite": [
+      "Earth Power"
+    ]
+  },
+  {
+    "speciesId": "palkia",
+    "speciesName": "Palkia",
+    "rank": 27,
+    "score": 87.3,
+    "moveset": [
+      "Dragon Breath",
+      "Aqua Tail",
+      "Fire Blast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "latios_shadow",
+    "speciesName": "Latios (Shadow)",
+    "rank": 28,
+    "score": 87.1,
+    "moveset": [
+      "Dragon Breath",
+      "Aura Sphere",
+      "Luster Purge"
+    ],
+    "elite": [
+      "Luster Purge"
+    ]
+  },
+  {
+    "speciesId": "gholdengo",
+    "speciesName": "Gholdengo",
+    "rank": 29,
+    "score": 86.9,
+    "moveset": [
+      "Hex",
+      "Shadow Ball",
+      "Focus Blast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "latios",
+    "speciesName": "Latios",
+    "rank": 30,
+    "score": 86.9,
+    "moveset": [
+      "Dragon Breath",
+      "Aura Sphere",
+      "Luster Purge"
+    ],
+    "elite": [
+      "Luster Purge"
+    ]
+  },
+  {
+    "speciesId": "solgaleo",
+    "speciesName": "Solgaleo",
+    "rank": 31,
+    "score": 86.9,
+    "moveset": [
+      "Fire Spin",
+      "Psychic Fangs",
+      "Iron Head"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "dialga",
+    "speciesName": "Dialga",
+    "rank": 32,
+    "score": 86.7,
+    "moveset": [
+      "Dragon Breath",
+      "Iron Head",
+      "Draco Meteor"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "kyogre_shadow",
+    "speciesName": "Kyogre (Shadow)",
+    "rank": 33,
+    "score": 86.6,
+    "moveset": [
+      "Waterfall",
+      "Avalanche",
+      "Origin Pulse"
+    ],
+    "elite": [
+      "Origin Pulse"
+    ]
+  },
+  {
+    "speciesId": "gyarados_shadow",
+    "speciesName": "Gyarados (Shadow)",
+    "rank": 34,
+    "score": 86.3,
+    "moveset": [
+      "Dragon Breath",
+      "Aqua Tail",
+      "Twister"
+    ],
+    "elite": [
+      "Aqua Tail"
+    ]
+  },
+  {
+    "speciesId": "mewtwo_shadow",
+    "speciesName": "Mewtwo (Shadow)",
+    "rank": 35,
+    "score": 86.3,
+    "moveset": [
+      "Psycho Cut",
+      "Psystrike",
+      "Shadow Ball"
+    ],
+    "elite": [
+      "Psystrike",
+      "Shadow Ball"
+    ]
+  },
+  {
+    "speciesId": "florges",
+    "speciesName": "Florges",
+    "rank": 36,
+    "score": 86.2,
+    "moveset": [
+      "Fairy Wind",
+      "Moonblast",
+      "Chilling Water"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "dialga_shadow",
+    "speciesName": "Dialga (Shadow)",
+    "rank": 37,
+    "score": 86.1,
+    "moveset": [
+      "Dragon Breath",
+      "Iron Head",
+      "Draco Meteor"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "jirachi",
+    "speciesName": "Jirachi",
+    "rank": 38,
+    "score": 85.9,
+    "moveset": [
+      "Confusion",
+      "Doom Desire",
+      "Aura Sphere"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "keldeo_resolute",
+    "speciesName": "Keldeo (Resolute)",
+    "rank": 39,
+    "score": 85.6,
+    "moveset": [
+      "Low Kick",
+      "Secret Sword",
+      "Aqua Jet"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "zygarde_complete",
+    "speciesName": "Zygarde (Complete Forme)",
+    "rank": 40,
+    "score": 85.6,
+    "moveset": [
+      "Dragon Tail",
+      "Crunch",
+      "Earthquake"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "latias_shadow",
+    "speciesName": "Latias (Shadow)",
+    "rank": 41,
+    "score": 85.1,
+    "moveset": [
+      "Dragon Breath",
+      "Aura Sphere",
+      "Mist Ball"
+    ],
+    "elite": [
+      "Mist Ball"
+    ]
+  },
+  {
+    "speciesId": "annihilape_shadow",
+    "speciesName": "Annihilape (Shadow)",
+    "rank": 42,
+    "score": 84.7,
+    "moveset": [
+      "Counter",
+      "Rage Fist",
+      "Ice Punch"
+    ],
+    "elite": [
+      "Rage Fist"
+    ]
+  },
+  {
+    "speciesId": "hydreigon_shadow",
+    "speciesName": "Hydreigon (Shadow)",
+    "rank": 43,
+    "score": 84.7,
+    "moveset": [
+      "Dragon Breath",
+      "Brutal Swing",
+      "Fly"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "mewtwo",
+    "speciesName": "Mewtwo",
+    "rank": 44,
+    "score": 84.7,
+    "moveset": [
+      "Psycho Cut",
+      "Psystrike",
+      "Shadow Ball"
+    ],
+    "elite": [
+      "Psystrike",
+      "Shadow Ball"
+    ]
+  },
+  {
+    "speciesId": "primarina",
+    "speciesName": "Primarina",
+    "rank": 45,
+    "score": 84.5,
+    "moveset": [
+      "Charm",
+      "Disarming Voice",
+      "Hydro Cannon"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "tapu_lele",
+    "speciesName": "Tapu Lele",
+    "rank": 46,
+    "score": 84.4,
+    "moveset": [
+      "Astonish",
+      "Psyshock",
+      "Natures Madness"
+    ],
+    "elite": [
+      "Natures Madness"
+    ]
+  },
+  {
+    "speciesId": "togekiss",
+    "speciesName": "Togekiss",
+    "rank": 47,
+    "score": 84.3,
+    "moveset": [
+      "Peck",
+      "Dazzling Gleam",
+      "Aura Sphere"
+    ],
+    "elite": [
+      "Aura Sphere"
+    ]
+  },
+  {
+    "speciesId": "kyurem",
+    "speciesName": "Kyurem",
+    "rank": 48,
+    "score": 83.6,
+    "moveset": [
+      "Dragon Breath",
+      "Glaciate",
+      "Dragon Claw"
+    ],
+    "elite": [
+      "Glaciate"
+    ]
+  },
+  {
+    "speciesId": "tyranitar_shadow",
+    "speciesName": "Tyranitar (Shadow)",
+    "rank": 49,
+    "score": 83.5,
+    "moveset": [
+      "Dragon Breath",
+      "Brutal Swing",
+      "Stone Edge"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "keldeo_ordinary",
+    "speciesName": "Keldeo (Ordinary)",
+    "rank": 50,
+    "score": 83.3,
+    "moveset": [
+      "Low Kick",
+      "Aqua Jet",
+      "Sacred Sword"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "latias",
+    "speciesName": "Latias",
+    "rank": 51,
+    "score": 83.3,
+    "moveset": [
+      "Dragon Breath",
+      "Aura Sphere",
+      "Mist Ball"
+    ],
+    "elite": [
+      "Mist Ball"
+    ]
+  },
+  {
+    "speciesId": "goodra",
+    "speciesName": "Goodra",
+    "rank": 52,
+    "score": 83,
+    "moveset": [
+      "Dragon Breath",
+      "Aqua Tail",
+      "Draco Meteor"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "dragonite_shadow",
+    "speciesName": "Dragonite (Shadow)",
+    "rank": 53,
+    "score": 82.7,
+    "moveset": [
+      "Dragon Breath",
+      "Thunder Punch",
+      "Super Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "landorus_therian",
+    "speciesName": "Landorus (Therian)",
+    "rank": 54,
+    "score": 82.7,
+    "moveset": [
+      "Mud Shot",
+      "Sandsear Storm",
+      "Stone Edge"
+    ],
+    "elite": [
+      "Sandsear Storm"
+    ]
+  },
+  {
+    "speciesId": "groudon_shadow",
+    "speciesName": "Groudon (Shadow)",
+    "rank": 55,
+    "score": 82.5,
+    "moveset": [
+      "Dragon Tail",
+      "Fire Punch",
+      "Precipice Blades"
+    ],
+    "elite": [
+      "Fire Punch",
+      "Precipice Blades"
+    ]
+  },
+  {
+    "speciesId": "annihilape",
+    "speciesName": "Annihilape",
+    "rank": 56,
+    "score": 82.2,
+    "moveset": [
+      "Counter",
+      "Rage Fist",
+      "Ice Punch"
+    ],
+    "elite": [
+      "Rage Fist"
+    ]
+  },
+  {
+    "speciesId": "gyarados",
+    "speciesName": "Gyarados",
+    "rank": 57,
+    "score": 81.8,
+    "moveset": [
+      "Dragon Breath",
+      "Aqua Tail",
+      "Crunch"
+    ],
+    "elite": [
+      "Aqua Tail"
+    ]
+  },
+  {
+    "speciesId": "ho_oh_shadow",
+    "speciesName": "Ho-Oh (Shadow)",
+    "rank": 58,
+    "score": 81.7,
+    "moveset": [
+      "Incinerate",
+      "Brave Bird",
+      "Sacred Fire"
+    ],
+    "elite": [
+      "Sacred Fire"
+    ]
+  },
+  {
+    "speciesId": "urshifu_single_strike",
+    "speciesName": "Urshifu (Single Strike)",
+    "rank": 59,
+    "score": 81.4,
+    "moveset": [
+      "Sucker Punch",
+      "Dynamic Punch",
+      "Payback"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "raikou_shadow",
+    "speciesName": "Raikou (Shadow)",
+    "rank": 60,
+    "score": 80.3,
+    "moveset": [
+      "Thunder Shock",
+      "Wild Charge",
+      "Aura Sphere"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tyranitar",
+    "speciesName": "Tyranitar",
+    "rank": 61,
+    "score": 80.3,
+    "moveset": [
+      "Dragon Breath",
+      "Brutal Swing",
+      "Stone Edge"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "dragonite",
+    "speciesName": "Dragonite",
+    "rank": 62,
+    "score": 80.1,
+    "moveset": [
+      "Dragon Breath",
+      "Thunder Punch",
+      "Super Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "heatran_shadow",
+    "speciesName": "Heatran (Shadow)",
+    "rank": 63,
+    "score": 80.1,
+    "moveset": [
+      "Fire Spin",
+      "Magma Storm",
+      "Stone Edge"
+    ],
+    "elite": [
+      "Magma Storm"
+    ]
+  },
+  {
+    "speciesId": "giratina_origin",
+    "speciesName": "Giratina (Origin)",
+    "rank": 64,
+    "score": 79.7,
+    "moveset": [
+      "Dragon Tail",
+      "Shadow Ball",
+      "Ominous Wind"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "urshifu_rapid_strike",
+    "speciesName": "Urshifu (Rapid Strike)",
+    "rank": 65,
+    "score": 79.6,
+    "moveset": [
+      "Waterfall",
+      "Aqua Jet",
+      "Dynamic Punch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "zapdos_shadow",
+    "speciesName": "Zapdos (Shadow)",
+    "rank": 66,
+    "score": 79.6,
+    "moveset": [
+      "Thunder Shock",
+      "Drill Peck",
+      "Heat Wave"
+    ],
+    "elite": [
+      "Thunder Shock"
+    ]
+  },
+  {
+    "speciesId": "enamorus_therian",
+    "speciesName": "Enamorus (Therian)",
+    "rank": 67,
+    "score": 79.5,
+    "moveset": [
+      "Fairy Wind",
+      "Mystical Fire",
+      "Moonblast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "raikou",
+    "speciesName": "Raikou",
+    "rank": 68,
+    "score": 79.5,
+    "moveset": [
+      "Thunder Shock",
+      "Aura Sphere",
+      "Wild Charge"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "volcanion",
+    "speciesName": "Volcanion",
+    "rank": 69,
+    "score": 79.5,
+    "moveset": [
+      "Incinerate",
+      "Scald",
+      "Overheat"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "melmetal",
+    "speciesName": "Melmetal",
+    "rank": 70,
+    "score": 79.4,
+    "moveset": [
+      "Thunder Shock",
+      "Double Iron Bash",
+      "Thunderbolt"
+    ],
+    "elite": [
+      "Double Iron Bash"
+    ]
+  },
+  {
+    "speciesId": "mewtwo_armored",
+    "speciesName": "Mewtwo (Armored)",
+    "rank": 71,
+    "score": 79.2,
+    "moveset": [
+      "Confusion",
+      "Psystrike",
+      "Dynamic Punch"
+    ],
+    "elite": [
+      "Psystrike"
+    ]
+  },
+  {
+    "speciesId": "giratina_altered_shadow",
+    "speciesName": "Giratina (Altered) (Shadow)",
+    "rank": 72,
+    "score": 78.9,
+    "moveset": [
+      "Dragon Breath",
+      "Ancient Power",
+      "Dragon Claw"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "salamence_shadow",
+    "speciesName": "Salamence (Shadow)",
+    "rank": 73,
+    "score": 78.8,
+    "moveset": [
+      "Dragon Tail",
+      "Fly",
+      "Brutal Swing"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "kartana",
+    "speciesName": "Kartana",
+    "rank": 74,
+    "score": 78.5,
+    "moveset": [
+      "Fury Cutter",
+      "Leaf Blade",
+      "Sacred Sword"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "victini",
+    "speciesName": "Victini",
+    "rank": 75,
+    "score": 78.5,
+    "moveset": [
+      "Confusion",
+      "V Create",
+      "Psyshock"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "rhyperior",
+    "speciesName": "Rhyperior",
+    "rank": 76,
+    "score": 78.4,
+    "moveset": [
+      "Mud Slap",
+      "Breaking Swipe",
+      "Rock Wrecker"
+    ],
+    "elite": [
+      "Rock Wrecker"
+    ]
+  },
+  {
+    "speciesId": "zapdos",
+    "speciesName": "Zapdos",
+    "rank": 77,
+    "score": 78.1,
+    "moveset": [
+      "Thunder Shock",
+      "Drill Peck",
+      "Thunderbolt"
+    ],
+    "elite": [
+      "Thunder Shock"
+    ]
+  },
+  {
+    "speciesId": "baxcalibur",
+    "speciesName": "Baxcalibur",
+    "rank": 78,
+    "score": 77.9,
+    "moveset": [
+      "Dragon Breath",
+      "Avalanche",
+      "Dragon Claw"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "zacian_hero",
+    "speciesName": "Zacian (Hero)",
+    "rank": 79,
+    "score": 77.6,
+    "moveset": [
+      "Quick Attack",
+      "Wild Charge",
+      "Play Rough"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "golisopod",
+    "speciesName": "Golisopod",
+    "rank": 80,
+    "score": 77.3,
+    "moveset": [
+      "Fury Cutter",
+      "Aqua Jet",
+      "X Scissor"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "heatran",
+    "speciesName": "Heatran",
+    "rank": 81,
+    "score": 77.2,
+    "moveset": [
+      "Fire Spin",
+      "Magma Storm",
+      "Iron Head"
+    ],
+    "elite": [
+      "Magma Storm"
+    ]
+  },
+  {
+    "speciesId": "giratina_altered",
+    "speciesName": "Giratina (Altered)",
+    "rank": 82,
+    "score": 76.8,
+    "moveset": [
+      "Dragon Breath",
+      "Dragon Claw",
+      "Ancient Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "dondozo",
+    "speciesName": "Dondozo",
+    "rank": 83,
+    "score": 76.4,
+    "moveset": [
+      "Waterfall",
+      "Surf",
+      "Outrage"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "zamazenta_hero",
+    "speciesName": "Zamazenta (Hero)",
+    "rank": 84,
+    "score": 76.3,
+    "moveset": [
+      "Ice Fang",
+      "Close Combat",
+      "Crunch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "avalugg_hisuian",
+    "speciesName": "Avalugg (Hisuian)",
+    "rank": 85,
+    "score": 76.1,
+    "moveset": [
+      "Powder Snow",
+      "Rock Slide",
+      "Icy Wind"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "genesect_chill",
+    "speciesName": "Genesect (Chill)",
+    "rank": 86,
+    "score": 76.1,
+    "moveset": [
+      "Fury Cutter",
+      "Magnet Bomb",
+      "Techno Blast Chill"
+    ],
+    "elite": [
+      "Techno Blast Chill"
+    ]
+  },
+  {
+    "speciesId": "hydreigon",
+    "speciesName": "Hydreigon",
+    "rank": 87,
+    "score": 76,
+    "moveset": [
+      "Dragon Breath",
+      "Brutal Swing",
+      "Flash Cannon"
+    ],
+    "elite": [
+      "Brutal Swing"
+    ]
+  },
+  {
+    "speciesId": "kommo_o",
+    "speciesName": "Kommo-o",
+    "rank": 88,
+    "score": 75.9,
+    "moveset": [
+      "Dragon Tail",
+      "Clanging Scales",
+      "Upper Hand"
+    ],
+    "elite": [
+      "Clanging Scales"
+    ]
+  },
+  {
+    "speciesId": "tapu_bulu",
+    "speciesName": "Tapu Bulu",
+    "rank": 89,
+    "score": 75.9,
+    "moveset": [
+      "Bullet Seed",
+      "Grass Knot",
+      "Natures Madness"
+    ],
+    "elite": [
+      "Natures Madness"
+    ]
+  },
+  {
+    "speciesId": "hippowdon_shadow",
+    "speciesName": "Hippowdon (Shadow)",
+    "rank": 90,
+    "score": 75.7,
+    "moveset": [
+      "Sand Attack",
+      "Weather Ball Rock",
+      "Earth Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "cobalion",
+    "speciesName": "Cobalion",
+    "rank": 91,
+    "score": 75.4,
+    "moveset": [
+      "Double Kick",
+      "Sacred Sword",
+      "Stone Edge"
+    ],
+    "elite": [
+      "Sacred Sword"
+    ]
+  },
+  {
+    "speciesId": "skeledirge",
+    "speciesName": "Skeledirge",
+    "rank": 92,
+    "score": 75.2,
+    "moveset": [
+      "Incinerate",
+      "Torch Song",
+      "Shadow Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tapu_fini",
+    "speciesName": "Tapu Fini",
+    "rank": 93,
+    "score": 75.2,
+    "moveset": [
+      "Water Gun",
+      "Surf",
+      "Natures Madness"
+    ],
+    "elite": [
+      "Natures Madness"
+    ]
+  },
+  {
+    "speciesId": "rhyperior_shadow",
+    "speciesName": "Rhyperior (Shadow)",
+    "rank": 94,
+    "score": 75,
+    "moveset": [
+      "Mud Slap",
+      "Breaking Swipe",
+      "Rock Wrecker"
+    ],
+    "elite": [
+      "Rock Wrecker"
+    ]
+  },
+  {
+    "speciesId": "mamoswine_shadow",
+    "speciesName": "Mamoswine (Shadow)",
+    "rank": 95,
+    "score": 74.7,
+    "moveset": [
+      "Powder Snow",
+      "High Horsepower",
+      "Icicle Spear"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "hippowdon",
+    "speciesName": "Hippowdon",
+    "rank": 96,
+    "score": 74.4,
+    "moveset": [
+      "Sand Attack",
+      "Weather Ball Rock",
+      "Earth Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "blacephalon",
+    "speciesName": "Blacephalon",
+    "rank": 97,
+    "score": 74.3,
+    "moveset": [
+      "Incinerate",
+      "Mind Blown",
+      "Shadow Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "sylveon",
+    "speciesName": "Sylveon",
+    "rank": 98,
+    "score": 73.9,
+    "moveset": [
+      "Charm",
+      "Moonblast",
+      "Psyshock"
+    ],
+    "elite": [
+      "Psyshock"
+    ]
+  },
+  {
+    "speciesId": "conkeldurr_shadow",
+    "speciesName": "Conkeldurr (Shadow)",
+    "rank": 99,
+    "score": 73.8,
+    "moveset": [
+      "Counter",
+      "Dynamic Punch",
+      "Brutal Swing"
+    ],
+    "elite": [
+      "Brutal Swing"
+    ]
+  },
+  {
+    "speciesId": "enamorus_incarnate",
+    "speciesName": "Enamorus (Incarnate)",
+    "rank": 100,
+    "score": 73.8,
+    "moveset": [
+      "Fairy Wind",
+      "Fly",
+      "Dazzling Gleam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "genesect_shock",
+    "speciesName": "Genesect (Shock)",
+    "rank": 101,
+    "score": 73.7,
+    "moveset": [
+      "Fury Cutter",
+      "Magnet Bomb",
+      "Techno Blast Shock"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "thundurus_therian",
+    "speciesName": "Thundurus (Therian)",
+    "rank": 102,
+    "score": 73.4,
+    "moveset": [
+      "Volt Switch",
+      "Wildbolt Storm",
+      "Focus Blast"
+    ],
+    "elite": [
+      "Wildbolt Storm"
+    ]
+  },
+  {
+    "speciesId": "ursaluna_shadow",
+    "speciesName": "Ursaluna (Shadow)",
+    "rank": 103,
+    "score": 73.4,
+    "moveset": [
+      "Tackle",
+      "Swift",
+      "High Horsepower"
+    ],
+    "elite": [
+      "High Horsepower"
+    ]
+  },
+  {
+    "speciesId": "mamoswine",
+    "speciesName": "Mamoswine",
+    "rank": 104,
+    "score": 73.3,
+    "moveset": [
+      "Powder Snow",
+      "Icicle Spear",
+      "High Horsepower"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tapu_koko",
+    "speciesName": "Tapu Koko",
+    "rank": 105,
+    "score": 73.3,
+    "moveset": [
+      "Volt Switch",
+      "Thunderbolt",
+      "Natures Madness"
+    ],
+    "elite": [
+      "Natures Madness"
+    ]
+  },
+  {
+    "speciesId": "ursaluna",
+    "speciesName": "Ursaluna",
+    "rank": 106,
+    "score": 73.3,
+    "moveset": [
+      "Tackle",
+      "Swift",
+      "High Horsepower"
+    ],
+    "elite": [
+      "High Horsepower"
+    ]
+  },
+  {
+    "speciesId": "milotic",
+    "speciesName": "Milotic",
+    "rank": 107,
+    "score": 73.2,
+    "moveset": [
+      "Waterfall",
+      "Aqua Tail",
+      "Wrap"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "swampert",
+    "speciesName": "Swampert",
+    "rank": 108,
+    "score": 73.2,
+    "moveset": [
+      "Mud Shot",
+      "Hydro Cannon",
+      "Earthquake"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "salamence",
+    "speciesName": "Salamence",
+    "rank": 109,
+    "score": 73.1,
+    "moveset": [
+      "Dragon Tail",
+      "Fly",
+      "Brutal Swing"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "terrakion",
+    "speciesName": "Terrakion",
+    "rank": 110,
+    "score": 73.1,
+    "moveset": [
+      "Double Kick",
+      "Sacred Sword",
+      "Rock Slide"
+    ],
+    "elite": [
+      "Sacred Sword"
+    ]
+  },
+  {
+    "speciesId": "thundurus_incarnate_shadow",
+    "speciesName": "Thundurus (Incarnate) (Shadow)",
+    "rank": 111,
+    "score": 73,
+    "moveset": [
+      "Thunder Shock",
+      "Thunder Punch",
+      "Brick Break"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "mew",
+    "speciesName": "Mew",
+    "rank": 112,
+    "score": 72.9,
+    "moveset": [
+      "Shadow Claw",
+      "Psyshock",
+      "Wild Charge"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "swampert_shadow",
+    "speciesName": "Swampert (Shadow)",
+    "rank": 113,
+    "score": 72.9,
+    "moveset": [
+      "Mud Shot",
+      "Hydro Cannon",
+      "Earthquake"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "virizion",
+    "speciesName": "Virizion",
+    "rank": 114,
+    "score": 72.9,
+    "moveset": [
+      "Double Kick",
+      "Leaf Blade",
+      "Sacred Sword"
+    ],
+    "elite": [
+      "Sacred Sword"
+    ]
+  },
+  {
+    "speciesId": "landorus_incarnate",
+    "speciesName": "Landorus (Incarnate)",
+    "rank": 115,
+    "score": 72.7,
+    "moveset": [
+      "Mud Shot",
+      "Earth Power",
+      "Rock Slide"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "xurkitree",
+    "speciesName": "Xurkitree",
+    "rank": 116,
+    "score": 72.6,
+    "moveset": [
+      "Thunder Shock",
+      "Discharge",
+      "Dazzling Gleam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "regidrago",
+    "speciesName": "Regidrago",
+    "rank": 117,
+    "score": 72.3,
+    "moveset": [
+      "Dragon Breath",
+      "Dragon Energy",
+      "Vice Grip"
+    ],
+    "elite": [
+      "Dragon Breath",
+      "Dragon Energy"
+    ]
+  },
+  {
+    "speciesId": "sneasler_shadow",
+    "speciesName": "Sneasler (Shadow)",
+    "rank": 118,
+    "score": 72.3,
+    "moveset": [
+      "Shadow Claw",
+      "Close Combat",
+      "X Scissor"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "armarouge",
+    "speciesName": "Armarouge",
+    "rank": 119,
+    "score": 72,
+    "moveset": [
+      "Incinerate",
+      "Psyshock",
+      "Heat Wave"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "genesect_burn",
+    "speciesName": "Genesect (Burn)",
+    "rank": 120,
+    "score": 72,
+    "moveset": [
+      "Fury Cutter",
+      "Magnet Bomb",
+      "Techno Blast Burn"
+    ],
+    "elite": [
+      "Techno Blast Burn"
+    ]
+  },
+  {
+    "speciesId": "magnezone_shadow",
+    "speciesName": "Magnezone (Shadow)",
+    "rank": 121,
+    "score": 71.9,
+    "moveset": [
+      "Volt Switch",
+      "Wild Charge",
+      "Mirror Shot"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "avalugg",
+    "speciesName": "Avalugg",
+    "rank": 122,
+    "score": 71.7,
+    "moveset": [
+      "Ice Fang",
+      "Avalanche",
+      "Body Slam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "genesect",
+    "speciesName": "Genesect",
+    "rank": 123,
+    "score": 71.3,
+    "moveset": [
+      "Fury Cutter",
+      "Magnet Bomb",
+      "Techno Blast Normal"
+    ],
+    "elite": [
+      "Techno Blast Normal"
+    ]
+  },
+  {
+    "speciesId": "golurk_shadow",
+    "speciesName": "Golurk (Shadow)",
+    "rank": 124,
+    "score": 71.3,
+    "moveset": [
+      "Astonish",
+      "Shadow Punch",
+      "Dynamic Punch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "chandelure",
+    "speciesName": "Chandelure",
+    "rank": 125,
+    "score": 71.2,
+    "moveset": [
+      "Incinerate",
+      "Shadow Ball",
+      "Flame Charge"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "articuno",
+    "speciesName": "Articuno",
+    "rank": 126,
+    "score": 71,
+    "moveset": [
+      "Powder Snow",
+      "Icy Wind",
+      "Hurricane"
+    ],
+    "elite": [
+      "Hurricane"
+    ]
+  },
+  {
+    "speciesId": "chandelure_shadow",
+    "speciesName": "Chandelure (Shadow)",
+    "rank": 127,
+    "score": 71,
+    "moveset": [
+      "Incinerate",
+      "Shadow Ball",
+      "Flame Charge"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "kingambit",
+    "speciesName": "Kingambit",
+    "rank": 128,
+    "score": 70.9,
+    "moveset": [
+      "Snarl",
+      "Foul Play",
+      "Iron Head"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "milotic_shadow",
+    "speciesName": "Milotic (Shadow)",
+    "rank": 129,
+    "score": 70.9,
+    "moveset": [
+      "Waterfall",
+      "Aqua Tail",
+      "Wrap"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "cetitan",
+    "speciesName": "Cetitan",
+    "rank": 130,
+    "score": 70.8,
+    "moveset": [
+      "Powder Snow",
+      "Avalanche",
+      "Super Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "zygarde",
+    "speciesName": "Zygarde (50% Forme)",
+    "rank": 131,
+    "score": 70.6,
+    "moveset": [
+      "Dragon Tail",
+      "Crunch",
+      "Earthquake"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gallade_shadow",
+    "speciesName": "Gallade (Shadow)",
+    "rank": 132,
+    "score": 70.5,
+    "moveset": [
+      "Psycho Cut",
+      "Close Combat",
+      "Leaf Blade"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "celebi",
+    "speciesName": "Celebi",
+    "rank": 133,
+    "score": 70.4,
+    "moveset": [
+      "Confusion",
+      "Aura Sphere",
+      "Leaf Storm"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gallade",
+    "speciesName": "Gallade",
+    "rank": 134,
+    "score": 70.4,
+    "moveset": [
+      "Psycho Cut",
+      "Close Combat",
+      "Leaf Blade"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "machamp_shadow",
+    "speciesName": "Machamp (Shadow)",
+    "rank": 135,
+    "score": 70.3,
+    "moveset": [
+      "Karate Chop",
+      "Cross Chop",
+      "Stone Edge"
+    ],
+    "elite": [
+      "Karate Chop",
+      "Stone Edge"
+    ]
+  },
+  {
+    "speciesId": "genesect_douse",
+    "speciesName": "Genesect (Douse)",
+    "rank": 136,
+    "score": 70.2,
+    "moveset": [
+      "Fury Cutter",
+      "Magnet Bomb",
+      "Techno Blast Douse"
+    ],
+    "elite": [
+      "Techno Blast Douse"
+    ]
+  },
+  {
+    "speciesId": "entei",
+    "speciesName": "Entei",
+    "rank": 137,
+    "score": 70.1,
+    "moveset": [
+      "Fire Spin",
+      "Flame Charge",
+      "Scorching Sands"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "moltres_galarian",
+    "speciesName": "Moltres (Galarian)",
+    "rank": 138,
+    "score": 69.9,
+    "moveset": [
+      "Sucker Punch",
+      "Ancient Power",
+      "Payback"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "excadrill_shadow",
+    "speciesName": "Excadrill (Shadow)",
+    "rank": 139,
+    "score": 69.8,
+    "moveset": [
+      "Mud Shot",
+      "Drill Run",
+      "Rock Slide"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "moltres",
+    "speciesName": "Moltres",
+    "rank": 140,
+    "score": 69.6,
+    "moveset": [
+      "Wing Attack",
+      "Fly",
+      "Heat Wave"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "ceruledge",
+    "speciesName": "Ceruledge",
+    "rank": 141,
+    "score": 69.5,
+    "moveset": [
+      "Incinerate",
+      "Shadow Ball",
+      "Heat Wave"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "chesnaught_shadow",
+    "speciesName": "Chesnaught (Shadow)",
+    "rank": 142,
+    "score": 69.4,
+    "moveset": [
+      "Low Kick",
+      "Frenzy Plant",
+      "Super Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "regirock",
+    "speciesName": "Regirock",
+    "rank": 143,
+    "score": 69.3,
+    "moveset": [
+      "Lock On",
+      "Stone Edge",
+      "Focus Blast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "empoleon",
+    "speciesName": "Empoleon",
+    "rank": 144,
+    "score": 69.2,
+    "moveset": [
+      "Metal Sound",
+      "Hydro Cannon",
+      "Drill Peck"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "empoleon_shadow",
+    "speciesName": "Empoleon (Shadow)",
+    "rank": 145,
+    "score": 68.8,
+    "moveset": [
+      "Metal Sound",
+      "Hydro Cannon",
+      "Drill Peck"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "aurorus_shadow",
+    "speciesName": "Aurorus (Shadow)",
+    "rank": 146,
+    "score": 68.7,
+    "moveset": [
+      "Powder Snow",
+      "Weather Ball Ice",
+      "Meteor Beam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "zarude",
+    "speciesName": "Zarude",
+    "rank": 147,
+    "score": 68.7,
+    "moveset": [
+      "Vine Whip",
+      "Dark Pulse",
+      "Power Whip"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "feraligatr",
+    "speciesName": "Feraligatr",
+    "rank": 148,
+    "score": 68.6,
+    "moveset": [
+      "Shadow Claw",
+      "Hydro Cannon",
+      "Ice Beam"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "grimmsnarl",
+    "speciesName": "Grimmsnarl",
+    "rank": 149,
+    "score": 68.6,
+    "moveset": [
+      "Sucker Punch",
+      "Foul Play",
+      "Play Rough"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "articuno_shadow",
+    "speciesName": "Articuno (Shadow)",
+    "rank": 150,
+    "score": 68.5,
+    "moveset": [
+      "Powder Snow",
+      "Icy Wind",
+      "Hurricane"
+    ],
+    "elite": [
+      "Hurricane"
+    ]
+  },
+  {
+    "speciesId": "machamp",
+    "speciesName": "Machamp",
+    "rank": 151,
+    "score": 68.4,
+    "moveset": [
+      "Karate Chop",
+      "Cross Chop",
+      "Rock Slide"
+    ],
+    "elite": [
+      "Karate Chop"
+    ]
+  },
+  {
+    "speciesId": "snorlax_shadow",
+    "speciesName": "Snorlax (Shadow)",
+    "rank": 152,
+    "score": 68.2,
+    "moveset": [
+      "Lick",
+      "Body Slam",
+      "Super Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "nihilego",
+    "speciesName": "Nihilego",
+    "rank": 153,
+    "score": 68.1,
+    "moveset": [
+      "Poison Jab",
+      "Power Gem",
+      "Sludge Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "feraligatr_shadow",
+    "speciesName": "Feraligatr (Shadow)",
+    "rank": 154,
+    "score": 68,
+    "moveset": [
+      "Shadow Claw",
+      "Hydro Cannon",
+      "Ice Beam"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "moltres_shadow",
+    "speciesName": "Moltres (Shadow)",
+    "rank": 155,
+    "score": 67.9,
+    "moveset": [
+      "Wing Attack",
+      "Fly",
+      "Heat Wave"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "necrozma",
+    "speciesName": "Necrozma",
+    "rank": 156,
+    "score": 67.9,
+    "moveset": [
+      "Psycho Cut",
+      "Dark Pulse",
+      "Outrage"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "conkeldurr",
+    "speciesName": "Conkeldurr",
+    "rank": 157,
+    "score": 67.8,
+    "moveset": [
+      "Counter",
+      "Dynamic Punch",
+      "Brutal Swing"
+    ],
+    "elite": [
+      "Brutal Swing"
+    ]
+  },
+  {
+    "speciesId": "entei_shadow",
+    "speciesName": "Entei (Shadow)",
+    "rank": 158,
+    "score": 67.8,
+    "moveset": [
+      "Fire Spin",
+      "Flame Charge",
+      "Scorching Sands"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "heracross",
+    "speciesName": "Heracross",
+    "rank": 159,
+    "score": 67.8,
+    "moveset": [
+      "Fury Cutter",
+      "Upper Hand",
+      "Rock Tomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "typhlosion_hisuian",
+    "speciesName": "Typhlosion (Hisuian)",
+    "rank": 160,
+    "score": 67.8,
+    "moveset": [
+      "Hex",
+      "Shadow Ball",
+      "Fire Punch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "cresselia",
+    "speciesName": "Cresselia",
+    "rank": 161,
+    "score": 67.7,
+    "moveset": [
+      "Confusion",
+      "Grass Knot",
+      "Moonblast"
+    ],
+    "elite": [
+      "Grass Knot"
+    ]
+  },
+  {
+    "speciesId": "buzzwole",
+    "speciesName": "Buzzwole",
+    "rank": 162,
+    "score": 67.6,
+    "moveset": [
+      "Counter",
+      "Super Power",
+      "Lunge"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "snorlax",
+    "speciesName": "Snorlax",
+    "rank": 163,
+    "score": 67.6,
+    "moveset": [
+      "Lick",
+      "Body Slam",
+      "Super Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "regirock_shadow",
+    "speciesName": "Regirock (Shadow)",
+    "rank": 164,
+    "score": 67.4,
+    "moveset": [
+      "Lock On",
+      "Stone Edge",
+      "Focus Blast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "scizor_shadow",
+    "speciesName": "Scizor (Shadow)",
+    "rank": 165,
+    "score": 67.3,
+    "moveset": [
+      "Bullet Punch",
+      "Night Slash",
+      "Trailblaze"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "excadrill",
+    "speciesName": "Excadrill",
+    "rank": 166,
+    "score": 67.2,
+    "moveset": [
+      "Mud Shot",
+      "Drill Run",
+      "Rock Slide"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "electivire_shadow",
+    "speciesName": "Electivire (Shadow)",
+    "rank": 167,
+    "score": 67.1,
+    "moveset": [
+      "Thunder Shock",
+      "Wild Charge",
+      "Ice Punch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "pangoro",
+    "speciesName": "Pangoro",
+    "rank": 168,
+    "score": 67,
+    "moveset": [
+      "Karate Chop",
+      "Close Combat",
+      "Night Slash"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "magnezone",
+    "speciesName": "Magnezone",
+    "rank": 169,
+    "score": 66.8,
+    "moveset": [
+      "Volt Switch",
+      "Wild Charge",
+      "Mirror Shot"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "delphox_shadow",
+    "speciesName": "Delphox (Shadow)",
+    "rank": 170,
+    "score": 66.5,
+    "moveset": [
+      "Fire Spin",
+      "Psyshock",
+      "Blast Burn"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "dhelmise",
+    "speciesName": "Dhelmise",
+    "rank": 171,
+    "score": 66.5,
+    "moveset": [
+      "Shadow Claw",
+      "Shadow Ball",
+      "Brutal Swing"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "haxorus",
+    "speciesName": "Haxorus",
+    "rank": 172,
+    "score": 66.2,
+    "moveset": [
+      "Dragon Tail",
+      "Night Slash",
+      "Surf"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "walrein",
+    "speciesName": "Walrein",
+    "rank": 173,
+    "score": 66.1,
+    "moveset": [
+      "Powder Snow",
+      "Icicle Spear",
+      "Earthquake"
+    ],
+    "elite": [
+      "Powder Snow",
+      "Icicle Spear"
+    ]
+  },
+  {
+    "speciesId": "torterra_shadow",
+    "speciesName": "Torterra (Shadow)",
+    "rank": 174,
+    "score": 66,
+    "moveset": [
+      "Mud Slap",
+      "Frenzy Plant",
+      "Sand Tomb"
+    ],
+    "elite": [
+      "Frenzy Plant"
+    ]
+  },
+  {
+    "speciesId": "walrein_shadow",
+    "speciesName": "Walrein (Shadow)",
+    "rank": 175,
+    "score": 65.9,
+    "moveset": [
+      "Powder Snow",
+      "Icicle Spear",
+      "Earthquake"
+    ],
+    "elite": [
+      "Powder Snow",
+      "Icicle Spear"
+    ]
+  },
+  {
+    "speciesId": "hoopa",
+    "speciesName": "Hoopa",
+    "rank": 176,
+    "score": 65.6,
+    "moveset": [
+      "Astonish",
+      "Shadow Ball",
+      "Psychic"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "suicune",
+    "speciesName": "Suicune",
+    "rank": 177,
+    "score": 65.6,
+    "moveset": [
+      "Ice Fang",
+      "Scald",
+      "Ice Beam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "quaquaval",
+    "speciesName": "Quaquaval",
+    "rank": 178,
+    "score": 65.2,
+    "moveset": [
+      "Wing Attack",
+      "Close Combat",
+      "Hydro Cannon"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "thundurus_incarnate",
+    "speciesName": "Thundurus (Incarnate)",
+    "rank": 179,
+    "score": 65.1,
+    "moveset": [
+      "Thunder Shock",
+      "Crunch",
+      "Thunder"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "torterra",
+    "speciesName": "Torterra",
+    "rank": 180,
+    "score": 65.1,
+    "moveset": [
+      "Mud Slap",
+      "Frenzy Plant",
+      "Sand Tomb"
+    ],
+    "elite": [
+      "Frenzy Plant"
+    ]
+  },
+  {
+    "speciesId": "rayquaza",
+    "speciesName": "Rayquaza",
+    "rank": 181,
+    "score": 64.9,
+    "moveset": [
+      "Dragon Tail",
+      "Breaking Swipe",
+      "Dragon Ascent"
+    ],
+    "elite": [
+      "Breaking Swipe",
+      "Dragon Ascent"
+    ]
+  },
+  {
+    "speciesId": "charizard",
+    "speciesName": "Charizard",
+    "rank": 182,
+    "score": 64.7,
+    "moveset": [
+      "Dragon Breath",
+      "Blast Burn",
+      "Air Cutter"
+    ],
+    "elite": [
+      "Dragon Breath",
+      "Blast Burn"
+    ]
+  },
+  {
+    "speciesId": "delphox",
+    "speciesName": "Delphox",
+    "rank": 183,
+    "score": 64.7,
+    "moveset": [
+      "Fire Spin",
+      "Psyshock",
+      "Blast Burn"
+    ],
+    "elite": [
+      "Blast Burn"
+    ]
+  },
+  {
+    "speciesId": "golurk",
+    "speciesName": "Golurk",
+    "rank": 184,
+    "score": 64.7,
+    "moveset": [
+      "Astonish",
+      "Shadow Punch",
+      "Dynamic Punch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "dragapult",
+    "speciesName": "Dragapult",
+    "rank": 185,
+    "score": 64.3,
+    "moveset": [
+      "Dragon Tail",
+      "Shadow Ball",
+      "Outrage"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "cresselia_shadow",
+    "speciesName": "Cresselia (Shadow)",
+    "rank": 186,
+    "score": 64.2,
+    "moveset": [
+      "Confusion",
+      "Grass Knot",
+      "Moonblast"
+    ],
+    "elite": [
+      "Grass Knot"
+    ]
+  },
+  {
+    "speciesId": "darmanitan_standard_shadow",
+    "speciesName": "Darmanitan (Standard) (Shadow)",
+    "rank": 187,
+    "score": 64.2,
+    "moveset": [
+      "Incinerate",
+      "Rock Slide",
+      "Overheat"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "ursaring_shadow",
+    "speciesName": "Ursaring (Shadow)",
+    "rank": 188,
+    "score": 64.2,
+    "moveset": [
+      "Shadow Claw",
+      "Close Combat",
+      "Swift"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "hariyama_shadow",
+    "speciesName": "Hariyama (Shadow)",
+    "rank": 189,
+    "score": 64.1,
+    "moveset": [
+      "Force Palm",
+      "Upper Hand",
+      "Heavy Slam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "vaporeon",
+    "speciesName": "Vaporeon",
+    "rank": 190,
+    "score": 64.1,
+    "moveset": [
+      "Water Gun",
+      "Aqua Tail",
+      "Liquidation"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "sirfetchd",
+    "speciesName": "Sirfetch'd",
+    "rank": 191,
+    "score": 64,
+    "moveset": [
+      "Fury Cutter",
+      "Close Combat",
+      "Leaf Blade"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "centiskorch",
+    "speciesName": "Centiskorch",
+    "rank": 192,
+    "score": 63.9,
+    "moveset": [
+      "Ember",
+      "Heat Wave",
+      "Lunge"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "sneasler",
+    "speciesName": "Sneasler",
+    "rank": 193,
+    "score": 63.9,
+    "moveset": [
+      "Shadow Claw",
+      "Close Combat",
+      "Aerial Ace"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "zapdos_galarian",
+    "speciesName": "Zapdos (Galarian)",
+    "rank": 194,
+    "score": 63.9,
+    "moveset": [
+      "Counter",
+      "Ancient Power",
+      "Brave Bird"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "arcanine_shadow",
+    "speciesName": "Arcanine (Shadow)",
+    "rank": 195,
+    "score": 63.7,
+    "moveset": [
+      "Fire Fang",
+      "Wild Charge",
+      "Psychic Fangs"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "scizor",
+    "speciesName": "Scizor",
+    "rank": 196,
+    "score": 63.7,
+    "moveset": [
+      "Bullet Punch",
+      "Night Slash",
+      "Trailblaze"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gardevoir_shadow",
+    "speciesName": "Gardevoir (Shadow)",
+    "rank": 197,
+    "score": 63.6,
+    "moveset": [
+      "Charm",
+      "Shadow Ball",
+      "Triple Axel"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "arcanine",
+    "speciesName": "Arcanine",
+    "rank": 198,
+    "score": 63.5,
+    "moveset": [
+      "Fire Fang",
+      "Wild Charge",
+      "Psychic Fangs"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "donphan",
+    "speciesName": "Donphan",
+    "rank": 199,
+    "score": 63.5,
+    "moveset": [
+      "Mud Slap",
+      "Body Slam",
+      "Trailblaze"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "lapras",
+    "speciesName": "Lapras",
+    "rank": 200,
+    "score": 63.3,
+    "moveset": [
+      "Psywave",
+      "Surf",
+      "Ice Beam"
+    ],
+    "elite": [
+      "Ice Beam"
+    ]
+  },
+  {
+    "speciesId": "magmortar_shadow",
+    "speciesName": "Magmortar (Shadow)",
+    "rank": 201,
+    "score": 63.3,
+    "moveset": [
+      "Karate Chop",
+      "Fire Punch",
+      "Thunderbolt"
+    ],
+    "elite": [
+      "Thunderbolt"
+    ]
+  },
+  {
+    "speciesId": "decidueye_hisuian",
+    "speciesName": "Decidueye (Hisuian)",
+    "rank": 202,
+    "score": 63.2,
+    "moveset": [
+      "Psycho Cut",
+      "Aura Sphere",
+      "Trailblaze"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tornadus_therian",
+    "speciesName": "Tornadus (Therian)",
+    "rank": 203,
+    "score": 63,
+    "moveset": [
+      "Astonish",
+      "Bleakwind Storm",
+      "Heat Wave"
+    ],
+    "elite": [
+      "Bleakwind Storm"
+    ]
+  },
+  {
+    "speciesId": "typhlosion_shadow",
+    "speciesName": "Typhlosion (Shadow)",
+    "rank": 204,
+    "score": 63,
+    "moveset": [
+      "Incinerate",
+      "Blast Burn",
+      "Thunder Punch"
+    ],
+    "elite": [
+      "Blast Burn"
+    ]
+  },
+  {
+    "speciesId": "donphan_shadow",
+    "speciesName": "Donphan (Shadow)",
+    "rank": 205,
+    "score": 62.9,
+    "moveset": [
+      "Mud Slap",
+      "Body Slam",
+      "Trailblaze"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "darmanitan_standard",
+    "speciesName": "Darmanitan (Standard)",
+    "rank": 206,
+    "score": 62.8,
+    "moveset": [
+      "Incinerate",
+      "Rock Slide",
+      "Overheat"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "lapras_shadow",
+    "speciesName": "Lapras (Shadow)",
+    "rank": 207,
+    "score": 62.7,
+    "moveset": [
+      "Psywave",
+      "Sparkling Aria",
+      "Ice Beam"
+    ],
+    "elite": [
+      "Ice Beam"
+    ]
+  },
+  {
+    "speciesId": "charizard_shadow",
+    "speciesName": "Charizard (Shadow)",
+    "rank": 208,
+    "score": 62.6,
+    "moveset": [
+      "Dragon Breath",
+      "Blast Burn",
+      "Dragon Claw"
+    ],
+    "elite": [
+      "Dragon Breath",
+      "Blast Burn"
+    ]
+  },
+  {
+    "speciesId": "suicune_shadow",
+    "speciesName": "Suicune (Shadow)",
+    "rank": 209,
+    "score": 62.6,
+    "moveset": [
+      "Ice Fang",
+      "Scald",
+      "Ice Beam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "typhlosion",
+    "speciesName": "Typhlosion",
+    "rank": 210,
+    "score": 62.4,
+    "moveset": [
+      "Incinerate",
+      "Blast Burn",
+      "Thunder Punch"
+    ],
+    "elite": [
+      "Blast Burn"
+    ]
+  },
+  {
+    "speciesId": "passimian",
+    "speciesName": "Passimian",
+    "rank": 211,
+    "score": 62.3,
+    "moveset": [
+      "Counter",
+      "Close Combat",
+      "Brutal Swing"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "vikavolt_shadow",
+    "speciesName": "Vikavolt (Shadow)",
+    "rank": 212,
+    "score": 62.3,
+    "moveset": [
+      "Volt Switch",
+      "X Scissor",
+      "Discharge"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "electivire",
+    "speciesName": "Electivire",
+    "rank": 213,
+    "score": 62.2,
+    "moveset": [
+      "Thunder Shock",
+      "Wild Charge",
+      "Ice Punch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "hydrapple",
+    "speciesName": "Hydrapple",
+    "rank": 214,
+    "score": 62.2,
+    "moveset": [
+      "Dragon Tail",
+      "Seed Bomb",
+      "Outrage"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gogoat",
+    "speciesName": "Gogoat",
+    "rank": 215,
+    "score": 62,
+    "moveset": [
+      "Vine Whip",
+      "Leaf Blade",
+      "Brick Break"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "kingdra_shadow",
+    "speciesName": "Kingdra (Shadow)",
+    "rank": 216,
+    "score": 62,
+    "moveset": [
+      "Dragon Breath",
+      "Swift",
+      "Outrage"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "aggron_shadow",
+    "speciesName": "Aggron (Shadow)",
+    "rank": 217,
+    "score": 61.9,
+    "moveset": [
+      "Dragon Tail",
+      "Thunder",
+      "Rock Tomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "chesnaught",
+    "speciesName": "Chesnaught",
+    "rank": 218,
+    "score": 61.9,
+    "moveset": [
+      "Low Kick",
+      "Frenzy Plant",
+      "Super Power"
+    ],
+    "elite": [
+      "Frenzy Plant"
+    ]
+  },
+  {
+    "speciesId": "mudsdale",
+    "speciesName": "Mudsdale",
+    "rank": 219,
+    "score": 61.7,
+    "moveset": [
+      "Mud Slap",
+      "Body Slam",
+      "Earthquake"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "pinsir_shadow",
+    "speciesName": "Pinsir (Shadow)",
+    "rank": 220,
+    "score": 61.7,
+    "moveset": [
+      "Fury Cutter",
+      "Close Combat",
+      "X Scissor"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gardevoir",
+    "speciesName": "Gardevoir",
+    "rank": 221,
+    "score": 61.6,
+    "moveset": [
+      "Charm",
+      "Shadow Ball",
+      "Triple Axel"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "guzzlord",
+    "speciesName": "Guzzlord",
+    "rank": 222,
+    "score": 61.5,
+    "moveset": [
+      "Dragon Tail",
+      "Brutal Swing",
+      "Dragon Claw"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gigalith",
+    "speciesName": "Gigalith",
+    "rank": 223,
+    "score": 61.4,
+    "moveset": [
+      "Mud Slap",
+      "Super Power",
+      "Meteor Beam"
+    ],
+    "elite": [
+      "Meteor Beam"
+    ]
+  },
+  {
+    "speciesId": "vikavolt",
+    "speciesName": "Vikavolt",
+    "rank": 224,
+    "score": 61.2,
+    "moveset": [
+      "Volt Switch",
+      "X Scissor",
+      "Discharge"
+    ],
+    "elite": [
+      "Volt Switch"
+    ]
+  },
+  {
+    "speciesId": "aurorus",
+    "speciesName": "Aurorus",
+    "rank": 225,
+    "score": 61.1,
+    "moveset": [
+      "Powder Snow",
+      "Weather Ball Ice",
+      "Thunderbolt"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "kingdra",
+    "speciesName": "Kingdra",
+    "rank": 226,
+    "score": 61,
+    "moveset": [
+      "Dragon Breath",
+      "Swift",
+      "Outrage"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "krookodile",
+    "speciesName": "Krookodile",
+    "rank": 227,
+    "score": 61,
+    "moveset": [
+      "Mud Slap",
+      "Crunch",
+      "Sand Tomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "hariyama",
+    "speciesName": "Hariyama",
+    "rank": 228,
+    "score": 60.9,
+    "moveset": [
+      "Force Palm",
+      "Upper Hand",
+      "Heavy Slam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "cinderace",
+    "speciesName": "Cinderace",
+    "rank": 229,
+    "score": 60.6,
+    "moveset": [
+      "Fire Spin",
+      "Blast Burn",
+      "Pyro Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "emboar_shadow",
+    "speciesName": "Emboar (Shadow)",
+    "rank": 230,
+    "score": 60.6,
+    "moveset": [
+      "Ember",
+      "Blast Burn",
+      "Rock Slide"
+    ],
+    "elite": [
+      "Blast Burn"
+    ]
+  },
+  {
+    "speciesId": "aggron",
+    "speciesName": "Aggron",
+    "rank": 231,
+    "score": 60.5,
+    "moveset": [
+      "Dragon Tail",
+      "Thunder",
+      "Rock Tomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "sinistcha",
+    "speciesName": "Sinistcha",
+    "rank": 232,
+    "score": 60.4,
+    "moveset": [
+      "Astonish",
+      "Shadow Ball",
+      "Energy Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gourgeist_super",
+    "speciesName": "Gourgeist (Super)",
+    "rank": 233,
+    "score": 59.8,
+    "moveset": [
+      "Incinerate",
+      "Shadow Ball",
+      "Foul Play"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "darkrai_shadow",
+    "speciesName": "Darkrai (Shadow)",
+    "rank": 234,
+    "score": 59.6,
+    "moveset": [
+      "Snarl",
+      "Shadow Ball",
+      "Dark Pulse"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "samurott_hisuian",
+    "speciesName": "Samurott (Hisuian)",
+    "rank": 235,
+    "score": 59.6,
+    "moveset": [
+      "Fury Cutter",
+      "Sacred Sword",
+      "Icy Wind"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "cursola",
+    "speciesName": "Cursola",
+    "rank": 236,
+    "score": 59.5,
+    "moveset": [
+      "Astonish",
+      "Night Shade",
+      "Power Gem"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "darkrai",
+    "speciesName": "Darkrai",
+    "rank": 237,
+    "score": 59.3,
+    "moveset": [
+      "Snarl",
+      "Dark Pulse",
+      "Focus Blast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "incineroar",
+    "speciesName": "Incineroar",
+    "rank": 238,
+    "score": 59.3,
+    "moveset": [
+      "Snarl",
+      "Blast Burn",
+      "Darkest Lariat"
+    ],
+    "elite": [
+      "Blast Burn"
+    ]
+  },
+  {
+    "speciesId": "magmortar",
+    "speciesName": "Magmortar",
+    "rank": 239,
+    "score": 59.3,
+    "moveset": [
+      "Karate Chop",
+      "Fire Punch",
+      "Thunderbolt"
+    ],
+    "elite": [
+      "Thunderbolt"
+    ]
+  },
+  {
+    "speciesId": "samurott_shadow",
+    "speciesName": "Samurott (Shadow)",
+    "rank": 240,
+    "score": 59.3,
+    "moveset": [
+      "Fury Cutter",
+      "Hydro Cannon",
+      "Razor Shell"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "rhydon",
+    "speciesName": "Rhydon",
+    "rank": 241,
+    "score": 59.2,
+    "moveset": [
+      "Mud Slap",
+      "Stone Edge",
+      "Surf"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "emboar",
+    "speciesName": "Emboar",
+    "rank": 242,
+    "score": 59.1,
+    "moveset": [
+      "Ember",
+      "Blast Burn",
+      "Rock Slide"
+    ],
+    "elite": [
+      "Blast Burn"
+    ]
+  },
+  {
+    "speciesId": "roserade",
+    "speciesName": "Roserade",
+    "rank": 243,
+    "score": 59,
+    "moveset": [
+      "Poison Sting",
+      "Weather Ball Fire",
+      "Leaf Storm"
+    ],
+    "elite": [
+      "Weather Ball Fire"
+    ]
+  },
+  {
+    "speciesId": "articuno_galarian",
+    "speciesName": "Articuno (Galarian)",
+    "rank": 244,
+    "score": 58.9,
+    "moveset": [
+      "Psycho Cut",
+      "Ancient Power",
+      "Brave Bird"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "rhydon_shadow",
+    "speciesName": "Rhydon (Shadow)",
+    "rank": 245,
+    "score": 58.9,
+    "moveset": [
+      "Mud Slap",
+      "Stone Edge",
+      "Surf"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "beartic",
+    "speciesName": "Beartic",
+    "rank": 246,
+    "score": 58.8,
+    "moveset": [
+      "Powder Snow",
+      "Ice Punch",
+      "Liquidation"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "regigigas",
+    "speciesName": "Regigigas",
+    "rank": 247,
+    "score": 58.8,
+    "moveset": [
+      "Hidden Power Ice",
+      "Crush Grip",
+      "Thunder"
+    ],
+    "elite": [
+      "Crush Grip"
+    ]
+  },
+  {
+    "speciesId": "samurott",
+    "speciesName": "Samurott",
+    "rank": 248,
+    "score": 58.7,
+    "moveset": [
+      "Fury Cutter",
+      "Hydro Cannon",
+      "Razor Shell"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "overqwil",
+    "speciesName": "Overqwil",
+    "rank": 249,
+    "score": 58.6,
+    "moveset": [
+      "Poison Sting",
+      "Aqua Tail",
+      "Shadow Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gigalith_shadow",
+    "speciesName": "Gigalith (Shadow)",
+    "rank": 250,
+    "score": 58.2,
+    "moveset": [
+      "Mud Slap",
+      "Meteor Beam",
+      "Super Power"
+    ],
+    "elite": [
+      "Meteor Beam"
+    ]
+  },
+  {
+    "speciesId": "ampharos",
+    "speciesName": "Ampharos",
+    "rank": 251,
+    "score": 58.1,
+    "moveset": [
+      "Volt Switch",
+      "Brutal Swing",
+      "Thunder Punch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "bewear",
+    "speciesName": "Bewear",
+    "rank": 252,
+    "score": 57.9,
+    "moveset": [
+      "Low Kick",
+      "Super Power",
+      "Payback"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "regice",
+    "speciesName": "Regice",
+    "rank": 253,
+    "score": 57.9,
+    "moveset": [
+      "Lock On",
+      "Thunder",
+      "Earthquake"
+    ],
+    "elite": [
+      "Thunder"
+    ]
+  },
+  {
+    "speciesId": "alakazam_shadow",
+    "speciesName": "Alakazam (Shadow)",
+    "rank": 254,
+    "score": 57.8,
+    "moveset": [
+      "Psycho Cut",
+      "Fire Punch",
+      "Shadow Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tauros_aqua",
+    "speciesName": "Tauros (Aqua)",
+    "rank": 255,
+    "score": 57.7,
+    "moveset": [
+      "Double Kick",
+      "Aqua Jet",
+      "Trailblaze"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "ursaring",
+    "speciesName": "Ursaring",
+    "rank": 256,
+    "score": 57.7,
+    "moveset": [
+      "Shadow Claw",
+      "Close Combat",
+      "Swift"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "volcarona",
+    "speciesName": "Volcarona",
+    "rank": 257,
+    "score": 57.7,
+    "moveset": [
+      "Fire Spin",
+      "Overheat",
+      "Bug Buzz"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "ampharos_shadow",
+    "speciesName": "Ampharos (Shadow)",
+    "rank": 258,
+    "score": 57.6,
+    "moveset": [
+      "Volt Switch",
+      "Brutal Swing",
+      "Thunder Punch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "polteageist",
+    "speciesName": "Polteageist",
+    "rank": 259,
+    "score": 57.6,
+    "moveset": [
+      "Hex",
+      "Shadow Ball",
+      "Dark Pulse"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "drampa",
+    "speciesName": "Drampa",
+    "rank": 260,
+    "score": 57.5,
+    "moveset": [
+      "Dragon Breath",
+      "Swift",
+      "Fly"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "golem_alolan",
+    "speciesName": "Golem (Alolan)",
+    "rank": 261,
+    "score": 57.5,
+    "moveset": [
+      "Volt Switch",
+      "Wild Charge",
+      "Stone Edge"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "throh_shadow",
+    "speciesName": "Throh (Shadow)",
+    "rank": 262,
+    "score": 57.5,
+    "moveset": [
+      "Low Kick",
+      "Brick Break",
+      "Body Slam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "golem_alolan_shadow",
+    "speciesName": "Golem (Alolan) (Shadow)",
+    "rank": 263,
+    "score": 57.4,
+    "moveset": [
+      "Volt Switch",
+      "Wild Charge",
+      "Stone Edge"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "venusaur_shadow",
+    "speciesName": "Venusaur (Shadow)",
+    "rank": 264,
+    "score": 57.4,
+    "moveset": [
+      "Vine Whip",
+      "Frenzy Plant",
+      "Sludge"
+    ],
+    "elite": [
+      "Frenzy Plant"
+    ]
+  },
+  {
+    "speciesId": "bellibolt",
+    "speciesName": "Bellibolt",
+    "rank": 265,
+    "score": 57.2,
+    "moveset": [
+      "Sucker Punch",
+      "Discharge",
+      "Parabolic Charge"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "espeon",
+    "speciesName": "Espeon",
+    "rank": 266,
+    "score": 57,
+    "moveset": [
+      "Confusion",
+      "Psychic Fangs",
+      "Shadow Ball"
+    ],
+    "elite": [
+      "Shadow Ball"
+    ]
+  },
+  {
+    "speciesId": "tangrowth",
+    "speciesName": "Tangrowth",
+    "rank": 267,
+    "score": 57,
+    "moveset": [
+      "Vine Whip",
+      "Power Whip",
+      "Rock Slide"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "garganacl",
+    "speciesName": "Garganacl",
+    "rank": 268,
+    "score": 56.9,
+    "moveset": [
+      "Mud Shot",
+      "Rock Tomb",
+      "Rock Blast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "hoopa_unbound",
+    "speciesName": "Hoopa (Unbound)",
+    "rank": 269,
+    "score": 56.9,
+    "moveset": [
+      "Confusion",
+      "Shadow Ball",
+      "Dark Pulse"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tangrowth_shadow",
+    "speciesName": "Tangrowth (Shadow)",
+    "rank": 270,
+    "score": 56.8,
+    "moveset": [
+      "Vine Whip",
+      "Power Whip",
+      "Rock Slide"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "barbaracle",
+    "speciesName": "Barbaracle",
+    "rank": 271,
+    "score": 56.5,
+    "moveset": [
+      "Fury Cutter",
+      "Cross Chop",
+      "Stone Edge"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "celesteela",
+    "speciesName": "Celesteela",
+    "rank": 272,
+    "score": 56.5,
+    "moveset": [
+      "Air Slash",
+      "Body Slam",
+      "Bulldoze"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "sandaconda",
+    "speciesName": "Sandaconda",
+    "rank": 273,
+    "score": 56.4,
+    "moveset": [
+      "Mud Slap",
+      "Earth Power",
+      "Wrap"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "throh",
+    "speciesName": "Throh",
+    "rank": 274,
+    "score": 56.4,
+    "moveset": [
+      "Low Kick",
+      "Brick Break",
+      "Body Slam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gourgeist_large",
+    "speciesName": "Gourgeist (Large)",
+    "rank": 275,
+    "score": 56.2,
+    "moveset": [
+      "Incinerate",
+      "Shadow Ball",
+      "Foul Play"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "registeel",
+    "speciesName": "Registeel",
+    "rank": 276,
+    "score": 56.2,
+    "moveset": [
+      "Lock On",
+      "Focus Blast",
+      "Flash Cannon"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "venusaur",
+    "speciesName": "Venusaur",
+    "rank": 277,
+    "score": 56.1,
+    "moveset": [
+      "Vine Whip",
+      "Frenzy Plant",
+      "Sludge"
+    ],
+    "elite": [
+      "Frenzy Plant"
+    ]
+  },
+  {
+    "speciesId": "aerodactyl_shadow",
+    "speciesName": "Aerodactyl (Shadow)",
+    "rank": 278,
+    "score": 55.8,
+    "moveset": [
+      "Dragon Breath",
+      "Rock Slide",
+      "Earth Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "golem_shadow",
+    "speciesName": "Golem (Shadow)",
+    "rank": 279,
+    "score": 55.8,
+    "moveset": [
+      "Mud Slap",
+      "Stone Edge",
+      "Rock Blast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "pinsir",
+    "speciesName": "Pinsir",
+    "rank": 280,
+    "score": 55.7,
+    "moveset": [
+      "Fury Cutter",
+      "Close Combat",
+      "X Scissor"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "rillaboom",
+    "speciesName": "Rillaboom",
+    "rank": 281,
+    "score": 55.7,
+    "moveset": [
+      "Razor Leaf",
+      "Drum Beating",
+      "Frenzy Plant"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "escavalier",
+    "speciesName": "Escavalier",
+    "rank": 282,
+    "score": 55.6,
+    "moveset": [
+      "Bug Bite",
+      "Drill Run",
+      "Megahorn"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tauros_blaze",
+    "speciesName": "Tauros (Blaze)",
+    "rank": 283,
+    "score": 55.5,
+    "moveset": [
+      "Double Kick",
+      "Flame Charge",
+      "Trailblaze"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "golem",
+    "speciesName": "Golem",
+    "rank": 284,
+    "score": 55.4,
+    "moveset": [
+      "Mud Slap",
+      "Stone Edge",
+      "Rock Blast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "stakataka",
+    "speciesName": "Stakataka",
+    "rank": 285,
+    "score": 55.4,
+    "moveset": [
+      "Rock Throw",
+      "Stone Edge",
+      "Bulldoze"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "escavalier_shadow",
+    "speciesName": "Escavalier (Shadow)",
+    "rank": 286,
+    "score": 55.2,
+    "moveset": [
+      "Bug Bite",
+      "Drill Run",
+      "Megahorn"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "poliwrath",
+    "speciesName": "Poliwrath",
+    "rank": 287,
+    "score": 55,
+    "moveset": [
+      "Counter",
+      "Scald",
+      "Icy Wind"
+    ],
+    "elite": [
+      "Counter"
+    ]
+  },
+  {
+    "speciesId": "slowbro",
+    "speciesName": "Slowbro",
+    "rank": 288,
+    "score": 55,
+    "moveset": [
+      "Confusion",
+      "Surf",
+      "Drain Punch"
+    ],
+    "elite": [
+      "Surf"
+    ]
+  },
+  {
+    "speciesId": "decidueye",
+    "speciesName": "Decidueye",
+    "rank": 289,
+    "score": 54.9,
+    "moveset": [
+      "Leafage",
+      "Frenzy Plant",
+      "Brave Bird"
+    ],
+    "elite": [
+      "Frenzy Plant"
+    ]
+  },
+  {
+    "speciesId": "tauros_combat",
+    "speciesName": "Tauros (Combat)",
+    "rank": 290,
+    "score": 54.9,
+    "moveset": [
+      "Double Kick",
+      "Close Combat",
+      "Trailblaze"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "alakazam",
+    "speciesName": "Alakazam",
+    "rank": 291,
+    "score": 54.8,
+    "moveset": [
+      "Psycho Cut",
+      "Fire Punch",
+      "Shadow Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "flareon",
+    "speciesName": "Flareon",
+    "rank": 292,
+    "score": 54.7,
+    "moveset": [
+      "Ember",
+      "Super Power",
+      "Heat Wave"
+    ],
+    "elite": [
+      "Super Power",
+      "Heat Wave"
+    ]
+  },
+  {
+    "speciesId": "tyrantrum_shadow",
+    "speciesName": "Tyrantrum (Shadow)",
+    "rank": 293,
+    "score": 54.7,
+    "moveset": [
+      "Dragon Tail",
+      "Meteor Beam",
+      "Rock Tomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "slowbro_shadow",
+    "speciesName": "Slowbro (Shadow)",
+    "rank": 294,
+    "score": 54.5,
+    "moveset": [
+      "Confusion",
+      "Surf",
+      "Drain Punch"
+    ],
+    "elite": [
+      "Surf"
+    ]
+  },
+  {
+    "speciesId": "archeops_shadow",
+    "speciesName": "Archeops (Shadow)",
+    "rank": 295,
+    "score": 54.4,
+    "moveset": [
+      "Wing Attack",
+      "Ancient Power",
+      "Crunch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "dudunsparce",
+    "speciesName": "Dudunsparce",
+    "rank": 296,
+    "score": 54.1,
+    "moveset": [
+      "Rollout",
+      "Body Slam",
+      "Drill Run"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "corviknight",
+    "speciesName": "Corviknight",
+    "rank": 297,
+    "score": 53.9,
+    "moveset": [
+      "Sand Attack",
+      "Air Cutter",
+      "Iron Head"
+    ],
+    "elite": [
+      "Iron Head"
+    ]
+  },
+  {
+    "speciesId": "weavile_shadow",
+    "speciesName": "Weavile (Shadow)",
+    "rank": 298,
+    "score": 53.9,
+    "moveset": [
+      "Snarl",
+      "Avalanche",
+      "Focus Blast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "blastoise",
+    "speciesName": "Blastoise",
+    "rank": 299,
+    "score": 53.8,
+    "moveset": [
+      "Rollout",
+      "Hydro Cannon",
+      "Ice Beam"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "duraludon",
+    "speciesName": "Duraludon",
+    "rank": 300,
+    "score": 53.8,
+    "moveset": [
+      "Dragon Tail",
+      "Dragon Claw",
+      "Flash Cannon"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "poliwrath_shadow",
+    "speciesName": "Poliwrath (Shadow)",
+    "rank": 301,
+    "score": 53.8,
+    "moveset": [
+      "Counter",
+      "Scald",
+      "Icy Wind"
+    ],
+    "elite": [
+      "Counter"
+    ]
+  },
+  {
+    "speciesId": "cryogonal",
+    "speciesName": "Cryogonal",
+    "rank": 302,
+    "score": 53.7,
+    "moveset": [
+      "Ice Shard",
+      "Triple Axel",
+      "Night Slash"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tentacruel",
+    "speciesName": "Tentacruel",
+    "rank": 303,
+    "score": 53.6,
+    "moveset": [
+      "Acid",
+      "Scald",
+      "Payback"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "regice_shadow",
+    "speciesName": "Regice (Shadow)",
+    "rank": 304,
+    "score": 53.5,
+    "moveset": [
+      "Lock On",
+      "Thunder",
+      "Earthquake"
+    ],
+    "elite": [
+      "Thunder"
+    ]
+  },
+  {
+    "speciesId": "aerodactyl",
+    "speciesName": "Aerodactyl",
+    "rank": 305,
+    "score": 53.1,
+    "moveset": [
+      "Dragon Breath",
+      "Rock Slide",
+      "Earth Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "darmanitan_galarian_standard",
+    "speciesName": "Darmanitan (Galarian)",
+    "rank": 306,
+    "score": 53.1,
+    "moveset": [
+      "Ice Fang",
+      "Avalanche",
+      "Super Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "weavile",
+    "speciesName": "Weavile",
+    "rank": 307,
+    "score": 53.1,
+    "moveset": [
+      "Snarl",
+      "Avalanche",
+      "Focus Blast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "exeggutor_alolan",
+    "speciesName": "Exeggutor (Alolan)",
+    "rank": 308,
+    "score": 53,
+    "moveset": [
+      "Dragon Tail",
+      "Seed Bomb",
+      "Draco Meteor"
+    ],
+    "elite": [
+      "Draco Meteor"
+    ]
+  },
+  {
+    "speciesId": "exeggutor_alolan_shadow",
+    "speciesName": "Exeggutor (Alolan) (Shadow)",
+    "rank": 309,
+    "score": 52.7,
+    "moveset": [
+      "Dragon Tail",
+      "Seed Bomb",
+      "Draco Meteor"
+    ],
+    "elite": [
+      "Draco Meteor"
+    ]
+  },
+  {
+    "speciesId": "pyroar",
+    "speciesName": "Pyroar",
+    "rank": 310,
+    "score": 52.4,
+    "moveset": [
+      "Incinerate",
+      "Flame Charge",
+      "Dark Pulse"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "slowking_galarian",
+    "speciesName": "Slowking (Galarian)",
+    "rank": 311,
+    "score": 52.4,
+    "moveset": [
+      "Confusion",
+      "Psyshock",
+      "Shadow Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tentacruel_shadow",
+    "speciesName": "Tentacruel (Shadow)",
+    "rank": 312,
+    "score": 52.4,
+    "moveset": [
+      "Poison Sting",
+      "Scald",
+      "Payback"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gliscor",
+    "speciesName": "Gliscor",
+    "rank": 313,
+    "score": 52.2,
+    "moveset": [
+      "Wing Attack",
+      "Night Slash",
+      "Acrobatics"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "steelix",
+    "speciesName": "Steelix",
+    "rank": 314,
+    "score": 52,
+    "moveset": [
+      "Dragon Tail",
+      "Psychic Fangs",
+      "Crunch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "steelix_shadow",
+    "speciesName": "Steelix (Shadow)",
+    "rank": 315,
+    "score": 52,
+    "moveset": [
+      "Dragon Tail",
+      "Psychic Fangs",
+      "Crunch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "gliscor_shadow",
+    "speciesName": "Gliscor (Shadow)",
+    "rank": 316,
+    "score": 51.9,
+    "moveset": [
+      "Wing Attack",
+      "Acrobatics",
+      "Night Slash"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "registeel_shadow",
+    "speciesName": "Registeel (Shadow)",
+    "rank": 317,
+    "score": 51.9,
+    "moveset": [
+      "Lock On",
+      "Focus Blast",
+      "Flash Cannon"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "arboliva",
+    "speciesName": "Arboliva",
+    "rank": 318,
+    "score": 51.8,
+    "moveset": [
+      "Magical Leaf",
+      "Trailblaze",
+      "Seed Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "blastoise_shadow",
+    "speciesName": "Blastoise (Shadow)",
+    "rank": 319,
+    "score": 51.7,
+    "moveset": [
+      "Rollout",
+      "Hydro Cannon",
+      "Ice Beam"
+    ],
+    "elite": [
+      "Hydro Cannon"
+    ]
+  },
+  {
+    "speciesId": "tsareena",
+    "speciesName": "Tsareena",
+    "rank": 320,
+    "score": 51.7,
+    "moveset": [
+      "Magical Leaf",
+      "Triple Axel",
+      "High Jump Kick"
+    ],
+    "elite": [
+      "High Jump Kick"
+    ]
+  },
+  {
+    "speciesId": "revavroom",
+    "speciesName": "Revavroom",
+    "rank": 321,
+    "score": 51.6,
+    "moveset": [
+      "Metal Sound",
+      "Gyro Ball",
+      "Overheat"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "stonjourner",
+    "speciesName": "Stonjourner",
+    "rank": 322,
+    "score": 51.6,
+    "moveset": [
+      "Rock Throw",
+      "Rock Slide",
+      "Stomp"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "mesprit",
+    "speciesName": "Mesprit",
+    "rank": 323,
+    "score": 51.3,
+    "moveset": [
+      "Confusion",
+      "Swift",
+      "Future Sight"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tyrantrum",
+    "speciesName": "Tyrantrum",
+    "rank": 324,
+    "score": 51.3,
+    "moveset": [
+      "Dragon Tail",
+      "Meteor Beam",
+      "Rock Tomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "coalossal",
+    "speciesName": "Coalossal",
+    "rank": 325,
+    "score": 51.2,
+    "moveset": [
+      "Fire Spin",
+      "Rock Slide",
+      "Flame Charge"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "shaymin_sky",
+    "speciesName": "Shaymin (Sky)",
+    "rank": 326,
+    "score": 51.2,
+    "moveset": [
+      "Magical Leaf",
+      "Grass Knot",
+      "Energy Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "exeggutor_shadow",
+    "speciesName": "Exeggutor (Shadow)",
+    "rank": 327,
+    "score": 51.1,
+    "moveset": [
+      "Confusion",
+      "Seed Bomb",
+      "Psychic"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "diancie",
+    "speciesName": "Diancie",
+    "rank": 328,
+    "score": 50.8,
+    "moveset": [
+      "Rock Throw",
+      "Rock Slide",
+      "Moonblast"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "obstagoon_shadow",
+    "speciesName": "Obstagoon (Shadow)",
+    "rank": 329,
+    "score": 50.8,
+    "moveset": [
+      "Counter",
+      "Night Slash",
+      "Cross Chop"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "archeops",
+    "speciesName": "Archeops",
+    "rank": 330,
+    "score": 50.6,
+    "moveset": [
+      "Wing Attack",
+      "Ancient Power",
+      "Crunch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "kleavor",
+    "speciesName": "Kleavor",
+    "rank": 331,
+    "score": 50.6,
+    "moveset": [
+      "Quick Attack",
+      "X Scissor",
+      "Stone Edge"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "mr_rime",
+    "speciesName": "Mr. Rime",
+    "rank": 332,
+    "score": 50.5,
+    "moveset": [
+      "Confusion",
+      "Ice Punch",
+      "Triple Axel"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "armaldo_shadow",
+    "speciesName": "Armaldo (Shadow)",
+    "rank": 333,
+    "score": 50.4,
+    "moveset": [
+      "Fury Cutter",
+      "Rock Blast",
+      "Cross Poison"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "glaceon",
+    "speciesName": "Glaceon",
+    "rank": 334,
+    "score": 50.2,
+    "moveset": [
+      "Ice Shard",
+      "Avalanche",
+      "Water Pulse"
+    ],
+    "elite": [
+      "Water Pulse"
+    ]
+  },
+  {
+    "speciesId": "muk",
+    "speciesName": "Muk",
+    "rank": 335,
+    "score": 50,
+    "moveset": [
+      "Acid",
+      "Thunder Punch",
+      "Dark Pulse"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "kangaskhan",
+    "speciesName": "Kangaskhan",
+    "rank": 336,
+    "score": 49.8,
+    "moveset": [
+      "Low Kick",
+      "Brick Break",
+      "Crunch"
+    ],
+    "elite": [
+      "Brick Break"
+    ]
+  },
+  {
+    "speciesId": "muk_shadow",
+    "speciesName": "Muk (Shadow)",
+    "rank": 337,
+    "score": 49.6,
+    "moveset": [
+      "Poison Jab",
+      "Thunder Punch",
+      "Dark Pulse"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "regigigas_shadow",
+    "speciesName": "Regigigas (Shadow)",
+    "rank": 338,
+    "score": 49.3,
+    "moveset": [
+      "Hidden Power Ice",
+      "Crush Grip",
+      "Thunder"
+    ],
+    "elite": [
+      "Crush Grip"
+    ]
+  },
+  {
+    "speciesId": "relicanth",
+    "speciesName": "Relicanth",
+    "rank": 339,
+    "score": 49.3,
+    "moveset": [
+      "Water Gun",
+      "Aqua Tail",
+      "Ancient Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "glimmora",
+    "speciesName": "Glimmora",
+    "rank": 340,
+    "score": 49,
+    "moveset": [
+      "Rock Throw",
+      "Meteor Beam",
+      "Power Gem"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "omastar_shadow",
+    "speciesName": "Omastar (Shadow)",
+    "rank": 341,
+    "score": 48.9,
+    "moveset": [
+      "Mud Shot",
+      "Rock Slide",
+      "Rock Blast"
+    ],
+    "elite": [
+      "Rock Slide"
+    ]
+  },
+  {
+    "speciesId": "oranguru",
+    "speciesName": "Oranguru",
+    "rank": 342,
+    "score": 48.9,
+    "moveset": [
+      "Confusion",
+      "Brutal Swing",
+      "Trailblaze"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "leafeon",
+    "speciesName": "Leafeon",
+    "rank": 343,
+    "score": 48.8,
+    "moveset": [
+      "Bullet Seed",
+      "Leaf Blade",
+      "Last Resort"
+    ],
+    "elite": [
+      "Bullet Seed",
+      "Last Resort"
+    ]
+  },
+  {
+    "speciesId": "luxray_shadow",
+    "speciesName": "Luxray (Shadow)",
+    "rank": 344,
+    "score": 48.8,
+    "moveset": [
+      "Snarl",
+      "Wild Charge",
+      "Psychic Fangs"
+    ],
+    "elite": [
+      "Psychic Fangs"
+    ]
+  },
+  {
+    "speciesId": "armaldo",
+    "speciesName": "Armaldo",
+    "rank": 345,
+    "score": 48.7,
+    "moveset": [
+      "Fury Cutter",
+      "Rock Blast",
+      "Liquidation"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "exeggutor",
+    "speciesName": "Exeggutor",
+    "rank": 346,
+    "score": 48.6,
+    "moveset": [
+      "Confusion",
+      "Seed Bomb",
+      "Psychic"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "jolteon",
+    "speciesName": "Jolteon",
+    "rank": 347,
+    "score": 48.6,
+    "moveset": [
+      "Volt Switch",
+      "Discharge",
+      "Last Resort"
+    ],
+    "elite": [
+      "Last Resort"
+    ]
+  },
+  {
+    "speciesId": "lickilicky",
+    "speciesName": "Lickilicky",
+    "rank": 348,
+    "score": 48.6,
+    "moveset": [
+      "Rollout",
+      "Body Slam",
+      "Shadow Ball"
+    ],
+    "elite": [
+      "Body Slam"
+    ]
+  },
+  {
+    "speciesId": "stoutland",
+    "speciesName": "Stoutland",
+    "rank": 349,
+    "score": 48.6,
+    "moveset": [
+      "Sand Attack",
+      "Wild Charge",
+      "Crunch"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "slowking",
+    "speciesName": "Slowking",
+    "rank": 350,
+    "score": 48.5,
+    "moveset": [
+      "Confusion",
+      "Surf",
+      "Scald"
+    ],
+    "elite": [
+      "Surf"
+    ]
+  },
+  {
+    "speciesId": "muk_alolan",
+    "speciesName": "Muk (Alolan)",
+    "rank": 351,
+    "score": 48.4,
+    "moveset": [
+      "Poison Jab",
+      "Dark Pulse",
+      "Sludge Wave"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "azelf",
+    "speciesName": "Azelf",
+    "rank": 352,
+    "score": 48.2,
+    "moveset": [
+      "Confusion",
+      "Swift",
+      "Future Sight"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "reuniclus_shadow",
+    "speciesName": "Reuniclus (Shadow)",
+    "rank": 353,
+    "score": 48.2,
+    "moveset": [
+      "Charm",
+      "Psyshock",
+      "Shadow Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "arcanine_hisuian",
+    "speciesName": "Arcanine (Hisuian)",
+    "rank": 354,
+    "score": 47.9,
+    "moveset": [
+      "Snarl",
+      "Wild Charge",
+      "Rock Slide"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "crabominable",
+    "speciesName": "Crabominable",
+    "rank": 355,
+    "score": 47.6,
+    "moveset": [
+      "Bubble",
+      "Ice Punch",
+      "Brick Break"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "porygon_z",
+    "speciesName": "Porygon-Z",
+    "rank": 356,
+    "score": 47.4,
+    "moveset": [
+      "Lock On",
+      "Tri Attack",
+      "Blizzard"
+    ],
+    "elite": [
+      "Tri Attack"
+    ]
+  },
+  {
+    "speciesId": "obstagoon",
+    "speciesName": "Obstagoon",
+    "rank": 357,
+    "score": 47.2,
+    "moveset": [
+      "Counter",
+      "Night Slash",
+      "Obstruct"
+    ],
+    "elite": [
+      "Obstruct"
+    ]
+  },
+  {
+    "speciesId": "reuniclus",
+    "speciesName": "Reuniclus",
+    "rank": 358,
+    "score": 47.2,
+    "moveset": [
+      "Charm",
+      "Psyshock",
+      "Shadow Ball"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "uxie",
+    "speciesName": "Uxie",
+    "rank": 359,
+    "score": 47.2,
+    "moveset": [
+      "Confusion",
+      "Swift",
+      "Future Sight"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "toedscruel",
+    "speciesName": "Toedscruel",
+    "rank": 360,
+    "score": 47.1,
+    "moveset": [
+      "Mud Slap",
+      "Earth Power",
+      "Seed Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "vanilluxe",
+    "speciesName": "Vanilluxe",
+    "rank": 361,
+    "score": 47,
+    "moveset": [
+      "Astonish",
+      "Avalanche",
+      "Signal Beam"
+    ],
+    "elite": [
+      "Avalanche"
+    ]
+  },
+  {
+    "speciesId": "wyrdeer",
+    "speciesName": "Wyrdeer",
+    "rank": 362,
+    "score": 47,
+    "moveset": [
+      "Confusion",
+      "Wild Charge",
+      "Stomp"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "druddigon",
+    "speciesName": "Druddigon",
+    "rank": 363,
+    "score": 46.6,
+    "moveset": [
+      "Dragon Tail",
+      "Night Slash",
+      "Rock Tomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "slowking_shadow",
+    "speciesName": "Slowking (Shadow)",
+    "rank": 364,
+    "score": 46.5,
+    "moveset": [
+      "Confusion",
+      "Surf",
+      "Scald"
+    ],
+    "elite": [
+      "Surf"
+    ]
+  },
+  {
+    "speciesId": "bisharp",
+    "speciesName": "Bisharp",
+    "rank": 365,
+    "score": 46.4,
+    "moveset": [
+      "Snarl",
+      "Dark Pulse",
+      "X Scissor"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "porygon_z_shadow",
+    "speciesName": "Porygon-Z (Shadow)",
+    "rank": 366,
+    "score": 46.3,
+    "moveset": [
+      "Lock On",
+      "Tri Attack",
+      "Blizzard"
+    ],
+    "elite": [
+      "Tri Attack"
+    ]
+  },
+  {
+    "speciesId": "muk_alolan_shadow",
+    "speciesName": "Muk (Alolan) (Shadow)",
+    "rank": 367,
+    "score": 46.2,
+    "moveset": [
+      "Poison Jab",
+      "Dark Pulse",
+      "Sludge Wave"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "seismitoad",
+    "speciesName": "Seismitoad",
+    "rank": 368,
+    "score": 46.2,
+    "moveset": [
+      "Mud Shot",
+      "Earth Power",
+      "Muddy Water"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "omastar",
+    "speciesName": "Omastar",
+    "rank": 369,
+    "score": 45.9,
+    "moveset": [
+      "Mud Shot",
+      "Rock Slide",
+      "Rock Blast"
+    ],
+    "elite": [
+      "Rock Slide"
+    ]
+  },
+  {
+    "speciesId": "luxray",
+    "speciesName": "Luxray",
+    "rank": 370,
+    "score": 45.5,
+    "moveset": [
+      "Snarl",
+      "Wild Charge",
+      "Psychic Fangs"
+    ],
+    "elite": [
+      "Psychic Fangs"
+    ]
+  },
+  {
+    "speciesId": "oinkologne_female",
+    "speciesName": "Oinkologne (Female)",
+    "rank": 371,
+    "score": 43.9,
+    "moveset": [
+      "Tackle",
+      "Body Slam",
+      "Trailblaze"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "rampardos_shadow",
+    "speciesName": "Rampardos (Shadow)",
+    "rank": 372,
+    "score": 43.6,
+    "moveset": [
+      "Smack Down",
+      "Rock Slide",
+      "Flamethrower"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "oinkologne",
+    "speciesName": "Oinkologne",
+    "rank": 373,
+    "score": 43.4,
+    "moveset": [
+      "Tackle",
+      "Body Slam",
+      "Trailblaze"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "carracosta_shadow",
+    "speciesName": "Carracosta (Shadow)",
+    "rank": 374,
+    "score": 43,
+    "moveset": [
+      "Water Gun",
+      "Liquidation",
+      "Body Slam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "carracosta",
+    "speciesName": "Carracosta",
+    "rank": 375,
+    "score": 41.9,
+    "moveset": [
+      "Water Gun",
+      "Liquidation",
+      "Body Slam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "miltank",
+    "speciesName": "Miltank",
+    "rank": 376,
+    "score": 41.8,
+    "moveset": [
+      "Rollout",
+      "Body Slam",
+      "Ice Beam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "naganadel",
+    "speciesName": "Naganadel",
+    "rank": 377,
+    "score": 41.2,
+    "moveset": [
+      "Poison Jab",
+      "Dragon Claw",
+      "Sludge Bomb"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "bouffalant",
+    "speciesName": "Bouffalant",
+    "rank": 378,
+    "score": 41,
+    "moveset": [
+      "Mud Shot",
+      "Stomp",
+      "Megahorn"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "klinklang",
+    "speciesName": "Klinklang",
+    "rank": 379,
+    "score": 40.9,
+    "moveset": [
+      "Metal Sound",
+      "Mirror Shot",
+      "Zap Cannon"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "yanmega",
+    "speciesName": "Yanmega",
+    "rank": 380,
+    "score": 40.2,
+    "moveset": [
+      "Wing Attack",
+      "Aerial Ace",
+      "Ancient Power"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "porygon2_shadow",
+    "speciesName": "Porygon2 (Shadow)",
+    "rank": 381,
+    "score": 39.5,
+    "moveset": [
+      "Lock On",
+      "Tri Attack",
+      "Zap Cannon"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "crobat_shadow",
+    "speciesName": "Crobat (Shadow)",
+    "rank": 382,
+    "score": 39.2,
+    "moveset": [
+      "Air Slash",
+      "Air Cutter",
+      "Cross Poison"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "rampardos",
+    "speciesName": "Rampardos",
+    "rank": 383,
+    "score": 39.1,
+    "moveset": [
+      "Smack Down",
+      "Rock Slide",
+      "Flamethrower"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "blissey",
+    "speciesName": "Blissey",
+    "rank": 384,
+    "score": 39,
+    "moveset": [
+      "Zen Headbutt",
+      "Wild Charge",
+      "Dazzling Gleam"
+    ],
+    "elite": [
+      "Wild Charge"
+    ]
+  },
+  {
+    "speciesId": "braviary",
+    "speciesName": "Braviary",
+    "rank": 385,
+    "score": 38.9,
+    "moveset": [
+      "Air Slash",
+      "Close Combat",
+      "Brave Bird"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "porygon2",
+    "speciesName": "Porygon2",
+    "rank": 386,
+    "score": 38.7,
+    "moveset": [
+      "Lock On",
+      "Tri Attack",
+      "Zap Cannon"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "umbreon",
+    "speciesName": "Umbreon",
+    "rank": 387,
+    "score": 37.9,
+    "moveset": [
+      "Snarl",
+      "Foul Play",
+      "Last Resort"
+    ],
+    "elite": [
+      "Last Resort"
+    ]
+  },
+  {
+    "speciesId": "deoxys_defense",
+    "speciesName": "Deoxys (Defense)",
+    "rank": 388,
+    "score": 37.7,
+    "moveset": [
+      "Counter",
+      "Psycho Boost",
+      "Rock Slide"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "musharna",
+    "speciesName": "Musharna",
+    "rank": 389,
+    "score": 37,
+    "moveset": [
+      "Charge Beam",
+      "Psyshock",
+      "Dazzling Gleam"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "crobat",
+    "speciesName": "Crobat",
+    "rank": 390,
+    "score": 36.3,
+    "moveset": [
+      "Air Slash",
+      "Air Cutter",
+      "Cross Poison"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tornadus_incarnate",
+    "speciesName": "Tornadus (Incarnate)",
+    "rank": 391,
+    "score": 35.4,
+    "moveset": [
+      "Air Slash",
+      "Grass Knot",
+      "Dark Pulse"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "braviary_hisuian",
+    "speciesName": "Braviary (Hisuian)",
+    "rank": 392,
+    "score": 34.2,
+    "moveset": [
+      "Air Slash",
+      "Brave Bird",
+      "Fly"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "tornadus_incarnate_shadow",
+    "speciesName": "Tornadus (Incarnate) (Shadow)",
+    "rank": 393,
+    "score": 34.1,
+    "moveset": [
+      "Air Slash",
+      "Grass Knot",
+      "Dark Pulse"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "noivern",
+    "speciesName": "Noivern",
+    "rank": 394,
+    "score": 32.7,
+    "moveset": [
+      "Air Slash",
+      "Heat Wave",
+      "Hurricane"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "slaking",
+    "speciesName": "Slaking",
+    "rank": 395,
+    "score": 30.5,
+    "moveset": [
+      "Yawn",
+      "Body Slam",
+      "Earthquake"
+    ],
+    "elite": [
+      "Body Slam"
+    ]
+  },
+  {
+    "speciesId": "slaking_shadow",
+    "speciesName": "Slaking (Shadow)",
+    "rank": 396,
+    "score": 27.3,
+    "moveset": [
+      "Yawn",
+      "Body Slam",
+      "Earthquake"
+    ],
+    "elite": [
+      "Body Slam"
+    ]
+  },
+  {
+    "speciesId": "deoxys_speed",
+    "speciesName": "Deoxys (Speed)",
+    "rank": 397,
+    "score": 26.1,
+    "moveset": [
+      "Charge Beam",
+      "Psycho Boost",
+      "Swift"
+    ],
+    "elite": []
+  },
+  {
+    "speciesId": "shaymin_land",
+    "speciesName": "Shaymin (Land)",
+    "rank": 398,
+    "score": 23.5,
+    "moveset": [
+      "Zen Headbutt",
+      "Grass Knot",
+      "Seed Flare"
+    ],
+    "elite": [
+      "Seed Flare"
+    ]
+  }
+]

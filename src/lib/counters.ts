@@ -67,13 +67,15 @@ export function getCountersFor(pokemonId: string): CounterResult {
 
   const topCounters: CounterRecommendation[] = candidates
     .slice(0, 5)
-    .map(({ score, isBudget, ...rest }) => ({ ...rest, tier: "top" as const }));
+    .map((c) => ({ pokemon: c.pokemon, fastMove: c.fastMove, chargedMoves: c.chargedMoves, tier: "top" as const }));
 
   const budgetCounters: CounterRecommendation[] = candidates
     .filter((c) => c.isBudget)
     .slice(0, 5)
-    .map(({ score, isBudget, ...rest }) => ({
-      ...rest,
+    .map((c) => ({
+      pokemon: c.pokemon,
+      fastMove: c.fastMove,
+      chargedMoves: c.chargedMoves,
       tier: "budget" as const,
     }));
 

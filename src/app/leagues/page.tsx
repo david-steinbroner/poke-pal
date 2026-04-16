@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { LeagueCard } from "@/components/league-card";
-import { FixedHeader } from "@/components/fixed-header";
-import { CollapsibleSection } from "@/components/home/collapsible-section";
 import { getActiveLeagues, getUpcomingLeagues } from "@/data/leagues";
+import { LeaguesClient } from "@/components/league/leagues-client";
+import {
+  buildLeagueEligibleString,
+  buildNameSearchString,
+} from "@/lib/search-string";
+import pokemonData from "@/data/pokemon.json";
+import curatedTeamsData from "@/data/curated-teams.json";
+import { getPokemonName } from "@/lib/pokemon-utils";
 
 export const metadata: Metadata = {
   title: "Leagues — Poke Pal",
@@ -15,63 +20,80 @@ export const metadata: Metadata = {
   },
 };
 
-export default function LeaguesPage() {
-  const liveLeagues = getActiveLeagues();
+type LeagueClientData = {
+  id: string;
+  name: string;
+  cpCap: number;
+  typeRestrictions?: string[];
+  active: boolean;
+  meta: Array<{
+    pokemonId: string;
+    name: string;
+    tier: string;
+    recommendedFast: string;
+    recommendedCharged: string[];
+    elite?: string[];
+  }>;
+  metaSearchString: string;
+  cpString: string;
+  curatedTeams: Array<{
+    name: string;
+    pokemon: Array<{ id: string; name: string }>;
+    why: string;
+    lead: string;
+    searchString: string;
+  }>;
+};
+
+function buildLeagueClientData(): LeagueClientData[] {
+  const activeLeagues = getActiveLeagues();
   const upcomingLeagues = getUpcomingLeagues();
+  const allOrdered = [...activeLeagues, ...upcomingLeagues];
 
-  return (
-    <div className="space-y-5">
-      <FixedHeader>
-        <h1 className="text-xl font-bold">Leagues</h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Select a league, copy Meta Search String, and paste in GO to find collected metas.
-        </p>
-      </FixedHeader>
+  return allOrdered.map((league) => {
+    const cpString = buildLeagueEligibleString(league.cpCap);
+    const metaNames = league.meta.map((m) => {
+      const p = pokemonData.find((p) => p.id === m.pokemonId);
+      return p?.name ?? m.pokemonId;
+    });
+    const metaSearchString = buildNameSearchString(metaNames);
+    const fullSearchString =
+      league.cpCap === 9999 ? metaSearchString : `${metaSearchString}&${cpString}`;
 
-      {liveLeagues.length > 0 && (
-        <CollapsibleSection id="leagues-live" label="LIVE NOW">
-          <div className="space-y-2">
-            {liveLeagues.map((league) => (
-              <LeagueCard
-                key={league.id}
-                id={league.id}
-                name={league.name}
-                cpCap={league.cpCap}
-                season={league.season}
-                active={league.active}
-                metaCount={league.meta.length}
-              />
-            ))}
-          </div>
-        </CollapsibleSection>
-      )}
+    const rawTeams =
+      (curatedTeamsData.teams as Record<string, Array<{ name: string; pokemon: string[]; why: string; lead: string }>>)[league.id] ?? [];
+    const curatedTeams = rawTeams.map((t) => ({
+      ...t,
+      pokemon: t.pokemon.map((id) => ({ id, name: getPokemonName(id) })),
+      searchString:
+        league.cpCap === 9999
+          ? buildNameSearchString(t.pokemon.map(getPokemonName))
+          : `${buildNameSearchString(t.pokemon.map(getPokemonName))}&${cpString}`,
+    }));
 
-      {liveLeagues.length === 0 && (
-        <p className="text-sm text-muted-foreground">
-          No active cups right now. Check back when the next GBL rotation
-          starts.
-        </p>
-      )}
+    return {
+      id: league.id,
+      name: league.name,
+      cpCap: league.cpCap,
+      typeRestrictions:
+        "typeRestrictions" in league
+          ? (league as { typeRestrictions?: string[] }).typeRestrictions
+          : undefined,
+      active: league.active,
+      meta: league.meta.map((m) => ({
+        ...m,
+        name: getPokemonName(m.pokemonId),
+        elite: (m as { elite?: string[] }).elite,
+      })),
+      metaSearchString: fullSearchString,
+      cpString,
+      curatedTeams,
+    };
+  });
+}
 
-      {upcomingLeagues.length > 0 && (
-        <CollapsibleSection id="leagues-upcoming" label="COMING UP">
-          <div className="space-y-2">
-            {upcomingLeagues.map((league) => (
-              <LeagueCard
-                key={league.id}
-                id={league.id}
-                name={league.name}
-                cpCap={league.cpCap}
-                season={league.season}
-                active={league.active}
-                metaCount={league.meta.length}
-                variant="inactive"
-                startDate={league.startDate}
-              />
-            ))}
-          </div>
-        </CollapsibleSection>
-      )}
-    </div>
-  );
+export default function LeaguesPage() {
+  const leagues = buildLeagueClientData();
+
+  return <LeaguesClient leagues={leagues} />;
 }

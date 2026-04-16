@@ -29,13 +29,11 @@ export function FixedHeader({ children }: FixedHeaderProps) {
 
   return (
     <>
-      <div ref={headerRef} className="fixed top-0 left-0 right-0 z-40 bg-background">
+      <div ref={headerRef} className="fixed top-0 left-0 right-0 z-40 border-b bg-background">
         <div className="mx-auto max-w-lg px-4 pb-2 pt-3">
           {children}
         </div>
       </div>
-      {/* Fade gradient — visual only, below header */}
-      <div className="fixed left-0 right-0 z-20 h-6 bg-gradient-to-b from-background to-transparent pointer-events-none" style={{ top: height }} />
       <div style={{ height }} />
     </>
   );

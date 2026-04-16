@@ -12,6 +12,7 @@ import fantasyCup from "./fantasy-cup.json";
 import greatLeague from "./great-league.json";
 import ultraLeague from "./ultra-league.json";
 import masterLeague from "./master-league.json";
+import springCup from "./spring-cup.json";
 import type { MetaPokemon } from "@/lib/types";
 
 export type League = {
@@ -27,12 +28,13 @@ export type League = {
   meta: MetaPokemon[];
 };
 
-/** League IDs in display order — limited cups first, then standard leagues */
+/** League IDs in display order — active cups first, then standard, then inactive */
 export const LEAGUE_IDS = [
+  "spring-cup",
+  "master-league",
   "fantasy-cup",
   "great-league",
   "ultra-league",
-  "master-league",
 ] as const;
 
 /** League ID union type */
@@ -43,10 +45,11 @@ export type LeagueId = (typeof LEAGUE_IDS)[number];
  * This array drives everything: nav tabs, static page generation, team analysis.
  */
 export const ALL_LEAGUES: League[] = [
+  springCup as unknown as League,
+  masterLeague as unknown as League,
   fantasyCup as unknown as League,
   greatLeague as unknown as League,
   ultraLeague as unknown as League,
-  masterLeague as unknown as League,
 ];
 
 /** Lookup map: league ID → league data */

@@ -3,6 +3,8 @@
 import { Suspense, useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { LEAGUE_IDS, LEAGUE_SHORT_NAMES, SCAN_API_URL } from "@/lib/constants";
+import { getActiveLeagues, ALL_LEAGUES } from "@/data/leagues";
+import { ArrowLeftRight } from "lucide-react";
 import { TeamSlotCard } from "@/components/team/team-slot";
 import { ThreatList } from "@/components/team/threat-list";
 import { FixedHeader } from "@/components/fixed-header";
@@ -26,6 +28,7 @@ import { buildLeagueEligibleString } from "@/lib/search-string";
 import { getEffectiveness } from "@/lib/type-effectiveness";
 import { PokemonChip } from "@/components/pokemon-chip";
 import { CopyIconButton } from "@/components/copy-icon-button";
+import { CopyFab } from "@/components/copy-fab";
 import { ChevronDownIcon, ChevronRightIcon } from "lucide-react";
 import { CollapsibleSection } from "@/components/home/collapsible-section";
 import type { LeagueId, TeamSlot } from "@/lib/team-types";
@@ -36,6 +39,71 @@ export default function TeamsPageWrapper() {
     <Suspense fallback={<div className="py-8 text-center text-muted-foreground">Loading...</div>}>
       <TeamsPage />
     </Suspense>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  League tabs with live/past toggle                                  */
+/* ------------------------------------------------------------------ */
+
+const STANDARD_IDS = new Set(["great-league", "ultra-league", "master-league"]);
+
+function LeagueTabs({
+  league,
+  mounted,
+  onLeagueChange,
+}: {
+  league: LeagueId;
+  mounted: boolean;
+  onLeagueChange: (id: LeagueId) => void;
+}) {
+  const [showLive, setShowLive] = useState(true);
+  const liveLeagues = ALL_LEAGUES.filter((l) => l.active);
+  const pastLeagues = ALL_LEAGUES.filter((l) => !l.active && STANDARD_IDS.has(l.id));
+  const displayLeagues = showLive ? liveLeagues : pastLeagues;
+
+  return (
+    <div className="flex gap-1.5">
+      {displayLeagues.map((l) => {
+        const isActive = league === l.id;
+        const hasSavedTeam =
+          mounted &&
+          (() => {
+            try {
+              const stored = localStorage.getItem(`poke-pal:team:${l.id}`);
+              if (!stored) return false;
+              const parsed = JSON.parse(stored);
+              return Array.isArray(parsed) && parsed.length > 0;
+            } catch {
+              return false;
+            }
+          })();
+        return (
+          <button
+            key={l.id}
+            onClick={() => onLeagueChange(l.id as LeagueId)}
+            className={`flex-1 rounded-lg px-2.5 py-1.5 text-sm font-medium transition-colors ${
+              isActive
+                ? "bg-primary text-primary-foreground"
+                : hasSavedTeam
+                  ? "border-2 border-primary/40 text-foreground"
+                  : "border text-muted-foreground"
+            }`}
+          >
+            {LEAGUE_SHORT_NAMES[l.id] ?? l.name}
+          </button>
+        );
+      })}
+      {pastLeagues.length > 0 && (
+        <button
+          onClick={() => setShowLive((prev) => !prev)}
+          className="shrink-0 rounded-lg border p-1.5 text-muted-foreground transition-colors hover:bg-accent"
+          aria-label={showLive ? "Show past leagues" : "Show live leagues"}
+        >
+          <ArrowLeftRight className="size-4" />
+        </button>
+      )}
+    </div>
   );
 }
 
@@ -697,61 +765,26 @@ function TeamsPage() {
   /* ---------- Render ---------- */
 
   return (
-    <div className="space-y-5 pb-8">
+    <div className="flex flex-1 flex-col space-y-5 pb-28">
       <FixedHeader>
-        <h1 className="text-xl font-bold">Team Builder</h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Build your best team for any league. Scan your Pokemon or add them manually.
-        </p>
-
-        {/* League tabs */}
-        <div className="mt-3 flex gap-1.5">
-          {(LEAGUE_IDS as readonly string[]).map((id) => {
-            const isActive = league === id;
-            const hasSavedTeam =
-              mounted &&
-              (() => {
-                try {
-                  const stored = localStorage.getItem(`poke-pal:team:${id}`);
-                  if (!stored) return false;
-                  const parsed = JSON.parse(stored);
-                  return Array.isArray(parsed) && parsed.length > 0;
-                } catch {
-                  return false;
-                }
-              })();
-            return (
-              <button
-                key={id}
-                onClick={() => handleLeagueChange(id as LeagueId)}
-                className={`flex-1 rounded-lg px-2 py-1.5 text-sm font-medium transition-colors ${
-                  isActive
-                    ? "bg-primary text-primary-foreground"
-                    : hasSavedTeam
-                      ? "border-2 border-primary/40 text-foreground"
-                      : "border text-muted-foreground"
-                }`}
-              >
-                {LEAGUE_SHORT_NAMES[id] ?? id}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Copy buttons — side by side */}
-        <div className="mt-2 flex gap-2">
-          <CopyIconButton
-            label="League"
-            searchString={cpSearchString}
-            onCopy={handleCpCopy}
-          />
-          <CopyIconButton
-            label="My Team"
-            searchString={analysis.searchString || ""}
-            disabled={!hasTeam || !analysis.searchString}
-          />
+        <div className="flex items-center gap-2">
+          <h1 className="text-xl font-bold shrink-0">Teams</h1>
+          <div className="flex flex-1 justify-end">
+            <LeagueTabs
+              league={league}
+              mounted={mounted}
+              onLeagueChange={handleLeagueChange}
+            />
+          </div>
         </div>
       </FixedHeader>
+
+      <CopyFab
+        searchString={cpSearchString}
+        label="Copy League"
+        secondarySearchString={hasTeam && analysis.searchString ? analysis.searchString : undefined}
+        secondaryLabel="Copy My Team"
+      />
 
       {/* ============ BODY CONTENT ============ */}
 

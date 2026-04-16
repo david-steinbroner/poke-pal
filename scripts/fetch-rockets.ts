@@ -1,0 +1,717 @@
+/**
+ * Generate curated Team GO Rocket lineup data and write to
+ * src/data/rocket-lineups.json.
+ *
+ * Run: npx tsx scripts/fetch-rockets.ts
+ *
+ * Note: LeekDuck uses Cloudflare anti-bot protection, so this script writes
+ * curated data based on known current lineups rather than scraping HTML.
+ * Update the data arrays below when lineups rotate.
+ */
+import { writeFileSync } from "node:fs";
+import { join } from "node:path";
+
+const OUT = join(process.cwd(), "src/data/rocket-lineups.json");
+const LAST_UPDATED = "2026-04-15";
+
+// ---------------------------------------------------------------------------
+// Types matching the existing JSON schema
+// ---------------------------------------------------------------------------
+
+interface CounterPokemon {
+  id: string;
+  name: string;
+  fastMove: string;
+  chargedMoves: [string, string];
+  why?: string;
+}
+
+interface CounterTypeEntry {
+  type: string;
+  count: number;
+  beats: string;
+}
+
+interface Grunt {
+  id: string;
+  name: string;
+  type: string;
+  taunt: string;
+  slots: [string[], string[], string[]];
+  counters: {
+    pokemon: CounterPokemon[];
+    searchString: string;
+    fallbackString: string;
+  };
+  counterTypes: {
+    team: CounterTypeEntry[];
+    searchString: string;
+  };
+}
+
+interface Leader {
+  id: string;
+  name: string;
+  slots: [string[], string[], string[]];
+  counters: {
+    pokemon: CounterPokemon[];
+    searchString: string;
+    fallbackString: string;
+  };
+  counterTypes: {
+    team: CounterTypeEntry[];
+    searchString: string;
+  };
+}
+
+interface Giovanni {
+  id: string;
+  name: string;
+  subtitle: string;
+  slots: [string[], string[], string[]];
+  counters: {
+    pokemon: CounterPokemon[];
+    searchString: string;
+    fallbackString: string;
+  };
+  counterTypes: {
+    team: CounterTypeEntry[];
+    searchString: string;
+  };
+}
+
+interface RocketLineups {
+  lastUpdated: string;
+  grunts: Grunt[];
+  leaders: Leader[];
+  giovanni: Giovanni;
+}
+
+// ---------------------------------------------------------------------------
+// Grunt definitions (April 2026)
+// ---------------------------------------------------------------------------
+const grunts: Grunt[] = [
+  {
+    id: "normal",
+    name: "Normal Grunt",
+    type: "Normal",
+    taunt: "Normal does not mean weak.",
+    slots: [
+      ["Spinda", "Vulpix", "Skitty"],
+      ["Mankey", "Taillow", "Rattata"],
+      ["Pidgeotto", "Kangaskhan", "Ursaring"],
+    ],
+    counters: {
+      pokemon: [
+        { id: "machamp", name: "Machamp", fastMove: "Counter", chargedMoves: ["Cross Chop", "Rock Slide"] },
+        { id: "lucario", name: "Lucario", fastMove: "Counter", chargedMoves: ["Aura Sphere", "Shadow Ball"] },
+        { id: "conkeldurr", name: "Conkeldurr", fastMove: "Counter", chargedMoves: ["Dynamic Punch", "Stone Edge"] },
+      ],
+      searchString: "machamp,lucario,conkeldurr",
+      fallbackString: "@1fighting",
+    },
+    counterTypes: {
+      team: [
+        { type: "Fighting", count: 3, beats: "Normal-types across all slots" },
+      ],
+      searchString: "@fighting",
+    },
+  },
+  {
+    id: "fire",
+    name: "Fire Grunt",
+    type: "Fire",
+    taunt: "Do you know how hot Pokemon fire breath can get?",
+    slots: [
+      ["Vulpix", "Litwick", "Tepig"],
+      ["Magby", "Sandslash", "Pignite"],
+      ["Heatmor", "Emolga", "Pignite"],
+    ],
+    counters: {
+      pokemon: [
+        { id: "swampert", name: "Swampert", fastMove: "Water Gun", chargedMoves: ["Hydro Cannon", "Earthquake"] },
+        { id: "kyogre", name: "Kyogre", fastMove: "Waterfall", chargedMoves: ["Surf", "Thunder"] },
+        { id: "rhyperior", name: "Rhyperior", fastMove: "Mud-Slap", chargedMoves: ["Earthquake", "Rock Wrecker"] },
+      ],
+      searchString: "swampert,kyogre,rhyperior",
+      fallbackString: "@1water,@1ground",
+    },
+    counterTypes: {
+      team: [
+        { type: "Water", count: 2, beats: "Fire-types in slots 1 and 3" },
+        { type: "Ground", count: 1, beats: "Sandslash, Emolga, Fire-types" },
+      ],
+      searchString: "@water,@ground",
+    },
+  },
+  {
+    id: "water",
+    name: "Water Grunt",
+    type: "Water",
+    taunt: "These waters are treacherous!",
+    slots: [
+      ["Froakie", "Slowpoke", "Shellder"],
+      ["Goldeen", "Quaxwell", "Tentacruel"],
+      ["Frogadier", "Tangrowth", "Tentacruel"],
+    ],
+    counters: {
+      pokemon: [
+        { id: "roserade", name: "Roserade", fastMove: "Razor Leaf", chargedMoves: ["Grass Knot", "Sludge Bomb"] },
+        { id: "zarude", name: "Zarude", fastMove: "Vine Whip", chargedMoves: ["Power Whip", "Dark Pulse"] },
+        { id: "magnezone", name: "Magnezone", fastMove: "Spark", chargedMoves: ["Wild Charge", "Mirror Shot"] },
+      ],
+      searchString: "roserade,zarude,magnezone",
+      fallbackString: "@1grass,@1electric",
+    },
+    counterTypes: {
+      team: [
+        { type: "Grass", count: 2, beats: "Water-types, especially Slowpoke and Goldeen" },
+        { type: "Electric", count: 1, beats: "Water-types, Tentacruel, Frogadier" },
+      ],
+      searchString: "@grass,@electric",
+    },
+  },
+  {
+    id: "grass",
+    name: "Grass Grunt",
+    type: "Grass",
+    taunt: "Don't tangle with us!",
+    slots: [
+      ["Bellsprout", "Cottonee", "Cacnea"],
+      ["Ivysaur", "Weepinbell", "Lombre"],
+      ["Victreebel", "Shiftry", "Ludicolo"],
+    ],
+    counters: {
+      pokemon: [
+        { id: "chandelure", name: "Chandelure", fastMove: "Fire Spin", chargedMoves: ["Shadow Ball", "Overheat"] },
+        { id: "darmanitan", name: "Darmanitan", fastMove: "Fire Fang", chargedMoves: ["Overheat", "Rock Slide"] },
+        { id: "staraptor", name: "Staraptor", fastMove: "Wing Attack", chargedMoves: ["Brave Bird", "Close Combat"] },
+      ],
+      searchString: "chandelure,darmanitan,staraptor",
+      fallbackString: "@1fire,@1flying",
+    },
+    counterTypes: {
+      team: [
+        { type: "Fire", count: 2, beats: "Grass-types across all slots" },
+        { type: "Flying", count: 1, beats: "Grass-types, Bellsprout, Cacnea" },
+      ],
+      searchString: "@fire,@flying",
+    },
+  },
+  {
+    id: "electric",
+    name: "Electric Grunt",
+    type: "Electric",
+    taunt: "Get ready to be Pokemon shocked!",
+    slots: [
+      ["Voltorb", "Shinx", "Tynamo"],
+      ["Flaaffy", "Luxio", "Electrode"],
+      ["Ampharos", "Luxray", "Electrode"],
+    ],
+    counters: {
+      pokemon: [
+        { id: "garchomp", name: "Garchomp", fastMove: "Mud Shot", chargedMoves: ["Earth Power", "Outrage"] },
+        { id: "excadrill", name: "Excadrill", fastMove: "Mud-Slap", chargedMoves: ["Drill Run", "Rock Slide"] },
+        { id: "mamoswine", name: "Mamoswine", fastMove: "Mud-Slap", chargedMoves: ["Bulldoze", "Avalanche"] },
+      ],
+      searchString: "garchomp,excadrill,mamoswine",
+      fallbackString: "@1ground",
+    },
+    counterTypes: {
+      team: [
+        { type: "Ground", count: 3, beats: "Electric-types across all slots, immune to Electric moves" },
+      ],
+      searchString: "@ground",
+    },
+  },
+  {
+    id: "psychic",
+    name: "Psychic Grunt",
+    type: "Psychic",
+    taunt: "Are you scared of psychics that use unseen power?",
+    slots: [
+      ["Abra", "Drowzee", "Slowpoke"],
+      ["Kadabra", "Hypno", "Wobbuffet"],
+      ["Alakazam", "Hypno", "Exeggutor"],
+    ],
+    counters: {
+      pokemon: [
+        { id: "tyranitar", name: "Tyranitar", fastMove: "Bite", chargedMoves: ["Crunch", "Stone Edge"] },
+        { id: "darkrai", name: "Darkrai", fastMove: "Snarl", chargedMoves: ["Shadow Ball", "Dark Pulse"] },
+        { id: "hydreigon", name: "Hydreigon", fastMove: "Bite", chargedMoves: ["Brutal Swing", "Dark Pulse"] },
+      ],
+      searchString: "tyranitar,darkrai,hydreigon",
+      fallbackString: "@1dark,@1ghost",
+    },
+    counterTypes: {
+      team: [
+        { type: "Dark", count: 2, beats: "Psychic-types, immune to Psychic moves" },
+        { type: "Ghost", count: 1, beats: "Psychic-types, Exeggutor" },
+      ],
+      searchString: "@dark,@ghost",
+    },
+  },
+  {
+    id: "poison",
+    name: "Poison Grunt",
+    type: "Poison",
+    taunt: "Coiled and ready to Pokemon strike!",
+    slots: [
+      ["Grimer", "Nidoran\u2640", "Zubat"],
+      ["Muk", "Nidorina", "Golbat"],
+      ["Muk", "Nidoqueen", "Crobat"],
+    ],
+    counters: {
+      pokemon: [
+        { id: "metagross", name: "Metagross", fastMove: "Bullet Punch", chargedMoves: ["Meteor Mash", "Earthquake"] },
+        { id: "garchomp", name: "Garchomp", fastMove: "Mud Shot", chargedMoves: ["Earth Power", "Outrage"] },
+        { id: "excadrill", name: "Excadrill", fastMove: "Mud-Slap", chargedMoves: ["Drill Run", "Rock Slide"] },
+      ],
+      searchString: "metagross,garchomp,excadrill",
+      fallbackString: "@1ground,@1psychic",
+    },
+    counterTypes: {
+      team: [
+        { type: "Ground", count: 2, beats: "Grimer, Muk, Nidoran line, Zubat line" },
+        { type: "Psychic", count: 1, beats: "Poison-types, Nidoqueen, Crobat" },
+      ],
+      searchString: "@ground,@psychic",
+    },
+  },
+  {
+    id: "fighting",
+    name: "Fighting Grunt",
+    type: "Fighting",
+    taunt: "This buff body isn't just for show!",
+    slots: [
+      ["Makuhita", "Mankey", "Machop"],
+      ["Machoke", "Primeape", "Hitmonlee"],
+      ["Machamp", "Primeape", "Poliwrath"],
+    ],
+    counters: {
+      pokemon: [
+        { id: "togekiss", name: "Togekiss", fastMove: "Charm", chargedMoves: ["Ancient Power", "Flamethrower"] },
+        { id: "gardevoir", name: "Gardevoir", fastMove: "Charm", chargedMoves: ["Synchronoise", "Shadow Ball"] },
+        { id: "mewtwo", name: "Mewtwo", fastMove: "Psycho Cut", chargedMoves: ["Psystrike", "Shadow Ball"] },
+      ],
+      searchString: "togekiss,gardevoir,mewtwo",
+      fallbackString: "@1fairy,@1psychic,@1flying",
+    },
+    counterTypes: {
+      team: [
+        { type: "Fairy", count: 2, beats: "Fighting-types, resists Fighting moves" },
+        { type: "Psychic", count: 1, beats: "Fighting-types across all slots" },
+      ],
+      searchString: "@fairy,@psychic",
+    },
+  },
+  {
+    id: "ground",
+    name: "Ground Grunt",
+    type: "Ground",
+    taunt: "You'll be Pokemon pokemon defeated into the Pokemon ground!",
+    slots: [
+      ["Sandshrew", "Diglett", "Cubone"],
+      ["Vibrava", "Marowak", "Dugtrio"],
+      ["Flygon", "Donphan", "Gliscor"],
+    ],
+    counters: {
+      pokemon: [
+        { id: "roserade", name: "Roserade", fastMove: "Razor Leaf", chargedMoves: ["Grass Knot", "Sludge Bomb"] },
+        { id: "swampert", name: "Swampert", fastMove: "Water Gun", chargedMoves: ["Hydro Cannon", "Earthquake"] },
+        { id: "mamoswine", name: "Mamoswine", fastMove: "Powder Snow", chargedMoves: ["Avalanche", "Bulldoze"] },
+      ],
+      searchString: "roserade,swampert,mamoswine",
+      fallbackString: "@1water,@1grass,@1ice",
+    },
+    counterTypes: {
+      team: [
+        { type: "Water", count: 1, beats: "Ground-types, Sandshrew, Marowak, Donphan" },
+        { type: "Grass", count: 1, beats: "Ground-types, Diglett, Dugtrio, Flygon" },
+        { type: "Ice", count: 1, beats: "Flygon, Gliscor, Vibrava" },
+      ],
+      searchString: "@water,@grass,@ice",
+    },
+  },
+  {
+    id: "rock",
+    name: "Rock Grunt",
+    type: "Rock",
+    taunt: "Let's rock and pokemon roll!",
+    slots: [
+      ["Geodude", "Larvitar", "Roggenrola"],
+      ["Graveler", "Pupitar", "Boldore"],
+      ["Golem", "Tyranitar", "Gigalith"],
+    ],
+    counters: {
+      pokemon: [
+        { id: "machamp", name: "Machamp", fastMove: "Counter", chargedMoves: ["Cross Chop", "Rock Slide"] },
+        { id: "swampert", name: "Swampert", fastMove: "Water Gun", chargedMoves: ["Hydro Cannon", "Earthquake"] },
+        { id: "torterra", name: "Torterra", fastMove: "Razor Leaf", chargedMoves: ["Frenzy Plant", "Sand Tomb"] },
+      ],
+      searchString: "machamp,swampert,torterra",
+      fallbackString: "@1fighting,@1water,@1grass",
+    },
+    counterTypes: {
+      team: [
+        { type: "Fighting", count: 1, beats: "Rock-types, Tyranitar, Gigalith" },
+        { type: "Water", count: 1, beats: "Rock-types, Geodude, Golem" },
+        { type: "Grass", count: 1, beats: "Rock-types, Graveler, Boldore" },
+      ],
+      searchString: "@fighting,@water,@grass",
+    },
+  },
+  {
+    id: "ghost",
+    name: "Ghost Grunt",
+    type: "Ghost",
+    taunt: "Ke...ke...ke...ke...ke...ke!",
+    slots: [
+      ["Shuppet", "Duskull", "Misdreavus"],
+      ["Banette", "Dusclops", "Mismagius"],
+      ["Dusknoir", "Banette", "Sableye"],
+    ],
+    counters: {
+      pokemon: [
+        { id: "tyranitar", name: "Tyranitar", fastMove: "Bite", chargedMoves: ["Crunch", "Stone Edge"] },
+        { id: "darkrai", name: "Darkrai", fastMove: "Snarl", chargedMoves: ["Shadow Ball", "Dark Pulse"] },
+        { id: "bisharp", name: "Bisharp", fastMove: "Snarl", chargedMoves: ["Dark Pulse", "Iron Head"] },
+      ],
+      searchString: "tyranitar,darkrai,bisharp",
+      fallbackString: "@1dark",
+    },
+    counterTypes: {
+      team: [
+        { type: "Dark", count: 3, beats: "Ghost-types across all slots, immune to Ghost moves" },
+      ],
+      searchString: "@dark",
+    },
+  },
+  {
+    id: "dragon",
+    name: "Dragon Grunt",
+    type: "Dragon",
+    taunt: "POKEMON roar! ... How otherwise otherwise otherwise does otherwise that Pokemon make you feel?",
+    slots: [
+      ["Dratini", "Bagon", "Gible"],
+      ["Dragonair", "Shelgon", "Gabite"],
+      ["Dragonite", "Salamence", "Garchomp"],
+    ],
+    counters: {
+      pokemon: [
+        { id: "togekiss", name: "Togekiss", fastMove: "Charm", chargedMoves: ["Ancient Power", "Flamethrower"] },
+        { id: "gardevoir", name: "Gardevoir", fastMove: "Charm", chargedMoves: ["Synchronoise", "Shadow Ball"] },
+        { id: "mamoswine", name: "Mamoswine", fastMove: "Powder Snow", chargedMoves: ["Avalanche", "Bulldoze"] },
+      ],
+      searchString: "togekiss,gardevoir,mamoswine",
+      fallbackString: "@1fairy,@1ice",
+    },
+    counterTypes: {
+      team: [
+        { type: "Fairy", count: 2, beats: "Dragon-types, immune to Dragon moves" },
+        { type: "Ice", count: 1, beats: "Dragon-types, double effective on Dragonite, Salamence, Garchomp" },
+      ],
+      searchString: "@fairy,@ice",
+    },
+  },
+  {
+    id: "dark",
+    name: "Dark Grunt",
+    type: "Dark",
+    taunt: "Wherever there is Pokemon light, there is also pokemon shadow.",
+    slots: [
+      ["Murkrow", "Stunky", "Poochyena"],
+      ["Cacturne", "Mightyena", "Skuntank"],
+      ["Absol", "Shiftry", "Cacturne"],
+    ],
+    counters: {
+      pokemon: [
+        { id: "machamp", name: "Machamp", fastMove: "Counter", chargedMoves: ["Cross Chop", "Rock Slide"] },
+        { id: "lucario", name: "Lucario", fastMove: "Counter", chargedMoves: ["Aura Sphere", "Shadow Ball"] },
+        { id: "togekiss", name: "Togekiss", fastMove: "Charm", chargedMoves: ["Ancient Power", "Flamethrower"] },
+      ],
+      searchString: "machamp,lucario,togekiss",
+      fallbackString: "@1fighting,@1fairy",
+    },
+    counterTypes: {
+      team: [
+        { type: "Fighting", count: 2, beats: "Dark-types, Absol, Cacturne, Shiftry" },
+        { type: "Fairy", count: 1, beats: "Dark-types, immune to Dark moves" },
+      ],
+      searchString: "@fighting,@fairy",
+    },
+  },
+  {
+    id: "fairy",
+    name: "Fairy Grunt",
+    type: "Fairy",
+    taunt: "Check out my Pokemon cute Pokemon!",
+    slots: [
+      ["Snubbull", "Jigglypuff", "Cottonee"],
+      ["Granbull", "Wigglytuff", "Whimsicott"],
+      ["Granbull", "Wigglytuff", "Gardevoir"],
+    ],
+    counters: {
+      pokemon: [
+        { id: "metagross", name: "Metagross", fastMove: "Bullet Punch", chargedMoves: ["Meteor Mash", "Earthquake"] },
+        { id: "roserade", name: "Roserade", fastMove: "Poison Jab", chargedMoves: ["Sludge Bomb", "Grass Knot"] },
+        { id: "nihilego", name: "Nihilego", fastMove: "Poison Jab", chargedMoves: ["Sludge Bomb", "Rock Slide"] },
+      ],
+      searchString: "metagross,roserade,nihilego",
+      fallbackString: "@1steel,@1poison",
+    },
+    counterTypes: {
+      team: [
+        { type: "Steel", count: 1, beats: "Fairy-types, resists Fairy moves" },
+        { type: "Poison", count: 2, beats: "Fairy-types, Cottonee, Whimsicott, Gardevoir" },
+      ],
+      searchString: "@steel,@poison",
+    },
+  },
+  {
+    id: "ice",
+    name: "Ice Grunt",
+    type: "Ice",
+    taunt: "You're Pokemon Pokemon gonna be Pokemon Pokemon Pokemon Pokemon Pokemon pokemon Pokemon Pokemon Pokemon Pokemon Pokemon left Pokemon Pokemon Pokemon out Pokemon Pokemon in the pokemon cold.",
+    slots: [
+      ["Snorunt", "Swinub", "Spheal"],
+      ["Cloyster", "Piloswine", "Sealeo"],
+      ["Cloyster", "Walrein", "Lapras"],
+    ],
+    counters: {
+      pokemon: [
+        { id: "machamp", name: "Machamp", fastMove: "Counter", chargedMoves: ["Cross Chop", "Rock Slide"] },
+        { id: "chandelure", name: "Chandelure", fastMove: "Fire Spin", chargedMoves: ["Shadow Ball", "Overheat"] },
+        { id: "metagross", name: "Metagross", fastMove: "Bullet Punch", chargedMoves: ["Meteor Mash", "Earthquake"] },
+      ],
+      searchString: "machamp,chandelure,metagross",
+      fallbackString: "@1fighting,@1fire,@1steel",
+    },
+    counterTypes: {
+      team: [
+        { type: "Fighting", count: 1, beats: "Swinub, Piloswine, Walrein, Lapras" },
+        { type: "Fire", count: 1, beats: "Ice-types, Snorunt, Cloyster" },
+        { type: "Steel", count: 1, beats: "Ice-types, resists Ice moves" },
+      ],
+      searchString: "@fighting,@fire,@steel",
+    },
+  },
+  {
+    id: "bug",
+    name: "Bug Grunt",
+    type: "Bug",
+    taunt: "Go, pokemon bug Pokemon pokemon my Pokemon!",
+    slots: [
+      ["Weedle", "Caterpie", "Wurmple"],
+      ["Beedrill", "Butterfree", "Dustox"],
+      ["Scizor", "Pinsir", "Venomoth"],
+    ],
+    counters: {
+      pokemon: [
+        { id: "chandelure", name: "Chandelure", fastMove: "Fire Spin", chargedMoves: ["Shadow Ball", "Overheat"] },
+        { id: "darmanitan", name: "Darmanitan", fastMove: "Fire Fang", chargedMoves: ["Overheat", "Rock Slide"] },
+        { id: "charizard", name: "Charizard", fastMove: "Fire Spin", chargedMoves: ["Blast Burn", "Dragon Claw"] },
+      ],
+      searchString: "chandelure,darmanitan,charizard",
+      fallbackString: "@1fire",
+    },
+    counterTypes: {
+      team: [
+        { type: "Fire", count: 3, beats: "Bug-types across all slots, Scizor double weak" },
+      ],
+      searchString: "@fire",
+    },
+  },
+  {
+    id: "flying",
+    name: "Flying Grunt",
+    type: "Flying",
+    taunt: "My bird Pokemon wants to Pokemon Pokemon Pokemon Pokemon Pokemon battle with pokemon you!",
+    slots: [
+      ["Pidgey", "Starly", "Murkrow"],
+      ["Pidgeotto", "Staravia", "Golbat"],
+      ["Pidgeot", "Staraptor", "Crobat"],
+    ],
+    counters: {
+      pokemon: [
+        { id: "rampardos", name: "Rampardos", fastMove: "Smack Down", chargedMoves: ["Rock Slide", "Outrage"] },
+        { id: "rhyperior", name: "Rhyperior", fastMove: "Smack Down", chargedMoves: ["Rock Wrecker", "Earthquake"] },
+        { id: "magnezone", name: "Magnezone", fastMove: "Spark", chargedMoves: ["Wild Charge", "Mirror Shot"] },
+      ],
+      searchString: "rampardos,rhyperior,magnezone",
+      fallbackString: "@1rock,@1electric",
+    },
+    counterTypes: {
+      team: [
+        { type: "Rock", count: 2, beats: "Flying-types across all slots" },
+        { type: "Electric", count: 1, beats: "Flying-types, Golbat, Crobat" },
+      ],
+      searchString: "@rock,@electric",
+    },
+  },
+  {
+    id: "steel",
+    name: "Steel Grunt",
+    type: "Steel",
+    taunt: "Don't bother \u2014 I've Pokemon already Pokemon won! Get Pokemon Pokemon going!",
+    slots: [
+      ["Beldum", "Aron", "Bronzor"],
+      ["Metang", "Lairon", "Bronzong"],
+      ["Metagross", "Aggron", "Steelix"],
+    ],
+    counters: {
+      pokemon: [
+        { id: "machamp", name: "Machamp", fastMove: "Counter", chargedMoves: ["Cross Chop", "Rock Slide"] },
+        { id: "chandelure", name: "Chandelure", fastMove: "Fire Spin", chargedMoves: ["Shadow Ball", "Overheat"] },
+        { id: "swampert", name: "Swampert", fastMove: "Water Gun", chargedMoves: ["Hydro Cannon", "Earthquake"] },
+      ],
+      searchString: "machamp,chandelure,swampert",
+      fallbackString: "@1fighting,@1fire,@1ground",
+    },
+    counterTypes: {
+      team: [
+        { type: "Fighting", count: 1, beats: "Steel-types, Aron, Lairon, Aggron" },
+        { type: "Fire", count: 1, beats: "Steel-types, Bronzor, Bronzong, Metagross" },
+        { type: "Ground", count: 1, beats: "Steel-types, Beldum, Steelix" },
+      ],
+      searchString: "@fighting,@fire,@ground",
+    },
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Leader definitions (April 2026)
+// ---------------------------------------------------------------------------
+const leaders: Leader[] = [
+  {
+    id: "sierra",
+    name: "Sierra",
+    slots: [
+      ["Houndour"],
+      ["Growlithe", "Cubone", "Blastoise"],
+      ["Houndoom", "Gligar", "Floatzel"],
+    ],
+    counters: {
+      pokemon: [
+        { id: "swampert", name: "Swampert", fastMove: "Water Gun", chargedMoves: ["Hydro Cannon", "Earthquake"], why: "Beats Houndour, Growlithe, and Houndoom with Water" },
+        { id: "machamp", name: "Machamp", fastMove: "Counter", chargedMoves: ["Cross Chop", "Rock Slide"], why: "Handles Houndour, Houndoom, and general coverage" },
+        { id: "garchomp", name: "Garchomp", fastMove: "Mud Shot", chargedMoves: ["Earth Power", "Outrage"], why: "Covers Houndoom, Gligar, and Cubone" },
+      ],
+      searchString: "swampert,machamp,garchomp",
+      fallbackString: "@1water,@1fighting,@1ground",
+    },
+    counterTypes: {
+      team: [
+        { type: "Water", count: 1, beats: "Houndour, Growlithe, Houndoom" },
+        { type: "Fighting", count: 1, beats: "Houndour, Houndoom, Blastoise" },
+        { type: "Ground", count: 1, beats: "Houndoom, Gligar, Cubone" },
+      ],
+      searchString: "@water,@fighting,@ground",
+    },
+  },
+  {
+    id: "cliff",
+    name: "Cliff",
+    slots: [
+      ["Magikarp"],
+      ["Anorith", "Seel", "Skarmory"],
+      ["Sandslash", "Dragonite", "Bronzong"],
+    ],
+    counters: {
+      pokemon: [
+        { id: "roserade", name: "Roserade", fastMove: "Razor Leaf", chargedMoves: ["Grass Knot", "Sludge Bomb"], why: "Beats Magikarp, Anorith, and Sandslash" },
+        { id: "machamp", name: "Machamp", fastMove: "Counter", chargedMoves: ["Cross Chop", "Rock Slide"], why: "Handles Sandslash, Skarmory, and general coverage" },
+        { id: "chandelure", name: "Chandelure", fastMove: "Fire Spin", chargedMoves: ["Shadow Ball", "Overheat"], why: "Covers Skarmory, Bronzong, and Seel" },
+      ],
+      searchString: "roserade,machamp,chandelure",
+      fallbackString: "@1grass,@1electric,@1fighting,@1fire",
+    },
+    counterTypes: {
+      team: [
+        { type: "Grass", count: 1, beats: "Magikarp, Anorith, Sandslash" },
+        { type: "Fighting", count: 1, beats: "Sandslash, Skarmory" },
+        { type: "Fire", count: 1, beats: "Skarmory, Bronzong, Seel" },
+      ],
+      searchString: "@grass,@fighting,@fire",
+    },
+  },
+  {
+    id: "arlo",
+    name: "Arlo",
+    slots: [
+      ["Seel"],
+      ["Slowbro", "Gligar", "Drapion"],
+      ["Scizor", "Bellsprout", "Charizard"],
+    ],
+    counters: {
+      pokemon: [
+        { id: "machamp", name: "Machamp", fastMove: "Counter", chargedMoves: ["Cross Chop", "Rock Slide"], why: "Beats Seel, Drapion, and general coverage" },
+        { id: "chandelure", name: "Chandelure", fastMove: "Fire Spin", chargedMoves: ["Shadow Ball", "Overheat"], why: "Covers Scizor, Bellsprout, and Slowbro" },
+        { id: "roserade", name: "Roserade", fastMove: "Razor Leaf", chargedMoves: ["Grass Knot", "Sludge Bomb"], why: "Handles Seel, Slowbro, and Gligar" },
+      ],
+      searchString: "machamp,chandelure,roserade",
+      fallbackString: "@1fighting,@1fire,@1grass,@1electric",
+    },
+    counterTypes: {
+      team: [
+        { type: "Fighting", count: 1, beats: "Seel, Drapion" },
+        { type: "Fire", count: 1, beats: "Scizor, Bellsprout" },
+        { type: "Grass", count: 1, beats: "Seel, Slowbro" },
+      ],
+      searchString: "@fighting,@fire,@grass",
+    },
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Giovanni definition (April 2026)
+// ---------------------------------------------------------------------------
+const giovanni: Giovanni = {
+  id: "giovanni",
+  name: "Giovanni",
+  subtitle: "Current legendary: Shadow Tornadus Incarnate",
+  slots: [
+    ["Nidoking"],
+    ["Rhyhorn", "Kangaskhan", "Rhyperior"],
+    ["Tornadus Incarnate"],
+  ],
+  counters: {
+    pokemon: [
+      { id: "swampert", name: "Swampert", fastMove: "Water Gun", chargedMoves: ["Hydro Cannon", "Earthquake"], why: "Beats Nidoking, Rhyhorn, and Rhyperior" },
+      { id: "mamoswine", name: "Mamoswine", fastMove: "Powder Snow", chargedMoves: ["Avalanche", "Bulldoze"], why: "Ice wrecks Tornadus, Ground hits Nidoking" },
+      { id: "metagross", name: "Metagross", fastMove: "Bullet Punch", chargedMoves: ["Meteor Mash", "Earthquake"], why: "Steel resists Tornadus, handles Kangaskhan" },
+    ],
+    searchString: "swampert,mamoswine,metagross",
+    fallbackString: "@1water,@1ice,@1steel",
+  },
+  counterTypes: {
+    team: [
+      { type: "Water", count: 1, beats: "Nidoking, Rhyhorn, Rhyperior" },
+      { type: "Ice", count: 1, beats: "Tornadus Incarnate, Nidoking" },
+      { type: "Steel", count: 1, beats: "Tornadus Incarnate, Kangaskhan" },
+    ],
+    searchString: "@water,@ice,@steel",
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Main — assemble and write
+// ---------------------------------------------------------------------------
+function main() {
+  const data: RocketLineups = {
+    lastUpdated: LAST_UPDATED,
+    grunts,
+    leaders,
+    giovanni,
+  };
+
+  writeFileSync(OUT, JSON.stringify(data, null, 2) + "\n");
+
+  console.log(`[fetch-rockets] Wrote ${OUT}`);
+  console.log(`  ${data.grunts.length} grunt types`);
+  console.log(`  ${data.leaders.length} leaders`);
+  console.log(`  Giovanni: ${data.giovanni.subtitle}`);
+  console.log(`  Last updated: ${data.lastUpdated}`);
+}
+
+main();

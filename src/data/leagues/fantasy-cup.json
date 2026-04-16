@@ -4,7 +4,7 @@
   "cpCap": 1500,
   "typeRestrictions": ["Dragon", "Steel", "Fairy"],
   "season": "Memories in Motion",
-  "active": true,
+  "active": false,
   "startDate": "2026-04-07",
   "endDate": "2026-04-14",
   "lastUpdated": "2026-04-07",

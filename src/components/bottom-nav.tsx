@@ -2,18 +2,28 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { Home, Swords, Trophy, Users } from "lucide-react";
+
+function RocketR({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <text x="50%" y="52%" dominantBaseline="central" textAnchor="middle" fill="currentColor" fontWeight="900" fontStyle="italic" fontSize="20">R</text>
+    </svg>
+  );
+}
 
 type NavItem = {
   href: string;
-  label: string;
+  icon: React.ComponentType<{ className?: string }>;
   match: (p: string) => boolean;
 };
 
 const NAV_ITEMS: NavItem[] = [
-  { href: "/", label: "Home", match: (p) => p === "/" || p.startsWith("/counter") },
-  { href: "/leagues", label: "Leagues", match: (p) => p === "/leagues" || p.startsWith("/league/") },
-  { href: "/rockets", label: "Rocket", match: (p) => p.startsWith("/rockets") },
-  { href: "/teams", label: "Teams", match: (p) => p.startsWith("/teams") },
+  { href: "/", icon: Home, match: (p) => p === "/" || p.startsWith("/counter") },
+  { href: "/raids", icon: Swords, match: (p) => p.startsWith("/raids") },
+  { href: "/rockets", icon: RocketR, match: (p) => p.startsWith("/rockets") },
+  { href: "/leagues", icon: Trophy, match: (p) => p === "/leagues" || p.startsWith("/league/") },
+  { href: "/teams", icon: Users, match: (p) => p.startsWith("/teams") },
 ];
 
 export function BottomNav() {
@@ -27,17 +37,20 @@ export function BottomNav() {
       <div className="mx-auto flex max-w-lg">
         {NAV_ITEMS.map((item) => {
           const active = item.match(pathname);
+          const Icon = item.icon;
           return (
             <Link
-              key={item.label}
+              key={item.href}
               href={item.href}
-              className={`flex flex-1 basis-0 items-center justify-center py-3 text-base font-medium transition-colors ${
+              className={`flex flex-1 basis-0 flex-col items-center justify-center py-2.5 transition-colors ${
                 active
-                  ? "text-foreground font-semibold"
-                  : "text-muted-foreground"
+                  ? "text-foreground"
+                  : "text-muted-foreground/60"
               }`}
             >
-              {item.label}
+              <div className={`rounded-full px-4 py-1 ${active ? "bg-foreground/10" : ""}`}>
+                <Icon className="size-6 [stroke-width:1.5]" />
+              </div>
             </Link>
           );
         })}

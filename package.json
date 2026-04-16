@@ -1,6 +1,6 @@
 {
   "name": "poke-pal",
-  "version": "0.8.2",
+  "version": "1.8.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,6 +12,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "update:raids": "npx tsx scripts/fetch-raids.ts",
+    "update:rankings": "npx tsx scripts/fetch-rankings.ts",
+    "update:rockets": "npx tsx scripts/fetch-rockets.ts",
+    "update:all": "npx tsx scripts/fetch-raids.ts && npx tsx scripts/fetch-rankings.ts && npx tsx scripts/fetch-rockets.ts",
     "deploy": "npm run build && wrangler pages deploy out"
   },
   "dependencies": {

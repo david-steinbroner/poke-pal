@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ChevronDownIcon, ChevronRightIcon } from "lucide-react";
 import { TypeBadge } from "@/components/type-badge";
 import { CopyIconButton } from "@/components/copy-icon-button";
@@ -51,9 +51,22 @@ export function RocketEncounterCard({
   defaultOpen = false,
 }: RocketEncounterCardProps) {
   const [open, setOpen] = useState(defaultOpen);
+  const bodyRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const el = bodyRef.current?.closest("[id]");
+    if (!el) return;
+    const hash = window.location.hash.slice(1);
+    if (hash && el.id === hash) {
+      requestAnimationFrame(() => {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+  }, [open]);
 
   return (
-    <div className="rounded-lg border">
+    <div className="rounded-lg border scroll-mt-[var(--fixed-header-h,72px)]">
       {/* Header — always visible, tappable */}
       <button
         onClick={() => setOpen(!open)}
@@ -64,7 +77,6 @@ export function RocketEncounterCard({
         ) : (
           <ChevronRightIcon className="size-4 shrink-0 text-muted-foreground" />
         )}
-        {type && <TypeBadge type={type} />}
         <span className="font-semibold text-sm">{name}</span>
         {subtitle && (
           <span className="ml-auto text-sm text-muted-foreground truncate">
@@ -73,20 +85,33 @@ export function RocketEncounterCard({
         )}
       </button>
 
+      {/* Quote tag — visible when collapsed */}
+      {!open && taunt && (
+        <div className="px-3 pb-2.5 -mt-1">
+          <span className="inline-block max-w-full truncate rounded-md bg-muted/50 px-2 py-0.5 text-sm italic text-muted-foreground">
+            &ldquo;{taunt}&rdquo;
+          </span>
+        </div>
+      )}
+
       {/* Expanded body */}
       {open && (
-        <div className="space-y-3 px-3 pb-3">
+        <div
+          ref={bodyRef}
+          className="space-y-3 px-3 pb-3"
+        >
           {/* Taunt quote */}
           {taunt && (
-            <p className="text-sm italic text-muted-foreground">
+            <p className="italic text-muted-foreground">
               &ldquo;{taunt}&rdquo;
             </p>
           )}
 
-          {/* Enemy lineup */}
+          {/* Enemy lineup with type badge */}
           <div className="space-y-1">
-            <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
-              They Use
+            <p className="flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+              <span>They Use</span>
+              {type && <TypeBadge type={type} variant="muted" />}
             </p>
             {slots.map((slotOptions, i) => (
               <p key={i} className="text-sm">
@@ -96,8 +121,31 @@ export function RocketEncounterCard({
             ))}
           </div>
 
-          {/* Best Counter Pokemon — collapsible, expanded by default */}
-          <CollapsibleSubSection label="Best Counter Pokemon" defaultOpen>
+          {/* Counter by Type — NOW FIRST (was second) */}
+          {counterTypes && counterTypes.team.length > 0 && (
+            <CollapsibleSubSection label="Counter by Type" defaultOpen>
+              {counterTypes.team.map((entry) => (
+                <div key={entry.type} className="flex items-start gap-2 text-sm">
+                  <span className="font-medium shrink-0">
+                    {entry.count} <TypeBadge type={entry.type} />
+                  </span>
+                  <span className="text-muted-foreground">
+                    — beats {entry.beats}
+                  </span>
+                </div>
+              ))}
+
+              <div className="pt-1">
+                <CopyIconButton
+                  label="Copy Counter Types"
+                  searchString={counterTypes.searchString}
+                />
+              </div>
+            </CollapsibleSubSection>
+          )}
+
+          {/* Best Counter Pokemon — NOW SECOND (was first) */}
+          <CollapsibleSubSection label="Best Counter Pokemon">
             {counters.pokemon.map((pick) => (
               <div key={pick.id} className="text-sm">
                 <p>
@@ -115,7 +163,6 @@ export function RocketEncounterCard({
               </div>
             ))}
 
-            {/* Key types needed */}
             {keyTypes && keyTypes.length > 0 && (
               <div className="flex flex-wrap items-center gap-1.5 pt-1">
                 <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
@@ -127,7 +174,6 @@ export function RocketEncounterCard({
               </div>
             )}
 
-            {/* Copy button */}
             <div className="pt-1">
               <CopyIconButton
                 label="Copy Counter Team"
@@ -135,30 +181,6 @@ export function RocketEncounterCard({
               />
             </div>
           </CollapsibleSubSection>
-
-          {/* Counter by Type — collapsible, collapsed by default */}
-          {counterTypes && counterTypes.team.length > 0 && (
-            <CollapsibleSubSection label="Counter by Type">
-              {counterTypes.team.map((entry) => (
-                <div key={entry.type} className="flex items-start gap-2 text-sm">
-                  <span className="font-medium shrink-0">
-                    {entry.count} <TypeBadge type={entry.type} />
-                  </span>
-                  <span className="text-muted-foreground">
-                    — beats {entry.beats}
-                  </span>
-                </div>
-              ))}
-
-              {/* Copy button */}
-              <div className="pt-1">
-                <CopyIconButton
-                  label="Copy Counter Types"
-                  searchString={counterTypes.searchString}
-                />
-              </div>
-            </CollapsibleSubSection>
-          )}
         </div>
       )}
     </div>

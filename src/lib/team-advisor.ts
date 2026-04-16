@@ -194,7 +194,7 @@ export function generateStrategyTips(
   if (roles.length === 0) return tips;
 
   // Build a map of pokemonId -> role for cross-referencing
-  const roleMap = new Map(roles.map((r) => [r.pokemonId, r]));
+  // Build a map of pokemonId -> role for cross-referencing
 
   // Find the lead assignment for safe-swap tips
   const leadRole = roles.find((r) => r.role === "lead");
@@ -296,7 +296,7 @@ function generateSafeSwapTip(
   fastMoveName: string,
   sortedCharged: { name: string; energy: number }[],
   leadRole: RoleAssignment | undefined,
-  leagueId: LeagueId,
+  _leagueId: LeagueId,
 ): string {
   if (leadRole) {
     const leadPokemon = getPokemonById(leadRole.pokemonId);
@@ -330,7 +330,7 @@ function generateCloserTip(
   cheapest: { name: string; energy: number } | undefined,
   mostExpensive: { name: string; energy: number } | undefined,
   allRoles: RoleAssignment[],
-  leagueId: LeagueId,
+  _leagueId: LeagueId,
 ): string {
   // Nuke move pattern (>=60 energy)
   const nuke = sortedCharged.find((m) => m.energy >= 60);

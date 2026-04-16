@@ -27,7 +27,7 @@ export function CollapsibleSubSection({
         ) : (
           <ChevronRightIcon className="size-3.5 shrink-0 text-muted-foreground" />
         )}
-        <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+        <span className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
           {label}
         </span>
       </button>

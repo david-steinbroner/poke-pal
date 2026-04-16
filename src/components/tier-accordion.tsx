@@ -63,6 +63,7 @@ export function TierAccordion({
                       tier={p.tier}
                       fastMove={p.recommendedFast}
                       chargedMoves={p.recommendedCharged}
+                      elite={(p as { elite?: string[] }).elite}
                       recommended={recSet.has(p.pokemonId)}
                       action={
                         onAddToTeam

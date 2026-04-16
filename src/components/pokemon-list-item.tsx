@@ -1,7 +1,6 @@
 "use client";
 
 import { Plus, Check, X, ChevronRight } from "lucide-react";
-import { TypeBadge } from "@/components/type-badge";
 import { StatusPill } from "@/components/status-pill";
 
 const TIER_COLORS: Record<string, string> = {
@@ -13,10 +12,10 @@ const TIER_COLORS: Record<string, string> = {
 
 type PokemonListItemProps = {
   name: string;
-  types?: string[];
   tier?: string;
   fastMove?: string;
   chargedMoves?: string[];
+  elite?: string[];
   recommended?: boolean;
   action?: "add" | "added" | "remove" | "link";
   onAction?: () => void;
@@ -24,10 +23,10 @@ type PokemonListItemProps = {
 
 export function PokemonListItem({
   name,
-  types,
   tier,
   fastMove,
   chargedMoves,
+  elite = [],
   recommended,
   action,
   onAction,
@@ -72,9 +71,15 @@ export function PokemonListItem({
       {/* Bottom row: moveset — full width, no truncation competition */}
       {(fastMove || chargedMoves) && (
         <div className="mt-1 text-sm text-muted-foreground">
-          {fastMove && <span>{fastMove}</span>}
+          {fastMove && (
+            <span>{elite.includes(fastMove) ? <span className="text-yellow-600">{fastMove} ★</span> : fastMove}</span>
+          )}
           {fastMove && chargedMoves && chargedMoves.length > 0 && <span className="mx-1">|</span>}
-          {chargedMoves && <span>{chargedMoves.join(", ")}</span>}
+          {chargedMoves && (
+            <span>{chargedMoves.map((m, i) => (
+              <span key={m}>{i > 0 && ", "}{elite.includes(m) ? <span className="text-yellow-600">{m} ★</span> : m}</span>
+            ))}</span>
+          )}
         </div>
       )}
     </div>
