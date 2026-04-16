@@ -1,6 +1,6 @@
 {
-  "name": "Poke Pal",
-  "short_name": "Poke Pal",
+  "name": "PoGo Pal",
+  "short_name": "PoGo Pal",
   "description": "Pokemon GO search strings for any counter",
   "start_url": "/",
   "display": "standalone",

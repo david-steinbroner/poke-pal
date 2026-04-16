@@ -48,7 +48,7 @@ export function HomeClient({ leagues, raidBosses }: HomeClientProps) {
     <div className="flex flex-1 flex-col space-y-3">
       <FixedHeader>
         <div className="flex items-center gap-2">
-          <h1 className="text-xl font-bold">Poke Pal</h1>
+          <h1 className="text-xl font-bold">PoGo Pal</h1>
           <span aria-hidden className="invisible rounded-lg border px-2.5 py-1.5 text-sm">.</span>
         </div>
       </FixedHeader>
@@ -145,7 +145,7 @@ export function HomeClient({ leagues, raidBosses }: HomeClientProps) {
 
       {/* Footer */}
       <footer className="mt-auto text-center text-xs text-muted-foreground/40 space-y-0.5">
-        <p>Poke Pal v{APP_VERSION} · Built by Skunk Labs</p>
+        <p>PoGo Pal v{APP_VERSION} · Built by Skunk Labs</p>
         <a
           href="https://docs.google.com/forms/d/e/1FAIpQLSfDeXbnLSRJmte9vrxWlyNJl65jQ0FCU6y3qkESMdaJxi6Awg/viewform"
           target="_blank"

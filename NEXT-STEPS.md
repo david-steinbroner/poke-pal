@@ -1,4 +1,4 @@
-# Poke Pal — Pickup Instructions
+# PoGo Pal — Pickup Instructions
 
 Last session: 2026-04-16. Version: 1.8.0.
 

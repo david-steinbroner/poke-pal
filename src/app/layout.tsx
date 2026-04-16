@@ -10,21 +10,21 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Poke Pal — Pokemon GO PvP Search Strings",
+  title: "PoGo Pal — Pokemon GO PvP Search Strings",
   description:
     "Find counters, build teams, copy search strings. Paste in Pokemon GO.",
   manifest: "/manifest.json",
   openGraph: {
-    title: "Poke Pal — Pokemon GO PvP Search Strings",
+    title: "PoGo Pal — Pokemon GO PvP Search Strings",
     description:
       "Find counters, build teams, copy search strings. Paste in Pokemon GO.",
     type: "website",
-    url: "https://poke-pal.pages.dev",
-    siteName: "Poke Pal",
+    url: "https://pogopal.com",
+    siteName: "PoGo Pal",
   },
   twitter: {
     card: "summary",
-    title: "Poke Pal — Pokemon GO PvP Search Strings",
+    title: "PoGo Pal — Pokemon GO PvP Search Strings",
     description:
       "Find counters, build teams, copy search strings. Paste in Pokemon GO.",
   },

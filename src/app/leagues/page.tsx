@@ -10,11 +10,11 @@ import curatedTeamsData from "@/data/curated-teams.json";
 import { getPokemonName } from "@/lib/pokemon-utils";
 
 export const metadata: Metadata = {
-  title: "Leagues — Poke Pal",
+  title: "Leagues — PoGo Pal",
   description:
     "Browse Pokemon GO Battle League cups and seasons. See what's live now.",
   openGraph: {
-    title: "Leagues — Poke Pal",
+    title: "Leagues — PoGo Pal",
     description:
       "Browse Pokemon GO Battle League cups and seasons. See what's live now.",
   },

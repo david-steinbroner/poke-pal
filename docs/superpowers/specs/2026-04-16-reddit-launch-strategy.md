@@ -1,4 +1,4 @@
-# Reddit Launch Strategy — Poke Pal v1.8.0
+# Reddit Launch Strategy — PoGo Pal v1.8.0
 
 **Date:** 2026-04-16
 
@@ -6,7 +6,7 @@
 
 ## Positioning
 
-Poke Pal is a mobile-first Pokemon GO companion that tells you what to search in-game right now — current league metas, Rocket counters, and raid bosses with one-tap copy, no sim required.
+PoGo Pal is a mobile-first Pokemon GO companion that tells you what to search in-game right now — current league metas, Rocket counters, and raid bosses with one-tap copy, no sim required.
 
 ---
 
@@ -26,7 +26,7 @@ Poke Pal is a mobile-first Pokemon GO companion that tells you what to search in
 2. Made a Pokemon GO companion that tells you what to search for the current meta — no sim needed
 3. Free tool: tap a Rocket grunt type, get the counter search string copied to your clipboard
 4. I built the Pokemon GO companion I wished existed — current metas, Rocket counters, one-tap copy
-5. Poke Pal — a mobile-first Pokemon GO tool for search strings, league rankings, and raid counters
+5. PoGo Pal — a mobile-first Pokemon GO tool for search strings, league rankings, and raid counters
 
 ---
 
@@ -60,7 +60,7 @@ Post to r/TheSilphArena first: **Tuesday or Wednesday, 11am-1pm ET**. GBL player
 
 **"Where does the data come from?"** — Be transparent. Rankings from pvpoke, raids from leekduck, Rocket lineups curated from leekduck + pokebattler. Link the sources.
 
-**"PvPoke already does this"** — Don't argue. "PvPoke is amazing for sims and deep analysis. Poke Pal is just the mobile layer — current meta + copy button. I use both."
+**"PvPoke already does this"** — Don't argue. "PvPoke is amazing for sims and deep analysis. PoGo Pal is just the mobile layer — current meta + copy button. I use both."
 
 **"Can you add X?"** — Thank them, note it, don't promise timelines. "Great idea, adding it to the list."
 
